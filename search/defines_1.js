@@ -4,7 +4,6 @@ var searchData=
   ['gfx_5fblitscreen',['gfx_BlitScreen',['../graphx_8h.html#a5bd688034be3eefa7fe2954ab7e37837',1,'graphx.h']]],
   ['gfx_5fcheckrectanglehotspot',['gfx_CheckRectangleHotspot',['../graphx_8h.html#a65e4e81be0b5a48b50f3baeb621b24a9',1,'graphx.h']]],
   ['gfx_5fcircle_5fnoclip',['gfx_Circle_NoClip',['../graphx_8h.html#a754aac71bdd84b8a6d8b3f43c17ca987',1,'graphx.h']]],
-  ['gfx_5fgetcharheight',['gfx_GetCharHeight',['../graphx_8h.html#acb79f8ffa4d3b9ca1810e6ecc0d3e951',1,'graphx.h']]],
   ['gfx_5fgetsprite_5fnoclip',['gfx_GetSprite_NoClip',['../graphx_8h.html#ae617a7b274ef70c70b2aa6f854bd959f',1,'graphx.h']]],
   ['gfx_5fgettile',['gfx_GetTile',['../graphx_8h.html#a9890efd799057bc0e0bc2a3df16acedb',1,'graphx.h']]],
   ['gfx_5fgettilemapped',['gfx_GetTileMapped',['../graphx_8h.html#a4c7dbc0d9084d112af155328138cda70',1,'graphx.h']]],

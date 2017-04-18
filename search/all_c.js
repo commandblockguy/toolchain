@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['map',['map',['../structgfx__tilemap__t.html#a0faca9bc52d4868e8b52e44e97862e9f',1,'gfx_tilemap_t']]],
+  ['map',['map',['../structgfx__tilemap__t.html#ad26ea69a922121a4c93f995dcb5149fb',1,'gfx_tilemap_t']]],
   ['matrix_5felement',['matrix_element',['../tice_8h.html#a5d9e4f37175df52ece5e95789224e1f0',1,'tice.h']]],
   ['matrix_5ft',['matrix_t',['../structmatrix__t.html',1,'']]],
   ['memset_5ffast',['memset_fast',['../tice_8h.html#acaf0b8f5ed664ac93e11137d548f9324',1,'tice.h']]],
