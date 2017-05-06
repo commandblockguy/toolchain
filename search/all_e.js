@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['prgm_5fcleanup',['prgm_CleanUp',['../tice_8h.html#a3de500ad172ed2a49f4b379d5332aa0b',1,'tice.h']]]
+  ['randint',['randInt',['../tice_8h.html#a8cdf5dc3371a6c80dd28003403a8f094',1,'tice.h']]],
+  ['real_5ft',['real_t',['../structreal__t.html',1,'']]],
+  ['rtc_5fivect',['RTC_IVECT',['../intce_8h.html#a3c995b90c817e81b1f019d59be93a127',1,'intce.h']]]
 ];
