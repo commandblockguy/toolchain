@@ -173,8 +173,26 @@ Shaun "Methsoft" McFall </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Keypad Data registers </p>
-
+<p>Keypad Data registers</p>
+<table class="doxtable">
+<tr>
+<th>Offset </th><th>Bit 0 </th><th>Bit 1 </th><th>Bit 2 </th><th>Bit 3 </th><th>Bit 4 </th><th>Bit 5 </th><th>Bit 6 </th><th>Bit 7  </th></tr>
+<tr>
+<td>1 </td><td>kb_Graph </td><td>kb_Trace </td><td>kb_Zoom </td><td>kb_Window </td><td>kb_Yequ </td><td>kb_2nd </td><td>kb_Mode </td><td>kb_Del </td></tr>
+<tr>
+<td>2 </td><td></td><td>kb_Sto </td><td>kb_Ln </td><td>kb_Log </td><td>kb_Square </td><td>kb_Recip </td><td>kb_Math </td><td>kb_Alpha </td></tr>
+<tr>
+<td>3 </td><td>kb_0 </td><td>kb_1 </td><td>kb_4 </td><td>kb_7 </td><td>kb_Comma </td><td>kb_Sin </td><td>kb_Apps </td><td>kb_GraphVar </td></tr>
+<tr>
+<td>4 </td><td>kb_DecPnt </td><td>kb_2 </td><td>kb_5 </td><td>kb_8 </td><td>kb_LParen </td><td>kb_Cos </td><td>kb_Prgm </td><td>kb_Stat </td></tr>
+<tr>
+<td>5 </td><td>kb_Chs </td><td>kb_3 </td><td>kb_6 </td><td>kb_9 </td><td>kb_RParen </td><td>kb_Tan </td><td>kb_Vars </td><td></td></tr>
+<tr>
+<td>6 </td><td>kb_Enter </td><td>kb_Add </td><td>kb_Sub </td><td>kb_Mul </td><td>kb_Div </td><td>kb_Power </td><td>kb_Clear </td><td></td></tr>
+<tr>
+<td>7 </td><td>kb_Down </td><td>kb_Left </td><td>kb_Right </td><td>kb_Up </td><td></td><td></td><td></td><td></td></tr>
+</table>
+<p>These data registers can be indexed just like an array. For example, if you want to check the status of the '2nd' key: </p><div class="fragment"><div class="line"><span class="keywordflow">if</span> (<a class="code" href="keypadc_8h.html#a4a4296b5cbbc1f0cd963a36abd456e97">kb_Data</a>[1] &amp; kb_2nd) {</div><div class="line">    ...</div><div class="line">}</div></div><!-- fragment --> 
 </div>
 </div>
 <a id="abef173d3e47568a2a1bce9eab3e5abae"></a>

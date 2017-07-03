@@ -88,8 +88,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgfx__image__t.html">gfx_image_t</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines an image type with which to create sprites.  <a href="structgfx__image__t.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprite (image) type.  <a href="structgfx__sprite__t.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgfx__rletsprite__t.html">gfx_rletsprite_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprite (image) type with RLE transparency.  <a href="structgfx__rletsprite__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgfx__point__t.html">gfx_point_t</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple structure for working with 2D points.  <a href="structgfx__point__t.html#details">More...</a><br /></td></tr>
@@ -105,10 +108,18 @@ Data Structures</h2></td></tr>
 Macros</h2></td></tr>
 <tr class="memitem:add09e11cb2d5b761ea1b336c07d9283e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#add09e11cb2d5b761ea1b336c07d9283e">gfx_MallocSprite</a>(width,  height)</td></tr>
 <tr class="separator:add09e11cb2d5b761ea1b336c07d9283e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0214b739c005f0bd375d2db04c091609"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a0214b739c005f0bd375d2db04c091609">gfx_UninitedSprite</a>(name,  max_width,  max_height)</td></tr>
-<tr class="separator:a0214b739c005f0bd375d2db04c091609"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec1bf1b311dee9f387931b37db5ec5f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#aec1bf1b311dee9f387931b37db5ec5f0">gfx_UninitedSprite</a>(name,  width,  height)</td></tr>
+<tr class="separator:aec1bf1b311dee9f387931b37db5ec5f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad95d6ddd408bb6c0fad041353da0d7ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#ad95d6ddd408bb6c0fad041353da0d7ea">gfx_TempSprite</a>(name,  width,  height)</td></tr>
 <tr class="separator:ad95d6ddd408bb6c0fad041353da0d7ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca06f205639068645997ae2850d9330c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#aca06f205639068645997ae2850d9330c">gfx_AllocRLETSprite</a>(data_size,  malloc_routine)</td></tr>
+<tr class="separator:aca06f205639068645997ae2850d9330c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17a6151634015179913865b858de8d4f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a17a6151634015179913865b858de8d4f">gfx_MallocRLETSprite</a>(data_size)</td></tr>
+<tr class="separator:a17a6151634015179913865b858de8d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fcd622fda5e146071dfb64a77569b59"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a5fcd622fda5e146071dfb64a77569b59">gfx_UninitedRLETSprite</a>(name,  data_size)</td></tr>
+<tr class="separator:a5fcd622fda5e146071dfb64a77569b59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac9e8a9501e3e24634a7bbfa486d6b7a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#aac9e8a9501e3e24634a7bbfa486d6b7a">gfx_Begin</a>()</td></tr>
+<tr class="separator:aac9e8a9501e3e24634a7bbfa486d6b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4377ae55e7cef81e907a1af4c5cd1ab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#aa4377ae55e7cef81e907a1af4c5cd1ab">gfx_palette</a></td></tr>
 <tr class="separator:aa4377ae55e7cef81e907a1af4c5cd1ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d2b69b621ed1962190eff3e64ac44a6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a8d2b69b621ed1962190eff3e64ac44a6">gfx_vram</a></td></tr>
@@ -135,6 +146,8 @@ Macros</h2></td></tr>
 <tr class="separator:aae87d434c0a2ba6f12cc0358155ca912"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae617a7b274ef70c70b2aa6f854bd959f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#ae617a7b274ef70c70b2aa6f854bd959f">gfx_GetSprite_NoClip</a>(sprite_buffer,  x,  y)</td></tr>
 <tr class="separator:ae617a7b274ef70c70b2aa6f854bd959f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77d1282024291bf7864819d1baec027c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a77d1282024291bf7864819d1baec027c">gfx_ConvertMallocRLETSprite</a>(sprite_in)</td></tr>
+<tr class="separator:a77d1282024291bf7864819d1baec027c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bb702124c741857adb8e850a8b8f951"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a2bb702124c741857adb8e850a8b8f951">gfx_RGBTo1555</a>(r,  g,  b)</td></tr>
 <tr class="separator:a2bb702124c741857adb8e850a8b8f951"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65e4e81be0b5a48b50f3baeb621b24a9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a65e4e81be0b5a48b50f3baeb621b24a9">gfx_CheckRectangleHotspot</a>(master_x,  master_y,  master_width,  master_height,  test_x,  test_y,  test_width,  test_height)</td></tr>
@@ -173,8 +186,8 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae99d0c0f52010587206f81362ad64017"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#ae99d0c0f52010587206f81362ad64017">gfx_AllocSprite</a> (uint8_t width, uint8_t height, void *malloc_routine)</td></tr>
-<tr class="separator:ae99d0c0f52010587206f81362ad64017"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fba20a3e6f896f3a45efc19cce44472"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a4fba20a3e6f896f3a45efc19cce44472">gfx_AllocSprite</a> (uint8_t width, uint8_t height, void *(*malloc_routine)(size_t))</td></tr>
+<tr class="separator:a4fba20a3e6f896f3a45efc19cce44472"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac719b716a3e122cc66611c5fe4ca0035"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#ac719b716a3e122cc66611c5fe4ca0035">gfx_Begin</a> (<a class="el" href="graphx_8h.html#ac8a344d0b351d3b909594c49acf35c8a">gfx_mode_t</a> mode)</td></tr>
 <tr class="separator:ac719b716a3e122cc66611c5fe4ca0035"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47337af13aaf35a7b71967944da7458f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a47337af13aaf35a7b71967944da7458f">gfx_End</a> (void)</td></tr>
@@ -279,34 +292,34 @@ Functions</h2></td></tr>
 <tr class="separator:a5bee09037ac60bffdb46967ded315313"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ef17ddeea165e41edf6728d710b78e9"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a6ef17ddeea165e41edf6728d710b78e9">gfx_SetTextTransparentColor</a> (uint8_t color)</td></tr>
 <tr class="separator:a6ef17ddeea165e41edf6728d710b78e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5419e713ccbf3c0dc0758f5c602adbca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a5419e713ccbf3c0dc0758f5c602adbca">gfx_Sprite</a> (<a class="el" href="structgfx__image__t.html">gfx_image_t</a> *sprite, int x, int y)</td></tr>
-<tr class="separator:a5419e713ccbf3c0dc0758f5c602adbca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8661c6928f183b831d190b76f479ea0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a8661c6928f183b831d190b76f479ea0d">gfx_Sprite_NoClip</a> (<a class="el" href="structgfx__image__t.html">gfx_image_t</a> *sprite, uint24_t x, uint8_t y)</td></tr>
-<tr class="separator:a8661c6928f183b831d190b76f479ea0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcffd9733baa6950397b16123138c770"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#afcffd9733baa6950397b16123138c770">gfx_TransparentSprite</a> (<a class="el" href="structgfx__image__t.html">gfx_image_t</a> *sprite, int x, int y)</td></tr>
-<tr class="separator:afcffd9733baa6950397b16123138c770"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ad8d60604575e3007f58402e62cab54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a9ad8d60604575e3007f58402e62cab54">gfx_TransparentSprite_NoClip</a> (<a class="el" href="structgfx__image__t.html">gfx_image_t</a> *sprite, uint24_t x, uint8_t y)</td></tr>
-<tr class="separator:a9ad8d60604575e3007f58402e62cab54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25843f4c27159bd1d1fe14911490d87b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a25843f4c27159bd1d1fe14911490d87b">gfx_GetSprite</a> (<a class="el" href="structgfx__image__t.html">gfx_image_t</a> *sprite_buffer, int x, int y)</td></tr>
-<tr class="separator:a25843f4c27159bd1d1fe14911490d87b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae36a9a8a54b43c7796f7f35d71feac27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#ae36a9a8a54b43c7796f7f35d71feac27">gfx_ScaledSprite_NoClip</a> (<a class="el" href="structgfx__image__t.html">gfx_image_t</a> *sprite, int x, int y, uint8_t width_scale, uint8_t height_scale)</td></tr>
-<tr class="separator:ae36a9a8a54b43c7796f7f35d71feac27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a568084d35af8413427f1af848791425f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a568084d35af8413427f1af848791425f">gfx_ScaledTransparentSprite_NoClip</a> (<a class="el" href="structgfx__image__t.html">gfx_image_t</a> *sprite, int x, int y, uint8_t width_scale, uint8_t height_scale)</td></tr>
-<tr class="separator:a568084d35af8413427f1af848791425f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afda2c5041d2fbf8dbeb645d8c021337f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#afda2c5041d2fbf8dbeb645d8c021337f">gfx_FlipSpriteX</a> (<a class="el" href="structgfx__image__t.html">gfx_image_t</a> *sprite_in, <a class="el" href="structgfx__image__t.html">gfx_image_t</a> *sprite_out)</td></tr>
-<tr class="separator:afda2c5041d2fbf8dbeb645d8c021337f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a9ec41676462ef6903de94b28478c08"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a1a9ec41676462ef6903de94b28478c08">gfx_FlipSpriteY</a> (<a class="el" href="structgfx__image__t.html">gfx_image_t</a> *sprite_in, <a class="el" href="structgfx__image__t.html">gfx_image_t</a> *sprite_out)</td></tr>
-<tr class="separator:a1a9ec41676462ef6903de94b28478c08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88b89b7aad8ca94d29087c83f5ba7175"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a88b89b7aad8ca94d29087c83f5ba7175">gfx_RotateSpriteC</a> (<a class="el" href="structgfx__image__t.html">gfx_image_t</a> *sprite_in, <a class="el" href="structgfx__image__t.html">gfx_image_t</a> *sprite_out)</td></tr>
-<tr class="separator:a88b89b7aad8ca94d29087c83f5ba7175"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e87fe5704a682ff934c0b06afd65e88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a4e87fe5704a682ff934c0b06afd65e88">gfx_RotateSpriteCC</a> (<a class="el" href="structgfx__image__t.html">gfx_image_t</a> *sprite_in, <a class="el" href="structgfx__image__t.html">gfx_image_t</a> *sprite_out)</td></tr>
-<tr class="separator:a4e87fe5704a682ff934c0b06afd65e88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc70b1eda144d05568e12234f95589fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#acc70b1eda144d05568e12234f95589fd">gfx_RotateSpriteHalf</a> (<a class="el" href="structgfx__image__t.html">gfx_image_t</a> *sprite_in, <a class="el" href="structgfx__image__t.html">gfx_image_t</a> *sprite_out)</td></tr>
-<tr class="separator:acc70b1eda144d05568e12234f95589fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeee10024080f2f21898f027f020e6609"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#aeee10024080f2f21898f027f020e6609">gfx_ScaleSprite</a> (<a class="el" href="structgfx__image__t.html">gfx_image_t</a> *sprite_in, <a class="el" href="structgfx__image__t.html">gfx_image_t</a> *sprite_out)</td></tr>
-<tr class="separator:aeee10024080f2f21898f027f020e6609"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab80ddc48addcb58113fba65f5450ed83"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#ab80ddc48addcb58113fba65f5450ed83">gfx_GetSpriteChar</a> (char c)</td></tr>
-<tr class="separator:ab80ddc48addcb58113fba65f5450ed83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6fcffa182132792d19c375bb9267eee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#ad6fcffa182132792d19c375bb9267eee">gfx_Sprite</a> (<a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite, int x, int y)</td></tr>
+<tr class="separator:ad6fcffa182132792d19c375bb9267eee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfbc718ce842586f0c67415a759521a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#abfbc718ce842586f0c67415a759521a6">gfx_Sprite_NoClip</a> (<a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite, uint24_t x, uint8_t y)</td></tr>
+<tr class="separator:abfbc718ce842586f0c67415a759521a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad41e8bac03a9d55ca845622f897416f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#ad41e8bac03a9d55ca845622f897416f8">gfx_TransparentSprite</a> (<a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite, int x, int y)</td></tr>
+<tr class="separator:ad41e8bac03a9d55ca845622f897416f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a39a09f48ff1b059fda71ae076530f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a4a39a09f48ff1b059fda71ae076530f7">gfx_TransparentSprite_NoClip</a> (<a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite, uint24_t x, uint8_t y)</td></tr>
+<tr class="separator:a4a39a09f48ff1b059fda71ae076530f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90d1afbdc2290c3079a43e67ba6e335f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a90d1afbdc2290c3079a43e67ba6e335f">gfx_GetSprite</a> (<a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite_buffer, int x, int y)</td></tr>
+<tr class="separator:a90d1afbdc2290c3079a43e67ba6e335f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61a17e4e6e0969ea629a093fa0b70c37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a61a17e4e6e0969ea629a093fa0b70c37">gfx_ScaledSprite_NoClip</a> (<a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite, int x, int y, uint8_t width_scale, uint8_t height_scale)</td></tr>
+<tr class="separator:a61a17e4e6e0969ea629a093fa0b70c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add1b4efa3cb17c393ec92539abbf8ab6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#add1b4efa3cb17c393ec92539abbf8ab6">gfx_ScaledTransparentSprite_NoClip</a> (<a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite, int x, int y, uint8_t width_scale, uint8_t height_scale)</td></tr>
+<tr class="separator:add1b4efa3cb17c393ec92539abbf8ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8440b844e03541b0de22230ff4a18d79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a8440b844e03541b0de22230ff4a18d79">gfx_FlipSpriteX</a> (<a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite_in, <a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite_out)</td></tr>
+<tr class="separator:a8440b844e03541b0de22230ff4a18d79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76998719438822b902386e819033d77a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a76998719438822b902386e819033d77a">gfx_FlipSpriteY</a> (<a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite_in, <a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite_out)</td></tr>
+<tr class="separator:a76998719438822b902386e819033d77a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fe32ff1cd736b96503bf554a2910a62"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a7fe32ff1cd736b96503bf554a2910a62">gfx_RotateSpriteC</a> (<a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite_in, <a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite_out)</td></tr>
+<tr class="separator:a7fe32ff1cd736b96503bf554a2910a62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e909bfdcba0d9c24711f501ae9036b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a7e909bfdcba0d9c24711f501ae9036b0">gfx_RotateSpriteCC</a> (<a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite_in, <a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite_out)</td></tr>
+<tr class="separator:a7e909bfdcba0d9c24711f501ae9036b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13b4e258e9a853bbd19d4f704e68e3fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a13b4e258e9a853bbd19d4f704e68e3fb">gfx_RotateSpriteHalf</a> (<a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite_in, <a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite_out)</td></tr>
+<tr class="separator:a13b4e258e9a853bbd19d4f704e68e3fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31a6b1836e84765f3d11b1140c68fc0a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a31a6b1836e84765f3d11b1140c68fc0a">gfx_ScaleSprite</a> (<a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite_in, <a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite_out)</td></tr>
+<tr class="separator:a31a6b1836e84765f3d11b1140c68fc0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a131df855eb57b1340a430f9d97fc4d95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a131df855eb57b1340a430f9d97fc4d95">gfx_GetSpriteChar</a> (char c)</td></tr>
+<tr class="separator:a131df855eb57b1340a430f9d97fc4d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab7badb9ba0c2de1910fd8914a7dcf81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#aab7badb9ba0c2de1910fd8914a7dcf81">gfx_SetFontData</a> (uint8_t *data)</td></tr>
 <tr class="separator:aab7badb9ba0c2de1910fd8914a7dcf81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90d402287b4a174559a7808992083081"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a90d402287b4a174559a7808992083081">gfx_SetFontSpacing</a> (uint8_t *spacing)</td></tr>
@@ -337,6 +350,16 @@ Functions</h2></td></tr>
 <tr class="separator:aa59d1989ca2e1665af02bf36802e697e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab960fa42194a5aa92281f769e9f24837"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#ab960fa42194a5aa92281f769e9f24837">gfx_FloodFill</a> (unsigned int x, uint8_t y, uint8_t color)</td></tr>
 <tr class="separator:ab960fa42194a5aa92281f769e9f24837"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8993feacc3ea33f92bb45d73aefbc44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#aa8993feacc3ea33f92bb45d73aefbc44">gfx_RLETSprite</a> (<a class="el" href="structgfx__rletsprite__t.html">gfx_rletsprite_t</a> *sprite, int x, int y)</td></tr>
+<tr class="separator:aa8993feacc3ea33f92bb45d73aefbc44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c007804fce83f8eedbb1aa34481d471"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a1c007804fce83f8eedbb1aa34481d471">gfx_RLETSprite_NoClip</a> (<a class="el" href="structgfx__rletsprite__t.html">gfx_rletsprite_t</a> *sprite, uint24_t x, uint8_t y)</td></tr>
+<tr class="separator:a1c007804fce83f8eedbb1aa34481d471"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affd6174395e0a2a3041bd427add482b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#affd6174395e0a2a3041bd427add482b8">gfx_ConvertFromRLETSprite</a> (<a class="el" href="structgfx__rletsprite__t.html">gfx_rletsprite_t</a> *sprite_in, <a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite_out)</td></tr>
+<tr class="separator:affd6174395e0a2a3041bd427add482b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c44bd4f12f482fa7343e9fd7edc1237"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__rletsprite__t.html">gfx_rletsprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a0c44bd4f12f482fa7343e9fd7edc1237">gfx_ConvertToRLETSprite</a> (<a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite_in, <a class="el" href="structgfx__rletsprite__t.html">gfx_rletsprite_t</a> *sprite_out)</td></tr>
+<tr class="separator:a0c44bd4f12f482fa7343e9fd7edc1237"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7f27ad7ae83cab2f30582c2df711caa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__rletsprite__t.html">gfx_rletsprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#ae7f27ad7ae83cab2f30582c2df711caa">gfx_ConvertToNewRLETSprite</a> (<a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite_in, void *(*malloc_routine)(size_t))</td></tr>
+<tr class="separator:ae7f27ad7ae83cab2f30582c2df711caa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains optimized graphics operations and routines. </p>
@@ -348,6 +371,65 @@ Zachary "Runer112" Wassall </dd>
 <dd>
 "grosged" </dd></dl>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="aca06f205639068645997ae2850d9330c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca06f205639068645997ae2850d9330c">&#9670;&nbsp;</a></span>gfx_AllocRLETSprite</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define gfx_AllocRLETSprite</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">data_size, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">malloc_routine&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dynamically allocates memory for a sprite with RLE transpareny.</p>
+<p>Allocates the memory with <code>malloc_routine</code>. Returns <code>NULL</code> upon allocation failure.</p>
+<p><code>data_size</code> is the maximum predicted/calculated size of the sprite data (excuding the width and height bytes) that will be stored in the allocated sprite. Sprite data size could be up to <code>(width + 1) * height * 3 / 2</code> bytes in the worst case, in which pixels horizontally alternate between non-transparent and transparent and each row begins with a non-transparent pixel. But if the average length of a horizontal transparent run is at least 2, then the sprite data will be no larger than <code>(width + 1) * height</code> bytes. The exact data size necessary is <code>2 * num_horizontal_transparent_runs + num_non_transparent_pixels + num_rows_beginning_with_non_transparent_pixel - num_rows_ending_with_transparent_pixel</code> bytes.</p>
+<dl class="section note"><dt>Note</dt><dd>If not used in a dynamic context and <code>data_size</code> is static, consider statically allocating the sprite instead with <a class="el" href="graphx_8h.html#a5fcd622fda5e146071dfb64a77569b59">gfx_UninitedRLETSprite()</a> or gfx_TempRLETSprite().</dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>If using <code>malloc</code> as the <code>malloc_routine</code>, <a class="el" href="graphx_8h.html#a17a6151634015179913865b858de8d4f">gfx_MallocRLETSprite()</a> can be used as a shortcut.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data_size</td><td>(maximum) sprite data size </td></tr>
+    <tr><td class="paramname">malloc_routine</td><td>malloc implementation to use </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>pointer to the allocated sprite </dd></dl>
+
+</div>
+</div>
+<a id="aac9e8a9501e3e24634a7bbfa486d6b7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac9e8a9501e3e24634a7bbfa486d6b7a">&#9670;&nbsp;</a></span>gfx_Begin</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define gfx_Begin</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Helper macro to easily initialize the graphics library setup </p>
+
+</div>
+</div>
 <a id="aae87d434c0a2ba6f12cc0358155ca912"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aae87d434c0a2ba6f12cc0358155ca912">&#9670;&nbsp;</a></span>gfx_BlitBuffer</h2>
 
@@ -492,6 +574,37 @@ Zachary "Runer112" Wassall </dd>
 
 </div>
 </div>
+<a id="a77d1282024291bf7864819d1baec027c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77d1282024291bf7864819d1baec027c">&#9670;&nbsp;</a></span>gfx_ConvertMallocRLETSprite</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define gfx_ConvertMallocRLETSprite</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">sprite_in</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Converts a sprite with normal transpareny to a sprite with RLE transparency, allocating the exact amount of necessary space for the converted sprite using <code>malloc</code>.</p>
+<p>Width and height will be set in the converted sprite. Returns <code>NULL</code> upon allocation failure.</p>
+<p>The transparent color index in the input sprite is controlled by <a class="el" href="graphx_8h.html#a2de6c559177f25c8b469cef81b96de42">gfx_SetTransparentColor()</a>.</p>
+<dl class="section remark"><dt>Remarks</dt><dd>A <a class="el" href="structgfx__sprite__t.html" title="Sprite (image) type. ">gfx_sprite_t</a> can be converted into an appropriately large, already-allocated <a class="el" href="structgfx__rletsprite__t.html" title="Sprite (image) type with RLE transparency. ">gfx_rletsprite_t</a> using <a class="el" href="graphx_8h.html#a0c44bd4f12f482fa7343e9fd7edc1237">gfx_ConvertToRLETSprite()</a>.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sprite_in</td><td>input sprite with normal transparency </td></tr>
+    <tr><td class="paramname">malloc_routine</td><td>malloc implementation to use </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a newly allocated converted sprite with RLE transparency </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="graphx_8h.html#affd6174395e0a2a3041bd427add482b8">gfx_ConvertFromRLETSprite</a> </dd></dl>
+
+</div>
+</div>
 <a id="ae617a7b274ef70c70b2aa6f854bd959f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae617a7b274ef70c70b2aa6f854bd959f">&#9670;&nbsp;</a></span>gfx_GetSprite_NoClip</h2>
 
@@ -623,6 +736,35 @@ Zachary "Runer112" Wassall </dd>
 
 </div>
 </div>
+<a id="a17a6151634015179913865b858de8d4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17a6151634015179913865b858de8d4f">&#9670;&nbsp;</a></span>gfx_MallocRLETSprite</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define gfx_MallocRLETSprite</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">data_size</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dynamically allocates memory for a sprite with RLE transparency using <code>malloc</code>.</p>
+<p><code>data_size</code> is the size to allocate for sprite data; see <a class="el" href="graphx_8h.html#aca06f205639068645997ae2850d9330c">gfx_AllocRLETSprite()</a> for information. Returns <code>NULL</code> upon allocation failure.</p>
+<dl class="section note"><dt>Note</dt><dd>If not used in a dynamic context and <code>data_size</code> is static, consider statically allocating the sprite instead with <a class="el" href="graphx_8h.html#a5fcd622fda5e146071dfb64a77569b59">gfx_UninitedRLETSprite()</a> or gfx_TempRLETSprite().</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data_size</td><td>(maximum) sprite data size </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>pointer to the allocated sprite </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="graphx_8h.html#aca06f205639068645997ae2850d9330c">gfx_AllocRLETSprite</a> </dd></dl>
+
+</div>
+</div>
 <a id="add09e11cb2d5b761ea1b336c07d9283e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#add09e11cb2d5b761ea1b336c07d9283e">&#9670;&nbsp;</a></span>gfx_MallocSprite</h2>
 
@@ -648,15 +790,18 @@ Zachary "Runer112" Wassall </dd>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Allocates memory for a sprite</p>
-<p>Works the same as gfx_AllocSprite but uses internal malloc routine for allocation. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Dynamically allocates memory for a sprite using <code>malloc</code>.</p>
+<p><code>width</code> and <code>height</code> will be set in the sprite. Returns <code>NULL</code> upon allocation failure.</p>
+<dl class="section note"><dt>Note</dt><dd>If not used in a dynamic context and <code>width</code> and <code>height</code> are static, consider statically allocating the sprite instead with <a class="el" href="graphx_8h.html#aec1bf1b311dee9f387931b37db5ec5f0">gfx_UninitedSprite()</a> or <a class="el" href="graphx_8h.html#ad95d6ddd408bb6c0fad041353da0d7ea">gfx_TempSprite()</a>.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">width</td><td>Width of the requested sprite </td></tr>
-    <tr><td class="paramname">height</td><td>Height of the requested sprite </td></tr>
+    <tr><td class="paramname">width</td><td>sprite width </td></tr>
+    <tr><td class="paramname">height</td><td>sprite height </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="graphx_8h.html#ae99d0c0f52010587206f81362ad64017">gfx_AllocSprite</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>pointer to the allocated sprite </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="graphx_8h.html#a4fba20a3e6f896f3a45efc19cce44472">gfx_AllocSprite</a> </dd></dl>
 
 </div>
 </div>
@@ -879,20 +1024,62 @@ Zachary "Runer112" Wassall </dd>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Allocates memory for a sprite</p>
-<p>This routine is intended for small local variables. Note that you will have to initialize the width and height of the sprite manually. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Statically allocates memory for a sprite.</p>
+<p>Declares a <code><a class="el" href="structgfx__sprite__t.html" title="Sprite (image) type. ">gfx_sprite_t</a> *</code> with the given <code>name</code> pointing to the allocated memory. <code>width</code> and <code>height</code> will be set in the sprite, unlike <a class="el" href="graphx_8h.html#aec1bf1b311dee9f387931b37db5ec5f0">gfx_UninitedSprite()</a>.</p>
+<dl class="section attention"><dt>Attention</dt><dd>Due to <code>width</code> and <code>height</code> being set, the memory will be allocated in the initialized data segment. If the compiled program is not compressed, then this could be a serious source of bloat and <a class="el" href="graphx_8h.html#aec1bf1b311dee9f387931b37db5ec5f0">gfx_UninitedSprite()</a> should be preferred.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td>Name of new sprite </td></tr>
-    <tr><td class="paramname">width</td><td>Width of allocated sprite </td></tr>
-    <tr><td class="paramname">height</td><td>Height of allocated sprite </td></tr>
+    <tr><td class="paramname">name</td><td>name of declared <code><a class="el" href="structgfx__sprite__t.html" title="Sprite (image) type. ">gfx_sprite_t</a> *</code> </td></tr>
+    <tr><td class="paramname">width</td><td>sprite width </td></tr>
+    <tr><td class="paramname">height</td><td>sprite height </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="graphx_8h.html#add09e11cb2d5b761ea1b336c07d9283e">gfx_MallocSprite</a> </dd></dl>
 
 </div>
 </div>
-<a id="a0214b739c005f0bd375d2db04c091609"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0214b739c005f0bd375d2db04c091609">&#9670;&nbsp;</a></span>gfx_UninitedSprite</h2>
+<a id="a5fcd622fda5e146071dfb64a77569b59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fcd622fda5e146071dfb64a77569b59">&#9670;&nbsp;</a></span>gfx_UninitedRLETSprite</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define gfx_UninitedRLETSprite</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">data_size&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Statically allocates unitialized memory for a sprite with RLE transparency.</p>
+<p>Declares a <code><a class="el" href="structgfx__rletsprite__t.html" title="Sprite (image) type with RLE transparency. ">gfx_rletsprite_t</a> *</code> with the given <code>name</code> pointing to the allocated memory. <code>data_size</code> is the size to allocate for sprite data; see <a class="el" href="graphx_8h.html#aca06f205639068645997ae2850d9330c">gfx_AllocRLETSprite()</a> for information.</p>
+<dl class="section warning"><dt>Warning</dt><dd>If used outside of a function body, the memory will be allocated in the global unitialized data segment (BSS). If used inside a function body, the memory will be allocated on the stack. If the sprite is sufficiently large, usage inside a function body will overflow the stack, so it is recommended that this normally be used outside of a function body.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>name of declared <code><a class="el" href="structgfx__rletsprite__t.html" title="Sprite (image) type with RLE transparency. ">gfx_rletsprite_t</a> *</code> </td></tr>
+    <tr><td class="paramname">data_size</td><td>(maximum) sprite data size </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="graphx_8h.html#a17a6151634015179913865b858de8d4f">gfx_MallocRLETSprite</a> </dd></dl>
+
+</div>
+</div>
+<a id="aec1bf1b311dee9f387931b37db5ec5f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec1bf1b311dee9f387931b37db5ec5f0">&#9670;&nbsp;</a></span>gfx_UninitedSprite</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -907,13 +1094,13 @@ Zachary "Runer112" Wassall </dd>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">max_width, </td>
+          <td class="paramname">width, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">max_height&#160;</td>
+          <td class="paramname">height&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -922,15 +1109,18 @@ Zachary "Runer112" Wassall </dd>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Allocates memory for a sprite</p>
-<p>This routine is intended for global variables. Note that you will have to initialize the width and height of the sprite manually. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Statically allocates unitialized memory for a sprite.</p>
+<p>Declares a <code><a class="el" href="structgfx__sprite__t.html" title="Sprite (image) type. ">gfx_sprite_t</a> *</code> with the given <code>name</code> pointing to the allocated memory. <code>width</code> and <code>height</code> will <b>not</b> be set in the sprite, unlike <a class="el" href="graphx_8h.html#ad95d6ddd408bb6c0fad041353da0d7ea">gfx_TempSprite()</a>.</p>
+<dl class="section warning"><dt>Warning</dt><dd>If used outside of a function body, the memory will be allocated in the global unitialized data segment (BSS). If used inside a function body, the memory will be allocated on the stack. If the sprite is sufficiently large, usage inside a function body will overflow the stack, so it is recommended that this normally be used outside of a function body.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td>Name of new sprite </td></tr>
-    <tr><td class="paramname">max_width</td><td>Maximum width sprite will eventually be </td></tr>
-    <tr><td class="paramname">max_height</td><td>Maximum height sprite will eventually be </td></tr>
+    <tr><td class="paramname">name</td><td>name of declared <code><a class="el" href="structgfx__sprite__t.html" title="Sprite (image) type. ">gfx_sprite_t</a> *</code> </td></tr>
+    <tr><td class="paramname">width</td><td>sprite width </td></tr>
+    <tr><td class="paramname">height</td><td>sprite height </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="graphx_8h.html#add09e11cb2d5b761ea1b336c07d9283e">gfx_MallocSprite</a> </dd></dl>
 
 </div>
 </div>
@@ -1002,7 +1192,7 @@ Zachary "Runer112" Wassall </dd>
 </div><div class="memdoc">
 
 <p>Stores operating modes of this library. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="graphx_8h.html#ac719b716a3e122cc66611c5fe4ca0035">gfx_Begin</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="graphx_8h.html#aac9e8a9501e3e24634a7bbfa486d6b7a">gfx_Begin</a> </dd></dl>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac8a344d0b351d3b909594c49acf35c8aa72556b3c952c903f59779c685fd843af"></a>gfx_8bpp&#160;</td><td class="fielddoc"><p>Enable 8 bits per pixel mode </p>
 </td></tr>
@@ -1068,14 +1258,14 @@ Zachary "Runer112" Wassall </dd>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ae99d0c0f52010587206f81362ad64017"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae99d0c0f52010587206f81362ad64017">&#9670;&nbsp;</a></span>gfx_AllocSprite()</h2>
+<a id="a4fba20a3e6f896f3a45efc19cce44472"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fba20a3e6f896f3a45efc19cce44472">&#9670;&nbsp;</a></span>gfx_AllocSprite()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structgfx__image__t.html">gfx_image_t</a>* gfx_AllocSprite </td>
+          <td class="memname"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a>* gfx_AllocSprite </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>width</em>, </td>
@@ -1089,7 +1279,7 @@ Zachary "Runer112" Wassall </dd>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void *&#160;</td>
+          <td class="paramtype">void *(*)(size_t)&#160;</td>
           <td class="paramname"><em>malloc_routine</em>&#160;</td>
         </tr>
         <tr>
@@ -1099,15 +1289,19 @@ Zachary "Runer112" Wassall </dd>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Allocates memory for a sprite</p>
-<p>Returns NULL upon failure to allocate space, otherwise a pointer to the sprite structure. Note that if you use the system malloc routine, it must be used elsewhere in your program otherwise it will not be linked correctly. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Dynamically allocates memory for a sprite.</p>
+<p>Allocates the memory with <code>malloc_routine</code>. <code>width</code> and <code>height</code> will be set in the allocated sprite. Returns <code>NULL</code> upon allocation failure.</p>
+<dl class="section note"><dt>Note</dt><dd>If not used in a dynamic context and <code>width</code> and <code>height</code> are static, consider statically allocating the sprite instead with <a class="el" href="graphx_8h.html#aec1bf1b311dee9f387931b37db5ec5f0">gfx_UninitedSprite()</a> or <a class="el" href="graphx_8h.html#ad95d6ddd408bb6c0fad041353da0d7ea">gfx_TempSprite()</a>.</dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>If using <code>malloc</code> as the <code>malloc_routine</code>, <a class="el" href="graphx_8h.html#add09e11cb2d5b761ea1b336c07d9283e">gfx_MallocSprite()</a> can be used as a shortcut.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">width</td><td>Width of the requested sprite </td></tr>
-    <tr><td class="paramname">height</td><td>Height of the requested sprite </td></tr>
-    <tr><td class="paramname">malloc_routine</td><td>Routine used to allocate memory </td></tr>
+    <tr><td class="paramname">width</td><td>sprite width </td></tr>
+    <tr><td class="paramname">height</td><td>sprite height </td></tr>
+    <tr><td class="paramname">malloc_routine</td><td>malloc implementation to use </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>pointer to the allocated sprite </dd></dl>
 
 </div>
 </div>
@@ -1355,6 +1549,134 @@ Zachary "Runer112" Wassall </dd>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>False if not within window, true otherwise </dd></dl>
+
+</div>
+</div>
+<a id="affd6174395e0a2a3041bd427add482b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affd6174395e0a2a3041bd427add482b8">&#9670;&nbsp;</a></span>gfx_ConvertFromRLETSprite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a>* gfx_ConvertFromRLETSprite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgfx__rletsprite__t.html">gfx_rletsprite_t</a> *&#160;</td>
+          <td class="paramname"><em>sprite_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
+          <td class="paramname"><em>sprite_out</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Converts a sprite with RLE transpareny to a sprite with normal transparency.</p>
+<p>Width and height will be set in the converted sprite.</p>
+<p>The transparent color index in the converted sprite is controlled by <a class="el" href="graphx_8h.html#a2de6c559177f25c8b469cef81b96de42">gfx_SetTransparentColor()</a>.</p>
+<dl class="section attention"><dt>Attention</dt><dd>The output sprite must have been allocated with a large enough <code>data</code> field to hold the converted sprite data, which will be <code>width * height</code> bytes large.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sprite_in</td><td>input sprite with RLE transparency </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">sprite_out</td><td>converted sprite with normal transparency </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the converted sprite </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="graphx_8h.html#a77d1282024291bf7864819d1baec027c">gfx_ConvertMallocRLETSprite</a> </dd>
+<dd>
+<a class="el" href="graphx_8h.html#a0c44bd4f12f482fa7343e9fd7edc1237">gfx_ConvertToRLETSprite</a> </dd></dl>
+
+</div>
+</div>
+<a id="ae7f27ad7ae83cab2f30582c2df711caa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7f27ad7ae83cab2f30582c2df711caa">&#9670;&nbsp;</a></span>gfx_ConvertToNewRLETSprite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgfx__rletsprite__t.html">gfx_rletsprite_t</a>* gfx_ConvertToNewRLETSprite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
+          <td class="paramname"><em>sprite_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *(*)(size_t)&#160;</td>
+          <td class="paramname"><em>malloc_routine</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Converts a sprite with normal transpareny to a sprite with RLE transparency, allocating the exact amount of necessary space for the converted sprite.</p>
+<p>Allocates the memory with <code>malloc_routine</code>. Width and height will be set in the converted sprite. Returns <code>NULL</code> upon allocation failure.</p>
+<p>The transparent color index in the input sprite is controlled by <a class="el" href="graphx_8h.html#a2de6c559177f25c8b469cef81b96de42">gfx_SetTransparentColor()</a>.</p>
+<dl class="section remark"><dt>Remarks</dt><dd>If using <code>malloc</code> as the <code>malloc_routine</code>, <a class="el" href="graphx_8h.html#a77d1282024291bf7864819d1baec027c">gfx_ConvertMallocRLETSprite()</a> can be used as a shortcut.</dd>
+<dd>
+A <a class="el" href="structgfx__sprite__t.html" title="Sprite (image) type. ">gfx_sprite_t</a> can be converted into an appropriately large, already-allocated <a class="el" href="structgfx__rletsprite__t.html" title="Sprite (image) type with RLE transparency. ">gfx_rletsprite_t</a> using <a class="el" href="graphx_8h.html#a0c44bd4f12f482fa7343e9fd7edc1237">gfx_ConvertToRLETSprite()</a>.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sprite_in</td><td>input sprite with normal transparency </td></tr>
+    <tr><td class="paramname">malloc_routine</td><td>malloc implementation to use </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a newly allocated converted sprite with RLE transparency </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="graphx_8h.html#affd6174395e0a2a3041bd427add482b8">gfx_ConvertFromRLETSprite</a> </dd></dl>
+
+</div>
+</div>
+<a id="a0c44bd4f12f482fa7343e9fd7edc1237"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c44bd4f12f482fa7343e9fd7edc1237">&#9670;&nbsp;</a></span>gfx_ConvertToRLETSprite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgfx__rletsprite__t.html">gfx_rletsprite_t</a>* gfx_ConvertToRLETSprite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
+          <td class="paramname"><em>sprite_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structgfx__rletsprite__t.html">gfx_rletsprite_t</a> *&#160;</td>
+          <td class="paramname"><em>sprite_out</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Converts a sprite with normal transpareny to a sprite with RLE transparency.</p>
+<p>Width and height will be set in the converted sprite.</p>
+<p>The transparent color index in the input sprite is controlled by <a class="el" href="graphx_8h.html#a2de6c559177f25c8b469cef81b96de42">gfx_SetTransparentColor()</a>.</p>
+<dl class="section attention"><dt>Attention</dt><dd>The output sprite must have been allocated with a large enough data field to hold the converted sprite data; see <a class="el" href="graphx_8h.html#aca06f205639068645997ae2850d9330c">gfx_AllocRLETSprite()</a> for information.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>To avoid needing to predict the output size and risking either the prediction being too high and wasting space, or being too low and corrupting memory, <a class="el" href="graphx_8h.html#a77d1282024291bf7864819d1baec027c">gfx_ConvertMallocRLETSprite()</a> can be used instead to allocate the exact amount of necessary space for the converted sprite.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sprite_in</td><td>input sprite with normal transparency </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">sprite_out</td><td>converted sprite with RLE transparency </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the converted sprite </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="graphx_8h.html#affd6174395e0a2a3041bd427add482b8">gfx_ConvertFromRLETSprite</a> </dd></dl>
 
 </div>
 </div>
@@ -1691,22 +2013,22 @@ Zachary "Runer112" Wassall </dd>
 
 </div>
 </div>
-<a id="afda2c5041d2fbf8dbeb645d8c021337f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afda2c5041d2fbf8dbeb645d8c021337f">&#9670;&nbsp;</a></span>gfx_FlipSpriteX()</h2>
+<a id="a8440b844e03541b0de22230ff4a18d79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8440b844e03541b0de22230ff4a18d79">&#9670;&nbsp;</a></span>gfx_FlipSpriteX()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structgfx__image__t.html">gfx_image_t</a>* gfx_FlipSpriteX </td>
+          <td class="memname"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a>* gfx_FlipSpriteX </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
           <td class="paramname"><em>sprite_in</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
           <td class="paramname"><em>sprite_out</em>&#160;</td>
         </tr>
         <tr>
@@ -1729,22 +2051,22 @@ Zachary "Runer112" Wassall </dd>
 
 </div>
 </div>
-<a id="a1a9ec41676462ef6903de94b28478c08"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a9ec41676462ef6903de94b28478c08">&#9670;&nbsp;</a></span>gfx_FlipSpriteY()</h2>
+<a id="a76998719438822b902386e819033d77a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76998719438822b902386e819033d77a">&#9670;&nbsp;</a></span>gfx_FlipSpriteY()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structgfx__image__t.html">gfx_image_t</a>* gfx_FlipSpriteY </td>
+          <td class="memname"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a>* gfx_FlipSpriteY </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
           <td class="paramname"><em>sprite_in</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
           <td class="paramname"><em>sprite_out</em>&#160;</td>
         </tr>
         <tr>
@@ -1915,16 +2237,16 @@ Zachary "Runer112" Wassall </dd>
 
 </div>
 </div>
-<a id="a25843f4c27159bd1d1fe14911490d87b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25843f4c27159bd1d1fe14911490d87b">&#9670;&nbsp;</a></span>gfx_GetSprite()</h2>
+<a id="a90d1afbdc2290c3079a43e67ba6e335f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90d1afbdc2290c3079a43e67ba6e335f">&#9670;&nbsp;</a></span>gfx_GetSprite()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structgfx__image__t.html">gfx_image_t</a>* gfx_GetSprite </td>
+          <td class="memname"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a>* gfx_GetSprite </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
           <td class="paramname"><em>sprite_buffer</em>, </td>
         </tr>
         <tr>
@@ -1960,14 +2282,14 @@ Zachary "Runer112" Wassall </dd>
 
 </div>
 </div>
-<a id="ab80ddc48addcb58113fba65f5450ed83"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab80ddc48addcb58113fba65f5450ed83">&#9670;&nbsp;</a></span>gfx_GetSpriteChar()</h2>
+<a id="a131df855eb57b1340a430f9d97fc4d95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a131df855eb57b1340a430f9d97fc4d95">&#9670;&nbsp;</a></span>gfx_GetSpriteChar()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structgfx__image__t.html">gfx_image_t</a>* gfx_GetSpriteChar </td>
+          <td class="memname"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a>* gfx_GetSpriteChar </td>
           <td>(</td>
           <td class="paramtype">char&#160;</td>
           <td class="paramname"><em>c</em></td><td>)</td>
@@ -2623,22 +2945,108 @@ Length must be between 0-8 </dd></dl>
 
 </div>
 </div>
-<a id="a88b89b7aad8ca94d29087c83f5ba7175"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88b89b7aad8ca94d29087c83f5ba7175">&#9670;&nbsp;</a></span>gfx_RotateSpriteC()</h2>
+<a id="aa8993feacc3ea33f92bb45d73aefbc44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8993feacc3ea33f92bb45d73aefbc44">&#9670;&nbsp;</a></span>gfx_RLETSprite()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structgfx__image__t.html">gfx_image_t</a>* gfx_RotateSpriteC </td>
+          <td class="memname">void gfx_RLETSprite </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgfx__rletsprite__t.html">gfx_rletsprite_t</a> *&#160;</td>
+          <td class="paramname"><em>sprite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Draws a sprite with RLE transparency.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sprite</td><td>sprite to draw </td></tr>
+    <tr><td class="paramname">x</td><td>x-coordinate </td></tr>
+    <tr><td class="paramname">y</td><td>y-coordinate </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1c007804fce83f8eedbb1aa34481d471"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c007804fce83f8eedbb1aa34481d471">&#9670;&nbsp;</a></span>gfx_RLETSprite_NoClip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gfx_RLETSprite_NoClip </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgfx__rletsprite__t.html">gfx_rletsprite_t</a> *&#160;</td>
+          <td class="paramname"><em>sprite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint24_t&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Draws an unclipped sprite with RLE transparency.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sprite</td><td>sprite to draw </td></tr>
+    <tr><td class="paramname">x</td><td>x-coordinate </td></tr>
+    <tr><td class="paramname">y</td><td>y-coordinate </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7fe32ff1cd736b96503bf554a2910a62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fe32ff1cd736b96503bf554a2910a62">&#9670;&nbsp;</a></span>gfx_RotateSpriteC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a>* gfx_RotateSpriteC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
           <td class="paramname"><em>sprite_in</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
           <td class="paramname"><em>sprite_out</em>&#160;</td>
         </tr>
         <tr>
@@ -2661,22 +3069,22 @@ Length must be between 0-8 </dd></dl>
 
 </div>
 </div>
-<a id="a4e87fe5704a682ff934c0b06afd65e88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e87fe5704a682ff934c0b06afd65e88">&#9670;&nbsp;</a></span>gfx_RotateSpriteCC()</h2>
+<a id="a7e909bfdcba0d9c24711f501ae9036b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e909bfdcba0d9c24711f501ae9036b0">&#9670;&nbsp;</a></span>gfx_RotateSpriteCC()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structgfx__image__t.html">gfx_image_t</a>* gfx_RotateSpriteCC </td>
+          <td class="memname"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a>* gfx_RotateSpriteCC </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
           <td class="paramname"><em>sprite_in</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
           <td class="paramname"><em>sprite_out</em>&#160;</td>
         </tr>
         <tr>
@@ -2699,22 +3107,22 @@ Length must be between 0-8 </dd></dl>
 
 </div>
 </div>
-<a id="acc70b1eda144d05568e12234f95589fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc70b1eda144d05568e12234f95589fd">&#9670;&nbsp;</a></span>gfx_RotateSpriteHalf()</h2>
+<a id="a13b4e258e9a853bbd19d4f704e68e3fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13b4e258e9a853bbd19d4f704e68e3fb">&#9670;&nbsp;</a></span>gfx_RotateSpriteHalf()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structgfx__image__t.html">gfx_image_t</a>* gfx_RotateSpriteHalf </td>
+          <td class="memname"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a>* gfx_RotateSpriteHalf </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
           <td class="paramname"><em>sprite_in</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
           <td class="paramname"><em>sprite_out</em>&#160;</td>
         </tr>
         <tr>
@@ -2736,8 +3144,8 @@ Length must be between 0-8 </dd></dl>
 
 </div>
 </div>
-<a id="ae36a9a8a54b43c7796f7f35d71feac27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae36a9a8a54b43c7796f7f35d71feac27">&#9670;&nbsp;</a></span>gfx_ScaledSprite_NoClip()</h2>
+<a id="a61a17e4e6e0969ea629a093fa0b70c37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61a17e4e6e0969ea629a093fa0b70c37">&#9670;&nbsp;</a></span>gfx_ScaledSprite_NoClip()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2745,7 +3153,7 @@ Length must be between 0-8 </dd></dl>
         <tr>
           <td class="memname">void gfx_ScaledSprite_NoClip </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
           <td class="paramname"><em>sprite</em>, </td>
         </tr>
         <tr>
@@ -2794,8 +3202,8 @@ Length must be between 0-8 </dd></dl>
 
 </div>
 </div>
-<a id="a568084d35af8413427f1af848791425f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a568084d35af8413427f1af848791425f">&#9670;&nbsp;</a></span>gfx_ScaledTransparentSprite_NoClip()</h2>
+<a id="add1b4efa3cb17c393ec92539abbf8ab6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add1b4efa3cb17c393ec92539abbf8ab6">&#9670;&nbsp;</a></span>gfx_ScaledTransparentSprite_NoClip()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2803,7 +3211,7 @@ Length must be between 0-8 </dd></dl>
         <tr>
           <td class="memname">void gfx_ScaledTransparentSprite_NoClip </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
           <td class="paramname"><em>sprite</em>, </td>
         </tr>
         <tr>
@@ -2852,22 +3260,22 @@ Length must be between 0-8 </dd></dl>
 
 </div>
 </div>
-<a id="aeee10024080f2f21898f027f020e6609"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeee10024080f2f21898f027f020e6609">&#9670;&nbsp;</a></span>gfx_ScaleSprite()</h2>
+<a id="a31a6b1836e84765f3d11b1140c68fc0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31a6b1836e84765f3d11b1140c68fc0a">&#9670;&nbsp;</a></span>gfx_ScaleSprite()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structgfx__image__t.html">gfx_image_t</a>* gfx_ScaleSprite </td>
+          <td class="memname"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a>* gfx_ScaleSprite </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
           <td class="paramname"><em>sprite_in</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
           <td class="paramname"><em>sprite_out</em>&#160;</td>
         </tr>
         <tr>
@@ -3510,8 +3918,8 @@ Length must be between 0-8 </dd></dl>
 
 </div>
 </div>
-<a id="a5419e713ccbf3c0dc0758f5c602adbca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5419e713ccbf3c0dc0758f5c602adbca">&#9670;&nbsp;</a></span>gfx_Sprite()</h2>
+<a id="ad6fcffa182132792d19c375bb9267eee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6fcffa182132792d19c375bb9267eee">&#9670;&nbsp;</a></span>gfx_Sprite()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3519,7 +3927,7 @@ Length must be between 0-8 </dd></dl>
         <tr>
           <td class="memname">void gfx_Sprite </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
           <td class="paramname"><em>sprite</em>, </td>
         </tr>
         <tr>
@@ -3553,8 +3961,8 @@ Length must be between 0-8 </dd></dl>
 
 </div>
 </div>
-<a id="a8661c6928f183b831d190b76f479ea0d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8661c6928f183b831d190b76f479ea0d">&#9670;&nbsp;</a></span>gfx_Sprite_NoClip()</h2>
+<a id="abfbc718ce842586f0c67415a759521a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfbc718ce842586f0c67415a759521a6">&#9670;&nbsp;</a></span>gfx_Sprite_NoClip()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3562,7 +3970,7 @@ Length must be between 0-8 </dd></dl>
         <tr>
           <td class="memname">void gfx_Sprite_NoClip </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
           <td class="paramname"><em>sprite</em>, </td>
         </tr>
         <tr>
@@ -3790,8 +4198,8 @@ Length must be between 0-8 </dd></dl>
 
 </div>
 </div>
-<a id="afcffd9733baa6950397b16123138c770"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afcffd9733baa6950397b16123138c770">&#9670;&nbsp;</a></span>gfx_TransparentSprite()</h2>
+<a id="ad41e8bac03a9d55ca845622f897416f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad41e8bac03a9d55ca845622f897416f8">&#9670;&nbsp;</a></span>gfx_TransparentSprite()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3799,7 +4207,7 @@ Length must be between 0-8 </dd></dl>
         <tr>
           <td class="memname">void gfx_TransparentSprite </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
           <td class="paramname"><em>sprite</em>, </td>
         </tr>
         <tr>
@@ -3833,8 +4241,8 @@ Length must be between 0-8 </dd></dl>
 
 </div>
 </div>
-<a id="a9ad8d60604575e3007f58402e62cab54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ad8d60604575e3007f58402e62cab54">&#9670;&nbsp;</a></span>gfx_TransparentSprite_NoClip()</h2>
+<a id="a4a39a09f48ff1b059fda71ae076530f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a39a09f48ff1b059fda71ae076530f7">&#9670;&nbsp;</a></span>gfx_TransparentSprite_NoClip()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3842,7 +4250,7 @@ Length must be between 0-8 </dd></dl>
         <tr>
           <td class="memname">void gfx_TransparentSprite_NoClip </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structgfx__image__t.html">gfx_image_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
           <td class="paramname"><em>sprite</em>, </td>
         </tr>
         <tr>

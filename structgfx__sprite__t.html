@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>C Header Documentation: gfx_image_t Struct Reference</title>
+<title>C Header Documentation: gfx_sprite_t Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -72,35 +72,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle">
-<div class="title">gfx_image_t Struct Reference</div>  </div>
+<div class="title">gfx_sprite_t Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Defines an image type with which to create sprites.  
- <a href="structgfx__image__t.html#details">More...</a></p>
+<p>Sprite (image) type.  
+ <a href="structgfx__sprite__t.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="graphx_8h_source.html">graphx.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a5b3684be1ecce0b52524c007aa5b88dc"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgfx__image__t.html#a5b3684be1ecce0b52524c007aa5b88dc">width</a></td></tr>
-<tr class="separator:a5b3684be1ecce0b52524c007aa5b88dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5b6e7c4922caffdf59d0ea2b4008f78"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgfx__image__t.html#ac5b6e7c4922caffdf59d0ea2b4008f78">height</a></td></tr>
-<tr class="separator:ac5b6e7c4922caffdf59d0ea2b4008f78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a906cced9dea59ce15b44814488a30845"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgfx__image__t.html#a906cced9dea59ce15b44814488a30845">data</a> [1]</td></tr>
-<tr class="separator:a906cced9dea59ce15b44814488a30845"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c2835a8d10b855c322330edcedb96a9"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgfx__sprite__t.html#a5c2835a8d10b855c322330edcedb96a9">width</a></td></tr>
+<tr class="separator:a5c2835a8d10b855c322330edcedb96a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25b687d1d45d86e9ae29318f8f135cf4"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgfx__sprite__t.html#a25b687d1d45d86e9ae29318f8f135cf4">height</a></td></tr>
+<tr class="separator:a25b687d1d45d86e9ae29318f8f135cf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbaeef67c679b34129dd80814c77705a"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgfx__sprite__t.html#afbaeef67c679b34129dd80814c77705a">data</a> [1]</td></tr>
+<tr class="separator:afbaeef67c679b34129dd80814c77705a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Defines an image type with which to create sprites. </p>
+<div class="textblock"><p>Sprite (image) type. </p>
+<p>Whether or not a sprite includes transparency is not explicitly encoded, and is determined only by usage. If used with transparency, transparent pixels are those with a certain color index, which can be set with <a class="el" href="graphx_8h.html#a2de6c559177f25c8b469cef81b96de42">gfx_SetTransparentColor()</a>.</p>
+<dl class="section attention"><dt>Attention</dt><dd>Displaying a <a class="el" href="structgfx__rletsprite__t.html" title="Sprite (image) type with RLE transparency. ">gfx_rletsprite_t</a> (which includes transparency) is significantly faster than displaying a <a class="el" href="structgfx__sprite__t.html" title="Sprite (image) type. ">gfx_sprite_t</a> with transparency, and should be preferred. However, <a class="el" href="structgfx__rletsprite__t.html" title="Sprite (image) type with RLE transparency. ">gfx_rletsprite_t</a> does not support transformations, such as flipping and rotation. Such transformations can be applied to a <a class="el" href="structgfx__sprite__t.html" title="Sprite (image) type. ">gfx_sprite_t</a>, which can then be converted to a <a class="el" href="structgfx__rletsprite__t.html" title="Sprite (image) type with RLE transparency. ">gfx_rletsprite_t</a> for faster display using <a class="el" href="graphx_8h.html#ae7f27ad7ae83cab2f30582c2df711caa">gfx_ConvertToNewRLETSprite()</a> or <a class="el" href="graphx_8h.html#a0c44bd4f12f482fa7343e9fd7edc1237">gfx_ConvertToRLETSprite()</a>.</dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>Create at compile-time with a tool like <a href="https://github.com/MattWaltz/convpng" target="_blank">convpng</a>. Create at runtime (with uninitialized data) with <a class="el" href="graphx_8h.html#add09e11cb2d5b761ea1b336c07d9283e">gfx_MallocSprite()</a>, <a class="el" href="graphx_8h.html#aec1bf1b311dee9f387931b37db5ec5f0">gfx_UninitedSprite()</a>, or <a class="el" href="graphx_8h.html#ad95d6ddd408bb6c0fad041353da0d7ea">gfx_TempSprite()</a>. </dd></dl>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a id="a906cced9dea59ce15b44814488a30845"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a906cced9dea59ce15b44814488a30845">&#9670;&nbsp;</a></span>data</h2>
+<a id="afbaeef67c679b34129dd80814c77705a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbaeef67c679b34129dd80814c77705a">&#9670;&nbsp;</a></span>data</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t gfx_image_t::data[1]</td>
+          <td class="memname">uint8_t gfx_sprite_t::data[1]</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -108,14 +111,14 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="ac5b6e7c4922caffdf59d0ea2b4008f78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5b6e7c4922caffdf59d0ea2b4008f78">&#9670;&nbsp;</a></span>height</h2>
+<a id="a25b687d1d45d86e9ae29318f8f135cf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25b687d1d45d86e9ae29318f8f135cf4">&#9670;&nbsp;</a></span>height</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t gfx_image_t::height</td>
+          <td class="memname">uint8_t gfx_sprite_t::height</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -123,14 +126,14 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a5b3684be1ecce0b52524c007aa5b88dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b3684be1ecce0b52524c007aa5b88dc">&#9670;&nbsp;</a></span>width</h2>
+<a id="a5c2835a8d10b855c322330edcedb96a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c2835a8d10b855c322330edcedb96a9">&#9670;&nbsp;</a></span>width</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t gfx_image_t::width</td>
+          <td class="memname">uint8_t gfx_sprite_t::width</td>
         </tr>
       </table>
 </div><div class="memdoc">

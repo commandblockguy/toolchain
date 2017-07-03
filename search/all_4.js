@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['data',['data',['../structgfx__image__t.html#a906cced9dea59ce15b44814488a30845',1,'gfx_image_t']]],
+  ['data',['data',['../structgfx__sprite__t.html#afbaeef67c679b34129dd80814c77705a',1,'gfx_sprite_t::data()'],['../structgfx__rletsprite__t.html#a66f60be1317945414d120b0690332f2a',1,'gfx_rletsprite_t::data()']]],
   ['dbg_5fdebugger',['dbg_Debugger',['../debug_8h.html#a3245673c197b0ab1e4feeb16abae2bad',1,'debug.h']]],
   ['dbg_5fremoveallbreakpoints',['dbg_RemoveAllBreakpoints',['../debug_8h.html#a025e089e232f5e367ca503c32e3d96b3',1,'debug.h']]],
   ['dbg_5fremoveallwatchpoints',['dbg_RemoveAllWatchpoints',['../debug_8h.html#a35424dba4a5032cbd43a829b4a775436',1,'debug.h']]],
@@ -14,6 +14,7 @@ var searchData=
   ['dbg_5fsprintf',['dbg_sprintf',['../debug_8h.html#a5f4f8b75f3b0c363a9493d099ef15aa1',1,'debug.h']]],
   ['debug_2eh',['debug.h',['../debug_8h.html',1,'']]],
   ['decompress_2eh',['decompress.h',['../decompress_8h.html',1,'']]],
+  ['delay',['delay',['../tice_8h.html#acfd12579679c85d5f1c716509b2587f6',1,'tice.h']]],
   ['draw_5fheight',['draw_height',['../structgfx__tilemap__t.html#a5dd664c5691e669782e067cbe6ba0ad8',1,'gfx_tilemap_t']]],
   ['draw_5fwidth',['draw_width',['../structgfx__tilemap__t.html#a15929def589462587871049ab6ce4e98',1,'gfx_tilemap_t']]],
   ['dzx7_5fstandard',['dzx7_Standard',['../decompress_8h.html#a9f3e6d13cfc6d576ea0f67395059e243',1,'decompress.h']]],
