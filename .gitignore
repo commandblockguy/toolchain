@@ -2,9 +2,10 @@
 tools/
 src/
 examples/
-*.md
+latex/
 license
 makefile
+*.md
 
 # Object files
 *.o
