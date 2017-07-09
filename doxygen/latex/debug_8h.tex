@@ -1,0 +1,218 @@
+\hypertarget{debug_8h}{}\subsection{debug.\+h File Reference}
+\label{debug_8h}\index{debug.\+h@{debug.\+h}}
+
+
+Contains useful debugging features for use with the integrated C\+Emu debugger.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\subsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{debug_8h_a3245673c197b0ab1e4feeb16abae2bad}{dbg\+\_\+\+Debugger}
+\begin{DoxyCompactList}\small\item\em Opens the debugger. \end{DoxyCompactList}\item 
+\#define \hyperlink{debug_8h_a8970c49ac2843ac74ec398ff029c0d8d}{dbg\+\_\+\+Set\+Breakpoint}
+\begin{DoxyCompactList}\small\item\em Sets a breakpoint at a particular address in an emulator. \end{DoxyCompactList}\item 
+\#define \hyperlink{debug_8h_ae6502f7273d955779dbf199da1a66201}{dbg\+\_\+\+Remove\+Breakpoint}
+\begin{DoxyCompactList}\small\item\em Removes a breakpoint at a particular address in an emulator. \end{DoxyCompactList}\item 
+\#define \hyperlink{debug_8h_a59849f472a89203d64eab8e1e1d5cc56}{dbg\+\_\+\+Set\+Watchpoint}
+\begin{DoxyCompactList}\small\item\em Sets a non-\/breaking watchpoint at a particular address in an emulator. \end{DoxyCompactList}\item 
+\#define \hyperlink{debug_8h_a2a50486b1164d1ee82c326db9e2ee973}{dbg\+\_\+\+Set\+Read\+Watchpoint}
+\begin{DoxyCompactList}\small\item\em Sets a read watchpoint at a particular address in an emulator. \end{DoxyCompactList}\item 
+\#define \hyperlink{debug_8h_aafeda01e7a6c07c4271ccca2e55be341}{dbg\+\_\+\+Set\+Write\+Watchpoint}
+\begin{DoxyCompactList}\small\item\em Sets a write watchpoint at a particular address in an emulator. \end{DoxyCompactList}\item 
+\#define \hyperlink{debug_8h_acbb02acb53cda2d95cce2d1ea7ecef76}{dbg\+\_\+\+Set\+Read\+Write\+Watchpoint}
+\begin{DoxyCompactList}\small\item\em Sets a read and write watchpoint at a particular address in an emulator. \end{DoxyCompactList}\item 
+\#define \hyperlink{debug_8h_a00f40d91a410a6f77754d2623bf232b7}{dbg\+\_\+\+Remove\+Watchpoint}
+\begin{DoxyCompactList}\small\item\em Removes a watchpoint at a particular address in an emulator. \end{DoxyCompactList}\item 
+\#define \hyperlink{debug_8h_a35424dba4a5032cbd43a829b4a775436}{dbg\+\_\+\+Remove\+All\+Watchpoints}
+\begin{DoxyCompactList}\small\item\em Removes all watchpoints in an emulator. \end{DoxyCompactList}\item 
+\#define \hyperlink{debug_8h_a025e089e232f5e367ca503c32e3d96b3}{dbg\+\_\+\+Remove\+All\+Breakpoints}
+\begin{DoxyCompactList}\small\item\em Removes all breakpoints in an emulator. \end{DoxyCompactList}\item 
+\#define \hyperlink{debug_8h_a5f4f8b75f3b0c363a9493d099ef15aa1}{dbg\+\_\+sprintf}
+\begin{DoxyCompactList}\small\item\em Use to print to the emulator console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Contains useful debugging features for use with the integrated C\+Emu debugger. 
+
+\begin{DoxyAuthor}{Author}
+Matt \char`\"{}\+Mateo\+Con\+Lechuga\char`\"{} Waltz 
+\end{DoxyAuthor}
+
+
+\subsubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{debug_8h_a3245673c197b0ab1e4feeb16abae2bad}\label{debug_8h_a3245673c197b0ab1e4feeb16abae2bad}} 
+\index{debug.\+h@{debug.\+h}!dbg\+\_\+\+Debugger@{dbg\+\_\+\+Debugger}}
+\index{dbg\+\_\+\+Debugger@{dbg\+\_\+\+Debugger}!debug.\+h@{debug.\+h}}
+\paragraph{\texorpdfstring{dbg\+\_\+\+Debugger}{dbg\_Debugger}}
+{\footnotesize\ttfamily \#define dbg\+\_\+\+Debugger}
+
+
+
+Opens the debugger. 
+
+void \hyperlink{debug_8h_a3245673c197b0ab1e4feeb16abae2bad}{dbg\+\_\+\+Debugger(void)} \mbox{\Hypertarget{debug_8h_a025e089e232f5e367ca503c32e3d96b3}\label{debug_8h_a025e089e232f5e367ca503c32e3d96b3}} 
+\index{debug.\+h@{debug.\+h}!dbg\+\_\+\+Remove\+All\+Breakpoints@{dbg\+\_\+\+Remove\+All\+Breakpoints}}
+\index{dbg\+\_\+\+Remove\+All\+Breakpoints@{dbg\+\_\+\+Remove\+All\+Breakpoints}!debug.\+h@{debug.\+h}}
+\paragraph{\texorpdfstring{dbg\+\_\+\+Remove\+All\+Breakpoints}{dbg\_RemoveAllBreakpoints}}
+{\footnotesize\ttfamily \#define dbg\+\_\+\+Remove\+All\+Breakpoints}
+
+
+
+Removes all breakpoints in an emulator. 
+
+void \hyperlink{debug_8h_a025e089e232f5e367ca503c32e3d96b3}{dbg\+\_\+\+Remove\+All\+Breakpoints(void)} \mbox{\Hypertarget{debug_8h_a35424dba4a5032cbd43a829b4a775436}\label{debug_8h_a35424dba4a5032cbd43a829b4a775436}} 
+\index{debug.\+h@{debug.\+h}!dbg\+\_\+\+Remove\+All\+Watchpoints@{dbg\+\_\+\+Remove\+All\+Watchpoints}}
+\index{dbg\+\_\+\+Remove\+All\+Watchpoints@{dbg\+\_\+\+Remove\+All\+Watchpoints}!debug.\+h@{debug.\+h}}
+\paragraph{\texorpdfstring{dbg\+\_\+\+Remove\+All\+Watchpoints}{dbg\_RemoveAllWatchpoints}}
+{\footnotesize\ttfamily \#define dbg\+\_\+\+Remove\+All\+Watchpoints}
+
+
+
+Removes all watchpoints in an emulator. 
+
+void \hyperlink{debug_8h_a35424dba4a5032cbd43a829b4a775436}{dbg\+\_\+\+Remove\+All\+Watchpoints(void)} \mbox{\Hypertarget{debug_8h_ae6502f7273d955779dbf199da1a66201}\label{debug_8h_ae6502f7273d955779dbf199da1a66201}} 
+\index{debug.\+h@{debug.\+h}!dbg\+\_\+\+Remove\+Breakpoint@{dbg\+\_\+\+Remove\+Breakpoint}}
+\index{dbg\+\_\+\+Remove\+Breakpoint@{dbg\+\_\+\+Remove\+Breakpoint}!debug.\+h@{debug.\+h}}
+\paragraph{\texorpdfstring{dbg\+\_\+\+Remove\+Breakpoint}{dbg\_RemoveBreakpoint}}
+{\footnotesize\ttfamily \#define dbg\+\_\+\+Remove\+Breakpoint}
+
+
+
+Removes a breakpoint at a particular address in an emulator. 
+
+void \hyperlink{debug_8h_ae6502f7273d955779dbf199da1a66201}{dbg\+\_\+\+Remove\+Breakpoint(void $\ast$address)}
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The address of the breakpoint to remove \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{debug_8h_a00f40d91a410a6f77754d2623bf232b7}\label{debug_8h_a00f40d91a410a6f77754d2623bf232b7}} 
+\index{debug.\+h@{debug.\+h}!dbg\+\_\+\+Remove\+Watchpoint@{dbg\+\_\+\+Remove\+Watchpoint}}
+\index{dbg\+\_\+\+Remove\+Watchpoint@{dbg\+\_\+\+Remove\+Watchpoint}!debug.\+h@{debug.\+h}}
+\paragraph{\texorpdfstring{dbg\+\_\+\+Remove\+Watchpoint}{dbg\_RemoveWatchpoint}}
+{\footnotesize\ttfamily \#define dbg\+\_\+\+Remove\+Watchpoint}
+
+
+
+Removes a watchpoint at a particular address in an emulator. 
+
+void \hyperlink{debug_8h_a00f40d91a410a6f77754d2623bf232b7}{dbg\+\_\+\+Remove\+Watchpoint(void $\ast$address)}
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The address of the watchpoint to remove \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{debug_8h_a8970c49ac2843ac74ec398ff029c0d8d}\label{debug_8h_a8970c49ac2843ac74ec398ff029c0d8d}} 
+\index{debug.\+h@{debug.\+h}!dbg\+\_\+\+Set\+Breakpoint@{dbg\+\_\+\+Set\+Breakpoint}}
+\index{dbg\+\_\+\+Set\+Breakpoint@{dbg\+\_\+\+Set\+Breakpoint}!debug.\+h@{debug.\+h}}
+\paragraph{\texorpdfstring{dbg\+\_\+\+Set\+Breakpoint}{dbg\_SetBreakpoint}}
+{\footnotesize\ttfamily \#define dbg\+\_\+\+Set\+Breakpoint}
+
+
+
+Sets a breakpoint at a particular address in an emulator. 
+
+void \hyperlink{debug_8h_a8970c49ac2843ac74ec398ff029c0d8d}{dbg\+\_\+\+Set\+Breakpoint(void $\ast$address)}
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The address of the breakpoint to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{debug_8h_a2a50486b1164d1ee82c326db9e2ee973}\label{debug_8h_a2a50486b1164d1ee82c326db9e2ee973}} 
+\index{debug.\+h@{debug.\+h}!dbg\+\_\+\+Set\+Read\+Watchpoint@{dbg\+\_\+\+Set\+Read\+Watchpoint}}
+\index{dbg\+\_\+\+Set\+Read\+Watchpoint@{dbg\+\_\+\+Set\+Read\+Watchpoint}!debug.\+h@{debug.\+h}}
+\paragraph{\texorpdfstring{dbg\+\_\+\+Set\+Read\+Watchpoint}{dbg\_SetReadWatchpoint}}
+{\footnotesize\ttfamily \#define dbg\+\_\+\+Set\+Read\+Watchpoint}
+
+
+
+Sets a read watchpoint at a particular address in an emulator. 
+
+void \hyperlink{debug_8h_a2a50486b1164d1ee82c326db9e2ee973}{dbg\+\_\+\+Set\+Read\+Watchpoint(void $\ast$address, unsigned length)}
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The address of the watchpoint to set \\
+\hline
+{\em length} & The size of the data at the address (values 1-\/4) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{debug_8h_acbb02acb53cda2d95cce2d1ea7ecef76}\label{debug_8h_acbb02acb53cda2d95cce2d1ea7ecef76}} 
+\index{debug.\+h@{debug.\+h}!dbg\+\_\+\+Set\+Read\+Write\+Watchpoint@{dbg\+\_\+\+Set\+Read\+Write\+Watchpoint}}
+\index{dbg\+\_\+\+Set\+Read\+Write\+Watchpoint@{dbg\+\_\+\+Set\+Read\+Write\+Watchpoint}!debug.\+h@{debug.\+h}}
+\paragraph{\texorpdfstring{dbg\+\_\+\+Set\+Read\+Write\+Watchpoint}{dbg\_SetReadWriteWatchpoint}}
+{\footnotesize\ttfamily \#define dbg\+\_\+\+Set\+Read\+Write\+Watchpoint}
+
+
+
+Sets a read and write watchpoint at a particular address in an emulator. 
+
+void \hyperlink{debug_8h_acbb02acb53cda2d95cce2d1ea7ecef76}{dbg\+\_\+\+Set\+Read\+Write\+Watchpoint(void $\ast$address, unsigned length)}
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The address of the watchpoint to set \\
+\hline
+{\em length} & The size of the data at the address (values 1-\/4) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{debug_8h_a59849f472a89203d64eab8e1e1d5cc56}\label{debug_8h_a59849f472a89203d64eab8e1e1d5cc56}} 
+\index{debug.\+h@{debug.\+h}!dbg\+\_\+\+Set\+Watchpoint@{dbg\+\_\+\+Set\+Watchpoint}}
+\index{dbg\+\_\+\+Set\+Watchpoint@{dbg\+\_\+\+Set\+Watchpoint}!debug.\+h@{debug.\+h}}
+\paragraph{\texorpdfstring{dbg\+\_\+\+Set\+Watchpoint}{dbg\_SetWatchpoint}}
+{\footnotesize\ttfamily \#define dbg\+\_\+\+Set\+Watchpoint}
+
+
+
+Sets a non-\/breaking watchpoint at a particular address in an emulator. 
+
+void \hyperlink{debug_8h_a59849f472a89203d64eab8e1e1d5cc56}{dbg\+\_\+\+Set\+Watchpoint(void $\ast$address, unsigned length)}
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The address of the watchpoint to set \\
+\hline
+{\em length} & The size of the data at the address (values 1-\/4) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{debug_8h_aafeda01e7a6c07c4271ccca2e55be341}\label{debug_8h_aafeda01e7a6c07c4271ccca2e55be341}} 
+\index{debug.\+h@{debug.\+h}!dbg\+\_\+\+Set\+Write\+Watchpoint@{dbg\+\_\+\+Set\+Write\+Watchpoint}}
+\index{dbg\+\_\+\+Set\+Write\+Watchpoint@{dbg\+\_\+\+Set\+Write\+Watchpoint}!debug.\+h@{debug.\+h}}
+\paragraph{\texorpdfstring{dbg\+\_\+\+Set\+Write\+Watchpoint}{dbg\_SetWriteWatchpoint}}
+{\footnotesize\ttfamily \#define dbg\+\_\+\+Set\+Write\+Watchpoint}
+
+
+
+Sets a write watchpoint at a particular address in an emulator. 
+
+void \hyperlink{debug_8h_aafeda01e7a6c07c4271ccca2e55be341}{dbg\+\_\+\+Set\+Write\+Watchpoint(void $\ast$address, unsigned length)}
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The address of the watchpoint to set \\
+\hline
+{\em length} & The size of the data at the address (values 1-\/4) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{debug_8h_a5f4f8b75f3b0c363a9493d099ef15aa1}\label{debug_8h_a5f4f8b75f3b0c363a9493d099ef15aa1}} 
+\index{debug.\+h@{debug.\+h}!dbg\+\_\+sprintf@{dbg\+\_\+sprintf}}
+\index{dbg\+\_\+sprintf@{dbg\+\_\+sprintf}!debug.\+h@{debug.\+h}}
+\paragraph{\texorpdfstring{dbg\+\_\+sprintf}{dbg\_sprintf}}
+{\footnotesize\ttfamily \#define dbg\+\_\+sprintf}
+
+
+
+Use to print to the emulator console. 
+
+void dbg\+\_\+sprintf(out, const char$\ast$, ...)
+
+See the syntax for \textquotesingle{}printf\textquotesingle{} for more information 
+\begin{DoxyParams}{Parameters}
+{\em out} & Can be dbgout (black) or dbgerr (red) \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,79 @@
+\hypertarget{usb_8h}{}\subsection{usb.\+h File Reference}
+\label{usb_8h}\index{usb.\+h@{usb.\+h}}
+
+
+U\+SB communication routines.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{usb_8h_ae573cc0a1707a49e9c7b2b08718f712c}{usb\+\_\+\+Bus\+Powered} (void)
+\item 
+bool \hyperlink{usb_8h_ad2c2ce0762bed4658a68f7a551ce3dba}{usb\+\_\+\+Self\+Powered} (void)
+\item 
+void \hyperlink{usb_8h_aacee721934de9bf54de441f080dc03a9}{usb\+\_\+\+Reset\+Chip} (void)
+\item 
+void \hyperlink{usb_8h_ad87ec8370e24060eee72e9e94666b668}{usb\+\_\+\+Disable\+Timers} (void)
+\item 
+void \hyperlink{usb_8h_ab539b46c770eccd16ac09e328ea3ec5c}{usb\+\_\+\+Enable\+Timers} (void)
+\item 
+void \hyperlink{usb_8h_a129031265fb9b1e638b92932c29e0ed4}{usb\+\_\+\+Reset\+Timers} (void)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+U\+SB communication routines. 
+
+\begin{DoxyAuthor}{Authors}
+Matt \char`\"{}\+Mateo\+Con\+Lechuga\char`\"{} Waltz 
+
+Jacob \char`\"{}jacobly\char`\"{} Young 
+\end{DoxyAuthor}
+
+
+\subsubsection{Function Documentation}
+\mbox{\Hypertarget{usb_8h_ae573cc0a1707a49e9c7b2b08718f712c}\label{usb_8h_ae573cc0a1707a49e9c7b2b08718f712c}} 
+\index{usb.\+h@{usb.\+h}!usb\+\_\+\+Bus\+Powered@{usb\+\_\+\+Bus\+Powered}}
+\index{usb\+\_\+\+Bus\+Powered@{usb\+\_\+\+Bus\+Powered}!usb.\+h@{usb.\+h}}
+\paragraph{\texorpdfstring{usb\+\_\+\+Bus\+Powered()}{usb\_BusPowered()}}
+{\footnotesize\ttfamily bool usb\+\_\+\+Bus\+Powered (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+True if the usb bus line is powered, i.\+e. connected to a another calc 
+\end{DoxyReturn}
+\mbox{\Hypertarget{usb_8h_ad87ec8370e24060eee72e9e94666b668}\label{usb_8h_ad87ec8370e24060eee72e9e94666b668}} 
+\index{usb.\+h@{usb.\+h}!usb\+\_\+\+Disable\+Timers@{usb\+\_\+\+Disable\+Timers}}
+\index{usb\+\_\+\+Disable\+Timers@{usb\+\_\+\+Disable\+Timers}!usb.\+h@{usb.\+h}}
+\paragraph{\texorpdfstring{usb\+\_\+\+Disable\+Timers()}{usb\_DisableTimers()}}
+{\footnotesize\ttfamily void usb\+\_\+\+Disable\+Timers (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Disables the usb timer interrupt (timer 3) \mbox{\Hypertarget{usb_8h_ab539b46c770eccd16ac09e328ea3ec5c}\label{usb_8h_ab539b46c770eccd16ac09e328ea3ec5c}} 
+\index{usb.\+h@{usb.\+h}!usb\+\_\+\+Enable\+Timers@{usb\+\_\+\+Enable\+Timers}}
+\index{usb\+\_\+\+Enable\+Timers@{usb\+\_\+\+Enable\+Timers}!usb.\+h@{usb.\+h}}
+\paragraph{\texorpdfstring{usb\+\_\+\+Enable\+Timers()}{usb\_EnableTimers()}}
+{\footnotesize\ttfamily void usb\+\_\+\+Enable\+Timers (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Enables the usb timer interrupt (timer 3) \mbox{\Hypertarget{usb_8h_aacee721934de9bf54de441f080dc03a9}\label{usb_8h_aacee721934de9bf54de441f080dc03a9}} 
+\index{usb.\+h@{usb.\+h}!usb\+\_\+\+Reset\+Chip@{usb\+\_\+\+Reset\+Chip}}
+\index{usb\+\_\+\+Reset\+Chip@{usb\+\_\+\+Reset\+Chip}!usb.\+h@{usb.\+h}}
+\paragraph{\texorpdfstring{usb\+\_\+\+Reset\+Chip()}{usb\_ResetChip()}}
+{\footnotesize\ttfamily void usb\+\_\+\+Reset\+Chip (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Resets the usb controller chip \mbox{\Hypertarget{usb_8h_a129031265fb9b1e638b92932c29e0ed4}\label{usb_8h_a129031265fb9b1e638b92932c29e0ed4}} 
+\index{usb.\+h@{usb.\+h}!usb\+\_\+\+Reset\+Timers@{usb\+\_\+\+Reset\+Timers}}
+\index{usb\+\_\+\+Reset\+Timers@{usb\+\_\+\+Reset\+Timers}!usb.\+h@{usb.\+h}}
+\paragraph{\texorpdfstring{usb\+\_\+\+Reset\+Timers()}{usb\_ResetTimers()}}
+{\footnotesize\ttfamily void usb\+\_\+\+Reset\+Timers (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Resets the usb timer interrupt (timer 3) \mbox{\Hypertarget{usb_8h_ad2c2ce0762bed4658a68f7a551ce3dba}\label{usb_8h_ad2c2ce0762bed4658a68f7a551ce3dba}} 
+\index{usb.\+h@{usb.\+h}!usb\+\_\+\+Self\+Powered@{usb\+\_\+\+Self\+Powered}}
+\index{usb\+\_\+\+Self\+Powered@{usb\+\_\+\+Self\+Powered}!usb.\+h@{usb.\+h}}
+\paragraph{\texorpdfstring{usb\+\_\+\+Self\+Powered()}{usb\_SelfPowered()}}
+{\footnotesize\ttfamily bool usb\+\_\+\+Self\+Powered (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+True if the usb is self powered 
+\end{DoxyReturn}

@@ -1,0 +1,658 @@
+\hypertarget{fileioc_8h}{}\subsection{fileioc.\+h File Reference}
+\label{fileioc_8h}\index{fileioc.\+h@{fileioc.\+h}}
+
+
+Implements variable reading and writing routines.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$tice.\+h$>$}\newline
+\subsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{fileioc_8h_ab110aae235a51761234627502a7650f4}{ti\+\_\+\+Malloc\+Real}()
+\item 
+\#define \hyperlink{fileioc_8h_a957b019beae37acf80108e1bac3e2c17}{ti\+\_\+\+Malloc\+Cplx}()
+\item 
+\#define \hyperlink{fileioc_8h_aa9d259056c67884d8e9a7f30ba9bf535}{ti\+\_\+\+Malloc\+String}(len)
+\item 
+\#define \hyperlink{fileioc_8h_a77fbbc5586c498bcccf73b130618522c}{ti\+\_\+\+Malloc\+List}(dim)
+\item 
+\#define \hyperlink{fileioc_8h_acb6dc9a4c914da38f1c5cb70f63349c8}{ti\+\_\+\+Malloc\+Matrix}(rows,  cols)
+\item 
+\#define \hyperlink{fileioc_8h_a68a8f269eb09ca7de947dd395f9876f4}{ti\+\_\+\+Malloc\+Cplx\+List}(dim)
+\item 
+\#define \hyperlink{fileioc_8h_a19829b25dd3e105054b9856ebbcf78e0}{ti\+\_\+\+Malloc\+Equ}(len)
+\end{DoxyCompactItemize}
+\subsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}\label{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}} 
+typedef uint8\+\_\+t \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Variable slot type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{fileioc_8h_a2a9a88c6c2200809894fdab31ffef226}{ti\+\_\+\+Close\+All} (void)
+\item 
+\hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t} \hyperlink{fileioc_8h_a2842e9d72ce53bca7b41c22838881775}{ti\+\_\+\+Open} (const char $\ast$name, const char $\ast$mode)
+\item 
+\hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t} \hyperlink{fileioc_8h_a75e6644985670553ff3e479d61ec788b}{ti\+\_\+\+Open\+Var} (const char $\ast$varname, const char $\ast$mode, uint8\+\_\+t type)
+\item 
+int \hyperlink{fileioc_8h_a939e6eb809618c4dc4bdf0e9e12838fa}{ti\+\_\+\+Close} (const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t} slot)
+\item 
+char $\ast$ \hyperlink{fileioc_8h_a8ab3898aa9f1d56ebf783816e3ce0e17}{ti\+\_\+\+Detect} (void $\ast$$\ast$curr\+\_\+search\+\_\+posistion, const char $\ast$detection\+\_\+string)
+\item 
+char $\ast$ \hyperlink{fileioc_8h_aaa4c5a6c019de1510fac2a6bfa9269c7}{ti\+\_\+\+Detect\+Var} (void $\ast$$\ast$curr\+\_\+search\+\_\+posistion, const char $\ast$detection\+\_\+string, uint8\+\_\+t var\+\_\+type)
+\item 
+size\+\_\+t \hyperlink{fileioc_8h_a77a62881f0d97425482ce3b49efd683e}{ti\+\_\+\+Write} (const void $\ast$data, size\+\_\+t size, size\+\_\+t count, const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t} slot)
+\item 
+size\+\_\+t \hyperlink{fileioc_8h_a69e606ae891de24dc0d9331b7bd52085}{ti\+\_\+\+Read} (const void $\ast$data, size\+\_\+t size, size\+\_\+t count, const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t} slot)
+\item 
+int \hyperlink{fileioc_8h_a5e4f8e1c166bd14e339c8d8457419343}{ti\+\_\+\+PutC} (const char c, const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t} slot)
+\item 
+int \hyperlink{fileioc_8h_a6388c3a5a6e7134de97b308df1f8f40e}{ti\+\_\+\+GetC} (const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t} slot)
+\item 
+int \hyperlink{fileioc_8h_aeade963f1ba3ee1cdd09522fb8215cc6}{ti\+\_\+\+Seek} (int offset, unsigned int origin, const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t} slot)
+\item 
+int \hyperlink{fileioc_8h_ae13786d7a50cfa328291102d024d1998}{ti\+\_\+\+Rewind} (const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t} slot)
+\item 
+uint16\+\_\+t \hyperlink{fileioc_8h_a33f35c518ff3e533caa9ff2c03c68e80}{ti\+\_\+\+Tell} (const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t} slot)
+\item 
+uint16\+\_\+t \hyperlink{fileioc_8h_a52e4f847fe66929ccfa14ab52bcf80c1}{ti\+\_\+\+Get\+Size} (const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t} slot)
+\item 
+int \hyperlink{fileioc_8h_a226c894f6a87148634b2a06314f96e8c}{ti\+\_\+\+Resize} (size\+\_\+t new\+\_\+size, const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t} slot)
+\item 
+int \hyperlink{fileioc_8h_a856864cab001e242c56aa00a962bf2e3}{ti\+\_\+\+Is\+Archived} (const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t} slot)
+\item 
+int \hyperlink{fileioc_8h_aa5138d0e2a0a9e78cc1153df1a8cf36c}{ti\+\_\+\+Set\+Archive\+Status} (bool archived, const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t} slot)
+\item 
+int \hyperlink{fileioc_8h_a226e1d9967372ee94b9d4dbd53dcc72a}{ti\+\_\+\+Delete} (const char $\ast$name)
+\item 
+int \hyperlink{fileioc_8h_ab1cac356bc4d7a03f7f17b33c66ab496}{ti\+\_\+\+Delete\+Var} (const char $\ast$varname, uint8\+\_\+t type)
+\item 
+char $\ast$ \hyperlink{fileioc_8h_a0fc4887847703e0eba433e28065833b4}{ti\+\_\+\+Get\+Token\+String} (void $\ast$$\ast$read\+\_\+pointer, uint8\+\_\+t $\ast$length\+\_\+of\+\_\+token, unsigned int $\ast$length\+\_\+of\+\_\+string)
+\item 
+void $\ast$ \hyperlink{fileioc_8h_afe953ef410b48c76d7ac1ea7e4ee7148}{ti\+\_\+\+Get\+Data\+Ptr} (const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t} slot)
+\item 
+uint8\+\_\+t \hyperlink{fileioc_8h_a2c3d4f47d22e805d679cbacc0293cb8b}{ti\+\_\+\+Set\+Var} (const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t} var\+\_\+type, const char $\ast$name, void $\ast$data)
+\item 
+uint8\+\_\+t \hyperlink{fileioc_8h_a747cc0d2bb36c7c52f7acff10da3a3f0}{ti\+\_\+\+Sto\+Var} (const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t} var\+\_\+type\+\_\+to, void $\ast$to, const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t} var\+\_\+type\+\_\+from, void $\ast$from)
+\item 
+uint8\+\_\+t \hyperlink{fileioc_8h_ab568cd59ad586f34b6a36b0d80c7b0f6}{ti\+\_\+\+Rcl\+Var} (const uint8\+\_\+t var\+\_\+type, const char $\ast$var\+\_\+name, void $\ast$$\ast$data\+\_\+struct)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Implements variable reading and writing routines. 
+
+\begin{DoxyAuthor}{Author}
+Matt \char`\"{}\+Mateo\+Con\+Lechuga\char`\"{} Waltz 
+\end{DoxyAuthor}
+
+
+\subsubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{fileioc_8h_a957b019beae37acf80108e1bac3e2c17}\label{fileioc_8h_a957b019beae37acf80108e1bac3e2c17}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Malloc\+Cplx@{ti\+\_\+\+Malloc\+Cplx}}
+\index{ti\+\_\+\+Malloc\+Cplx@{ti\+\_\+\+Malloc\+Cplx}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Malloc\+Cplx}{ti\_MallocCplx}}
+{\footnotesize\ttfamily \#define ti\+\_\+\+Malloc\+Cplx(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Allocates space for a complex variable \begin{DoxyReturn}{Returns}
+Pointer to variable 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileioc_8h_a68a8f269eb09ca7de947dd395f9876f4}\label{fileioc_8h_a68a8f269eb09ca7de947dd395f9876f4}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Malloc\+Cplx\+List@{ti\+\_\+\+Malloc\+Cplx\+List}}
+\index{ti\+\_\+\+Malloc\+Cplx\+List@{ti\+\_\+\+Malloc\+Cplx\+List}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Malloc\+Cplx\+List}{ti\_MallocCplxList}}
+{\footnotesize\ttfamily \#define ti\+\_\+\+Malloc\+Cplx\+List(\begin{DoxyParamCaption}\item[{}]{dim }\end{DoxyParamCaption})}
+
+Allocates space for a complex list variable 
+\begin{DoxyParams}{Parameters}
+{\em dim} & Dimension of complex list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to variable 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileioc_8h_a19829b25dd3e105054b9856ebbcf78e0}\label{fileioc_8h_a19829b25dd3e105054b9856ebbcf78e0}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Malloc\+Equ@{ti\+\_\+\+Malloc\+Equ}}
+\index{ti\+\_\+\+Malloc\+Equ@{ti\+\_\+\+Malloc\+Equ}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Malloc\+Equ}{ti\_MallocEqu}}
+{\footnotesize\ttfamily \#define ti\+\_\+\+Malloc\+Equ(\begin{DoxyParamCaption}\item[{}]{len }\end{DoxyParamCaption})}
+
+Allocates space for an equation variable 
+\begin{DoxyParams}{Parameters}
+{\em len} & Length of equation variable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to variable 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileioc_8h_a77fbbc5586c498bcccf73b130618522c}\label{fileioc_8h_a77fbbc5586c498bcccf73b130618522c}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Malloc\+List@{ti\+\_\+\+Malloc\+List}}
+\index{ti\+\_\+\+Malloc\+List@{ti\+\_\+\+Malloc\+List}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Malloc\+List}{ti\_MallocList}}
+{\footnotesize\ttfamily \#define ti\+\_\+\+Malloc\+List(\begin{DoxyParamCaption}\item[{}]{dim }\end{DoxyParamCaption})}
+
+Allocates space for a list variable 
+\begin{DoxyParams}{Parameters}
+{\em dim} & Dimension of list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to variable 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileioc_8h_acb6dc9a4c914da38f1c5cb70f63349c8}\label{fileioc_8h_acb6dc9a4c914da38f1c5cb70f63349c8}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Malloc\+Matrix@{ti\+\_\+\+Malloc\+Matrix}}
+\index{ti\+\_\+\+Malloc\+Matrix@{ti\+\_\+\+Malloc\+Matrix}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Malloc\+Matrix}{ti\_MallocMatrix}}
+{\footnotesize\ttfamily \#define ti\+\_\+\+Malloc\+Matrix(\begin{DoxyParamCaption}\item[{}]{rows,  }\item[{}]{cols }\end{DoxyParamCaption})}
+
+Allocates space for a matrix variable 
+\begin{DoxyParams}{Parameters}
+{\em rows} & Rows in matrix \\
+\hline
+{\em cols} & Columns in matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to variable 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileioc_8h_ab110aae235a51761234627502a7650f4}\label{fileioc_8h_ab110aae235a51761234627502a7650f4}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Malloc\+Real@{ti\+\_\+\+Malloc\+Real}}
+\index{ti\+\_\+\+Malloc\+Real@{ti\+\_\+\+Malloc\+Real}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Malloc\+Real}{ti\_MallocReal}}
+{\footnotesize\ttfamily \#define ti\+\_\+\+Malloc\+Real(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Allocates space for a real variable \begin{DoxyReturn}{Returns}
+Pointer to variable 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileioc_8h_aa9d259056c67884d8e9a7f30ba9bf535}\label{fileioc_8h_aa9d259056c67884d8e9a7f30ba9bf535}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Malloc\+String@{ti\+\_\+\+Malloc\+String}}
+\index{ti\+\_\+\+Malloc\+String@{ti\+\_\+\+Malloc\+String}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Malloc\+String}{ti\_MallocString}}
+{\footnotesize\ttfamily \#define ti\+\_\+\+Malloc\+String(\begin{DoxyParamCaption}\item[{}]{len }\end{DoxyParamCaption})}
+
+Allocates space for a string variable 
+\begin{DoxyParams}{Parameters}
+{\em len} & Length of string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to variable 
+\end{DoxyReturn}
+
+
+\subsubsection{Function Documentation}
+\mbox{\Hypertarget{fileioc_8h_a939e6eb809618c4dc4bdf0e9e12838fa}\label{fileioc_8h_a939e6eb809618c4dc4bdf0e9e12838fa}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Close@{ti\+\_\+\+Close}}
+\index{ti\+\_\+\+Close@{ti\+\_\+\+Close}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Close()}{ti\_Close()}}
+{\footnotesize\ttfamily int ti\+\_\+\+Close (\begin{DoxyParamCaption}\item[{const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t}}]{slot }\end{DoxyParamCaption})}
+
+Frees an open variable slot \begin{DoxyReturn}{Returns}
+Zero if closing failed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileioc_8h_a2a9a88c6c2200809894fdab31ffef226}\label{fileioc_8h_a2a9a88c6c2200809894fdab31ffef226}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Close\+All@{ti\+\_\+\+Close\+All}}
+\index{ti\+\_\+\+Close\+All@{ti\+\_\+\+Close\+All}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Close\+All()}{ti\_CloseAll()}}
+{\footnotesize\ttfamily void ti\+\_\+\+Close\+All (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Closes all open slots \begin{DoxyWarning}{Warning}
+Call before you use any variable functions 
+\end{DoxyWarning}
+\mbox{\Hypertarget{fileioc_8h_a226e1d9967372ee94b9d4dbd53dcc72a}\label{fileioc_8h_a226e1d9967372ee94b9d4dbd53dcc72a}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Delete@{ti\+\_\+\+Delete}}
+\index{ti\+\_\+\+Delete@{ti\+\_\+\+Delete}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Delete()}{ti\_Delete()}}
+{\footnotesize\ttfamily int ti\+\_\+\+Delete (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption})}
+
+Deletes an App\+Var
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of App\+Var to delete \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if failed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileioc_8h_ab1cac356bc4d7a03f7f17b33c66ab496}\label{fileioc_8h_ab1cac356bc4d7a03f7f17b33c66ab496}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Delete\+Var@{ti\+\_\+\+Delete\+Var}}
+\index{ti\+\_\+\+Delete\+Var@{ti\+\_\+\+Delete\+Var}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Delete\+Var()}{ti\_DeleteVar()}}
+{\footnotesize\ttfamily int ti\+\_\+\+Delete\+Var (\begin{DoxyParamCaption}\item[{const char $\ast$}]{varname,  }\item[{uint8\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+Deletes a variable given the name and type
+
+
+\begin{DoxyParams}{Parameters}
+{\em varname} & Name of variable to delete \\
+\hline
+{\em type} & Type of variable to delete \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if failed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileioc_8h_a8ab3898aa9f1d56ebf783816e3ce0e17}\label{fileioc_8h_a8ab3898aa9f1d56ebf783816e3ce0e17}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Detect@{ti\+\_\+\+Detect}}
+\index{ti\+\_\+\+Detect@{ti\+\_\+\+Detect}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Detect()}{ti\_Detect()}}
+{\footnotesize\ttfamily char$\ast$ ti\+\_\+\+Detect (\begin{DoxyParamCaption}\item[{void $\ast$$\ast$}]{curr\+\_\+search\+\_\+posistion,  }\item[{const char $\ast$}]{detection\+\_\+string }\end{DoxyParamCaption})}
+
+Returns the name of the file(s) that contains the string as the first part of the variable; which can then be used with ti\+\_\+\+Open and other functions
+
+seach\+\_\+pos should be set to N\+U\+LL to begin a search, and is updated with each call
+
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{char} *var\_name;
+uint8\_t *search\_pos = NULL;
+\textcolor{keywordflow}{while}((var\_name = \hyperlink{fileioc_8h_a8ab3898aa9f1d56ebf783816e3ce0e17}{ti\_Detect}(&search\_pos, \textcolor{stringliteral}{"my\_data"})) != NULL) \{
+  ...do something with the name or search\_pos...
+\}
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+{\em curr\+\_\+search\+\_\+posistion} & Current offset in the V\+AT \\
+\hline
+{\em detection\+\_\+string} & String to search for (N\+U\+LL to search for all) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+If the return value is N\+U\+LL, there are no more variables to find 
+\end{DoxyNote}
+\mbox{\Hypertarget{fileioc_8h_aaa4c5a6c019de1510fac2a6bfa9269c7}\label{fileioc_8h_aaa4c5a6c019de1510fac2a6bfa9269c7}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Detect\+Var@{ti\+\_\+\+Detect\+Var}}
+\index{ti\+\_\+\+Detect\+Var@{ti\+\_\+\+Detect\+Var}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Detect\+Var()}{ti\_DetectVar()}}
+{\footnotesize\ttfamily char$\ast$ ti\+\_\+\+Detect\+Var (\begin{DoxyParamCaption}\item[{void $\ast$$\ast$}]{curr\+\_\+search\+\_\+posistion,  }\item[{const char $\ast$}]{detection\+\_\+string,  }\item[{uint8\+\_\+t}]{var\+\_\+type }\end{DoxyParamCaption})}
+
+Returns the name of the file(s) that contains the string as the first part of the variable; which can then be used with ti\+\_\+\+Open\+Var and other functions
+
+seach\+\_\+pos should be set to N\+U\+LL to begin a search, and is updated with each call
+
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{char} *var\_name;
+uint8\_t *search\_pos = NULL;
+\textcolor{keywordflow}{while}((var\_name = \hyperlink{fileioc_8h_aaa4c5a6c019de1510fac2a6bfa9269c7}{ti\_DetectVar}(&search\_pos, \textcolor{stringliteral}{"my\_data"}, TI\_PRGM\_TYPE)) != NULL) \{
+  ...do something with the name or search\_pos...
+\}
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+{\em curr\+\_\+search\+\_\+posistion} & Current offset in the V\+AT \\
+\hline
+{\em detection\+\_\+string} & String to search for (N\+U\+LL to search for all) \\
+\hline
+{\em var\+\_\+type} & Type of variable to detect \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+If the return value is N\+U\+LL, there are no more variables to find 
+\end{DoxyNote}
+\mbox{\Hypertarget{fileioc_8h_a6388c3a5a6e7134de97b308df1f8f40e}\label{fileioc_8h_a6388c3a5a6e7134de97b308df1f8f40e}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+GetC@{ti\+\_\+\+GetC}}
+\index{ti\+\_\+\+GetC@{ti\+\_\+\+GetC}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Get\+C()}{ti\_GetC()}}
+{\footnotesize\ttfamily int ti\+\_\+\+GetC (\begin{DoxyParamCaption}\item[{const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t}}]{slot }\end{DoxyParamCaption})}
+
+Pulls a character directly from the slot data pointer, and increments the offset
+
+
+\begin{DoxyParams}{Parameters}
+{\em slot} & Variable slot to get the character from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 byte character at the current variable offset 
+
+\textquotesingle{}E\+OF\textquotesingle{} if current offset is larger than file size 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileioc_8h_afe953ef410b48c76d7ac1ea7e4ee7148}\label{fileioc_8h_afe953ef410b48c76d7ac1ea7e4ee7148}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Get\+Data\+Ptr@{ti\+\_\+\+Get\+Data\+Ptr}}
+\index{ti\+\_\+\+Get\+Data\+Ptr@{ti\+\_\+\+Get\+Data\+Ptr}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Get\+Data\+Ptr()}{ti\_GetDataPtr()}}
+{\footnotesize\ttfamily void$\ast$ ti\+\_\+\+Get\+Data\+Ptr (\begin{DoxyParamCaption}\item[{const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t}}]{slot }\end{DoxyParamCaption})}
+
+Gets a pointer to the data located at the current posistion in the slot; Good way for fast reading of data 
+\begin{DoxyParams}{Parameters}
+{\em slot} & Variable slot to get pointer of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to variable data 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileioc_8h_a52e4f847fe66929ccfa14ab52bcf80c1}\label{fileioc_8h_a52e4f847fe66929ccfa14ab52bcf80c1}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Get\+Size@{ti\+\_\+\+Get\+Size}}
+\index{ti\+\_\+\+Get\+Size@{ti\+\_\+\+Get\+Size}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Get\+Size()}{ti\_GetSize()}}
+{\footnotesize\ttfamily uint16\+\_\+t ti\+\_\+\+Get\+Size (\begin{DoxyParamCaption}\item[{const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t}}]{slot }\end{DoxyParamCaption})}
+
+Gets the size of a slot
+
+
+\begin{DoxyParams}{Parameters}
+{\em slot} & Slot to test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The size of the slot variablee 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileioc_8h_a0fc4887847703e0eba433e28065833b4}\label{fileioc_8h_a0fc4887847703e0eba433e28065833b4}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Get\+Token\+String@{ti\+\_\+\+Get\+Token\+String}}
+\index{ti\+\_\+\+Get\+Token\+String@{ti\+\_\+\+Get\+Token\+String}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Get\+Token\+String()}{ti\_GetTokenString()}}
+{\footnotesize\ttfamily char$\ast$ ti\+\_\+\+Get\+Token\+String (\begin{DoxyParamCaption}\item[{void $\ast$$\ast$}]{read\+\_\+pointer,  }\item[{uint8\+\_\+t $\ast$}]{length\+\_\+of\+\_\+token,  }\item[{unsigned int $\ast$}]{length\+\_\+of\+\_\+string }\end{DoxyParamCaption})}
+
+Gets the string used for displaying a TI token
+
+
+\begin{DoxyParams}{Parameters}
+{\em length\+\_\+of\+\_\+string} & Pointer to variable to hold length of resulting string (Can be N\+U\+LL if you don\textquotesingle{}t care) \\
+\hline
+{\em length\+\_\+of\+\_\+token} & Pointer to varaible to hold length of the token, used for determining the next read location (Can be N\+U\+LL if you don\textquotesingle{}t care) \\
+\hline
+{\em read\+\_\+pointer} & Address of pointer to data to read \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+read\+\_\+pointer is updated to the next token, depending on if it is 1 or 2 bytes in length 
+\end{DoxyNote}
+\mbox{\Hypertarget{fileioc_8h_a856864cab001e242c56aa00a962bf2e3}\label{fileioc_8h_a856864cab001e242c56aa00a962bf2e3}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Is\+Archived@{ti\+\_\+\+Is\+Archived}}
+\index{ti\+\_\+\+Is\+Archived@{ti\+\_\+\+Is\+Archived}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Is\+Archived()}{ti\_IsArchived()}}
+{\footnotesize\ttfamily int ti\+\_\+\+Is\+Archived (\begin{DoxyParamCaption}\item[{const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t}}]{slot }\end{DoxyParamCaption})}
+
+Tests if a slot is in the archive
+
+
+\begin{DoxyParams}{Parameters}
+{\em slot} & Slot to test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Zero (0) if the slot is not in the archive 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileioc_8h_a2842e9d72ce53bca7b41c22838881775}\label{fileioc_8h_a2842e9d72ce53bca7b41c22838881775}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Open@{ti\+\_\+\+Open}}
+\index{ti\+\_\+\+Open@{ti\+\_\+\+Open}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Open()}{ti\_Open()}}
+{\footnotesize\ttfamily \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t} ti\+\_\+\+Open (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{const char $\ast$}]{mode }\end{DoxyParamCaption})}
+
+Opens a file
+
+An App\+Var is used as default file storage 
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of file to open \\
+\hline
+{\em mode} & \char`\"{}r\char`\"{} -\/ Opens a file for reading. The file must exist. Keeps file in archive if in archive. ~\newline
+ \char`\"{}w\char`\"{} -\/ Creates an empty file for writing. Overwrites file if already exists. ~\newline
+ \char`\"{}a\char`\"{} -\/ Appends to a file. Writing operations, append data at the end of the file. The file is created if it does not exist. ~\newline
+ \char`\"{}r+\char`\"{} -\/ Opens a file to update both reading and writing. The file must exist. Moves file from archive to R\+AM if in archive. ~\newline
+ \char`\"{}w+\char`\"{} -\/ Creates an empty file for both reading and writing. Overwrites file if already exists. ~\newline
+ \char`\"{}a+\char`\"{} -\/ Opens a file for reading and appending. Moves file from archive to R\+AM if in archive. Created if it does not exist. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Slot variable 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If there isn\textquotesingle{}t enough memory to create the variable, or a slot isn\textquotesingle{}t open, zero (0) is returned 
+\end{DoxyNote}
+\mbox{\Hypertarget{fileioc_8h_a75e6644985670553ff3e479d61ec788b}\label{fileioc_8h_a75e6644985670553ff3e479d61ec788b}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Open\+Var@{ti\+\_\+\+Open\+Var}}
+\index{ti\+\_\+\+Open\+Var@{ti\+\_\+\+Open\+Var}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Open\+Var()}{ti\_OpenVar()}}
+{\footnotesize\ttfamily \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t} ti\+\_\+\+Open\+Var (\begin{DoxyParamCaption}\item[{const char $\ast$}]{varname,  }\item[{const char $\ast$}]{mode,  }\item[{uint8\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+Opens a variable
+
+Can open any type of program or appvar variable 
+\begin{DoxyParams}{Parameters}
+{\em varname} & Name of variable to open \\
+\hline
+{\em mode} & \char`\"{}r\char`\"{} -\/ Opens a file for reading. The file must exist. Keeps file in archive if in archive. ~\newline
+ \char`\"{}w\char`\"{} -\/ Creates an empty file for writing. Overwrites file if already exists. ~\newline
+ \char`\"{}a\char`\"{} -\/ Appends to a file. Writing operations, append data at the end of the file. The file is created if it does not exist. ~\newline
+ \char`\"{}r+\char`\"{} -\/ Opens a file to update both reading and writing. The file must exist. Moves file from archive to R\+AM if in archive. ~\newline
+ \char`\"{}w+\char`\"{} -\/ Creates an empty file for both reading and writing. Overwrites file if already exists. ~\newline
+ \char`\"{}a+\char`\"{} -\/ Opens a file for reading and appending. Moves file from archive to R\+AM if in archive. Created if it does not exist. \\
+\hline
+{\em type} & Specifies the type of variable to open \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Slot variable 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If there isn\textquotesingle{}t enough memory to create the variable, or a slot isn\textquotesingle{}t open, zero (0) is returned 
+\end{DoxyNote}
+\mbox{\Hypertarget{fileioc_8h_a5e4f8e1c166bd14e339c8d8457419343}\label{fileioc_8h_a5e4f8e1c166bd14e339c8d8457419343}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+PutC@{ti\+\_\+\+PutC}}
+\index{ti\+\_\+\+PutC@{ti\+\_\+\+PutC}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Put\+C()}{ti\_PutC()}}
+{\footnotesize\ttfamily int ti\+\_\+\+PutC (\begin{DoxyParamCaption}\item[{const char}]{c,  }\item[{const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t}}]{slot }\end{DoxyParamCaption})}
+
+Writes a character directly into the slot data pointer, and increments the offset
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Character to write \\
+\hline
+{\em slot} & Variable slot to put the character to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The input c is returned if no error 
+
+\textquotesingle{}E\+OF\textquotesingle{} if current offset is larger than file size, or memory isn\textquotesingle{}t large enough 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileioc_8h_ab568cd59ad586f34b6a36b0d80c7b0f6}\label{fileioc_8h_ab568cd59ad586f34b6a36b0d80c7b0f6}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Rcl\+Var@{ti\+\_\+\+Rcl\+Var}}
+\index{ti\+\_\+\+Rcl\+Var@{ti\+\_\+\+Rcl\+Var}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Rcl\+Var()}{ti\_RclVar()}}
+{\footnotesize\ttfamily uint8\+\_\+t ti\+\_\+\+Rcl\+Var (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{var\+\_\+type,  }\item[{const char $\ast$}]{var\+\_\+name,  }\item[{void $\ast$$\ast$}]{data\+\_\+struct }\end{DoxyParamCaption})}
+
+Recalls a variable
+
+
+\begin{DoxyParams}{Parameters}
+{\em var\+\_\+type} & Type of variable to recall \\
+\hline
+{\em var\+\_\+name} & Pointer to name of variable to recall \\
+\hline
+{\em data\+\_\+struct} & Address of pointer to variable structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if success 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+data\+\_\+struct is set to the variable\textquotesingle{}s data 
+\end{DoxyNote}
+\mbox{\Hypertarget{fileioc_8h_a69e606ae891de24dc0d9331b7bd52085}\label{fileioc_8h_a69e606ae891de24dc0d9331b7bd52085}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Read@{ti\+\_\+\+Read}}
+\index{ti\+\_\+\+Read@{ti\+\_\+\+Read}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Read()}{ti\_Read()}}
+{\footnotesize\ttfamily size\+\_\+t ti\+\_\+\+Read (\begin{DoxyParamCaption}\item[{const void $\ast$}]{data,  }\item[{size\+\_\+t}]{size,  }\item[{size\+\_\+t}]{count,  }\item[{const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t}}]{slot }\end{DoxyParamCaption})}
+
+Reads from the current variable pointer
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer to data to read into \\
+\hline
+{\em size} & Size (in bytes) of a single data chunk \\
+\hline
+{\em count} & Number of data chunks to read from the variable slot \\
+\hline
+{\em slot} & Variable slot to read the data from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of chunks read (should be equal to count) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileioc_8h_a226c894f6a87148634b2a06314f96e8c}\label{fileioc_8h_a226c894f6a87148634b2a06314f96e8c}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Resize@{ti\+\_\+\+Resize}}
+\index{ti\+\_\+\+Resize@{ti\+\_\+\+Resize}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Resize()}{ti\_Resize()}}
+{\footnotesize\ttfamily int ti\+\_\+\+Resize (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{new\+\_\+size,  }\item[{const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t}}]{slot }\end{DoxyParamCaption})}
+
+Resizes the slot variable
+
+
+\begin{DoxyParams}{Parameters}
+{\em slot} & Slot to resize \\
+\hline
+{\em new\+\_\+size} & New size of slot \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The variable offset is set to the beginning of the file 
+\end{DoxyNote}
+\mbox{\Hypertarget{fileioc_8h_ae13786d7a50cfa328291102d024d1998}\label{fileioc_8h_ae13786d7a50cfa328291102d024d1998}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Rewind@{ti\+\_\+\+Rewind}}
+\index{ti\+\_\+\+Rewind@{ti\+\_\+\+Rewind}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Rewind()}{ti\_Rewind()}}
+{\footnotesize\ttfamily int ti\+\_\+\+Rewind (\begin{DoxyParamCaption}\item[{const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t}}]{slot }\end{DoxyParamCaption})}
+
+Seeks to the start of the given variable
+
+Basically an ti\+\_\+\+Seek(0, S\+E\+E\+K\+\_\+\+S\+E\+T, slot); 
+\begin{DoxyParams}{Parameters}
+{\em slot} & Variable slot to rewind \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\textquotesingle{}E\+OF\textquotesingle{} on rewind failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileioc_8h_aeade963f1ba3ee1cdd09522fb8215cc6}\label{fileioc_8h_aeade963f1ba3ee1cdd09522fb8215cc6}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Seek@{ti\+\_\+\+Seek}}
+\index{ti\+\_\+\+Seek@{ti\+\_\+\+Seek}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Seek()}{ti\_Seek()}}
+{\footnotesize\ttfamily int ti\+\_\+\+Seek (\begin{DoxyParamCaption}\item[{int}]{offset,  }\item[{unsigned int}]{origin,  }\item[{const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t}}]{slot }\end{DoxyParamCaption})}
+
+Seeks to an offset
+
+
+\begin{DoxyParams}{Parameters}
+{\em offset} & Number of bytes to offest from (can be negative) \\
+\hline
+{\em origin} & S\+E\+E\+K\+\_\+\+S\+ET (0) -\/ Seek from beginning of file ~\newline
+ S\+E\+E\+K\+\_\+\+C\+UR (1) -\/ Seek from current offset in file ~\newline
+ S\+E\+E\+K\+\_\+\+E\+ND (2) -\/ Seek from end of file \\
+\hline
+{\em slot} & Variable slot seeking in \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\textquotesingle{}E\+OF\textquotesingle{} on seek failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileioc_8h_aa5138d0e2a0a9e78cc1153df1a8cf36c}\label{fileioc_8h_aa5138d0e2a0a9e78cc1153df1a8cf36c}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Set\+Archive\+Status@{ti\+\_\+\+Set\+Archive\+Status}}
+\index{ti\+\_\+\+Set\+Archive\+Status@{ti\+\_\+\+Set\+Archive\+Status}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Set\+Archive\+Status()}{ti\_SetArchiveStatus()}}
+{\footnotesize\ttfamily int ti\+\_\+\+Set\+Archive\+Status (\begin{DoxyParamCaption}\item[{bool}]{archived,  }\item[{const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t}}]{slot }\end{DoxyParamCaption})}
+
+Sends the variable into either the archive or R\+AM if needed
+
+
+\begin{DoxyParams}{Parameters}
+{\em archived} & True -\/ Send to Archive ~\newline
+ False -\/ Send to R\+AM \\
+\hline
+{\em slot} & Slot to send \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Zero if the operation fails from not enough memory or another error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileioc_8h_a2c3d4f47d22e805d679cbacc0293cb8b}\label{fileioc_8h_a2c3d4f47d22e805d679cbacc0293cb8b}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Set\+Var@{ti\+\_\+\+Set\+Var}}
+\index{ti\+\_\+\+Set\+Var@{ti\+\_\+\+Set\+Var}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Set\+Var()}{ti\_SetVar()}}
+{\footnotesize\ttfamily uint8\+\_\+t ti\+\_\+\+Set\+Var (\begin{DoxyParamCaption}\item[{const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t}}]{var\+\_\+type,  }\item[{const char $\ast$}]{name,  }\item[{void $\ast$}]{data }\end{DoxyParamCaption})}
+
+Sets a variable
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Pointer to name of varaible \\
+\hline
+{\em data} & Pointer to data to set \\
+\hline
+{\em var\+\_\+type} & Type of varaible to set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if success 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileioc_8h_a747cc0d2bb36c7c52f7acff10da3a3f0}\label{fileioc_8h_a747cc0d2bb36c7c52f7acff10da3a3f0}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Sto\+Var@{ti\+\_\+\+Sto\+Var}}
+\index{ti\+\_\+\+Sto\+Var@{ti\+\_\+\+Sto\+Var}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Sto\+Var()}{ti\_StoVar()}}
+{\footnotesize\ttfamily uint8\+\_\+t ti\+\_\+\+Sto\+Var (\begin{DoxyParamCaption}\item[{const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t}}]{var\+\_\+type\+\_\+to,  }\item[{void $\ast$}]{to,  }\item[{const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t}}]{var\+\_\+type\+\_\+from,  }\item[{void $\ast$}]{from }\end{DoxyParamCaption})}
+
+Stores a variable to another variable
+
+
+\begin{DoxyParams}{Parameters}
+{\em var\+\_\+type\+\_\+to} & Type of varaible to store to \\
+\hline
+{\em to} & Pointer to data to store to \\
+\hline
+{\em var\+\_\+type\+\_\+from} & Type of varaible to get from \\
+\hline
+{\em from} & Pointer to data to get from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if success 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileioc_8h_a33f35c518ff3e533caa9ff2c03c68e80}\label{fileioc_8h_a33f35c518ff3e533caa9ff2c03c68e80}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Tell@{ti\+\_\+\+Tell}}
+\index{ti\+\_\+\+Tell@{ti\+\_\+\+Tell}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Tell()}{ti\_Tell()}}
+{\footnotesize\ttfamily uint16\+\_\+t ti\+\_\+\+Tell (\begin{DoxyParamCaption}\item[{const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t}}]{slot }\end{DoxyParamCaption})}
+
+Gets the offset in a slot
+
+
+\begin{DoxyParams}{Parameters}
+{\em slot} & Slot to test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the current slot offset 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileioc_8h_a77a62881f0d97425482ce3b49efd683e}\label{fileioc_8h_a77a62881f0d97425482ce3b49efd683e}} 
+\index{fileioc.\+h@{fileioc.\+h}!ti\+\_\+\+Write@{ti\+\_\+\+Write}}
+\index{ti\+\_\+\+Write@{ti\+\_\+\+Write}!fileioc.\+h@{fileioc.\+h}}
+\paragraph{\texorpdfstring{ti\+\_\+\+Write()}{ti\_Write()}}
+{\footnotesize\ttfamily size\+\_\+t ti\+\_\+\+Write (\begin{DoxyParamCaption}\item[{const void $\ast$}]{data,  }\item[{size\+\_\+t}]{size,  }\item[{size\+\_\+t}]{count,  }\item[{const \hyperlink{fileioc_8h_afb77b0fc25eeb275fae79d607430fbc0}{ti\+\_\+var\+\_\+t}}]{slot }\end{DoxyParamCaption})}
+
+Writes to the current variable slot
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer to data to write \\
+\hline
+{\em size} & Size (in bytes) of a single data chunk \\
+\hline
+{\em count} & Number of data chunks to write to the variable slot \\
+\hline
+{\em slot} & Variable slot to write the data to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of chunks written (should be equal to count) 
+\end{DoxyReturn}

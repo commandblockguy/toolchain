@@ -1,0 +1,55 @@
+\hypertarget{decompress_8h}{}\subsection{decompress.\+h File Reference}
+\label{decompress_8h}\index{decompress.\+h@{decompress.\+h}}
+
+
+Optimized decompression routines.  
+
+
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{decompress_8h_a9f3e6d13cfc6d576ea0f67395059e243}{dzx7\+\_\+\+Standard} (void $\ast$src, void $\ast$dst)
+\item 
+void \hyperlink{decompress_8h_a877e3af3164d88fd78f461116d85094e}{dzx7\+\_\+\+Turbo} (void $\ast$src, void $\ast$dst)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Optimized decompression routines. 
+
+\begin{DoxyAuthor}{Author}
+Matt \char`\"{}\+Mateo\+Con\+Lechuga\char`\"{} Waltz 
+\end{DoxyAuthor}
+
+
+\subsubsection{Function Documentation}
+\mbox{\Hypertarget{decompress_8h_a9f3e6d13cfc6d576ea0f67395059e243}\label{decompress_8h_a9f3e6d13cfc6d576ea0f67395059e243}} 
+\index{decompress.\+h@{decompress.\+h}!dzx7\+\_\+\+Standard@{dzx7\+\_\+\+Standard}}
+\index{dzx7\+\_\+\+Standard@{dzx7\+\_\+\+Standard}!decompress.\+h@{decompress.\+h}}
+\paragraph{\texorpdfstring{dzx7\+\_\+\+Standard()}{dzx7\_Standard()}}
+{\footnotesize\ttfamily void dzx7\+\_\+\+Standard (\begin{DoxyParamCaption}\item[{void $\ast$}]{src,  }\item[{void $\ast$}]{dst }\end{DoxyParamCaption})}
+
+Decompress a block of zx7 encoded data
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & Pointer to compressed source block \\
+\hline
+{\em dst} & Pointer to destination block \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{decompress_8h_a877e3af3164d88fd78f461116d85094e}\label{decompress_8h_a877e3af3164d88fd78f461116d85094e}} 
+\index{decompress.\+h@{decompress.\+h}!dzx7\+\_\+\+Turbo@{dzx7\+\_\+\+Turbo}}
+\index{dzx7\+\_\+\+Turbo@{dzx7\+\_\+\+Turbo}!decompress.\+h@{decompress.\+h}}
+\paragraph{\texorpdfstring{dzx7\+\_\+\+Turbo()}{dzx7\_Turbo()}}
+{\footnotesize\ttfamily void dzx7\+\_\+\+Turbo (\begin{DoxyParamCaption}\item[{void $\ast$}]{src,  }\item[{void $\ast$}]{dst }\end{DoxyParamCaption})}
+
+Decompress a block of zx7 encoded data fast
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & Pointer to compressed source block \\
+\hline
+{\em dst} & Pointer to destination block \\
+\hline
+\end{DoxyParams}

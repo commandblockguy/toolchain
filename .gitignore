@@ -1,3 +1,11 @@
+# Special for doxygen
+tools/
+src/
+examples/
+*.md
+license
+makefile
+
 # Object files
 *.o
 *.ko

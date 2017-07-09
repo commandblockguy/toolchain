@@ -1,0 +1,268 @@
+\hypertarget{intce_8h}{}\subsection{intce.\+h File Reference}
+\label{intce_8h}\index{intce.\+h@{intce.\+h}}
+
+
+Interrupt configuring and setting.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\subsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{intce_8h_afb75b8b479a72cc73820adf0bc08befd}\label{intce_8h_afb75b8b479a72cc73820adf0bc08befd}} 
+\#define \hyperlink{intce_8h_afb75b8b479a72cc73820adf0bc08befd}{int\+\_\+\+Enable}()
+\begin{DoxyCompactList}\small\item\em Enable global interrupts. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{intce_8h_a6ec8b8485765e532c020654ffa71d010}\label{intce_8h_a6ec8b8485765e532c020654ffa71d010}} 
+\#define \hyperlink{intce_8h_a6ec8b8485765e532c020654ffa71d010}{int\+\_\+\+Disable}()
+\begin{DoxyCompactList}\small\item\em Diasble global interrupts. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{intce_8h_a33a97bbfc0b2bc67a7fc08b89ddb7af9}\label{intce_8h_a33a97bbfc0b2bc67a7fc08b89ddb7af9}} 
+\#define \hyperlink{intce_8h_a33a97bbfc0b2bc67a7fc08b89ddb7af9}{int\+\_\+\+Wait}()
+\begin{DoxyCompactList}\small\item\em Blocking wait for an interrupt to trigger. \end{DoxyCompactList}\item 
+\#define \hyperlink{intce_8h_a943135922f1530d220992c1be01f85ca}{O\+N\+\_\+\+I\+V\+E\+CT}
+\item 
+\#define \hyperlink{intce_8h_a2f75817cc58a4af3153d7ded7417fe1c}{T\+I\+M\+E\+R1\+\_\+\+I\+V\+E\+CT}
+\item 
+\#define \hyperlink{intce_8h_a30ea4194e1b4a5cd8704924c38601541}{T\+I\+M\+E\+R2\+\_\+\+I\+V\+E\+CT}
+\item 
+\#define \hyperlink{intce_8h_a3a9c2c96e35e0ffdca11db51f877f511}{T\+I\+M\+E\+R3\+\_\+\+I\+V\+E\+CT}
+\item 
+\#define \hyperlink{intce_8h_a4051151c7071cee1282b22d5bdf1de6e}{T\+I\+M\+E\+R\+O\+S\+\_\+\+I\+V\+E\+CT}
+\item 
+\#define \hyperlink{intce_8h_a8f6789611ea138188774b86cb5ca2026}{K\+E\+Y\+B\+O\+A\+R\+D\+\_\+\+I\+V\+E\+CT}
+\item 
+\#define \hyperlink{intce_8h_a0d43b2844d71fa684995621b23565c5d}{L\+C\+D\+\_\+\+I\+V\+E\+CT}
+\item 
+\#define \hyperlink{intce_8h_a3c995b90c817e81b1f019d59be93a127}{R\+T\+C\+\_\+\+I\+V\+E\+CT}
+\item 
+\#define \hyperlink{intce_8h_adbf13a7a05a1b03f106b0090f818f361}{U\+S\+B\+\_\+\+I\+V\+E\+CT}
+\item 
+\#define \hyperlink{intce_8h_a5c3e355bcfe0aa4b26dd7d125dec9c2a}{I\+N\+T\+\_\+\+ON}
+\item 
+\#define \hyperlink{intce_8h_acdda65b160cb0022f7c6f4e4604210e7}{I\+N\+T\+\_\+\+T\+I\+M\+E\+R1}
+\item 
+\#define \hyperlink{intce_8h_a8f4aa48df33790d0e23cf9da6d2ca792}{I\+N\+T\+\_\+\+T\+I\+M\+E\+R2}
+\item 
+\#define \hyperlink{intce_8h_a910b4a137425bbda6dce103325fcfbf0}{I\+N\+T\+\_\+\+T\+I\+M\+E\+R3}
+\item 
+\#define \hyperlink{intce_8h_ad5aa2c5ed711b515bc4aa11294897bba}{I\+N\+T\+\_\+\+T\+I\+M\+E\+R\+OS}
+\item 
+\#define \hyperlink{intce_8h_ab9bd41cf6efe226daa5b4332b6978cbe}{I\+N\+T\+\_\+\+K\+E\+Y\+B\+O\+A\+RD}
+\item 
+\#define \hyperlink{intce_8h_ae237028dfc8f9c24f83e6330627677f0}{I\+N\+T\+\_\+\+L\+CD}
+\item 
+\#define \hyperlink{intce_8h_ab7e8fc199a616a345ec378ad6ff1364e}{I\+N\+T\+\_\+\+R\+TC}
+\item 
+\#define \hyperlink{intce_8h_a5dae4195f004e6899a36066e00dcd13d}{I\+N\+T\+\_\+\+U\+SB}
+\item 
+\#define \hyperlink{intce_8h_a71954cb916374956580787343afaa598}{int\+\_\+\+Raw\+Status}
+\item 
+\#define \hyperlink{intce_8h_a75e09bb113a1b881a08a2ee3bc5f8ce3}{int\+\_\+\+Masked\+Status}
+\item 
+\#define \hyperlink{intce_8h_a199a834c8a27ec5c848e07c213c79a16}{int\+\_\+\+Enable\+Config}
+\item 
+\#define \hyperlink{intce_8h_a34511bddcd97499c8e52dd16d0494eea}{int\+\_\+\+Latch\+Config}
+\item 
+\#define \hyperlink{intce_8h_a3ee7faceab95bf1575135a285c357713}{int\+\_\+\+Invert\+Config}
+\item 
+\#define \hyperlink{intce_8h_ad000396f89e682c2a3fe5162b7adfa7e}{int\+\_\+\+Acknowledge}
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{intce_8h_ac3d0c796883acc43e5cc74b37b83b167}{int\+\_\+\+Initialize} (void)
+\item 
+void \hyperlink{intce_8h_a1ec1e47453492910a36a5e7fc6bb46ea}{int\+\_\+\+Reset} (void)
+\item 
+void \hyperlink{intce_8h_a3c525272c01a36854d6d231f78ffb226}{int\+\_\+\+Set\+Vector} (uint8\+\_\+t ivect, void($\ast$handler)(void))
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Interrupt configuring and setting. 
+
+\begin{DoxyAuthor}{Authors}
+Matt \char`\"{}\+Mateo\+Con\+Lechuga\char`\"{} Waltz 
+
+Jacob \char`\"{}jacobly\char`\"{} Young 
+\end{DoxyAuthor}
+
+
+\subsubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{intce_8h_ad000396f89e682c2a3fe5162b7adfa7e}\label{intce_8h_ad000396f89e682c2a3fe5162b7adfa7e}} 
+\index{intce.\+h@{intce.\+h}!int\+\_\+\+Acknowledge@{int\+\_\+\+Acknowledge}}
+\index{int\+\_\+\+Acknowledge@{int\+\_\+\+Acknowledge}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{int\+\_\+\+Acknowledge}{int\_Acknowledge}}
+{\footnotesize\ttfamily \#define int\+\_\+\+Acknowledge}
+
+Acknowledge interrupt signals \mbox{\Hypertarget{intce_8h_a199a834c8a27ec5c848e07c213c79a16}\label{intce_8h_a199a834c8a27ec5c848e07c213c79a16}} 
+\index{intce.\+h@{intce.\+h}!int\+\_\+\+Enable\+Config@{int\+\_\+\+Enable\+Config}}
+\index{int\+\_\+\+Enable\+Config@{int\+\_\+\+Enable\+Config}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{int\+\_\+\+Enable\+Config}{int\_EnableConfig}}
+{\footnotesize\ttfamily \#define int\+\_\+\+Enable\+Config}
+
+Enabled interrupt signals \mbox{\Hypertarget{intce_8h_a3ee7faceab95bf1575135a285c357713}\label{intce_8h_a3ee7faceab95bf1575135a285c357713}} 
+\index{intce.\+h@{intce.\+h}!int\+\_\+\+Invert\+Config@{int\+\_\+\+Invert\+Config}}
+\index{int\+\_\+\+Invert\+Config@{int\+\_\+\+Invert\+Config}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{int\+\_\+\+Invert\+Config}{int\_InvertConfig}}
+{\footnotesize\ttfamily \#define int\+\_\+\+Invert\+Config}
+
+Invertable interrupt signals \mbox{\Hypertarget{intce_8h_ab9bd41cf6efe226daa5b4332b6978cbe}\label{intce_8h_ab9bd41cf6efe226daa5b4332b6978cbe}} 
+\index{intce.\+h@{intce.\+h}!I\+N\+T\+\_\+\+K\+E\+Y\+B\+O\+A\+RD@{I\+N\+T\+\_\+\+K\+E\+Y\+B\+O\+A\+RD}}
+\index{I\+N\+T\+\_\+\+K\+E\+Y\+B\+O\+A\+RD@{I\+N\+T\+\_\+\+K\+E\+Y\+B\+O\+A\+RD}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{I\+N\+T\+\_\+\+K\+E\+Y\+B\+O\+A\+RD}{INT\_KEYBOARD}}
+{\footnotesize\ttfamily \#define I\+N\+T\+\_\+\+K\+E\+Y\+B\+O\+A\+RD}
+
+Keyboard interrupt source mask \mbox{\Hypertarget{intce_8h_a34511bddcd97499c8e52dd16d0494eea}\label{intce_8h_a34511bddcd97499c8e52dd16d0494eea}} 
+\index{intce.\+h@{intce.\+h}!int\+\_\+\+Latch\+Config@{int\+\_\+\+Latch\+Config}}
+\index{int\+\_\+\+Latch\+Config@{int\+\_\+\+Latch\+Config}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{int\+\_\+\+Latch\+Config}{int\_LatchConfig}}
+{\footnotesize\ttfamily \#define int\+\_\+\+Latch\+Config}
+
+Latchable interrupt signals \mbox{\Hypertarget{intce_8h_ae237028dfc8f9c24f83e6330627677f0}\label{intce_8h_ae237028dfc8f9c24f83e6330627677f0}} 
+\index{intce.\+h@{intce.\+h}!I\+N\+T\+\_\+\+L\+CD@{I\+N\+T\+\_\+\+L\+CD}}
+\index{I\+N\+T\+\_\+\+L\+CD@{I\+N\+T\+\_\+\+L\+CD}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{I\+N\+T\+\_\+\+L\+CD}{INT\_LCD}}
+{\footnotesize\ttfamily \#define I\+N\+T\+\_\+\+L\+CD}
+
+L\+CD interrupt source mask \mbox{\Hypertarget{intce_8h_a75e09bb113a1b881a08a2ee3bc5f8ce3}\label{intce_8h_a75e09bb113a1b881a08a2ee3bc5f8ce3}} 
+\index{intce.\+h@{intce.\+h}!int\+\_\+\+Masked\+Status@{int\+\_\+\+Masked\+Status}}
+\index{int\+\_\+\+Masked\+Status@{int\+\_\+\+Masked\+Status}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{int\+\_\+\+Masked\+Status}{int\_MaskedStatus}}
+{\footnotesize\ttfamily \#define int\+\_\+\+Masked\+Status}
+
+Masked state of interrupt signals \mbox{\Hypertarget{intce_8h_a5c3e355bcfe0aa4b26dd7d125dec9c2a}\label{intce_8h_a5c3e355bcfe0aa4b26dd7d125dec9c2a}} 
+\index{intce.\+h@{intce.\+h}!I\+N\+T\+\_\+\+ON@{I\+N\+T\+\_\+\+ON}}
+\index{I\+N\+T\+\_\+\+ON@{I\+N\+T\+\_\+\+ON}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{I\+N\+T\+\_\+\+ON}{INT\_ON}}
+{\footnotesize\ttfamily \#define I\+N\+T\+\_\+\+ON}
+
+\mbox{[}on\mbox{]} key interrupt source mask \mbox{\Hypertarget{intce_8h_a71954cb916374956580787343afaa598}\label{intce_8h_a71954cb916374956580787343afaa598}} 
+\index{intce.\+h@{intce.\+h}!int\+\_\+\+Raw\+Status@{int\+\_\+\+Raw\+Status}}
+\index{int\+\_\+\+Raw\+Status@{int\+\_\+\+Raw\+Status}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{int\+\_\+\+Raw\+Status}{int\_RawStatus}}
+{\footnotesize\ttfamily \#define int\+\_\+\+Raw\+Status}
+
+State of interrupt signals \mbox{\Hypertarget{intce_8h_ab7e8fc199a616a345ec378ad6ff1364e}\label{intce_8h_ab7e8fc199a616a345ec378ad6ff1364e}} 
+\index{intce.\+h@{intce.\+h}!I\+N\+T\+\_\+\+R\+TC@{I\+N\+T\+\_\+\+R\+TC}}
+\index{I\+N\+T\+\_\+\+R\+TC@{I\+N\+T\+\_\+\+R\+TC}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{I\+N\+T\+\_\+\+R\+TC}{INT\_RTC}}
+{\footnotesize\ttfamily \#define I\+N\+T\+\_\+\+R\+TC}
+
+Real Time Clock interrupt source mask \mbox{\Hypertarget{intce_8h_acdda65b160cb0022f7c6f4e4604210e7}\label{intce_8h_acdda65b160cb0022f7c6f4e4604210e7}} 
+\index{intce.\+h@{intce.\+h}!I\+N\+T\+\_\+\+T\+I\+M\+E\+R1@{I\+N\+T\+\_\+\+T\+I\+M\+E\+R1}}
+\index{I\+N\+T\+\_\+\+T\+I\+M\+E\+R1@{I\+N\+T\+\_\+\+T\+I\+M\+E\+R1}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{I\+N\+T\+\_\+\+T\+I\+M\+E\+R1}{INT\_TIMER1}}
+{\footnotesize\ttfamily \#define I\+N\+T\+\_\+\+T\+I\+M\+E\+R1}
+
+Timer 1 interrupt source mask \mbox{\Hypertarget{intce_8h_a8f4aa48df33790d0e23cf9da6d2ca792}\label{intce_8h_a8f4aa48df33790d0e23cf9da6d2ca792}} 
+\index{intce.\+h@{intce.\+h}!I\+N\+T\+\_\+\+T\+I\+M\+E\+R2@{I\+N\+T\+\_\+\+T\+I\+M\+E\+R2}}
+\index{I\+N\+T\+\_\+\+T\+I\+M\+E\+R2@{I\+N\+T\+\_\+\+T\+I\+M\+E\+R2}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{I\+N\+T\+\_\+\+T\+I\+M\+E\+R2}{INT\_TIMER2}}
+{\footnotesize\ttfamily \#define I\+N\+T\+\_\+\+T\+I\+M\+E\+R2}
+
+Timer 2 interrupt source mask \mbox{\Hypertarget{intce_8h_a910b4a137425bbda6dce103325fcfbf0}\label{intce_8h_a910b4a137425bbda6dce103325fcfbf0}} 
+\index{intce.\+h@{intce.\+h}!I\+N\+T\+\_\+\+T\+I\+M\+E\+R3@{I\+N\+T\+\_\+\+T\+I\+M\+E\+R3}}
+\index{I\+N\+T\+\_\+\+T\+I\+M\+E\+R3@{I\+N\+T\+\_\+\+T\+I\+M\+E\+R3}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{I\+N\+T\+\_\+\+T\+I\+M\+E\+R3}{INT\_TIMER3}}
+{\footnotesize\ttfamily \#define I\+N\+T\+\_\+\+T\+I\+M\+E\+R3}
+
+Timer 3 interrupt source mask \mbox{\Hypertarget{intce_8h_ad5aa2c5ed711b515bc4aa11294897bba}\label{intce_8h_ad5aa2c5ed711b515bc4aa11294897bba}} 
+\index{intce.\+h@{intce.\+h}!I\+N\+T\+\_\+\+T\+I\+M\+E\+R\+OS@{I\+N\+T\+\_\+\+T\+I\+M\+E\+R\+OS}}
+\index{I\+N\+T\+\_\+\+T\+I\+M\+E\+R\+OS@{I\+N\+T\+\_\+\+T\+I\+M\+E\+R\+OS}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{I\+N\+T\+\_\+\+T\+I\+M\+E\+R\+OS}{INT\_TIMEROS}}
+{\footnotesize\ttfamily \#define I\+N\+T\+\_\+\+T\+I\+M\+E\+R\+OS}
+
+Timer OS interrupt source mask \mbox{\Hypertarget{intce_8h_a5dae4195f004e6899a36066e00dcd13d}\label{intce_8h_a5dae4195f004e6899a36066e00dcd13d}} 
+\index{intce.\+h@{intce.\+h}!I\+N\+T\+\_\+\+U\+SB@{I\+N\+T\+\_\+\+U\+SB}}
+\index{I\+N\+T\+\_\+\+U\+SB@{I\+N\+T\+\_\+\+U\+SB}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{I\+N\+T\+\_\+\+U\+SB}{INT\_USB}}
+{\footnotesize\ttfamily \#define I\+N\+T\+\_\+\+U\+SB}
+
+U\+SB interrupt source mask \mbox{\Hypertarget{intce_8h_a8f6789611ea138188774b86cb5ca2026}\label{intce_8h_a8f6789611ea138188774b86cb5ca2026}} 
+\index{intce.\+h@{intce.\+h}!K\+E\+Y\+B\+O\+A\+R\+D\+\_\+\+I\+V\+E\+CT@{K\+E\+Y\+B\+O\+A\+R\+D\+\_\+\+I\+V\+E\+CT}}
+\index{K\+E\+Y\+B\+O\+A\+R\+D\+\_\+\+I\+V\+E\+CT@{K\+E\+Y\+B\+O\+A\+R\+D\+\_\+\+I\+V\+E\+CT}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{K\+E\+Y\+B\+O\+A\+R\+D\+\_\+\+I\+V\+E\+CT}{KEYBOARD\_IVECT}}
+{\footnotesize\ttfamily \#define K\+E\+Y\+B\+O\+A\+R\+D\+\_\+\+I\+V\+E\+CT}
+
+Keyboard interrupt source \mbox{\Hypertarget{intce_8h_a0d43b2844d71fa684995621b23565c5d}\label{intce_8h_a0d43b2844d71fa684995621b23565c5d}} 
+\index{intce.\+h@{intce.\+h}!L\+C\+D\+\_\+\+I\+V\+E\+CT@{L\+C\+D\+\_\+\+I\+V\+E\+CT}}
+\index{L\+C\+D\+\_\+\+I\+V\+E\+CT@{L\+C\+D\+\_\+\+I\+V\+E\+CT}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{L\+C\+D\+\_\+\+I\+V\+E\+CT}{LCD\_IVECT}}
+{\footnotesize\ttfamily \#define L\+C\+D\+\_\+\+I\+V\+E\+CT}
+
+L\+CD interrupt source \mbox{\Hypertarget{intce_8h_a943135922f1530d220992c1be01f85ca}\label{intce_8h_a943135922f1530d220992c1be01f85ca}} 
+\index{intce.\+h@{intce.\+h}!O\+N\+\_\+\+I\+V\+E\+CT@{O\+N\+\_\+\+I\+V\+E\+CT}}
+\index{O\+N\+\_\+\+I\+V\+E\+CT@{O\+N\+\_\+\+I\+V\+E\+CT}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{O\+N\+\_\+\+I\+V\+E\+CT}{ON\_IVECT}}
+{\footnotesize\ttfamily \#define O\+N\+\_\+\+I\+V\+E\+CT}
+
+\mbox{[}on\mbox{]} key interrupt source \mbox{\Hypertarget{intce_8h_a3c995b90c817e81b1f019d59be93a127}\label{intce_8h_a3c995b90c817e81b1f019d59be93a127}} 
+\index{intce.\+h@{intce.\+h}!R\+T\+C\+\_\+\+I\+V\+E\+CT@{R\+T\+C\+\_\+\+I\+V\+E\+CT}}
+\index{R\+T\+C\+\_\+\+I\+V\+E\+CT@{R\+T\+C\+\_\+\+I\+V\+E\+CT}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{R\+T\+C\+\_\+\+I\+V\+E\+CT}{RTC\_IVECT}}
+{\footnotesize\ttfamily \#define R\+T\+C\+\_\+\+I\+V\+E\+CT}
+
+Real Time Clock interrupt source \mbox{\Hypertarget{intce_8h_a2f75817cc58a4af3153d7ded7417fe1c}\label{intce_8h_a2f75817cc58a4af3153d7ded7417fe1c}} 
+\index{intce.\+h@{intce.\+h}!T\+I\+M\+E\+R1\+\_\+\+I\+V\+E\+CT@{T\+I\+M\+E\+R1\+\_\+\+I\+V\+E\+CT}}
+\index{T\+I\+M\+E\+R1\+\_\+\+I\+V\+E\+CT@{T\+I\+M\+E\+R1\+\_\+\+I\+V\+E\+CT}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{T\+I\+M\+E\+R1\+\_\+\+I\+V\+E\+CT}{TIMER1\_IVECT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R1\+\_\+\+I\+V\+E\+CT}
+
+Timer 1 interrupt source \mbox{\Hypertarget{intce_8h_a30ea4194e1b4a5cd8704924c38601541}\label{intce_8h_a30ea4194e1b4a5cd8704924c38601541}} 
+\index{intce.\+h@{intce.\+h}!T\+I\+M\+E\+R2\+\_\+\+I\+V\+E\+CT@{T\+I\+M\+E\+R2\+\_\+\+I\+V\+E\+CT}}
+\index{T\+I\+M\+E\+R2\+\_\+\+I\+V\+E\+CT@{T\+I\+M\+E\+R2\+\_\+\+I\+V\+E\+CT}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{T\+I\+M\+E\+R2\+\_\+\+I\+V\+E\+CT}{TIMER2\_IVECT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R2\+\_\+\+I\+V\+E\+CT}
+
+Timer 2 interrupt source \mbox{\Hypertarget{intce_8h_a3a9c2c96e35e0ffdca11db51f877f511}\label{intce_8h_a3a9c2c96e35e0ffdca11db51f877f511}} 
+\index{intce.\+h@{intce.\+h}!T\+I\+M\+E\+R3\+\_\+\+I\+V\+E\+CT@{T\+I\+M\+E\+R3\+\_\+\+I\+V\+E\+CT}}
+\index{T\+I\+M\+E\+R3\+\_\+\+I\+V\+E\+CT@{T\+I\+M\+E\+R3\+\_\+\+I\+V\+E\+CT}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{T\+I\+M\+E\+R3\+\_\+\+I\+V\+E\+CT}{TIMER3\_IVECT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R3\+\_\+\+I\+V\+E\+CT}
+
+Timer 3 interrupt source \mbox{\Hypertarget{intce_8h_a4051151c7071cee1282b22d5bdf1de6e}\label{intce_8h_a4051151c7071cee1282b22d5bdf1de6e}} 
+\index{intce.\+h@{intce.\+h}!T\+I\+M\+E\+R\+O\+S\+\_\+\+I\+V\+E\+CT@{T\+I\+M\+E\+R\+O\+S\+\_\+\+I\+V\+E\+CT}}
+\index{T\+I\+M\+E\+R\+O\+S\+\_\+\+I\+V\+E\+CT@{T\+I\+M\+E\+R\+O\+S\+\_\+\+I\+V\+E\+CT}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{T\+I\+M\+E\+R\+O\+S\+\_\+\+I\+V\+E\+CT}{TIMEROS\_IVECT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R\+O\+S\+\_\+\+I\+V\+E\+CT}
+
+Timer OS interrupt source \mbox{\Hypertarget{intce_8h_adbf13a7a05a1b03f106b0090f818f361}\label{intce_8h_adbf13a7a05a1b03f106b0090f818f361}} 
+\index{intce.\+h@{intce.\+h}!U\+S\+B\+\_\+\+I\+V\+E\+CT@{U\+S\+B\+\_\+\+I\+V\+E\+CT}}
+\index{U\+S\+B\+\_\+\+I\+V\+E\+CT@{U\+S\+B\+\_\+\+I\+V\+E\+CT}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{U\+S\+B\+\_\+\+I\+V\+E\+CT}{USB\_IVECT}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+I\+V\+E\+CT}
+
+U\+SB interrupt source 
+
+\subsubsection{Function Documentation}
+\mbox{\Hypertarget{intce_8h_ac3d0c796883acc43e5cc74b37b83b167}\label{intce_8h_ac3d0c796883acc43e5cc74b37b83b167}} 
+\index{intce.\+h@{intce.\+h}!int\+\_\+\+Initialize@{int\+\_\+\+Initialize}}
+\index{int\+\_\+\+Initialize@{int\+\_\+\+Initialize}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{int\+\_\+\+Initialize()}{int\_Initialize()}}
+{\footnotesize\ttfamily void int\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initizalize to use custom interrupts \begin{DoxyNote}{Note}
+Saves status of current interrupt state 
+\end{DoxyNote}
+\mbox{\Hypertarget{intce_8h_a1ec1e47453492910a36a5e7fc6bb46ea}\label{intce_8h_a1ec1e47453492910a36a5e7fc6bb46ea}} 
+\index{intce.\+h@{intce.\+h}!int\+\_\+\+Reset@{int\+\_\+\+Reset}}
+\index{int\+\_\+\+Reset@{int\+\_\+\+Reset}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{int\+\_\+\+Reset()}{int\_Reset()}}
+{\footnotesize\ttfamily void int\+\_\+\+Reset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Resets interrupts back to the OS expected values \begin{DoxyWarning}{Warning}
+Must have called int\+\_\+\+Initialize before using 
+\end{DoxyWarning}
+\mbox{\Hypertarget{intce_8h_a3c525272c01a36854d6d231f78ffb226}\label{intce_8h_a3c525272c01a36854d6d231f78ffb226}} 
+\index{intce.\+h@{intce.\+h}!int\+\_\+\+Set\+Vector@{int\+\_\+\+Set\+Vector}}
+\index{int\+\_\+\+Set\+Vector@{int\+\_\+\+Set\+Vector}!intce.\+h@{intce.\+h}}
+\paragraph{\texorpdfstring{int\+\_\+\+Set\+Vector()}{int\_SetVector()}}
+{\footnotesize\ttfamily void int\+\_\+\+Set\+Vector (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{ivect,  }\item[{void($\ast$)(void)}]{handler }\end{DoxyParamCaption})}
+
+Sets up an interrupt vector given an I\+SR 
+\begin{DoxyParams}{Parameters}
+{\em ivect} & Interrupt vector to set \\
+\hline
+{\em handler} & Handler to interrupt service routine \\
+\hline
+\end{DoxyParams}

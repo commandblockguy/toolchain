@@ -1,0 +1,1285 @@
+\hypertarget{tice_8h}{}\subsection{tice.\+h File Reference}
+\label{tice_8h}\index{tice.\+h@{tice.\+h}}
+
+
+Core CE define file.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+\subsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structreal__t}{real\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Structure of real varaible type. \end{DoxyCompactList}\item 
+struct \hyperlink{structcplx__t}{cplx\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Structure of complex varaible type. \end{DoxyCompactList}\item 
+struct \hyperlink{structlist__t}{list\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Structure of list varaible type. \end{DoxyCompactList}\item 
+struct \hyperlink{structcplx__list__t}{cplx\+\_\+list\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Structure of complex list varaible type. \end{DoxyCompactList}\item 
+struct \hyperlink{structmatrix__t}{matrix\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Structure of matrix varaible type. \end{DoxyCompactList}\item 
+struct \hyperlink{structstring__t}{string\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Structure of string varaible type. \end{DoxyCompactList}\item 
+struct \hyperlink{structequ__t}{equ\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Structure of equation varaible type. \end{DoxyCompactList}\item 
+struct \hyperlink{structvar__t}{var\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Structure of miscellaneous varaible type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{tice_8h_a8cdf5dc3371a6c80dd28003403a8f094}{rand\+Int}(min,  max)
+\item 
+\#define \hyperlink{tice_8h_a61765dd0a064283c74e97b24dcfedd67}{rtc\+\_\+\+Time}()
+\item 
+\#define \hyperlink{tice_8h_a19693eac3018d3e7800fde141921b812}{L\+C\+D\+\_\+\+W\+I\+D\+TH}
+\item 
+\#define \hyperlink{tice_8h_a53a8b2a971de4b88047192655a48b651}{L\+C\+D\+\_\+\+H\+E\+I\+G\+HT}
+\item 
+\#define \hyperlink{tice_8h_a4b5774fa14ff71cbc1c3f3001b4a8713}{L\+C\+D\+\_\+\+S\+I\+ZE}
+\item 
+\#define \hyperlink{tice_8h_a5d9e4f37175df52ece5e95789224e1f0}{matrix\+\_\+element}(matrix,  row,  col)
+\item 
+\#define \hyperlink{tice_8h_af31f77eb16adfccf31a00072554c48c5}{os\+\_\+\+Clr\+Home}()
+\item 
+\#define \hyperlink{tice_8h_a085b3ccef49b2e3eb7c7e6d6c24507f5}{os\+\_\+\+Clr\+Home\+Full}()
+\item 
+\#define \hyperlink{tice_8h_a1c4d012bb446e1f6df9dde69bcdd8843}{os\+\_\+\+Text\+Shadow}
+\item 
+\#define \hyperlink{tice_8h_ad1718876e77b610a987e8a837b49adce}{os\+\_\+\+Pen\+Col}
+\item 
+\#define \hyperlink{tice_8h_a445f4ccb9c0c495f034011c473633ba0}{os\+\_\+\+Pen\+Row}
+\item 
+\#define \hyperlink{tice_8h_a7be625b0f50db0d58fd6e552adb491ca}{os\+\_\+\+Asm\+Prgm\+Size}
+\item 
+\#define \hyperlink{tice_8h_a0079510fce07ab691bf7e34b4214cc1f}{os\+\_\+\+App\+Err1}
+\item 
+\#define \hyperlink{tice_8h_af5e8c33f1e68e3d4b31a6fa58037eb40}{os\+\_\+\+App\+Err2}
+\item 
+\#define \hyperlink{tice_8h_ad93b56112739741b0b6c5588459317ee}{os\+\_\+\+Temp\+Free\+Arc}
+\item 
+\#define \hyperlink{tice_8h_ae767bb684933b25c23b335db5c836e95}{os\+\_\+\+Text\+B\+Gcolor}
+\item 
+\#define \hyperlink{tice_8h_a500dd6d0da8521d53b8f93a50f6b3cf2}{os\+\_\+\+Text\+F\+Gcolor}
+\item 
+\#define \hyperlink{tice_8h_a856436e92f2839b5629178a9e104a592}{os\+\_\+\+Draw\+B\+G\+Color}
+\item 
+\#define \hyperlink{tice_8h_aa9031a6bc83c9ca1a7ae5b663a5b5b18}{os\+\_\+\+Draw\+F\+G\+Color}
+\item 
+\#define \hyperlink{tice_8h_a2b6a3ab8cbb7eb858c9adf95679ed07b}{os\+\_\+\+Graph\+B\+G\+Color}
+\item 
+\#define \hyperlink{tice_8h_afb42845f8baf2a75e2f8aeda252fd4e9}{os\+\_\+\+Status\+Bar\+B\+G\+Color}
+\item 
+\#define \hyperlink{tice_8h_a1516736dd9f41abfe95ea6fe5c93bf98}{os\+\_\+\+Ram\+Code}
+\end{DoxyCompactItemize}
+\subsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tice_8h_a00720cc284eb71e50d278b521c32b123}\label{tice_8h_a00720cc284eb71e50d278b521c32b123}} 
+typedef uint8\+\_\+t \hyperlink{tice_8h_a00720cc284eb71e50d278b521c32b123}{sk\+\_\+key\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Scan code type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{tice_8h_a33b96d8def662e168dd4a51d8233b7be}{os\+\_\+colors\+\_\+t} 
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \hyperlink{tice_8h_a25238a98affe26c3faf9bcdb58855c48}{random} (void)
+\item 
+void \hyperlink{tice_8h_a54cd8fd0f6b913a116bf0cbf21fab044}{srandom} (uint32\+\_\+t seed)
+\item 
+void \hyperlink{tice_8h_acfd12579679c85d5f1c716509b2587f6}{delay} (uint16\+\_\+t msec)
+\item 
+void \hyperlink{tice_8h_ad8aa16bfaaeea4a827bce2d7baa90745}{boot\+\_\+\+Set\+Date} (uint8\+\_\+t day, uint8\+\_\+t month, uint16\+\_\+t year)
+\item 
+void \hyperlink{tice_8h_ae0315dfff7eec682d38467a99415d4c4}{boot\+\_\+\+Get\+Date} (uint8\+\_\+t $\ast$day, uint8\+\_\+t $\ast$month, uint16\+\_\+t $\ast$year)
+\item 
+void \hyperlink{tice_8h_ac1200f2b4cbbc346d0e6a2f5c353f9c8}{boot\+\_\+\+Set\+Time} (uint8\+\_\+t seconds, uint8\+\_\+t minutes, uint8\+\_\+t hours)
+\item 
+void \hyperlink{tice_8h_a718df11f85fe8ddab8d5b2e54b1eb668}{boot\+\_\+\+Get\+Time} (uint8\+\_\+t $\ast$seconds, uint8\+\_\+t $\ast$minutes, uint8\+\_\+t $\ast$hours)
+\item 
+bool \hyperlink{tice_8h_aa96977eb1d9ee88829c13cde9b2bb8fd}{boot\+\_\+\+Is\+After\+Noon} (void)
+\item 
+uint8\+\_\+t \hyperlink{tice_8h_a53ae2074847992a63c8bee26afd9d56f}{boot\+\_\+\+Get\+Boot\+Major\+Ver} (void)
+\item 
+uint8\+\_\+t \hyperlink{tice_8h_a28ce1b99292e6e580c3c44fa3b6cb431}{boot\+\_\+\+Get\+Boot\+Minor\+Ver} (void)
+\item 
+uint8\+\_\+t \hyperlink{tice_8h_a542746d4ed5588264ffe6436c40e2976}{boot\+\_\+\+Get\+Hardware\+Ver} (void)
+\item 
+void \hyperlink{tice_8h_a677f306acf49dacc9901bc5f848bc344}{boot\+\_\+\+Clear\+V\+R\+AM} (void)
+\item 
+bool \hyperlink{tice_8h_ab2e816a24c2b94e7b10ec6ed83c1bf68}{boot\+\_\+\+Check\+On\+Pressed} (void)
+\item 
+void \hyperlink{tice_8h_ad44d57a7e88323c7de8db7989cef4b28}{boot\+\_\+\+Debug\+Printf} (const char $\ast$string)
+\item 
+void \hyperlink{tice_8h_a4851a37ce3eaecede4ce39e4e9c23a20}{boot\+\_\+\+Turn\+Off} (void)
+\item 
+void \hyperlink{tice_8h_aaaffb7da274570bc1e4c852c62765770}{boot\+\_\+\+New\+Line} (void)
+\item 
+uint8\+\_\+t \hyperlink{tice_8h_a23989d64ba6248df3cd0fec20fa96ae7}{boot\+\_\+\+Get\+Battery\+Status} (void)
+\item 
+void \hyperlink{tice_8h_a4751701988751e498490608739b3def1}{boot\+\_\+\+Wait\+Short} (void)
+\item 
+void \hyperlink{tice_8h_afe1b552868eb4844aace0efc6dbee0c4}{os\+\_\+\+Disable\+Cursor} (void)
+\item 
+void \hyperlink{tice_8h_aeaea1d3a3cfe9d2405cdad509a6ee591}{os\+\_\+\+Enable\+Cursor} (void)
+\item 
+void \hyperlink{tice_8h_abe70f3b6bc7dc87a24bea99839ab7968}{os\+\_\+\+Set\+Draw\+F\+G\+Color} (uint24\+\_\+t color)
+\item 
+uint24\+\_\+t \hyperlink{tice_8h_a04f297c914cee4f29f90a981c395b84f}{os\+\_\+\+Get\+Draw\+F\+G\+Color} (void)
+\item 
+void \hyperlink{tice_8h_aa282c55ac71cb8a9f04eb16d39e4f8d3}{os\+\_\+\+Set\+Draw\+B\+G\+Color} (uint24\+\_\+t color)
+\item 
+uint24\+\_\+t \hyperlink{tice_8h_a7a67f4155bda58ca6716c8e4782eeae3}{os\+\_\+\+Get\+Draw\+B\+G\+Color} (void)
+\item 
+void \hyperlink{tice_8h_a0fcf624fd8a7b43375fd0aa925b02872}{os\+\_\+\+Set\+Cursor\+Pos} (uint8\+\_\+t cur\+Row, uint8\+\_\+t cur\+Col)
+\item 
+void \hyperlink{tice_8h_a92cfe934f3c43d8235d678d97a9080b8}{os\+\_\+\+Get\+Cursor\+Pos} (unsigned int $\ast$cur\+Row, unsigned int $\ast$cur\+Col)
+\item 
+void \hyperlink{tice_8h_af511480e757ca22917e43543bf23f401}{os\+\_\+\+Font\+Select} (char id)
+\item 
+uint24\+\_\+t \hyperlink{tice_8h_a84b27224b9c54e59fbf4ed932112e5b1}{os\+\_\+\+Font\+Get\+ID} (void)
+\item 
+uint24\+\_\+t \hyperlink{tice_8h_ad6b8e1cdc5f402887b62c72d9f9fc0a2}{os\+\_\+\+Font\+Get\+Width} (const char $\ast$string)
+\item 
+uint24\+\_\+t \hyperlink{tice_8h_a3773dcdcedd131b11d48dda78c73e347}{os\+\_\+\+Font\+Get\+Height} (void)
+\item 
+uint24\+\_\+t \hyperlink{tice_8h_a002b1a506b96eefa7e6193d9ec19205d}{os\+\_\+\+Font\+Draw\+Text} (const char $\ast$string, uint16\+\_\+t col, uint8\+\_\+t row)
+\item 
+uint24\+\_\+t \hyperlink{tice_8h_aa2ac7abeec2959dc64b763ceb1ca5cc0}{os\+\_\+\+Font\+Draw\+Trans\+Text} (const char $\ast$string, uint16\+\_\+t col, uint8\+\_\+t row)
+\item 
+uint24\+\_\+t \hyperlink{tice_8h_a5316ce240dc00c400d1f30af6579d666}{os\+\_\+\+Put\+Str\+Full} (const char $\ast$string)
+\item 
+uint24\+\_\+t \hyperlink{tice_8h_a37908b624f2bd7c37f46e8b0533394b8}{os\+\_\+\+Put\+Str\+Line} (const char $\ast$string)
+\item 
+void \hyperlink{tice_8h_ae4fc41906c9e93c4e1b64a2ba56e80c5}{os\+\_\+\+Set\+Flag\+Byte} (int offset, uint8\+\_\+t set)
+\item 
+uint8\+\_\+t \hyperlink{tice_8h_a3b4341e60ac25d890127813aa441406d}{os\+\_\+\+Get\+Flag\+Byte} (int offset)
+\item 
+size\+\_\+t \hyperlink{tice_8h_ac8a018c90c6e1d6a922afe8f7b2a3c9b}{os\+\_\+\+Mem\+Chk} (void $\ast$$\ast$free)
+\item 
+void \hyperlink{tice_8h_a9f3acd9481c7a931a5a8cf3c2c92ee18}{os\+\_\+\+Throw\+Error} (uint8\+\_\+t error)
+\item 
+void $\ast$ \hyperlink{tice_8h_ad1e9b4bcf74c415c27fba76283f53c69}{os\+\_\+\+Get\+System\+Stats} (void)
+\item 
+void \hyperlink{tice_8h_a79d47c7ec7a7130100f0c70b74a797d8}{os\+\_\+\+Push\+Error\+Handler} (void $\ast$routine)
+\item 
+void \hyperlink{tice_8h_a2862dc222a72179213b2b9ed6eb0a3d9}{os\+\_\+\+Pop\+Error\+Handler} (void)
+\item 
+void $\ast$ \hyperlink{tice_8h_aa1c4673328edfc7e29946dbb5971852f}{os\+\_\+\+Get\+Sym\+Table\+Ptr} (void)
+\item 
+\hyperlink{structvar__t}{var\+\_\+t} $\ast$ \hyperlink{tice_8h_a9ed29e2009e191202482ee7334726ffd}{os\+\_\+\+Create\+App\+Var} (const char $\ast$name, uint16\+\_\+t size)
+\item 
+void $\ast$ \hyperlink{tice_8h_a84681c61e0ea353e3448306918ce399a}{os\+\_\+\+Next\+Sym\+Entry} (void $\ast$entry, uint24\+\_\+t $\ast$type, uint24\+\_\+t $\ast$name\+Length, char $\ast$name, void $\ast$$\ast$data)
+\item 
+int \hyperlink{tice_8h_a03c7b7fd5d27d43d38717c3a0a9db1f0}{os\+\_\+\+Chk\+Find\+Sym} (uint8\+\_\+t type, const char $\ast$name, void $\ast$$\ast$entry, void $\ast$$\ast$data)
+\item 
+void $\ast$ \hyperlink{tice_8h_acf179c526ec2f628c2f01bc39becb8b6}{os\+\_\+\+Rcl\+Ans} (uint8\+\_\+t $\ast$type)
+\item 
+\hyperlink{structreal__t}{real\+\_\+t} \hyperlink{tice_8h_a1e6b19531259bccf09f0f07565d6803f}{os\+\_\+\+Real\+Copy} (const \hyperlink{structreal__t}{real\+\_\+t} $\ast$src)
+\item 
+\hyperlink{structreal__t}{real\+\_\+t} \hyperlink{tice_8h_a1b45f9fc846040f840cc85c4c95c59ab}{os\+\_\+\+Real\+Round} (const \hyperlink{structreal__t}{real\+\_\+t} $\ast$arg, char digits)
+\item 
+int \hyperlink{tice_8h_ac12d5e48a1c3577d15b33bbfc73790dc}{os\+\_\+\+Real\+Compare} (const \hyperlink{structreal__t}{real\+\_\+t} $\ast$arg1, const \hyperlink{structreal__t}{real\+\_\+t} $\ast$arg2)
+\item 
+int24\+\_\+t \hyperlink{tice_8h_a3e943f7b734e3d769b1ecf8787cb4187}{os\+\_\+\+Real\+To\+Int24} (const \hyperlink{structreal__t}{real\+\_\+t} $\ast$arg)
+\item 
+\hyperlink{structreal__t}{real\+\_\+t} \hyperlink{tice_8h_a83cd18115c9638421c1e44c7e1ec7380}{os\+\_\+\+Int24\+To\+Real} (int24\+\_\+t arg)
+\item 
+float \hyperlink{tice_8h_a29e3aa966dadbd18298ad0791f7917c8}{os\+\_\+\+Real\+To\+Float} (const \hyperlink{structreal__t}{real\+\_\+t} $\ast$arg)
+\item 
+\hyperlink{structreal__t}{real\+\_\+t} \hyperlink{tice_8h_a2d8395d37160b196d48467b377a42b53}{os\+\_\+\+Float\+To\+Real} (float arg)
+\item 
+int \hyperlink{tice_8h_a613e51097b40c4c9df803f5e67058b64}{os\+\_\+\+Real\+To\+Str} (char $\ast$result, const \hyperlink{structreal__t}{real\+\_\+t} $\ast$arg, int8\+\_\+t max\+Length, uint8\+\_\+t mode, int8\+\_\+t digits)
+\item 
+\hyperlink{structreal__t}{real\+\_\+t} \hyperlink{tice_8h_a8c87da7e79da4f15ab80fcc40628ece9}{os\+\_\+\+Str\+To\+Real} (const char $\ast$string, char $\ast$$\ast$end)
+\item 
+int \hyperlink{tice_8h_a0bd74157b99a61df8b9c654ea90bfa5f}{os\+\_\+\+Test\+Flag\+Bits} (uint16\+\_\+t offset\+\_\+pattern)
+\item 
+uint16\+\_\+t \hyperlink{tice_8h_a2fe1d4602b3181350157d3c5cec287a7}{os\+\_\+\+Get\+Key} (void)
+\item 
+\hyperlink{tice_8h_a00720cc284eb71e50d278b521c32b123}{sk\+\_\+key\+\_\+t} \hyperlink{tice_8h_a5239bbcc4677735fa0a79b149e09f0d7}{os\+\_\+\+Get\+C\+SC} (void)
+\item 
+void \hyperlink{tice_8h_a3e48d62e2f6e2cbd743a14bffeda16ae}{boot\+\_\+\+Set6\+M\+Hz\+Mode} (void)
+\item 
+void \hyperlink{tice_8h_a67791b653e6aaa33ad8d1135416f5740}{boot\+\_\+\+Set48\+M\+Hz\+Mode} (void)
+\item 
+void \hyperlink{tice_8h_a01d0ccd4d63bedc97ca9b5221b498cfe}{boot\+\_\+\+Set6\+M\+Hz\+ModeI} (void)
+\item 
+void \hyperlink{tice_8h_a034cb83cbc1f68048d1b7a9aa35d38a7}{boot\+\_\+\+Set48\+M\+Hz\+ModeI} (void)
+\item 
+void \hyperlink{tice_8h_a190aee5cf27dcd5f6e889ea738e0890b}{os\+\_\+\+Force\+Cmd\+No\+Char} (void)
+\item 
+void \hyperlink{tice_8h_a5ecea0fa64cdc6ae6768a2e0043fd28d}{\+\_\+\+OS} (void($\ast$function)(void))
+\item 
+void \hyperlink{tice_8h_a09beabf301b4ccd618b1af92a6e5ad00}{asm\+\_\+\+Move\+Up} (void)
+\item 
+void \hyperlink{tice_8h_acd587dd2a0d4a15916c3ba25bc144579}{asm\+\_\+\+Move\+Down} (void)
+\item 
+void \hyperlink{tice_8h_adf9e591da07f0e30119cbc35aa0996cf}{asm\+\_\+\+Home\+Up} (void)
+\item 
+void \hyperlink{tice_8h_ad93e416bba6dafdce5e0cb5131c15d81}{asm\+\_\+\+Run\+Indic\+On} (void)
+\item 
+void \hyperlink{tice_8h_aef1134871e2ded341718bf50f7576907}{asm\+\_\+\+Run\+Indic\+Off} (void)
+\item 
+void \hyperlink{tice_8h_a93e3f2be6bb772866f3e3b67b57e4b64}{asm\+\_\+\+Disable\+A\+PD} (void)
+\item 
+void \hyperlink{tice_8h_a1b046b728d1adb61314e4d68670909d9}{asm\+\_\+\+Enable\+A\+PD} (void)
+\item 
+void \hyperlink{tice_8h_a444b600ab677026c246375c9339e0632}{asm\+\_\+\+Arc\+Chk} (void)
+\item 
+void \hyperlink{tice_8h_a405defe5db0dbc473222588207c415d9}{asm\+\_\+\+Clr\+L\+C\+D\+Full} (void)
+\item 
+void \hyperlink{tice_8h_a53c1f595dbfc226180d08d7a8b1c2e29}{asm\+\_\+\+Clr\+L\+CD} (void)
+\item 
+void \hyperlink{tice_8h_a322b416a213fee3afee316633b824d8d}{asm\+\_\+\+Draw\+Status\+Bar} (void)
+\item 
+void \hyperlink{tice_8h_a1428b1a471a3be4d9cac5cf809ba39e2}{asm\+\_\+\+Del\+Res} (void)
+\item 
+void \hyperlink{tice_8h_ad5107435bed6d122cfe7f4fc1ceb1dd0}{asm\+\_\+\+Clr\+Txt\+Shd} (void)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Core CE define file. 
+
+\begin{DoxyAuthor}{Authors}
+Matt \char`\"{}\+Mateo\+Con\+Lechuga\char`\"{} Waltz 
+
+Jacob \char`\"{}jacobly\char`\"{} Young 
+\end{DoxyAuthor}
+
+
+\subsubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{tice_8h_a53a8b2a971de4b88047192655a48b651}\label{tice_8h_a53a8b2a971de4b88047192655a48b651}} 
+\index{tice.\+h@{tice.\+h}!L\+C\+D\+\_\+\+H\+E\+I\+G\+HT@{L\+C\+D\+\_\+\+H\+E\+I\+G\+HT}}
+\index{L\+C\+D\+\_\+\+H\+E\+I\+G\+HT@{L\+C\+D\+\_\+\+H\+E\+I\+G\+HT}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{L\+C\+D\+\_\+\+H\+E\+I\+G\+HT}{LCD\_HEIGHT}}
+{\footnotesize\ttfamily \#define L\+C\+D\+\_\+\+H\+E\+I\+G\+HT}
+
+Height of L\+CD in pixels \mbox{\Hypertarget{tice_8h_a4b5774fa14ff71cbc1c3f3001b4a8713}\label{tice_8h_a4b5774fa14ff71cbc1c3f3001b4a8713}} 
+\index{tice.\+h@{tice.\+h}!L\+C\+D\+\_\+\+S\+I\+ZE@{L\+C\+D\+\_\+\+S\+I\+ZE}}
+\index{L\+C\+D\+\_\+\+S\+I\+ZE@{L\+C\+D\+\_\+\+S\+I\+ZE}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{L\+C\+D\+\_\+\+S\+I\+ZE}{LCD\_SIZE}}
+{\footnotesize\ttfamily \#define L\+C\+D\+\_\+\+S\+I\+ZE}
+
+Total number of pixels in L\+CD \mbox{\Hypertarget{tice_8h_a19693eac3018d3e7800fde141921b812}\label{tice_8h_a19693eac3018d3e7800fde141921b812}} 
+\index{tice.\+h@{tice.\+h}!L\+C\+D\+\_\+\+W\+I\+D\+TH@{L\+C\+D\+\_\+\+W\+I\+D\+TH}}
+\index{L\+C\+D\+\_\+\+W\+I\+D\+TH@{L\+C\+D\+\_\+\+W\+I\+D\+TH}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{L\+C\+D\+\_\+\+W\+I\+D\+TH}{LCD\_WIDTH}}
+{\footnotesize\ttfamily \#define L\+C\+D\+\_\+\+W\+I\+D\+TH}
+
+Width of L\+CD in pixels \mbox{\Hypertarget{tice_8h_a5d9e4f37175df52ece5e95789224e1f0}\label{tice_8h_a5d9e4f37175df52ece5e95789224e1f0}} 
+\index{tice.\+h@{tice.\+h}!matrix\+\_\+element@{matrix\+\_\+element}}
+\index{matrix\+\_\+element@{matrix\+\_\+element}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{matrix\+\_\+element}{matrix\_element}}
+{\footnotesize\ttfamily \#define matrix\+\_\+element(\begin{DoxyParamCaption}\item[{}]{matrix,  }\item[{}]{row,  }\item[{}]{col }\end{DoxyParamCaption})}
+
+Gets an element from a matrix
+
+
+\begin{DoxyParams}{Parameters}
+{\em matrix} & Structure of matrix \\
+\hline
+{\em row} & Row in matrix \\
+\hline
+{\em col} & Column in matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{structreal__t}{real\+\_\+t} containing element data 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_a0079510fce07ab691bf7e34b4214cc1f}\label{tice_8h_a0079510fce07ab691bf7e34b4214cc1f}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+App\+Err1@{os\+\_\+\+App\+Err1}}
+\index{os\+\_\+\+App\+Err1@{os\+\_\+\+App\+Err1}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+App\+Err1}{os\_AppErr1}}
+{\footnotesize\ttfamily \#define os\+\_\+\+App\+Err1}
+
+String \mbox{[}1\mbox{]} for custom error \mbox{\Hypertarget{tice_8h_af5e8c33f1e68e3d4b31a6fa58037eb40}\label{tice_8h_af5e8c33f1e68e3d4b31a6fa58037eb40}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+App\+Err2@{os\+\_\+\+App\+Err2}}
+\index{os\+\_\+\+App\+Err2@{os\+\_\+\+App\+Err2}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+App\+Err2}{os\_AppErr2}}
+{\footnotesize\ttfamily \#define os\+\_\+\+App\+Err2}
+
+String \mbox{[}2\mbox{]} for custom error \mbox{\Hypertarget{tice_8h_a7be625b0f50db0d58fd6e552adb491ca}\label{tice_8h_a7be625b0f50db0d58fd6e552adb491ca}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Asm\+Prgm\+Size@{os\+\_\+\+Asm\+Prgm\+Size}}
+\index{os\+\_\+\+Asm\+Prgm\+Size@{os\+\_\+\+Asm\+Prgm\+Size}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Asm\+Prgm\+Size}{os\_AsmPrgmSize}}
+{\footnotesize\ttfamily \#define os\+\_\+\+Asm\+Prgm\+Size}
+
+Current size of executing program \mbox{\Hypertarget{tice_8h_af31f77eb16adfccf31a00072554c48c5}\label{tice_8h_af31f77eb16adfccf31a00072554c48c5}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Clr\+Home@{os\+\_\+\+Clr\+Home}}
+\index{os\+\_\+\+Clr\+Home@{os\+\_\+\+Clr\+Home}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Clr\+Home}{os\_ClrHome}}
+{\footnotesize\ttfamily \#define os\+\_\+\+Clr\+Home(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Resets the OS homescreen; accounts for split screen \mbox{\Hypertarget{tice_8h_a085b3ccef49b2e3eb7c7e6d6c24507f5}\label{tice_8h_a085b3ccef49b2e3eb7c7e6d6c24507f5}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Clr\+Home\+Full@{os\+\_\+\+Clr\+Home\+Full}}
+\index{os\+\_\+\+Clr\+Home\+Full@{os\+\_\+\+Clr\+Home\+Full}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Clr\+Home\+Full}{os\_ClrHomeFull}}
+{\footnotesize\ttfamily \#define os\+\_\+\+Clr\+Home\+Full(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Resets the OS homescreen fully \mbox{\Hypertarget{tice_8h_a856436e92f2839b5629178a9e104a592}\label{tice_8h_a856436e92f2839b5629178a9e104a592}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Draw\+B\+G\+Color@{os\+\_\+\+Draw\+B\+G\+Color}}
+\index{os\+\_\+\+Draw\+B\+G\+Color@{os\+\_\+\+Draw\+B\+G\+Color}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Draw\+B\+G\+Color}{os\_DrawBGColor}}
+{\footnotesize\ttfamily \#define os\+\_\+\+Draw\+B\+G\+Color}
+
+Small font background color \mbox{\Hypertarget{tice_8h_aa9031a6bc83c9ca1a7ae5b663a5b5b18}\label{tice_8h_aa9031a6bc83c9ca1a7ae5b663a5b5b18}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Draw\+F\+G\+Color@{os\+\_\+\+Draw\+F\+G\+Color}}
+\index{os\+\_\+\+Draw\+F\+G\+Color@{os\+\_\+\+Draw\+F\+G\+Color}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Draw\+F\+G\+Color}{os\_DrawFGColor}}
+{\footnotesize\ttfamily \#define os\+\_\+\+Draw\+F\+G\+Color}
+
+Small font foreground color \mbox{\Hypertarget{tice_8h_a2b6a3ab8cbb7eb858c9adf95679ed07b}\label{tice_8h_a2b6a3ab8cbb7eb858c9adf95679ed07b}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Graph\+B\+G\+Color@{os\+\_\+\+Graph\+B\+G\+Color}}
+\index{os\+\_\+\+Graph\+B\+G\+Color@{os\+\_\+\+Graph\+B\+G\+Color}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Graph\+B\+G\+Color}{os\_GraphBGColor}}
+{\footnotesize\ttfamily \#define os\+\_\+\+Graph\+B\+G\+Color}
+
+Graph background 565 color \mbox{\Hypertarget{tice_8h_ad1718876e77b610a987e8a837b49adce}\label{tice_8h_ad1718876e77b610a987e8a837b49adce}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Pen\+Col@{os\+\_\+\+Pen\+Col}}
+\index{os\+\_\+\+Pen\+Col@{os\+\_\+\+Pen\+Col}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Pen\+Col}{os\_PenCol}}
+{\footnotesize\ttfamily \#define os\+\_\+\+Pen\+Col}
+
+Small font column location \mbox{\Hypertarget{tice_8h_a445f4ccb9c0c495f034011c473633ba0}\label{tice_8h_a445f4ccb9c0c495f034011c473633ba0}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Pen\+Row@{os\+\_\+\+Pen\+Row}}
+\index{os\+\_\+\+Pen\+Row@{os\+\_\+\+Pen\+Row}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Pen\+Row}{os\_PenRow}}
+{\footnotesize\ttfamily \#define os\+\_\+\+Pen\+Row}
+
+Small font row location \mbox{\Hypertarget{tice_8h_a1516736dd9f41abfe95ea6fe5c93bf98}\label{tice_8h_a1516736dd9f41abfe95ea6fe5c93bf98}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Ram\+Code@{os\+\_\+\+Ram\+Code}}
+\index{os\+\_\+\+Ram\+Code@{os\+\_\+\+Ram\+Code}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Ram\+Code}{os\_RamCode}}
+{\footnotesize\ttfamily \#define os\+\_\+\+Ram\+Code}
+
+1023 bytes free ram \mbox{\Hypertarget{tice_8h_afb42845f8baf2a75e2f8aeda252fd4e9}\label{tice_8h_afb42845f8baf2a75e2f8aeda252fd4e9}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Status\+Bar\+B\+G\+Color@{os\+\_\+\+Status\+Bar\+B\+G\+Color}}
+\index{os\+\_\+\+Status\+Bar\+B\+G\+Color@{os\+\_\+\+Status\+Bar\+B\+G\+Color}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Status\+Bar\+B\+G\+Color}{os\_StatusBarBGColor}}
+{\footnotesize\ttfamily \#define os\+\_\+\+Status\+Bar\+B\+G\+Color}
+
+Status bar 565 color \mbox{\Hypertarget{tice_8h_ad93b56112739741b0b6c5588459317ee}\label{tice_8h_ad93b56112739741b0b6c5588459317ee}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Temp\+Free\+Arc@{os\+\_\+\+Temp\+Free\+Arc}}
+\index{os\+\_\+\+Temp\+Free\+Arc@{os\+\_\+\+Temp\+Free\+Arc}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Temp\+Free\+Arc}{os\_TempFreeArc}}
+{\footnotesize\ttfamily \#define os\+\_\+\+Temp\+Free\+Arc}
+
+Set after asm\+\_\+\+Arc\+Chk call \mbox{\Hypertarget{tice_8h_ae767bb684933b25c23b335db5c836e95}\label{tice_8h_ae767bb684933b25c23b335db5c836e95}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Text\+B\+Gcolor@{os\+\_\+\+Text\+B\+Gcolor}}
+\index{os\+\_\+\+Text\+B\+Gcolor@{os\+\_\+\+Text\+B\+Gcolor}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Text\+B\+Gcolor}{os\_TextBGcolor}}
+{\footnotesize\ttfamily \#define os\+\_\+\+Text\+B\+Gcolor}
+
+Large font background color \mbox{\Hypertarget{tice_8h_a500dd6d0da8521d53b8f93a50f6b3cf2}\label{tice_8h_a500dd6d0da8521d53b8f93a50f6b3cf2}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Text\+F\+Gcolor@{os\+\_\+\+Text\+F\+Gcolor}}
+\index{os\+\_\+\+Text\+F\+Gcolor@{os\+\_\+\+Text\+F\+Gcolor}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Text\+F\+Gcolor}{os\_TextFGcolor}}
+{\footnotesize\ttfamily \#define os\+\_\+\+Text\+F\+Gcolor}
+
+Large font foreground color \mbox{\Hypertarget{tice_8h_a1c4d012bb446e1f6df9dde69bcdd8843}\label{tice_8h_a1c4d012bb446e1f6df9dde69bcdd8843}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Text\+Shadow@{os\+\_\+\+Text\+Shadow}}
+\index{os\+\_\+\+Text\+Shadow@{os\+\_\+\+Text\+Shadow}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Text\+Shadow}{os\_TextShadow}}
+{\footnotesize\ttfamily \#define os\+\_\+\+Text\+Shadow}
+
+Text buffer 260 bytes \mbox{\Hypertarget{tice_8h_a8cdf5dc3371a6c80dd28003403a8f094}\label{tice_8h_a8cdf5dc3371a6c80dd28003403a8f094}} 
+\index{tice.\+h@{tice.\+h}!rand\+Int@{rand\+Int}}
+\index{rand\+Int@{rand\+Int}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{rand\+Int}{randInt}}
+{\footnotesize\ttfamily \#define rand\+Int(\begin{DoxyParamCaption}\item[{}]{min,  }\item[{}]{max }\end{DoxyParamCaption})}
+
+Returns a pseudo-\/random integer in the range of {\ttfamily min} to {\ttfamily max} (inclusive). \mbox{\Hypertarget{tice_8h_a61765dd0a064283c74e97b24dcfedd67}\label{tice_8h_a61765dd0a064283c74e97b24dcfedd67}} 
+\index{tice.\+h@{tice.\+h}!rtc\+\_\+\+Time@{rtc\+\_\+\+Time}}
+\index{rtc\+\_\+\+Time@{rtc\+\_\+\+Time}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{rtc\+\_\+\+Time}{rtc\_Time}}
+{\footnotesize\ttfamily \#define rtc\+\_\+\+Time(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets a combination of the R\+TC time; useful for srand() 
+
+\subsubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{tice_8h_a33b96d8def662e168dd4a51d8233b7be}\label{tice_8h_a33b96d8def662e168dd4a51d8233b7be}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+colors\+\_\+t@{os\+\_\+colors\+\_\+t}}
+\index{os\+\_\+colors\+\_\+t@{os\+\_\+colors\+\_\+t}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+colors\+\_\+t}{os\_colors\_t}}
+{\footnotesize\ttfamily enum \hyperlink{tice_8h_a33b96d8def662e168dd4a51d8233b7be}{os\+\_\+colors\+\_\+t}}
+
+Colors used by the OS 
+
+\subsubsection{Function Documentation}
+\mbox{\Hypertarget{tice_8h_a5ecea0fa64cdc6ae6768a2e0043fd28d}\label{tice_8h_a5ecea0fa64cdc6ae6768a2e0043fd28d}} 
+\index{tice.\+h@{tice.\+h}!\+\_\+\+OS@{\+\_\+\+OS}}
+\index{\+\_\+\+OS@{\+\_\+\+OS}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{\+\_\+\+O\+S()}{\_OS()}}
+{\footnotesize\ttfamily void \+\_\+\+OS (\begin{DoxyParamCaption}\item[{void($\ast$)(void)}]{function }\end{DoxyParamCaption})}
+
+Use this function to call assembly functions in the OS and Bootcode i.\+e. \+\_\+\+O\+S( asm\+\_\+\+Arc\+Chk ); \mbox{\Hypertarget{tice_8h_a444b600ab677026c246375c9339e0632}\label{tice_8h_a444b600ab677026c246375c9339e0632}} 
+\index{tice.\+h@{tice.\+h}!asm\+\_\+\+Arc\+Chk@{asm\+\_\+\+Arc\+Chk}}
+\index{asm\+\_\+\+Arc\+Chk@{asm\+\_\+\+Arc\+Chk}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{asm\+\_\+\+Arc\+Chk()}{asm\_ArcChk()}}
+{\footnotesize\ttfamily void asm\+\_\+\+Arc\+Chk (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Assembly routine checks the amount of free archive \mbox{\Hypertarget{tice_8h_a53c1f595dbfc226180d08d7a8b1c2e29}\label{tice_8h_a53c1f595dbfc226180d08d7a8b1c2e29}} 
+\index{tice.\+h@{tice.\+h}!asm\+\_\+\+Clr\+L\+CD@{asm\+\_\+\+Clr\+L\+CD}}
+\index{asm\+\_\+\+Clr\+L\+CD@{asm\+\_\+\+Clr\+L\+CD}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{asm\+\_\+\+Clr\+L\+C\+D()}{asm\_ClrLCD()}}
+{\footnotesize\ttfamily void asm\+\_\+\+Clr\+L\+CD (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Assembly routine to clear the homescreen lcd. Accounts for split screen \mbox{\Hypertarget{tice_8h_a405defe5db0dbc473222588207c415d9}\label{tice_8h_a405defe5db0dbc473222588207c415d9}} 
+\index{tice.\+h@{tice.\+h}!asm\+\_\+\+Clr\+L\+C\+D\+Full@{asm\+\_\+\+Clr\+L\+C\+D\+Full}}
+\index{asm\+\_\+\+Clr\+L\+C\+D\+Full@{asm\+\_\+\+Clr\+L\+C\+D\+Full}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{asm\+\_\+\+Clr\+L\+C\+D\+Full()}{asm\_ClrLCDFull()}}
+{\footnotesize\ttfamily void asm\+\_\+\+Clr\+L\+C\+D\+Full (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Assembly routine to clear the homescreen lcd \mbox{\Hypertarget{tice_8h_ad5107435bed6d122cfe7f4fc1ceb1dd0}\label{tice_8h_ad5107435bed6d122cfe7f4fc1ceb1dd0}} 
+\index{tice.\+h@{tice.\+h}!asm\+\_\+\+Clr\+Txt\+Shd@{asm\+\_\+\+Clr\+Txt\+Shd}}
+\index{asm\+\_\+\+Clr\+Txt\+Shd@{asm\+\_\+\+Clr\+Txt\+Shd}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{asm\+\_\+\+Clr\+Txt\+Shd()}{asm\_ClrTxtShd()}}
+{\footnotesize\ttfamily void asm\+\_\+\+Clr\+Txt\+Shd (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Invalidate and clear text shadow area \mbox{\Hypertarget{tice_8h_a1428b1a471a3be4d9cac5cf809ba39e2}\label{tice_8h_a1428b1a471a3be4d9cac5cf809ba39e2}} 
+\index{tice.\+h@{tice.\+h}!asm\+\_\+\+Del\+Res@{asm\+\_\+\+Del\+Res}}
+\index{asm\+\_\+\+Del\+Res@{asm\+\_\+\+Del\+Res}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{asm\+\_\+\+Del\+Res()}{asm\_DelRes()}}
+{\footnotesize\ttfamily void asm\+\_\+\+Del\+Res (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Invalidate and clear stat variables \mbox{\Hypertarget{tice_8h_a93e3f2be6bb772866f3e3b67b57e4b64}\label{tice_8h_a93e3f2be6bb772866f3e3b67b57e4b64}} 
+\index{tice.\+h@{tice.\+h}!asm\+\_\+\+Disable\+A\+PD@{asm\+\_\+\+Disable\+A\+PD}}
+\index{asm\+\_\+\+Disable\+A\+PD@{asm\+\_\+\+Disable\+A\+PD}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{asm\+\_\+\+Disable\+A\+P\+D()}{asm\_DisableAPD()}}
+{\footnotesize\ttfamily void asm\+\_\+\+Disable\+A\+PD (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Assembly routine to turn off A\+PD \mbox{\Hypertarget{tice_8h_a322b416a213fee3afee316633b824d8d}\label{tice_8h_a322b416a213fee3afee316633b824d8d}} 
+\index{tice.\+h@{tice.\+h}!asm\+\_\+\+Draw\+Status\+Bar@{asm\+\_\+\+Draw\+Status\+Bar}}
+\index{asm\+\_\+\+Draw\+Status\+Bar@{asm\+\_\+\+Draw\+Status\+Bar}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{asm\+\_\+\+Draw\+Status\+Bar()}{asm\_DrawStatusBar()}}
+{\footnotesize\ttfamily void asm\+\_\+\+Draw\+Status\+Bar (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Assembly routine to redraw the status bar \mbox{\Hypertarget{tice_8h_a1b046b728d1adb61314e4d68670909d9}\label{tice_8h_a1b046b728d1adb61314e4d68670909d9}} 
+\index{tice.\+h@{tice.\+h}!asm\+\_\+\+Enable\+A\+PD@{asm\+\_\+\+Enable\+A\+PD}}
+\index{asm\+\_\+\+Enable\+A\+PD@{asm\+\_\+\+Enable\+A\+PD}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{asm\+\_\+\+Enable\+A\+P\+D()}{asm\_EnableAPD()}}
+{\footnotesize\ttfamily void asm\+\_\+\+Enable\+A\+PD (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Assembly routine to turn on A\+PD \mbox{\Hypertarget{tice_8h_adf9e591da07f0e30119cbc35aa0996cf}\label{tice_8h_adf9e591da07f0e30119cbc35aa0996cf}} 
+\index{tice.\+h@{tice.\+h}!asm\+\_\+\+Home\+Up@{asm\+\_\+\+Home\+Up}}
+\index{asm\+\_\+\+Home\+Up@{asm\+\_\+\+Home\+Up}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{asm\+\_\+\+Home\+Up()}{asm\_HomeUp()}}
+{\footnotesize\ttfamily void asm\+\_\+\+Home\+Up (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Assembly routine to move row and column posistion to (0,0) \mbox{\Hypertarget{tice_8h_acd587dd2a0d4a15916c3ba25bc144579}\label{tice_8h_acd587dd2a0d4a15916c3ba25bc144579}} 
+\index{tice.\+h@{tice.\+h}!asm\+\_\+\+Move\+Down@{asm\+\_\+\+Move\+Down}}
+\index{asm\+\_\+\+Move\+Down@{asm\+\_\+\+Move\+Down}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{asm\+\_\+\+Move\+Down()}{asm\_MoveDown()}}
+{\footnotesize\ttfamily void asm\+\_\+\+Move\+Down (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Assembly routine to scroll homescreen down \mbox{\Hypertarget{tice_8h_a09beabf301b4ccd618b1af92a6e5ad00}\label{tice_8h_a09beabf301b4ccd618b1af92a6e5ad00}} 
+\index{tice.\+h@{tice.\+h}!asm\+\_\+\+Move\+Up@{asm\+\_\+\+Move\+Up}}
+\index{asm\+\_\+\+Move\+Up@{asm\+\_\+\+Move\+Up}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{asm\+\_\+\+Move\+Up()}{asm\_MoveUp()}}
+{\footnotesize\ttfamily void asm\+\_\+\+Move\+Up (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Assembly routine to scroll homescreen up \mbox{\Hypertarget{tice_8h_aef1134871e2ded341718bf50f7576907}\label{tice_8h_aef1134871e2ded341718bf50f7576907}} 
+\index{tice.\+h@{tice.\+h}!asm\+\_\+\+Run\+Indic\+Off@{asm\+\_\+\+Run\+Indic\+Off}}
+\index{asm\+\_\+\+Run\+Indic\+Off@{asm\+\_\+\+Run\+Indic\+Off}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{asm\+\_\+\+Run\+Indic\+Off()}{asm\_RunIndicOff()}}
+{\footnotesize\ttfamily void asm\+\_\+\+Run\+Indic\+Off (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Assembly routine to turn off the Run Indicator \mbox{\Hypertarget{tice_8h_ad93e416bba6dafdce5e0cb5131c15d81}\label{tice_8h_ad93e416bba6dafdce5e0cb5131c15d81}} 
+\index{tice.\+h@{tice.\+h}!asm\+\_\+\+Run\+Indic\+On@{asm\+\_\+\+Run\+Indic\+On}}
+\index{asm\+\_\+\+Run\+Indic\+On@{asm\+\_\+\+Run\+Indic\+On}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{asm\+\_\+\+Run\+Indic\+On()}{asm\_RunIndicOn()}}
+{\footnotesize\ttfamily void asm\+\_\+\+Run\+Indic\+On (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Assembly routine to turn on the Run Indicator \mbox{\Hypertarget{tice_8h_ab2e816a24c2b94e7b10ec6ed83c1bf68}\label{tice_8h_ab2e816a24c2b94e7b10ec6ed83c1bf68}} 
+\index{tice.\+h@{tice.\+h}!boot\+\_\+\+Check\+On\+Pressed@{boot\+\_\+\+Check\+On\+Pressed}}
+\index{boot\+\_\+\+Check\+On\+Pressed@{boot\+\_\+\+Check\+On\+Pressed}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{boot\+\_\+\+Check\+On\+Pressed()}{boot\_CheckOnPressed()}}
+{\footnotesize\ttfamily bool boot\+\_\+\+Check\+On\+Pressed (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Checks if the \mbox{[}on\mbox{]} key was pressed
+
+\begin{DoxyReturn}{Returns}
+True is returned if \mbox{[}on\mbox{]} key was pressed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_a677f306acf49dacc9901bc5f848bc344}\label{tice_8h_a677f306acf49dacc9901bc5f848bc344}} 
+\index{tice.\+h@{tice.\+h}!boot\+\_\+\+Clear\+V\+R\+AM@{boot\+\_\+\+Clear\+V\+R\+AM}}
+\index{boot\+\_\+\+Clear\+V\+R\+AM@{boot\+\_\+\+Clear\+V\+R\+AM}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{boot\+\_\+\+Clear\+V\+R\+A\+M()}{boot\_ClearVRAM()}}
+{\footnotesize\ttfamily void boot\+\_\+\+Clear\+V\+R\+AM (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Turns all of V\+R\+AM into 0x\+FF (white) \mbox{\Hypertarget{tice_8h_ad44d57a7e88323c7de8db7989cef4b28}\label{tice_8h_ad44d57a7e88323c7de8db7989cef4b28}} 
+\index{tice.\+h@{tice.\+h}!boot\+\_\+\+Debug\+Printf@{boot\+\_\+\+Debug\+Printf}}
+\index{boot\+\_\+\+Debug\+Printf@{boot\+\_\+\+Debug\+Printf}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{boot\+\_\+\+Debug\+Printf()}{boot\_DebugPrintf()}}
+{\footnotesize\ttfamily void boot\+\_\+\+Debug\+Printf (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string }\end{DoxyParamCaption})}
+
+Basically a reimplemented form of printf that prints to some debugging device
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String to send to debug device \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tice_8h_a23989d64ba6248df3cd0fec20fa96ae7}\label{tice_8h_a23989d64ba6248df3cd0fec20fa96ae7}} 
+\index{tice.\+h@{tice.\+h}!boot\+\_\+\+Get\+Battery\+Status@{boot\+\_\+\+Get\+Battery\+Status}}
+\index{boot\+\_\+\+Get\+Battery\+Status@{boot\+\_\+\+Get\+Battery\+Status}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{boot\+\_\+\+Get\+Battery\+Status()}{boot\_GetBatteryStatus()}}
+{\footnotesize\ttfamily uint8\+\_\+t boot\+\_\+\+Get\+Battery\+Status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Current battery status 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_a53ae2074847992a63c8bee26afd9d56f}\label{tice_8h_a53ae2074847992a63c8bee26afd9d56f}} 
+\index{tice.\+h@{tice.\+h}!boot\+\_\+\+Get\+Boot\+Major\+Ver@{boot\+\_\+\+Get\+Boot\+Major\+Ver}}
+\index{boot\+\_\+\+Get\+Boot\+Major\+Ver@{boot\+\_\+\+Get\+Boot\+Major\+Ver}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{boot\+\_\+\+Get\+Boot\+Major\+Ver()}{boot\_GetBootMajorVer()}}
+{\footnotesize\ttfamily uint8\+\_\+t boot\+\_\+\+Get\+Boot\+Major\+Ver (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Bootcode version major 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_a28ce1b99292e6e580c3c44fa3b6cb431}\label{tice_8h_a28ce1b99292e6e580c3c44fa3b6cb431}} 
+\index{tice.\+h@{tice.\+h}!boot\+\_\+\+Get\+Boot\+Minor\+Ver@{boot\+\_\+\+Get\+Boot\+Minor\+Ver}}
+\index{boot\+\_\+\+Get\+Boot\+Minor\+Ver@{boot\+\_\+\+Get\+Boot\+Minor\+Ver}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{boot\+\_\+\+Get\+Boot\+Minor\+Ver()}{boot\_GetBootMinorVer()}}
+{\footnotesize\ttfamily uint8\+\_\+t boot\+\_\+\+Get\+Boot\+Minor\+Ver (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Bootcode version minor 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_ae0315dfff7eec682d38467a99415d4c4}\label{tice_8h_ae0315dfff7eec682d38467a99415d4c4}} 
+\index{tice.\+h@{tice.\+h}!boot\+\_\+\+Get\+Date@{boot\+\_\+\+Get\+Date}}
+\index{boot\+\_\+\+Get\+Date@{boot\+\_\+\+Get\+Date}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{boot\+\_\+\+Get\+Date()}{boot\_GetDate()}}
+{\footnotesize\ttfamily void boot\+\_\+\+Get\+Date (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{day,  }\item[{uint8\+\_\+t $\ast$}]{month,  }\item[{uint16\+\_\+t $\ast$}]{year }\end{DoxyParamCaption})}
+
+Gets the calculator\textquotesingle{}s date
+
+
+\begin{DoxyParams}{Parameters}
+{\em day} & Pointer to variable to store day \\
+\hline
+{\em month} & Pointer to variable to store month \\
+\hline
+{\em year} & Pointer to variable to store year \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tice_8h_a542746d4ed5588264ffe6436c40e2976}\label{tice_8h_a542746d4ed5588264ffe6436c40e2976}} 
+\index{tice.\+h@{tice.\+h}!boot\+\_\+\+Get\+Hardware\+Ver@{boot\+\_\+\+Get\+Hardware\+Ver}}
+\index{boot\+\_\+\+Get\+Hardware\+Ver@{boot\+\_\+\+Get\+Hardware\+Ver}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{boot\+\_\+\+Get\+Hardware\+Ver()}{boot\_GetHardwareVer()}}
+{\footnotesize\ttfamily uint8\+\_\+t boot\+\_\+\+Get\+Hardware\+Ver (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Hardware version 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_a718df11f85fe8ddab8d5b2e54b1eb668}\label{tice_8h_a718df11f85fe8ddab8d5b2e54b1eb668}} 
+\index{tice.\+h@{tice.\+h}!boot\+\_\+\+Get\+Time@{boot\+\_\+\+Get\+Time}}
+\index{boot\+\_\+\+Get\+Time@{boot\+\_\+\+Get\+Time}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{boot\+\_\+\+Get\+Time()}{boot\_GetTime()}}
+{\footnotesize\ttfamily void boot\+\_\+\+Get\+Time (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{seconds,  }\item[{uint8\+\_\+t $\ast$}]{minutes,  }\item[{uint8\+\_\+t $\ast$}]{hours }\end{DoxyParamCaption})}
+
+Gets the calculator\textquotesingle{}s time
+
+
+\begin{DoxyParams}{Parameters}
+{\em seconds} & Pointer to variable to store seconds \\
+\hline
+{\em minutes} & Pointer to variable to store minutes \\
+\hline
+{\em hours} & Pointer to variable to store hours \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tice_8h_aa96977eb1d9ee88829c13cde9b2bb8fd}\label{tice_8h_aa96977eb1d9ee88829c13cde9b2bb8fd}} 
+\index{tice.\+h@{tice.\+h}!boot\+\_\+\+Is\+After\+Noon@{boot\+\_\+\+Is\+After\+Noon}}
+\index{boot\+\_\+\+Is\+After\+Noon@{boot\+\_\+\+Is\+After\+Noon}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{boot\+\_\+\+Is\+After\+Noon()}{boot\_IsAfterNoon()}}
+{\footnotesize\ttfamily bool boot\+\_\+\+Is\+After\+Noon (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Checks if past noon
+
+\begin{DoxyReturn}{Returns}
+True if past noon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_aaaffb7da274570bc1e4c852c62765770}\label{tice_8h_aaaffb7da274570bc1e4c852c62765770}} 
+\index{tice.\+h@{tice.\+h}!boot\+\_\+\+New\+Line@{boot\+\_\+\+New\+Line}}
+\index{boot\+\_\+\+New\+Line@{boot\+\_\+\+New\+Line}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{boot\+\_\+\+New\+Line()}{boot\_NewLine()}}
+{\footnotesize\ttfamily void boot\+\_\+\+New\+Line (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Inserts a new line at the current cursor posistion on the homescreen \mbox{\Hypertarget{tice_8h_a67791b653e6aaa33ad8d1135416f5740}\label{tice_8h_a67791b653e6aaa33ad8d1135416f5740}} 
+\index{tice.\+h@{tice.\+h}!boot\+\_\+\+Set48\+M\+Hz\+Mode@{boot\+\_\+\+Set48\+M\+Hz\+Mode}}
+\index{boot\+\_\+\+Set48\+M\+Hz\+Mode@{boot\+\_\+\+Set48\+M\+Hz\+Mode}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{boot\+\_\+\+Set48\+M\+Hz\+Mode()}{boot\_Set48MHzMode()}}
+{\footnotesize\ttfamily void boot\+\_\+\+Set48\+M\+Hz\+Mode (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Runs the calulator at 48 M\+Hz \mbox{\Hypertarget{tice_8h_a034cb83cbc1f68048d1b7a9aa35d38a7}\label{tice_8h_a034cb83cbc1f68048d1b7a9aa35d38a7}} 
+\index{tice.\+h@{tice.\+h}!boot\+\_\+\+Set48\+M\+Hz\+ModeI@{boot\+\_\+\+Set48\+M\+Hz\+ModeI}}
+\index{boot\+\_\+\+Set48\+M\+Hz\+ModeI@{boot\+\_\+\+Set48\+M\+Hz\+ModeI}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{boot\+\_\+\+Set48\+M\+Hz\+Mode\+I()}{boot\_Set48MHzModeI()}}
+{\footnotesize\ttfamily void boot\+\_\+\+Set48\+M\+Hz\+ModeI (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Runs the calulator at 48 M\+Hz (saves interrupt status) \mbox{\Hypertarget{tice_8h_a3e48d62e2f6e2cbd743a14bffeda16ae}\label{tice_8h_a3e48d62e2f6e2cbd743a14bffeda16ae}} 
+\index{tice.\+h@{tice.\+h}!boot\+\_\+\+Set6\+M\+Hz\+Mode@{boot\+\_\+\+Set6\+M\+Hz\+Mode}}
+\index{boot\+\_\+\+Set6\+M\+Hz\+Mode@{boot\+\_\+\+Set6\+M\+Hz\+Mode}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{boot\+\_\+\+Set6\+M\+Hz\+Mode()}{boot\_Set6MHzMode()}}
+{\footnotesize\ttfamily void boot\+\_\+\+Set6\+M\+Hz\+Mode (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Runs the calulator at 6 M\+Hz \mbox{\Hypertarget{tice_8h_a01d0ccd4d63bedc97ca9b5221b498cfe}\label{tice_8h_a01d0ccd4d63bedc97ca9b5221b498cfe}} 
+\index{tice.\+h@{tice.\+h}!boot\+\_\+\+Set6\+M\+Hz\+ModeI@{boot\+\_\+\+Set6\+M\+Hz\+ModeI}}
+\index{boot\+\_\+\+Set6\+M\+Hz\+ModeI@{boot\+\_\+\+Set6\+M\+Hz\+ModeI}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{boot\+\_\+\+Set6\+M\+Hz\+Mode\+I()}{boot\_Set6MHzModeI()}}
+{\footnotesize\ttfamily void boot\+\_\+\+Set6\+M\+Hz\+ModeI (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Runs the calulator at 6 M\+Hz (saves interrupt status) \mbox{\Hypertarget{tice_8h_ad8aa16bfaaeea4a827bce2d7baa90745}\label{tice_8h_ad8aa16bfaaeea4a827bce2d7baa90745}} 
+\index{tice.\+h@{tice.\+h}!boot\+\_\+\+Set\+Date@{boot\+\_\+\+Set\+Date}}
+\index{boot\+\_\+\+Set\+Date@{boot\+\_\+\+Set\+Date}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{boot\+\_\+\+Set\+Date()}{boot\_SetDate()}}
+{\footnotesize\ttfamily void boot\+\_\+\+Set\+Date (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{day,  }\item[{uint8\+\_\+t}]{month,  }\item[{uint16\+\_\+t}]{year }\end{DoxyParamCaption})}
+
+Sets the calculator\textquotesingle{}s date
+
+Performs checks to ensure date is within range 
+\begin{DoxyParams}{Parameters}
+{\em day} & Day to set \\
+\hline
+{\em month} & Month to set \\
+\hline
+{\em year} & Year to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tice_8h_ac1200f2b4cbbc346d0e6a2f5c353f9c8}\label{tice_8h_ac1200f2b4cbbc346d0e6a2f5c353f9c8}} 
+\index{tice.\+h@{tice.\+h}!boot\+\_\+\+Set\+Time@{boot\+\_\+\+Set\+Time}}
+\index{boot\+\_\+\+Set\+Time@{boot\+\_\+\+Set\+Time}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{boot\+\_\+\+Set\+Time()}{boot\_SetTime()}}
+{\footnotesize\ttfamily void boot\+\_\+\+Set\+Time (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{seconds,  }\item[{uint8\+\_\+t}]{minutes,  }\item[{uint8\+\_\+t}]{hours }\end{DoxyParamCaption})}
+
+Sets the calculator\textquotesingle{}s time
+
+Performs checks to ensure time is within range 
+\begin{DoxyParams}{Parameters}
+{\em seconds} & Seconds to set \\
+\hline
+{\em minutes} & Minutes to set \\
+\hline
+{\em hours} & Hours to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tice_8h_a4851a37ce3eaecede4ce39e4e9c23a20}\label{tice_8h_a4851a37ce3eaecede4ce39e4e9c23a20}} 
+\index{tice.\+h@{tice.\+h}!boot\+\_\+\+Turn\+Off@{boot\+\_\+\+Turn\+Off}}
+\index{boot\+\_\+\+Turn\+Off@{boot\+\_\+\+Turn\+Off}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{boot\+\_\+\+Turn\+Off()}{boot\_TurnOff()}}
+{\footnotesize\ttfamily void boot\+\_\+\+Turn\+Off (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Turns off the calculator (probably not a good idea to use) \mbox{\Hypertarget{tice_8h_a4751701988751e498490608739b3def1}\label{tice_8h_a4751701988751e498490608739b3def1}} 
+\index{tice.\+h@{tice.\+h}!boot\+\_\+\+Wait\+Short@{boot\+\_\+\+Wait\+Short}}
+\index{boot\+\_\+\+Wait\+Short@{boot\+\_\+\+Wait\+Short}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{boot\+\_\+\+Wait\+Short()}{boot\_WaitShort()}}
+{\footnotesize\ttfamily void boot\+\_\+\+Wait\+Short (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Waits for $\sim$10 ms \mbox{\Hypertarget{tice_8h_acfd12579679c85d5f1c716509b2587f6}\label{tice_8h_acfd12579679c85d5f1c716509b2587f6}} 
+\index{tice.\+h@{tice.\+h}!delay@{delay}}
+\index{delay@{delay}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{delay()}{delay()}}
+{\footnotesize\ttfamily void delay (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{msec }\end{DoxyParamCaption})}
+
+Delays for a number of milliseconds. 
+
+Counts time spent while interrupted. Assumes a C\+PU clock speed of 48\+M\+Hz.
+
+
+\begin{DoxyParams}{Parameters}
+{\em msec} & number of milliseconds \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tice_8h_a03c7b7fd5d27d43d38717c3a0a9db1f0}\label{tice_8h_a03c7b7fd5d27d43d38717c3a0a9db1f0}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Chk\+Find\+Sym@{os\+\_\+\+Chk\+Find\+Sym}}
+\index{os\+\_\+\+Chk\+Find\+Sym@{os\+\_\+\+Chk\+Find\+Sym}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Chk\+Find\+Sym()}{os\_ChkFindSym()}}
+{\footnotesize\ttfamily int os\+\_\+\+Chk\+Find\+Sym (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{type,  }\item[{const char $\ast$}]{name,  }\item[{void $\ast$$\ast$}]{entry,  }\item[{void $\ast$$\ast$}]{data }\end{DoxyParamCaption})}
+
+Locates a symbol in the symtable
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Type of symbol to find \\
+\hline
+{\em name} & Pointer to name of symbol to find \\
+\hline
+{\em entry} & Can be N\+U\+LL if you don\textquotesingle{}t care \\
+\hline
+{\em data} & Can be N\+U\+LL if you don\textquotesingle{}t care \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If file exists, returns 1 and sets entry and data, otherwise returns 0. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_a9ed29e2009e191202482ee7334726ffd}\label{tice_8h_a9ed29e2009e191202482ee7334726ffd}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Create\+App\+Var@{os\+\_\+\+Create\+App\+Var}}
+\index{os\+\_\+\+Create\+App\+Var@{os\+\_\+\+Create\+App\+Var}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Create\+App\+Var()}{os\_CreateAppVar()}}
+{\footnotesize\ttfamily \hyperlink{structvar__t}{var\+\_\+t}$\ast$ os\+\_\+\+Create\+App\+Var (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{uint16\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+Creates an App\+Var
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Pointer to name of App\+Var to create \\
+\hline
+{\em size} & Size of App\+Var to create \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the App\+Var data 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Returns N\+U\+LL if creation failed for some reason, otherwise a pointer to the size bytes 
+\end{DoxyNote}
+\mbox{\Hypertarget{tice_8h_afe1b552868eb4844aace0efc6dbee0c4}\label{tice_8h_afe1b552868eb4844aace0efc6dbee0c4}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Disable\+Cursor@{os\+\_\+\+Disable\+Cursor}}
+\index{os\+\_\+\+Disable\+Cursor@{os\+\_\+\+Disable\+Cursor}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Disable\+Cursor()}{os\_DisableCursor()}}
+{\footnotesize\ttfamily void os\+\_\+\+Disable\+Cursor (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Disables the OS cursor \mbox{\Hypertarget{tice_8h_aeaea1d3a3cfe9d2405cdad509a6ee591}\label{tice_8h_aeaea1d3a3cfe9d2405cdad509a6ee591}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Enable\+Cursor@{os\+\_\+\+Enable\+Cursor}}
+\index{os\+\_\+\+Enable\+Cursor@{os\+\_\+\+Enable\+Cursor}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Enable\+Cursor()}{os\_EnableCursor()}}
+{\footnotesize\ttfamily void os\+\_\+\+Enable\+Cursor (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Enables the OS cursor \mbox{\Hypertarget{tice_8h_a2d8395d37160b196d48467b377a42b53}\label{tice_8h_a2d8395d37160b196d48467b377a42b53}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Float\+To\+Real@{os\+\_\+\+Float\+To\+Real}}
+\index{os\+\_\+\+Float\+To\+Real@{os\+\_\+\+Float\+To\+Real}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Float\+To\+Real()}{os\_FloatToReal()}}
+{\footnotesize\ttfamily \hyperlink{structreal__t}{real\+\_\+t} os\+\_\+\+Float\+To\+Real (\begin{DoxyParamCaption}\item[{float}]{arg }\end{DoxyParamCaption})}
+
+Converts an float to a \hyperlink{structreal__t}{real\+\_\+t} \begin{DoxyNote}{Note}
+Saturates on overflow 
+\end{DoxyNote}
+\mbox{\Hypertarget{tice_8h_a002b1a506b96eefa7e6193d9ec19205d}\label{tice_8h_a002b1a506b96eefa7e6193d9ec19205d}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Font\+Draw\+Text@{os\+\_\+\+Font\+Draw\+Text}}
+\index{os\+\_\+\+Font\+Draw\+Text@{os\+\_\+\+Font\+Draw\+Text}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Font\+Draw\+Text()}{os\_FontDrawText()}}
+{\footnotesize\ttfamily uint24\+\_\+t os\+\_\+\+Font\+Draw\+Text (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{uint16\+\_\+t}]{col,  }\item[{uint8\+\_\+t}]{row }\end{DoxyParamCaption})}
+
+Draws text using the small font to the screen
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String to draw \\
+\hline
+{\em col} & Column to start drawing at \\
+\hline
+{\em row} & Row to start drawing at \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The end column 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_aa2ac7abeec2959dc64b763ceb1ca5cc0}\label{tice_8h_aa2ac7abeec2959dc64b763ceb1ca5cc0}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Font\+Draw\+Trans\+Text@{os\+\_\+\+Font\+Draw\+Trans\+Text}}
+\index{os\+\_\+\+Font\+Draw\+Trans\+Text@{os\+\_\+\+Font\+Draw\+Trans\+Text}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Font\+Draw\+Trans\+Text()}{os\_FontDrawTransText()}}
+{\footnotesize\ttfamily uint24\+\_\+t os\+\_\+\+Font\+Draw\+Trans\+Text (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{uint16\+\_\+t}]{col,  }\item[{uint8\+\_\+t}]{row }\end{DoxyParamCaption})}
+
+Draws transparent text using the small font to the screen
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String to draw \\
+\hline
+{\em col} & Column to start drawing at \\
+\hline
+{\em row} & Row to start drawing at \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The end column 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_a3773dcdcedd131b11d48dda78c73e347}\label{tice_8h_a3773dcdcedd131b11d48dda78c73e347}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Font\+Get\+Height@{os\+\_\+\+Font\+Get\+Height}}
+\index{os\+\_\+\+Font\+Get\+Height@{os\+\_\+\+Font\+Get\+Height}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Font\+Get\+Height()}{os\_FontGetHeight()}}
+{\footnotesize\ttfamily uint24\+\_\+t os\+\_\+\+Font\+Get\+Height (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+The height of the font characters 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_a84b27224b9c54e59fbf4ed932112e5b1}\label{tice_8h_a84b27224b9c54e59fbf4ed932112e5b1}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Font\+Get\+ID@{os\+\_\+\+Font\+Get\+ID}}
+\index{os\+\_\+\+Font\+Get\+ID@{os\+\_\+\+Font\+Get\+ID}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Font\+Get\+I\+D()}{os\_FontGetID()}}
+{\footnotesize\ttfamily uint24\+\_\+t os\+\_\+\+Font\+Get\+ID (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Gets the font to use when drawing on the graphscreen
+
+\begin{DoxyReturn}{Returns}
+0\+: small font ~\newline
+ 1\+: large monospace font 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_ad6b8e1cdc5f402887b62c72d9f9fc0a2}\label{tice_8h_ad6b8e1cdc5f402887b62c72d9f9fc0a2}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Font\+Get\+Width@{os\+\_\+\+Font\+Get\+Width}}
+\index{os\+\_\+\+Font\+Get\+Width@{os\+\_\+\+Font\+Get\+Width}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Font\+Get\+Width()}{os\_FontGetWidth()}}
+{\footnotesize\ttfamily uint24\+\_\+t os\+\_\+\+Font\+Get\+Width (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String to get pixel width of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The width of a string in the varaible-\/width format 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_af511480e757ca22917e43543bf23f401}\label{tice_8h_af511480e757ca22917e43543bf23f401}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Font\+Select@{os\+\_\+\+Font\+Select}}
+\index{os\+\_\+\+Font\+Select@{os\+\_\+\+Font\+Select}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Font\+Select()}{os\_FontSelect()}}
+{\footnotesize\ttfamily void os\+\_\+\+Font\+Select (\begin{DoxyParamCaption}\item[{char}]{id }\end{DoxyParamCaption})}
+
+Selects the font to use when drawing on the graphscreen
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & 0\+: small font ~\newline
+ 1\+: large monospace font \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tice_8h_a190aee5cf27dcd5f6e889ea738e0890b}\label{tice_8h_a190aee5cf27dcd5f6e889ea738e0890b}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Force\+Cmd\+No\+Char@{os\+\_\+\+Force\+Cmd\+No\+Char}}
+\index{os\+\_\+\+Force\+Cmd\+No\+Char@{os\+\_\+\+Force\+Cmd\+No\+Char}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Force\+Cmd\+No\+Char()}{os\_ForceCmdNoChar()}}
+{\footnotesize\ttfamily void os\+\_\+\+Force\+Cmd\+No\+Char (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Executes the assembly routine \+\_\+\+Force\+Cmd\+No\+Char \mbox{\Hypertarget{tice_8h_a5239bbcc4677735fa0a79b149e09f0d7}\label{tice_8h_a5239bbcc4677735fa0a79b149e09f0d7}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Get\+C\+SC@{os\+\_\+\+Get\+C\+SC}}
+\index{os\+\_\+\+Get\+C\+SC@{os\+\_\+\+Get\+C\+SC}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Get\+C\+S\+C()}{os\_GetCSC()}}
+{\footnotesize\ttfamily \hyperlink{tice_8h_a00720cc284eb71e50d278b521c32b123}{sk\+\_\+key\+\_\+t} os\+\_\+\+Get\+C\+SC (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Performs an OS call to get the keypad scan code
+
+You can also use this function to get input from the user as a string like this\+: 
+\begin{DoxyCode}
+\textcolor{keyword}{const} \textcolor{keywordtype}{char} *chars = \textcolor{stringliteral}{"\(\backslash\)0\(\backslash\)0\(\backslash\)0\(\backslash\)0\(\backslash\)0\(\backslash\)0\(\backslash\)0\(\backslash\)0\(\backslash\)0\(\backslash\)0\(\backslash\)"WRMH\(\backslash\)0\(\backslash\)0?[VQLG\(\backslash\)0\(\backslash\)0:ZUPKFC\(\backslash\)0 YTOJEB\(\backslash\)0\(\backslash\)0XSNIDA\(\backslash\)0\(\backslash\)0\(\backslash\)0\(\backslash\)0\(\backslash\)0\(\backslash\)0\(\backslash\)0\(\backslash\)0"};
+uint8\_t key, i = 0;
+\textcolor{keywordtype}{char} buffer[50];
+
+\textcolor{keywordflow}{while}((key = \hyperlink{tice_8h_a5239bbcc4677735fa0a79b149e09f0d7}{os\_GetCSC}()) != sk\_Enter) \{
+    \textcolor{keywordflow}{if}(chars[key]) \{
+        buffer[i++] = chars[key];
+    \}
+\}
+\end{DoxyCode}
+ Feel free to modify the string to suit your needs. \begin{DoxyReturn}{Returns}
+Key scan code 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_a92cfe934f3c43d8235d678d97a9080b8}\label{tice_8h_a92cfe934f3c43d8235d678d97a9080b8}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Get\+Cursor\+Pos@{os\+\_\+\+Get\+Cursor\+Pos}}
+\index{os\+\_\+\+Get\+Cursor\+Pos@{os\+\_\+\+Get\+Cursor\+Pos}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Get\+Cursor\+Pos()}{os\_GetCursorPos()}}
+{\footnotesize\ttfamily void os\+\_\+\+Get\+Cursor\+Pos (\begin{DoxyParamCaption}\item[{unsigned int $\ast$}]{cur\+Row,  }\item[{unsigned int $\ast$}]{cur\+Col }\end{DoxyParamCaption})}
+
+Gets the cursor posistion used on the homescreen
+
+
+\begin{DoxyParams}{Parameters}
+{\em cur\+Row} & Pointer to store the row aligned offset \\
+\hline
+{\em cur\+Col} & Pointer to store the column aligned offset \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tice_8h_a7a67f4155bda58ca6716c8e4782eeae3}\label{tice_8h_a7a67f4155bda58ca6716c8e4782eeae3}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Get\+Draw\+B\+G\+Color@{os\+\_\+\+Get\+Draw\+B\+G\+Color}}
+\index{os\+\_\+\+Get\+Draw\+B\+G\+Color@{os\+\_\+\+Get\+Draw\+B\+G\+Color}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Get\+Draw\+B\+G\+Color()}{os\_GetDrawBGColor()}}
+{\footnotesize\ttfamily uint24\+\_\+t os\+\_\+\+Get\+Draw\+B\+G\+Color (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Gets the background color used to draw text on the graphscreen
+
+\begin{DoxyReturn}{Returns}
+565 B\+GR color of text nackground 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+Only useable in OS 5.\+2 and above; use at your own risk 
+\end{DoxyWarning}
+\mbox{\Hypertarget{tice_8h_a04f297c914cee4f29f90a981c395b84f}\label{tice_8h_a04f297c914cee4f29f90a981c395b84f}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Get\+Draw\+F\+G\+Color@{os\+\_\+\+Get\+Draw\+F\+G\+Color}}
+\index{os\+\_\+\+Get\+Draw\+F\+G\+Color@{os\+\_\+\+Get\+Draw\+F\+G\+Color}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Get\+Draw\+F\+G\+Color()}{os\_GetDrawFGColor()}}
+{\footnotesize\ttfamily uint24\+\_\+t os\+\_\+\+Get\+Draw\+F\+G\+Color (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Gets the foreground color used to draw text on the graphscreen \begin{DoxyReturn}{Returns}
+565 B\+GR color of text foreground 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_a3b4341e60ac25d890127813aa441406d}\label{tice_8h_a3b4341e60ac25d890127813aa441406d}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Get\+Flag\+Byte@{os\+\_\+\+Get\+Flag\+Byte}}
+\index{os\+\_\+\+Get\+Flag\+Byte@{os\+\_\+\+Get\+Flag\+Byte}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Get\+Flag\+Byte()}{os\_GetFlagByte()}}
+{\footnotesize\ttfamily uint8\+\_\+t os\+\_\+\+Get\+Flag\+Byte (\begin{DoxyParamCaption}\item[{int}]{offset }\end{DoxyParamCaption})}
+
+Get a particular flag variable
+
+
+\begin{DoxyParams}{Parameters}
+{\em offset} & Offset to particular flag in list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Bitmask of flag 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_a2fe1d4602b3181350157d3c5cec287a7}\label{tice_8h_a2fe1d4602b3181350157d3c5cec287a7}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Get\+Key@{os\+\_\+\+Get\+Key}}
+\index{os\+\_\+\+Get\+Key@{os\+\_\+\+Get\+Key}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Get\+Key()}{os\_GetKey()}}
+{\footnotesize\ttfamily uint16\+\_\+t os\+\_\+\+Get\+Key (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Gets a key from the OS
+
+\begin{DoxyReturn}{Returns}
+Key code 
+
+Extended key code in high byte 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_aa1c4673328edfc7e29946dbb5971852f}\label{tice_8h_aa1c4673328edfc7e29946dbb5971852f}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Get\+Sym\+Table\+Ptr@{os\+\_\+\+Get\+Sym\+Table\+Ptr}}
+\index{os\+\_\+\+Get\+Sym\+Table\+Ptr@{os\+\_\+\+Get\+Sym\+Table\+Ptr}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Get\+Sym\+Table\+Ptr()}{os\_GetSymTablePtr()}}
+{\footnotesize\ttfamily void$\ast$ os\+\_\+\+Get\+Sym\+Table\+Ptr (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+A pointer to symtable of the OS 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_ad1e9b4bcf74c415c27fba76283f53c69}\label{tice_8h_ad1e9b4bcf74c415c27fba76283f53c69}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Get\+System\+Stats@{os\+\_\+\+Get\+System\+Stats}}
+\index{os\+\_\+\+Get\+System\+Stats@{os\+\_\+\+Get\+System\+Stats}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Get\+System\+Stats()}{os\_GetSystemStats()}}
+{\footnotesize\ttfamily void$\ast$ os\+\_\+\+Get\+System\+Stats (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Gets a pointer to the system stats
+
+\begin{DoxyReturn}{Returns}
+\mbox{[}3\mbox{]} -\/ Hardware version ~\newline
+ \mbox{[}12-\/13\mbox{]} -\/ Boot Version Major ~\newline
+ \mbox{[}14\mbox{]} -\/ Boot Version Minor ~\newline
+ \mbox{[}15-\/16\mbox{]} -\/ Boot Version Build ~\newline
+ \mbox{[}28-\/37\mbox{]} -\/ Calc ID (From certificate if exists) ~\newline
+ \mbox{[}38-\/39\mbox{]} -\/ Appears to be localization language 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_a83cd18115c9638421c1e44c7e1ec7380}\label{tice_8h_a83cd18115c9638421c1e44c7e1ec7380}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Int24\+To\+Real@{os\+\_\+\+Int24\+To\+Real}}
+\index{os\+\_\+\+Int24\+To\+Real@{os\+\_\+\+Int24\+To\+Real}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Int24\+To\+Real()}{os\_Int24ToReal()}}
+{\footnotesize\ttfamily \hyperlink{structreal__t}{real\+\_\+t} os\+\_\+\+Int24\+To\+Real (\begin{DoxyParamCaption}\item[{int24\+\_\+t}]{arg }\end{DoxyParamCaption})}
+
+Converts an integer to a \hyperlink{structreal__t}{real\+\_\+t} \begin{DoxyNote}{Note}
+Saturates on overflow 
+\end{DoxyNote}
+\mbox{\Hypertarget{tice_8h_ac8a018c90c6e1d6a922afe8f7b2a3c9b}\label{tice_8h_ac8a018c90c6e1d6a922afe8f7b2a3c9b}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Mem\+Chk@{os\+\_\+\+Mem\+Chk}}
+\index{os\+\_\+\+Mem\+Chk@{os\+\_\+\+Mem\+Chk}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Mem\+Chk()}{os\_MemChk()}}
+{\footnotesize\ttfamily size\+\_\+t os\+\_\+\+Mem\+Chk (\begin{DoxyParamCaption}\item[{void $\ast$$\ast$}]{free }\end{DoxyParamCaption})}
+
+Get amount of free ram in order to allocate extra ram
+
+
+\begin{DoxyParams}{Parameters}
+{\em free} & Set to start of free available ram \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Size of available ram 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_a84681c61e0ea353e3448306918ce399a}\label{tice_8h_a84681c61e0ea353e3448306918ce399a}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Next\+Sym\+Entry@{os\+\_\+\+Next\+Sym\+Entry}}
+\index{os\+\_\+\+Next\+Sym\+Entry@{os\+\_\+\+Next\+Sym\+Entry}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Next\+Sym\+Entry()}{os\_NextSymEntry()}}
+{\footnotesize\ttfamily void$\ast$ os\+\_\+\+Next\+Sym\+Entry (\begin{DoxyParamCaption}\item[{void $\ast$}]{entry,  }\item[{uint24\+\_\+t $\ast$}]{type,  }\item[{uint24\+\_\+t $\ast$}]{name\+Length,  }\item[{char $\ast$}]{name,  }\item[{void $\ast$$\ast$}]{data }\end{DoxyParamCaption})}
+
+Returns next entry or N\+U\+LL if no more entries, pass \hyperlink{tice_8h_aa1c4673328edfc7e29946dbb5971852f}{os\+\_\+\+Get\+Sym\+Table\+Ptr()} as first entry \mbox{\Hypertarget{tice_8h_a2862dc222a72179213b2b9ed6eb0a3d9}\label{tice_8h_a2862dc222a72179213b2b9ed6eb0a3d9}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Pop\+Error\+Handler@{os\+\_\+\+Pop\+Error\+Handler}}
+\index{os\+\_\+\+Pop\+Error\+Handler@{os\+\_\+\+Pop\+Error\+Handler}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Pop\+Error\+Handler()}{os\_PopErrorHandler()}}
+{\footnotesize\ttfamily void os\+\_\+\+Pop\+Error\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Restores state after a call to os\+\_\+\+Push\+Error\+Handler
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{tice_8h_a79d47c7ec7a7130100f0c70b74a797d8}{os\+\_\+\+Push\+Error\+Handler} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{tice_8h_a79d47c7ec7a7130100f0c70b74a797d8}\label{tice_8h_a79d47c7ec7a7130100f0c70b74a797d8}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Push\+Error\+Handler@{os\+\_\+\+Push\+Error\+Handler}}
+\index{os\+\_\+\+Push\+Error\+Handler@{os\+\_\+\+Push\+Error\+Handler}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Push\+Error\+Handler()}{os\_PushErrorHandler()}}
+{\footnotesize\ttfamily void os\+\_\+\+Push\+Error\+Handler (\begin{DoxyParamCaption}\item[{void $\ast$}]{routine }\end{DoxyParamCaption})}
+
+Sets up the defualt error handlers if an OS routine encounters an error when running
+
+
+\begin{DoxyParams}{Parameters}
+{\em routine} & Error handling routine \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{tice_8h_a2862dc222a72179213b2b9ed6eb0a3d9}{os\+\_\+\+Pop\+Error\+Handler} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{tice_8h_a5316ce240dc00c400d1f30af6579d666}\label{tice_8h_a5316ce240dc00c400d1f30af6579d666}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Put\+Str\+Full@{os\+\_\+\+Put\+Str\+Full}}
+\index{os\+\_\+\+Put\+Str\+Full@{os\+\_\+\+Put\+Str\+Full}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Put\+Str\+Full()}{os\_PutStrFull()}}
+{\footnotesize\ttfamily uint24\+\_\+t os\+\_\+\+Put\+Str\+Full (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string }\end{DoxyParamCaption})}
+
+Puts some text at the current homescreen cursor location
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & Test to put on homescreen \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if string fits on screen, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_a37908b624f2bd7c37f46e8b0533394b8}\label{tice_8h_a37908b624f2bd7c37f46e8b0533394b8}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Put\+Str\+Line@{os\+\_\+\+Put\+Str\+Line}}
+\index{os\+\_\+\+Put\+Str\+Line@{os\+\_\+\+Put\+Str\+Line}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Put\+Str\+Line()}{os\_PutStrLine()}}
+{\footnotesize\ttfamily uint24\+\_\+t os\+\_\+\+Put\+Str\+Line (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string }\end{DoxyParamCaption})}
+
+Puts some text at the current homescreen cursor location
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & Test to put on homescreen \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if string fits on line, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_acf179c526ec2f628c2f01bc39becb8b6}\label{tice_8h_acf179c526ec2f628c2f01bc39becb8b6}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Rcl\+Ans@{os\+\_\+\+Rcl\+Ans}}
+\index{os\+\_\+\+Rcl\+Ans@{os\+\_\+\+Rcl\+Ans}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Rcl\+Ans()}{os\_RclAns()}}
+{\footnotesize\ttfamily void$\ast$ os\+\_\+\+Rcl\+Ans (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{type }\end{DoxyParamCaption})}
+
+Gets the Answer
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & This is set to the current varaible type in A\+NS \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the data 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Returns N\+U\+LL if Ans doesn\textquotesingle{}t exist or type is N\+U\+LL 
+\end{DoxyNote}
+\mbox{\Hypertarget{tice_8h_ac12d5e48a1c3577d15b33bbfc73790dc}\label{tice_8h_ac12d5e48a1c3577d15b33bbfc73790dc}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Real\+Compare@{os\+\_\+\+Real\+Compare}}
+\index{os\+\_\+\+Real\+Compare@{os\+\_\+\+Real\+Compare}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Real\+Compare()}{os\_RealCompare()}}
+{\footnotesize\ttfamily int os\+\_\+\+Real\+Compare (\begin{DoxyParamCaption}\item[{const \hyperlink{structreal__t}{real\+\_\+t} $\ast$}]{arg1,  }\item[{const \hyperlink{structreal__t}{real\+\_\+t} $\ast$}]{arg2 }\end{DoxyParamCaption})}
+
+Compares two \hyperlink{structreal__t}{real\+\_\+t}
+
+\begin{DoxyReturn}{Returns}
+-\/1, 0, or 1 depending on the comparison 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_a1e6b19531259bccf09f0f07565d6803f}\label{tice_8h_a1e6b19531259bccf09f0f07565d6803f}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Real\+Copy@{os\+\_\+\+Real\+Copy}}
+\index{os\+\_\+\+Real\+Copy@{os\+\_\+\+Real\+Copy}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Real\+Copy()}{os\_RealCopy()}}
+{\footnotesize\ttfamily \hyperlink{structreal__t}{real\+\_\+t} os\+\_\+\+Real\+Copy (\begin{DoxyParamCaption}\item[{const \hyperlink{structreal__t}{real\+\_\+t} $\ast$}]{src }\end{DoxyParamCaption})}
+
+Copies a \hyperlink{structreal__t}{real\+\_\+t}
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & Pointer to original \hyperlink{structreal__t}{real\+\_\+t} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Copied \hyperlink{structreal__t}{real\+\_\+t} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_a1b45f9fc846040f840cc85c4c95c59ab}\label{tice_8h_a1b45f9fc846040f840cc85c4c95c59ab}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Real\+Round@{os\+\_\+\+Real\+Round}}
+\index{os\+\_\+\+Real\+Round@{os\+\_\+\+Real\+Round}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Real\+Round()}{os\_RealRound()}}
+{\footnotesize\ttfamily \hyperlink{structreal__t}{real\+\_\+t} os\+\_\+\+Real\+Round (\begin{DoxyParamCaption}\item[{const \hyperlink{structreal__t}{real\+\_\+t} $\ast$}]{arg,  }\item[{char}]{digits }\end{DoxyParamCaption})}
+
+Rounds a \hyperlink{structreal__t}{real\+\_\+t}
+
+\begin{DoxyNote}{Note}
+digits must be in the range 0 -\/ 9 
+\end{DoxyNote}
+\mbox{\Hypertarget{tice_8h_a29e3aa966dadbd18298ad0791f7917c8}\label{tice_8h_a29e3aa966dadbd18298ad0791f7917c8}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Real\+To\+Float@{os\+\_\+\+Real\+To\+Float}}
+\index{os\+\_\+\+Real\+To\+Float@{os\+\_\+\+Real\+To\+Float}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Real\+To\+Float()}{os\_RealToFloat()}}
+{\footnotesize\ttfamily float os\+\_\+\+Real\+To\+Float (\begin{DoxyParamCaption}\item[{const \hyperlink{structreal__t}{real\+\_\+t} $\ast$}]{arg }\end{DoxyParamCaption})}
+
+Converts a \hyperlink{structreal__t}{real\+\_\+t} to a float \begin{DoxyNote}{Note}
+Saturates on overflow 
+\end{DoxyNote}
+\mbox{\Hypertarget{tice_8h_a3e943f7b734e3d769b1ecf8787cb4187}\label{tice_8h_a3e943f7b734e3d769b1ecf8787cb4187}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Real\+To\+Int24@{os\+\_\+\+Real\+To\+Int24}}
+\index{os\+\_\+\+Real\+To\+Int24@{os\+\_\+\+Real\+To\+Int24}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Real\+To\+Int24()}{os\_RealToInt24()}}
+{\footnotesize\ttfamily int24\+\_\+t os\+\_\+\+Real\+To\+Int24 (\begin{DoxyParamCaption}\item[{const \hyperlink{structreal__t}{real\+\_\+t} $\ast$}]{arg }\end{DoxyParamCaption})}
+
+Converts a \hyperlink{structreal__t}{real\+\_\+t} to an integer \begin{DoxyNote}{Note}
+Saturates on overflow 
+\end{DoxyNote}
+\mbox{\Hypertarget{tice_8h_a613e51097b40c4c9df803f5e67058b64}\label{tice_8h_a613e51097b40c4c9df803f5e67058b64}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Real\+To\+Str@{os\+\_\+\+Real\+To\+Str}}
+\index{os\+\_\+\+Real\+To\+Str@{os\+\_\+\+Real\+To\+Str}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Real\+To\+Str()}{os\_RealToStr()}}
+{\footnotesize\ttfamily int os\+\_\+\+Real\+To\+Str (\begin{DoxyParamCaption}\item[{char $\ast$}]{result,  }\item[{const \hyperlink{structreal__t}{real\+\_\+t} $\ast$}]{arg,  }\item[{int8\+\_\+t}]{max\+Length,  }\item[{uint8\+\_\+t}]{mode,  }\item[{int8\+\_\+t}]{digits }\end{DoxyParamCaption})}
+
+This converts a ti-\/float to a ti-\/ascii string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & Zero terminated string copied to this address \\
+\hline
+{\em arg} & Real to convert \\
+\hline
+{\em max\+Length} & $<$=0\+: use default max length (14) ~\newline
+ $>$0\+: max length of result, minimum of 6 \\
+\hline
+{\em mode} & 0\+: Use current mode for everything (digits ignored) ~\newline
+ 1\+: Normal mode ~\newline
+ 2\+: Sci mode ~\newline
+ 3\+: Eng mode ~\newline
+ $>$4\+: Use current Normal/\+Sci/\+Eng mode (digits still used) ~\newline
+ \\
+\hline
+{\em digits} & -\/1\+: Float mode ~\newline
+ 0-\/9\+: Fix \# mode ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Length of result 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_a0fcf624fd8a7b43375fd0aa925b02872}\label{tice_8h_a0fcf624fd8a7b43375fd0aa925b02872}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Set\+Cursor\+Pos@{os\+\_\+\+Set\+Cursor\+Pos}}
+\index{os\+\_\+\+Set\+Cursor\+Pos@{os\+\_\+\+Set\+Cursor\+Pos}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Set\+Cursor\+Pos()}{os\_SetCursorPos()}}
+{\footnotesize\ttfamily void os\+\_\+\+Set\+Cursor\+Pos (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{cur\+Row,  }\item[{uint8\+\_\+t}]{cur\+Col }\end{DoxyParamCaption})}
+
+Set the cursor posistion used on the homescreen
+
+
+\begin{DoxyParams}{Parameters}
+{\em cur\+Row} & The row aligned offset \\
+\hline
+{\em cur\+Col} & The column aligned offset \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tice_8h_aa282c55ac71cb8a9f04eb16d39e4f8d3}\label{tice_8h_aa282c55ac71cb8a9f04eb16d39e4f8d3}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Set\+Draw\+B\+G\+Color@{os\+\_\+\+Set\+Draw\+B\+G\+Color}}
+\index{os\+\_\+\+Set\+Draw\+B\+G\+Color@{os\+\_\+\+Set\+Draw\+B\+G\+Color}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Set\+Draw\+B\+G\+Color()}{os\_SetDrawBGColor()}}
+{\footnotesize\ttfamily void os\+\_\+\+Set\+Draw\+B\+G\+Color (\begin{DoxyParamCaption}\item[{uint24\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+Sets the background color used to draw text on the graphscreen 
+\begin{DoxyParams}{Parameters}
+{\em color} & 565 B\+GR color to set text background to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tice_8h_abe70f3b6bc7dc87a24bea99839ab7968}\label{tice_8h_abe70f3b6bc7dc87a24bea99839ab7968}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Set\+Draw\+F\+G\+Color@{os\+\_\+\+Set\+Draw\+F\+G\+Color}}
+\index{os\+\_\+\+Set\+Draw\+F\+G\+Color@{os\+\_\+\+Set\+Draw\+F\+G\+Color}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Set\+Draw\+F\+G\+Color()}{os\_SetDrawFGColor()}}
+{\footnotesize\ttfamily void os\+\_\+\+Set\+Draw\+F\+G\+Color (\begin{DoxyParamCaption}\item[{uint24\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+Sets the foreground color used to draw text on the graphscreen 
+\begin{DoxyParams}{Parameters}
+{\em color} & 565 B\+GR color to set text foreground to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tice_8h_ae4fc41906c9e93c4e1b64a2ba56e80c5}\label{tice_8h_ae4fc41906c9e93c4e1b64a2ba56e80c5}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Set\+Flag\+Byte@{os\+\_\+\+Set\+Flag\+Byte}}
+\index{os\+\_\+\+Set\+Flag\+Byte@{os\+\_\+\+Set\+Flag\+Byte}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Set\+Flag\+Byte()}{os\_SetFlagByte()}}
+{\footnotesize\ttfamily void os\+\_\+\+Set\+Flag\+Byte (\begin{DoxyParamCaption}\item[{int}]{offset,  }\item[{uint8\+\_\+t}]{set }\end{DoxyParamCaption})}
+
+Set a particular flag variable
+
+
+\begin{DoxyParams}{Parameters}
+{\em offset} & Offset to particular flag in list \\
+\hline
+{\em set} & Bitmask of flag to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tice_8h_a8c87da7e79da4f15ab80fcc40628ece9}\label{tice_8h_a8c87da7e79da4f15ab80fcc40628ece9}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Str\+To\+Real@{os\+\_\+\+Str\+To\+Real}}
+\index{os\+\_\+\+Str\+To\+Real@{os\+\_\+\+Str\+To\+Real}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Str\+To\+Real()}{os\_StrToReal()}}
+{\footnotesize\ttfamily \hyperlink{structreal__t}{real\+\_\+t} os\+\_\+\+Str\+To\+Real (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{char $\ast$$\ast$}]{end }\end{DoxyParamCaption})}
+
+This converts a ti-\/ascii string to a ti-\/float.
+
+String format regexp\+: / {\itshape \mbox{[}-\/\textbackslash{}032+\mbox{]}?\mbox{[}0-\/9\mbox{]}}(.\mbox{[}0-\/9\mbox{]}$\ast$)?(\mbox{[}eE\textbackslash{}033\mbox{]}\mbox{[}-\/\textbackslash{}032+\mbox{]}?\mbox{[}0-\/9\mbox{]}$\ast$)?/ 
+\begin{DoxyParams}{Parameters}
+{\em string} & T\+I-\/ascii string to convert \\
+\hline
+{\em end} & If non-\/null, pointer to end of parsed number is stored here \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+resulting T\+I-\/float; on exponent overflow this is +-\/9.9999999999999e99 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_a0bd74157b99a61df8b9c654ea90bfa5f}\label{tice_8h_a0bd74157b99a61df8b9c654ea90bfa5f}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Test\+Flag\+Bits@{os\+\_\+\+Test\+Flag\+Bits}}
+\index{os\+\_\+\+Test\+Flag\+Bits@{os\+\_\+\+Test\+Flag\+Bits}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Test\+Flag\+Bits()}{os\_TestFlagBits()}}
+{\footnotesize\ttfamily int os\+\_\+\+Test\+Flag\+Bits (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{offset\+\_\+pattern }\end{DoxyParamCaption})}
+
+High 8 is unsigned offset, low 8 is bits to test \mbox{\Hypertarget{tice_8h_a9f3acd9481c7a931a5a8cf3c2c92ee18}\label{tice_8h_a9f3acd9481c7a931a5a8cf3c2c92ee18}} 
+\index{tice.\+h@{tice.\+h}!os\+\_\+\+Throw\+Error@{os\+\_\+\+Throw\+Error}}
+\index{os\+\_\+\+Throw\+Error@{os\+\_\+\+Throw\+Error}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{os\+\_\+\+Throw\+Error()}{os\_ThrowError()}}
+{\footnotesize\ttfamily void os\+\_\+\+Throw\+Error (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{error }\end{DoxyParamCaption})}
+
+Throws an OS error
+
+
+\begin{DoxyParams}{Parameters}
+{\em error} & Error code to throw \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tice_8h_a25238a98affe26c3faf9bcdb58855c48}\label{tice_8h_a25238a98affe26c3faf9bcdb58855c48}} 
+\index{tice.\+h@{tice.\+h}!random@{random}}
+\index{random@{random}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{random()}{random()}}
+{\footnotesize\ttfamily uint32\+\_\+t random (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Returns a pseudo-\/random 32-\/bit integer.
+
+\begin{DoxyReturn}{Returns}
+the random integer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tice_8h_a54cd8fd0f6b913a116bf0cbf21fab044}\label{tice_8h_a54cd8fd0f6b913a116bf0cbf21fab044}} 
+\index{tice.\+h@{tice.\+h}!srandom@{srandom}}
+\index{srandom@{srandom}!tice.\+h@{tice.\+h}}
+\paragraph{\texorpdfstring{srandom()}{srandom()}}
+{\footnotesize\ttfamily void srandom (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{seed }\end{DoxyParamCaption})}
+
+Seeds the pseudo-\/random number generator used by \hyperlink{tice_8h_a25238a98affe26c3faf9bcdb58855c48}{random()} and rand() with the value seed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em seed} & the seed value \\
+\hline
+\end{DoxyParams}
