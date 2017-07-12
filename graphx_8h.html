@@ -146,6 +146,8 @@ Macros</h2></td></tr>
 <tr class="separator:aae87d434c0a2ba6f12cc0358155ca912"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae617a7b274ef70c70b2aa6f854bd959f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#ae617a7b274ef70c70b2aa6f854bd959f">gfx_GetSprite_NoClip</a>(sprite_buffer,  x,  y)</td></tr>
 <tr class="separator:ae617a7b274ef70c70b2aa6f854bd959f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab28dbc6573d8ed4a264d95c332acbef7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#ab28dbc6573d8ed4a264d95c332acbef7">gfx_RotateSprite</a>(sprite_in,  sprite_out,  angle)</td></tr>
+<tr class="separator:ab28dbc6573d8ed4a264d95c332acbef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77d1282024291bf7864819d1baec027c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a77d1282024291bf7864819d1baec027c">gfx_ConvertMallocRLETSprite</a>(sprite_in)</td></tr>
 <tr class="separator:a77d1282024291bf7864819d1baec027c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bb702124c741857adb8e850a8b8f951"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a2bb702124c741857adb8e850a8b8f951">gfx_RGBTo1555</a>(r,  g,  b)</td></tr>
@@ -318,6 +320,8 @@ Functions</h2></td></tr>
 <tr class="separator:a13b4e258e9a853bbd19d4f704e68e3fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31a6b1836e84765f3d11b1140c68fc0a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a31a6b1836e84765f3d11b1140c68fc0a">gfx_ScaleSprite</a> (<a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite_in, <a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite_out)</td></tr>
 <tr class="separator:a31a6b1836e84765f3d11b1140c68fc0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25877da363c40e2622374f64fbaf5702"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a25877da363c40e2622374f64fbaf5702">gfx_RotateScaleSprite</a> (<a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite_in, <a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *sprite_out, uint8_t angle, uint8_t scale)</td></tr>
+<tr class="separator:a25877da363c40e2622374f64fbaf5702"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a131df855eb57b1340a430f9d97fc4d95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a131df855eb57b1340a430f9d97fc4d95">gfx_GetSpriteChar</a> (char c)</td></tr>
 <tr class="separator:a131df855eb57b1340a430f9d97fc4d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab7badb9ba0c2de1910fd8914a7dcf81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#aab7badb9ba0c2de1910fd8914a7dcf81">gfx_SetFontData</a> (uint8_t *data)</td></tr>
@@ -854,6 +858,50 @@ Zachary "Runer112" Wassall </dd>
 </div><div class="memdoc">
 <p>Converts an RGB value to a palette color</p>
 <p>Conversion is not 100% perfect, but is quite close </p>
+
+</div>
+</div>
+<a id="ab28dbc6573d8ed4a264d95c332acbef7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab28dbc6573d8ed4a264d95c332acbef7">&#9670;&nbsp;</a></span>gfx_RotateSprite</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define gfx_RotateSprite</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">sprite_in, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">sprite_out, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">angle&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A helper function to only perform rotation using gfx_RotateScaleSprite</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sprite_in</td><td>Input sprite to rotate </td></tr>
+    <tr><td class="paramname">sprite_out</td><td>Pointer to where rotated sprite will be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to sprite_out </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="graphx_8h.html#a25877da363c40e2622374f64fbaf5702">gfx_RotateScaleSprite</a> </dd></dl>
 
 </div>
 </div>
@@ -3028,6 +3076,58 @@ Length must be between 0-8 </dd></dl>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a25877da363c40e2622374f64fbaf5702"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25877da363c40e2622374f64fbaf5702">&#9670;&nbsp;</a></span>gfx_RotateScaleSprite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a>* gfx_RotateScaleSprite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
+          <td class="paramname"><em>sprite_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td>
+          <td class="paramname"><em>sprite_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>scale</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fixed Rotation with scaling fator for sprites</p>
+<p>The output sprite is updated with the dimensions required for the implemented scaling factor. You must make sure that <code>sprite_out</code> has enough memory to store the needed output sprite. This can be found with the following formula: size = (max_scale / 64) * width * height + 2;</p>
+<dl class="section note"><dt>Note</dt><dd>A scale factor of 64 represents 100% scaling </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>This routine only accepts square input sprites </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sprite_in</td><td>Input sprite to rotate/scale </td></tr>
+    <tr><td class="paramname">sprite_out</td><td>Pointer to where rotated/scaled sprite will be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to sprite_out </dd></dl>
 
 </div>
 </div>

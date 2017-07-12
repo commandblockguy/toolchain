@@ -66,6 +66,8 @@ var searchData=
   ['gfx_5frletsprite',['gfx_RLETSprite',['../graphx_8h.html#aa8993feacc3ea33f92bb45d73aefbc44',1,'graphx.h']]],
   ['gfx_5frletsprite_5fnoclip',['gfx_RLETSprite_NoClip',['../graphx_8h.html#a1c007804fce83f8eedbb1aa34481d471',1,'graphx.h']]],
   ['gfx_5frletsprite_5ft',['gfx_rletsprite_t',['../structgfx__rletsprite__t.html',1,'']]],
+  ['gfx_5frotatescalesprite',['gfx_RotateScaleSprite',['../graphx_8h.html#a25877da363c40e2622374f64fbaf5702',1,'graphx.h']]],
+  ['gfx_5frotatesprite',['gfx_RotateSprite',['../graphx_8h.html#ab28dbc6573d8ed4a264d95c332acbef7',1,'graphx.h']]],
   ['gfx_5frotatespritec',['gfx_RotateSpriteC',['../graphx_8h.html#a7fe32ff1cd736b96503bf554a2910a62',1,'graphx.h']]],
   ['gfx_5frotatespritecc',['gfx_RotateSpriteCC',['../graphx_8h.html#a7e909bfdcba0d9c24711f501ae9036b0',1,'graphx.h']]],
   ['gfx_5frotatespritehalf',['gfx_RotateSpriteHalf',['../graphx_8h.html#a13b4e258e9a853bbd19d4f704e68e3fb',1,'graphx.h']]],
