@@ -14,6 +14,8 @@ var searchData=
   ['gfx_5fmallocsprite',['gfx_MallocSprite',['../graphx_8h.html#add09e11cb2d5b761ea1b336c07d9283e',1,'graphx.h']]],
   ['gfx_5fpalette',['gfx_palette',['../graphx_8h.html#aa4377ae55e7cef81e907a1af4c5cd1ab',1,'graphx.h']]],
   ['gfx_5frgbto1555',['gfx_RGBTo1555',['../graphx_8h.html#a2bb702124c741857adb8e850a8b8f951',1,'graphx.h']]],
+  ['gfx_5frotatedsprite_5fnoclip',['gfx_RotatedSprite_NoClip',['../graphx_8h.html#afa3c8163871a823bad8eeb5095cfde7f',1,'graphx.h']]],
+  ['gfx_5frotatedtransparentsprite_5fnoclip',['gfx_RotatedTransparentSprite_NoClip',['../graphx_8h.html#ad43ce784b12b90355394999c924ad966',1,'graphx.h']]],
   ['gfx_5frotatesprite',['gfx_RotateSprite',['../graphx_8h.html#ab28dbc6573d8ed4a264d95c332acbef7',1,'graphx.h']]],
   ['gfx_5fsetdrawbuffer',['gfx_SetDrawBuffer',['../graphx_8h.html#a490cacbb4ecf4146042a3e2359c983fa',1,'graphx.h']]],
   ['gfx_5fsetdrawscreen',['gfx_SetDrawScreen',['../graphx_8h.html#a3aeb7ef77b2b049eb7e6a0ce0b08c258',1,'graphx.h']]],
