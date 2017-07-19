@@ -89,7 +89,7 @@ var searchData=
   ['gfx_5fsetfontheight',['gfx_SetFontHeight',['../graphx_8h.html#acd354eca6c04e07f8467edd2a7784b6c',1,'graphx.h']]],
   ['gfx_5fsetfontspacing',['gfx_SetFontSpacing',['../graphx_8h.html#a90d402287b4a174559a7808992083081',1,'graphx.h']]],
   ['gfx_5fsetmonospacefont',['gfx_SetMonospaceFont',['../graphx_8h.html#a5b8aec47449cfbad6c142401850f8dee',1,'graphx.h']]],
-  ['gfx_5fsetpalette',['gfx_SetPalette',['../graphx_8h.html#aaf4f2bd518fde8b72c34335db9e64891',1,'graphx.h']]],
+  ['gfx_5fsetpalette',['gfx_SetPalette',['../graphx_8h.html#a3590f5cb307055b7108083acc249e07b',1,'gfx_SetPalette():&#160;graphx.h'],['../graphx_8h.html#aaf4f2bd518fde8b72c34335db9e64891',1,'gfx_SetPalette(uint16_t *palette, uint24_t size, uint8_t offset):&#160;graphx.h']]],
   ['gfx_5fsetpixel',['gfx_SetPixel',['../graphx_8h.html#a4130be5b91bcd16f99e42073b4de796d',1,'graphx.h']]],
   ['gfx_5fsettextbgcolor',['gfx_SetTextBGColor',['../graphx_8h.html#a5bee09037ac60bffdb46967ded315313',1,'graphx.h']]],
   ['gfx_5fsettextconfig',['gfx_SetTextConfig',['../graphx_8h.html#ad4e2f22663e4f902ddd96db12d4b0486',1,'graphx.h']]],

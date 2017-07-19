@@ -19,6 +19,7 @@ var searchData=
   ['gfx_5frotatesprite',['gfx_RotateSprite',['../graphx_8h.html#ab28dbc6573d8ed4a264d95c332acbef7',1,'graphx.h']]],
   ['gfx_5fsetdrawbuffer',['gfx_SetDrawBuffer',['../graphx_8h.html#a490cacbb4ecf4146042a3e2359c983fa',1,'graphx.h']]],
   ['gfx_5fsetdrawscreen',['gfx_SetDrawScreen',['../graphx_8h.html#a3aeb7ef77b2b049eb7e6a0ce0b08c258',1,'graphx.h']]],
+  ['gfx_5fsetpalette',['gfx_SetPalette',['../graphx_8h.html#a3590f5cb307055b7108083acc249e07b',1,'graphx.h']]],
   ['gfx_5fsettile',['gfx_SetTile',['../graphx_8h.html#ad70531063f5da9bf3399585fbb36749a',1,'graphx.h']]],
   ['gfx_5fsettilemapped',['gfx_SetTileMapped',['../graphx_8h.html#a4226c6fb4c83c38c1cb8708ec928dc7e',1,'graphx.h']]],
   ['gfx_5ftempsprite',['gfx_TempSprite',['../graphx_8h.html#ad95d6ddd408bb6c0fad041353da0d7ea',1,'graphx.h']]],
