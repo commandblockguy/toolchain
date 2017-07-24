@@ -1,7 +1,7 @@
 var searchData=
 [
   ['gfx_5fallocsprite',['gfx_AllocSprite',['../graphx_8h.html#a4fba20a3e6f896f3a45efc19cce44472',1,'graphx.h']]],
-  ['gfx_5fbegin',['gfx_Begin',['../graphx_8h.html#ac719b716a3e122cc66611c5fe4ca0035',1,'graphx.h']]],
+  ['gfx_5fbegin',['gfx_Begin',['../graphx_8h.html#a7d26258173a4a6ffaf0e720110079b6b',1,'graphx.h']]],
   ['gfx_5fblit',['gfx_Blit',['../graphx_8h.html#a0f00677f4368b000e110e8d4b7b9bd6d',1,'graphx.h']]],
   ['gfx_5fblitlines',['gfx_BlitLines',['../graphx_8h.html#a985b607c569ffc9f75c6761d096ad389',1,'graphx.h']]],
   ['gfx_5fblitrectangle',['gfx_BlitRectangle',['../graphx_8h.html#ac7073071faf81a977da77af7979f8baf',1,'graphx.h']]],

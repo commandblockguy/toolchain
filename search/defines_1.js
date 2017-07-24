@@ -1,7 +1,6 @@
 var searchData=
 [
   ['gfx_5fallocrletsprite',['gfx_AllocRLETSprite',['../graphx_8h.html#aca06f205639068645997ae2850d9330c',1,'graphx.h']]],
-  ['gfx_5fbegin',['gfx_Begin',['../graphx_8h.html#aac9e8a9501e3e24634a7bbfa486d6b7a',1,'graphx.h']]],
   ['gfx_5fblitbuffer',['gfx_BlitBuffer',['../graphx_8h.html#aae87d434c0a2ba6f12cc0358155ca912',1,'graphx.h']]],
   ['gfx_5fblitscreen',['gfx_BlitScreen',['../graphx_8h.html#a5bd688034be3eefa7fe2954ab7e37837',1,'graphx.h']]],
   ['gfx_5fcheckrectanglehotspot',['gfx_CheckRectangleHotspot',['../graphx_8h.html#a65e4e81be0b5a48b50f3baeb621b24a9',1,'graphx.h']]],
@@ -19,7 +18,6 @@ var searchData=
   ['gfx_5frotatesprite',['gfx_RotateSprite',['../graphx_8h.html#ab28dbc6573d8ed4a264d95c332acbef7',1,'graphx.h']]],
   ['gfx_5fsetdrawbuffer',['gfx_SetDrawBuffer',['../graphx_8h.html#a490cacbb4ecf4146042a3e2359c983fa',1,'graphx.h']]],
   ['gfx_5fsetdrawscreen',['gfx_SetDrawScreen',['../graphx_8h.html#a3aeb7ef77b2b049eb7e6a0ce0b08c258',1,'graphx.h']]],
-  ['gfx_5fsetpalette',['gfx_SetPalette',['../graphx_8h.html#a3590f5cb307055b7108083acc249e07b',1,'graphx.h']]],
   ['gfx_5fsettile',['gfx_SetTile',['../graphx_8h.html#ad70531063f5da9bf3399585fbb36749a',1,'graphx.h']]],
   ['gfx_5fsettilemapped',['gfx_SetTileMapped',['../graphx_8h.html#a4226c6fb4c83c38c1cb8708ec928dc7e',1,'graphx.h']]],
   ['gfx_5ftempsprite',['gfx_TempSprite',['../graphx_8h.html#ad95d6ddd408bb6c0fad041353da0d7ea',1,'graphx.h']]],
