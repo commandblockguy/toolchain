@@ -1,20 +1,5 @@
 var searchData=
 [
-  ['on_5fivect',['ON_IVECT',['../intce_8h.html#a943135922f1530d220992c1be01f85ca',1,'intce.h']]],
-  ['os_5fapperr1',['os_AppErr1',['../tice_8h.html#a0079510fce07ab691bf7e34b4214cc1f',1,'tice.h']]],
-  ['os_5fapperr2',['os_AppErr2',['../tice_8h.html#af5e8c33f1e68e3d4b31a6fa58037eb40',1,'tice.h']]],
-  ['os_5fasmprgmsize',['os_AsmPrgmSize',['../tice_8h.html#a7be625b0f50db0d58fd6e552adb491ca',1,'tice.h']]],
-  ['os_5fclrhome',['os_ClrHome',['../tice_8h.html#af31f77eb16adfccf31a00072554c48c5',1,'tice.h']]],
-  ['os_5fclrhomefull',['os_ClrHomeFull',['../tice_8h.html#a085b3ccef49b2e3eb7c7e6d6c24507f5',1,'tice.h']]],
-  ['os_5fdrawbgcolor',['os_DrawBGColor',['../tice_8h.html#a856436e92f2839b5629178a9e104a592',1,'tice.h']]],
-  ['os_5fdrawfgcolor',['os_DrawFGColor',['../tice_8h.html#aa9031a6bc83c9ca1a7ae5b663a5b5b18',1,'tice.h']]],
-  ['os_5fgraphbgcolor',['os_GraphBGColor',['../tice_8h.html#a2b6a3ab8cbb7eb858c9adf95679ed07b',1,'tice.h']]],
-  ['os_5fpencol',['os_PenCol',['../tice_8h.html#ad1718876e77b610a987e8a837b49adce',1,'tice.h']]],
-  ['os_5fpenrow',['os_PenRow',['../tice_8h.html#a445f4ccb9c0c495f034011c473633ba0',1,'tice.h']]],
-  ['os_5framcode',['os_RamCode',['../tice_8h.html#a1516736dd9f41abfe95ea6fe5c93bf98',1,'tice.h']]],
-  ['os_5fstatusbarbgcolor',['os_StatusBarBGColor',['../tice_8h.html#afb42845f8baf2a75e2f8aeda252fd4e9',1,'tice.h']]],
-  ['os_5ftempfreearc',['os_TempFreeArc',['../tice_8h.html#ad93b56112739741b0b6c5588459317ee',1,'tice.h']]],
-  ['os_5ftextbgcolor',['os_TextBGcolor',['../tice_8h.html#ae767bb684933b25c23b335db5c836e95',1,'tice.h']]],
-  ['os_5ftextfgcolor',['os_TextFGcolor',['../tice_8h.html#a500dd6d0da8521d53b8f93a50f6b3cf2',1,'tice.h']]],
-  ['os_5ftextshadow',['os_TextShadow',['../tice_8h.html#a1c4d012bb446e1f6df9dde69bcdd8843',1,'tice.h']]]
+  ['randint',['randInt',['../tice_8h.html#a8cdf5dc3371a6c80dd28003403a8f094',1,'tice.h']]],
+  ['rtc_5ftime',['rtc_Time',['../tice_8h.html#a61765dd0a064283c74e97b24dcfedd67',1,'tice.h']]]
 ];
