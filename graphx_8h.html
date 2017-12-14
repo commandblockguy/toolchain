@@ -331,8 +331,10 @@ Functions</h2></td></tr>
 <tr class="separator:a25877da363c40e2622374f64fbaf5702"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a131df855eb57b1340a430f9d97fc4d95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgfx__sprite__t.html">gfx_sprite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a131df855eb57b1340a430f9d97fc4d95">gfx_GetSpriteChar</a> (char c)</td></tr>
 <tr class="separator:a131df855eb57b1340a430f9d97fc4d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab7badb9ba0c2de1910fd8914a7dcf81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#aab7badb9ba0c2de1910fd8914a7dcf81">gfx_SetFontData</a> (uint8_t *data)</td></tr>
-<tr class="separator:aab7badb9ba0c2de1910fd8914a7dcf81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9013d0f69b73f116024ea19913b606d1"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a9013d0f69b73f116024ea19913b606d1">gfx_SetFontData</a> (uint8_t *data)</td></tr>
+<tr class="separator:a9013d0f69b73f116024ea19913b606d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8fd5f6a30555a43b41aef311997d2cd"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#ae8fd5f6a30555a43b41aef311997d2cd">gfx_SetCharData</a> (uint8_t index, uint8_t *data)</td></tr>
+<tr class="separator:ae8fd5f6a30555a43b41aef311997d2cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90d402287b4a174559a7808992083081"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a90d402287b4a174559a7808992083081">gfx_SetFontSpacing</a> (uint8_t *spacing)</td></tr>
 <tr class="separator:a90d402287b4a174559a7808992083081"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd354eca6c04e07f8467edd2a7784b6c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#acd354eca6c04e07f8467edd2a7784b6c">gfx_SetFontHeight</a> (uint8_t height)</td></tr>
@@ -3608,6 +3610,45 @@ A pointer to <code>sprite_out</code> </dd></dl>
 
 </div>
 </div>
+<a id="ae8fd5f6a30555a43b41aef311997d2cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8fd5f6a30555a43b41aef311997d2cd">&#9670;&nbsp;</a></span>gfx_SetCharData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t* gfx_SetCharData </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the font data for a specific character</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Character index to modify (if using default font, values range from 0-127, custom font can have indexes 0-255) </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to formated 8x8 pixel font </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to current character data if <code>data</code> is NULL, otherwise a pointer to next character data </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Format of font data is 8 bytes horizontally aligned. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="graphx_8h.html#a9013d0f69b73f116024ea19913b606d1">gfx_SetFontData</a> </dd></dl>
+
+</div>
+</div>
 <a id="acb61c699620065e070f8390266e1b796"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acb61c699620065e070f8390266e1b796">&#9670;&nbsp;</a></span>gfx_SetClipRegion()</h2>
 
@@ -3736,14 +3777,14 @@ A pointer to <code>sprite_out</code> </dd></dl>
 
 </div>
 </div>
-<a id="aab7badb9ba0c2de1910fd8914a7dcf81"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab7badb9ba0c2de1910fd8914a7dcf81">&#9670;&nbsp;</a></span>gfx_SetFontData()</h2>
+<a id="a9013d0f69b73f116024ea19913b606d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9013d0f69b73f116024ea19913b606d1">&#9670;&nbsp;</a></span>gfx_SetFontData()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void gfx_SetFontData </td>
+          <td class="memname">uint8_t* gfx_SetFontData </td>
           <td>(</td>
           <td class="paramtype">uint8_t *&#160;</td>
           <td class="paramname"><em>data</em></td><td>)</td>
@@ -3751,7 +3792,7 @@ A pointer to <code>sprite_out</code> </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the font</p>
+<p>Sets the font's character data</p>
 <p>Fonts can be created manually or and exported to a C-style format using 8x8 Pixel ROM Font Editor. (<a href="https://www.min.at/prinz/o/software/pixelfont/#download">https://www.min.at/prinz/o/software/pixelfont/#download</a>)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3759,6 +3800,7 @@ A pointer to <code>sprite_out</code> </dd></dl>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to previous font data </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Format of font data is 8 bytes horizontally aligned. </dd></dl>
 
 </div>

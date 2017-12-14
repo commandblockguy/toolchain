@@ -26,6 +26,7 @@ var searchData=
   ['os_5fgetdrawfgcolor',['os_GetDrawFGColor',['../tice_8h.html#a04f297c914cee4f29f90a981c395b84f',1,'tice.h']]],
   ['os_5fgetflagbyte',['os_GetFlagByte',['../tice_8h.html#a3b4341e60ac25d890127813aa441406d',1,'tice.h']]],
   ['os_5fgetkey',['os_GetKey',['../tice_8h.html#a2fe1d4602b3181350157d3c5cec287a7',1,'tice.h']]],
+  ['os_5fgetstringinput',['os_GetStringInput',['../tice_8h.html#a2018609a10a2182e2ebe65f49f6dc452',1,'tice.h']]],
   ['os_5fgetsymtableptr',['os_GetSymTablePtr',['../tice_8h.html#aa1c4673328edfc7e29946dbb5971852f',1,'tice.h']]],
   ['os_5fgetsystemstats',['os_GetSystemStats',['../tice_8h.html#ad1e9b4bcf74c415c27fba76283f53c69',1,'tice.h']]],
   ['os_5fgraphbgcolor',['os_GraphBGColor',['../tice_8h.html#a2b6a3ab8cbb7eb858c9adf95679ed07b',1,'tice.h']]],
