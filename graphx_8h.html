@@ -265,6 +265,8 @@ Functions</h2></td></tr>
 <tr class="separator:a63fffb8f15d76450ffd53b4cfe13783b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9da9143db2e5ea80b9492bec9e3495f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a9da9143db2e5ea80b9492bec9e3495f2">gfx_SwapDraw</a> (void)</td></tr>
 <tr class="separator:a9da9143db2e5ea80b9492bec9e3495f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15f0037f8c8738837ade23774194a0ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a15f0037f8c8738837ade23774194a0ea">gfx_Wait</a> (void)</td></tr>
+<tr class="separator:a15f0037f8c8738837ade23774194a0ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f00677f4368b000e110e8d4b7b9bd6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a0f00677f4368b000e110e8d4b7b9bd6d">gfx_Blit</a> (uint8_t location)</td></tr>
 <tr class="separator:a0f00677f4368b000e110e8d4b7b9bd6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a985b607c569ffc9f75c6761d096ad389"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a985b607c569ffc9f75c6761d096ad389">gfx_BlitLines</a> (uint8_t location, uint8_t y_loc, uint8_t num_lines)</td></tr>
@@ -4373,8 +4375,10 @@ A pointer to <code>sprite_out</code> </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Swaps the buffer with the visible screen and vice versa.</p>
-<p>The current drawing location remains the same. </p>
+<p>Swaps the roles of the screen and drawing buffers.</p>
+<p>Does not wait for the old screen buffer to finish being displayed. Instead, the next invocation of a graphx drawing function will block, waiting for this event. To block and wait explicitly, use <a class="el" href="graphx_8h.html#a15f0037f8c8738837ade23774194a0ea">gfx_Wait()</a>.</p>
+<dl class="section remark"><dt>Remarks</dt><dd>In practice, this function should be invoked immediately after finishing drawing a frame to the drawing buffer, and invocation of the first graphx drawing function for the next frame should be scheduled as late as possible relative to non-drawing logic. Non-drawing logic can execute during time when a drawing function may otherwise block.</dd></dl>
+<p>The LCD driver maintains its own screen buffer pointer for the duration of a refresh. The swap performed by this function will only be picked up at a point between refreshes. </p>
 
 </div>
 </div>
@@ -4809,6 +4813,26 @@ A pointer to <code>sprite_out</code> </dd></dl>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a15f0037f8c8738837ade23774194a0ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15f0037f8c8738837ade23774194a0ea">&#9670;&nbsp;</a></span>gfx_Wait()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gfx_Wait </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Waits for the screen buffer to finish being displayed after <a class="el" href="graphx_8h.html#a9da9143db2e5ea80b9492bec9e3495f2">gfx_SwapDraw()</a>.</p>
+<dl class="section remark"><dt>Remarks</dt><dd>In practice, this function should not need to be invoked by user code. It should be invoked by custom drawing functions (as late as reasonably possible) before writing to the drawing buffer, gfx_vbuffer. </dd></dl>
 
 </div>
 </div>

@@ -90,5 +90,6 @@ var searchData=
   ['gfx_5ftransparenttilemap_5fnoclip',['gfx_TransparentTilemap_NoClip',['../graphx_8h.html#af7c9f1e60363f9f45b19557e02cdedd5',1,'graphx.h']]],
   ['gfx_5fvertline',['gfx_VertLine',['../graphx_8h.html#af9bf37483257300442a1224bafbf9cfc',1,'graphx.h']]],
   ['gfx_5fvertline_5fnoclip',['gfx_VertLine_NoClip',['../graphx_8h.html#a1a6bbe0b65c1cf7a34c1f7b90a3c0d55',1,'graphx.h']]],
+  ['gfx_5fwait',['gfx_Wait',['../graphx_8h.html#a15f0037f8c8738837ade23774194a0ea',1,'graphx.h']]],
   ['gfx_5fzeroscreen',['gfx_ZeroScreen',['../graphx_8h.html#ac93e5b03cdb37fd830c147cdf3db8ba3',1,'graphx.h']]]
 ];
