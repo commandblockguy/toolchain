@@ -5,6 +5,7 @@ var searchData=
   ['ti_5fdelete',['ti_Delete',['../fileioc_8h.html#a226e1d9967372ee94b9d4dbd53dcc72a',1,'fileioc.h']]],
   ['ti_5fdeletevar',['ti_DeleteVar',['../fileioc_8h.html#ab1cac356bc4d7a03f7f17b33c66ab496',1,'fileioc.h']]],
   ['ti_5fdetect',['ti_Detect',['../fileioc_8h.html#a8ab3898aa9f1d56ebf783816e3ce0e17',1,'fileioc.h']]],
+  ['ti_5fdetectany',['ti_DetectAny',['../fileioc_8h.html#a73c135a7580238aef96113a589b5dd42',1,'fileioc.h']]],
   ['ti_5fdetectvar',['ti_DetectVar',['../fileioc_8h.html#aaa4c5a6c019de1510fac2a6bfa9269c7',1,'fileioc.h']]],
   ['ti_5fgetc',['ti_GetC',['../fileioc_8h.html#a6388c3a5a6e7134de97b308df1f8f40e',1,'fileioc.h']]],
   ['ti_5fgetdataptr',['ti_GetDataPtr',['../fileioc_8h.html#afe953ef410b48c76d7ac1ea7e4ee7148',1,'fileioc.h']]],
