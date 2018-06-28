@@ -1,7 +1,7 @@
 var searchData=
 [
   ['data',['data',['../structgfx__sprite__t.html#afbaeef67c679b34129dd80814c77705a',1,'gfx_sprite_t::data()'],['../structgfx__rletsprite__t.html#a66f60be1317945414d120b0690332f2a',1,'gfx_rletsprite_t::data()']]],
-  ['dbg_5fclearscreen',['dbg_ClearScreen',['../debug_8h.html#abb61e716dd9244db97c3bdb326107cd9',1,'debug.h']]],
+  ['dbg_5fclearconsole',['dbg_ClearConsole',['../debug_8h.html#a047dc1f9673c5b3757fe2caa0b7a9994',1,'debug.h']]],
   ['dbg_5fdebugger',['dbg_Debugger',['../debug_8h.html#a4a2a29de41d421710026489dccb3fa43',1,'debug.h']]],
   ['dbg_5fremoveallbreakpoints',['dbg_RemoveAllBreakpoints',['../debug_8h.html#a6298ae433a481ed122d273c4636a0822',1,'debug.h']]],
   ['dbg_5fremoveallwatchpoints',['dbg_RemoveAllWatchpoints',['../debug_8h.html#a56e0514c18d113c220dbf5ca53de9426',1,'debug.h']]],
