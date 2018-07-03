@@ -11,6 +11,7 @@ var searchData=
   ['ti_5fgetdataptr',['ti_GetDataPtr',['../fileioc_8h.html#afe953ef410b48c76d7ac1ea7e4ee7148',1,'fileioc.h']]],
   ['ti_5fgetsize',['ti_GetSize',['../fileioc_8h.html#a52e4f847fe66929ccfa14ab52bcf80c1',1,'fileioc.h']]],
   ['ti_5fgettokenstring',['ti_GetTokenString',['../fileioc_8h.html#a0fc4887847703e0eba433e28065833b4',1,'fileioc.h']]],
+  ['ti_5fgetvatptr',['ti_GetVATPtr',['../fileioc_8h.html#a110829e0fbb1eec7cdeb894f2b64c601',1,'fileioc.h']]],
   ['ti_5fisarchived',['ti_IsArchived',['../fileioc_8h.html#a856864cab001e242c56aa00a962bf2e3',1,'fileioc.h']]],
   ['ti_5fmalloccplx',['ti_MallocCplx',['../fileioc_8h.html#a957b019beae37acf80108e1bac3e2c17',1,'fileioc.h']]],
   ['ti_5fmalloccplxlist',['ti_MallocCplxList',['../fileioc_8h.html#a68a8f269eb09ca7de947dd395f9876f4',1,'fileioc.h']]],
