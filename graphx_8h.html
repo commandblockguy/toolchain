@@ -2856,18 +2856,16 @@ A <a class="el" href="structgfx__sprite__t.html" title="Sprite (image) type. ">g
       </table>
 </div><div class="memdoc">
 <p>Prints a signed integer</p>
-<p>Outputs at the current cursor position. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Outputs at the current cursor position. Padded with leading zeros if necessary to satisfy the specified minimum length. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n</td><td>Integer to print </td></tr>
-    <tr><td class="paramname">length</td><td>Length of integer character display </td></tr>
+    <tr><td class="paramname">length</td><td>Minimum number of characters to print </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>By default, no text clipping is performed (configurable with gfx_SetTextConfig) </dd>
 <dd>
-Values range from -8388608 to 8388607 </dd>
-<dd>
-Length must be between 0-8 </dd></dl>
+<code>length</code> must be between 1 and 8, inclusive </dd></dl>
 
 </div>
 </div>
@@ -2967,18 +2965,16 @@ Length must be between 0-8 </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>Prints an unsigned integer</p>
-<p>Outputs at the current cursor position. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Outputs at the current cursor position. Padded with leading zeros if necessary to satisfy the specified minimum length. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n</td><td>Unsigned integer to print </td></tr>
-    <tr><td class="paramname">length</td><td>Length of unsigned integer character display </td></tr>
+    <tr><td class="paramname">length</td><td>Minimum number of characters to print </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>By default, no text clipping is performed (configurable with gfx_SetTextConfig) </dd>
 <dd>
-Values range from 0-16777215 </dd>
-<dd>
-Length must be between 0-8 </dd></dl>
+<code>length</code> must be between 1 and 8, inclusive </dd></dl>
 
 </div>
 </div>
