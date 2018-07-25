@@ -26,6 +26,8 @@ var searchData=
   ['ti_5fputc',['ti_PutC',['../fileioc_8h.html#a5e4f8e1c166bd14e339c8d8457419343',1,'fileioc.h']]],
   ['ti_5frclvar',['ti_RclVar',['../fileioc_8h.html#ab568cd59ad586f34b6a36b0d80c7b0f6',1,'fileioc.h']]],
   ['ti_5fread',['ti_Read',['../fileioc_8h.html#a69e606ae891de24dc0d9331b7bd52085',1,'fileioc.h']]],
+  ['ti_5frename',['ti_Rename',['../fileioc_8h.html#a426edea454be9b01288c573a157061de',1,'fileioc.h']]],
+  ['ti_5frenamevar',['ti_RenameVar',['../fileioc_8h.html#a21ac531adcfda4a4e8b9b684517b5d2e',1,'fileioc.h']]],
   ['ti_5fresize',['ti_Resize',['../fileioc_8h.html#a226c894f6a87148634b2a06314f96e8c',1,'fileioc.h']]],
   ['ti_5frewind',['ti_Rewind',['../fileioc_8h.html#ae13786d7a50cfa328291102d024d1998',1,'fileioc.h']]],
   ['ti_5fseek',['ti_Seek',['../fileioc_8h.html#aeade963f1ba3ee1cdd09522fb8215cc6',1,'fileioc.h']]],

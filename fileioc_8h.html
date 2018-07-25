@@ -163,6 +163,10 @@ Functions</h2></td></tr>
 <tr class="separator:a110829e0fbb1eec7cdeb894f2b64c601"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e602e3314a2f7732c72dd27c94b6892"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fileioc_8h.html#a1e602e3314a2f7732c72dd27c94b6892">ti_GetName</a> (char *name, const <a class="el" href="fileioc_8h.html#afb77b0fc25eeb275fae79d607430fbc0">ti_var_t</a> slot)</td></tr>
 <tr class="separator:a1e602e3314a2f7732c72dd27c94b6892"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a426edea454be9b01288c573a157061de"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fileioc_8h.html#a426edea454be9b01288c573a157061de">ti_Rename</a> (char *old, char *new)</td></tr>
+<tr class="separator:a426edea454be9b01288c573a157061de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21ac531adcfda4a4e8b9b684517b5d2e"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fileioc_8h.html#a21ac531adcfda4a4e8b9b684517b5d2e">ti_RenameVar</a> (char *old, char *new, uint8_t type)</td></tr>
+<tr class="separator:a21ac531adcfda4a4e8b9b684517b5d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c3d4f47d22e805d679cbacc0293cb8b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fileioc_8h.html#a2c3d4f47d22e805d679cbacc0293cb8b">ti_SetVar</a> (const <a class="el" href="fileioc_8h.html#afb77b0fc25eeb275fae79d607430fbc0">ti_var_t</a> var_type, const char *name, void *data)</td></tr>
 <tr class="separator:a2c3d4f47d22e805d679cbacc0293cb8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a747cc0d2bb36c7c52f7acff10da3a3f0"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fileioc_8h.html#a747cc0d2bb36c7c52f7acff10da3a3f0">ti_StoVar</a> (const <a class="el" href="fileioc_8h.html#afb77b0fc25eeb275fae79d607430fbc0">ti_var_t</a> var_type_to, void *to, const <a class="el" href="fileioc_8h.html#afb77b0fc25eeb275fae79d607430fbc0">ti_var_t</a> var_type_from, void *from)</td></tr>
@@ -1013,6 +1017,89 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The number of chunks read (should be equal to count) </dd></dl>
+
+</div>
+</div>
+<a id="a426edea454be9b01288c573a157061de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a426edea454be9b01288c573a157061de">&#9670;&nbsp;</a></span>ti_Rename()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t ti_Rename </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>old</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>new</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Renames a file</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">old</td><td>Old name of file </td></tr>
+    <tr><td class="paramname">new</td><td>New name of file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if success, 1 if file already exists, 2 any other error occurs. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>: This function closes all open slots! </dd></dl>
+
+</div>
+</div>
+<a id="a21ac531adcfda4a4e8b9b684517b5d2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21ac531adcfda4a4e8b9b684517b5d2e">&#9670;&nbsp;</a></span>ti_RenameVar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t ti_RenameVar </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>old</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>new</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Renames a variable</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">old</td><td>Old name of file </td></tr>
+    <tr><td class="paramname">new</td><td>New name of file </td></tr>
+    <tr><td class="paramname">type</td><td>Type of variable to rename </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if success, 1 if file already exists, 2 any other error occurs. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>: This function closes all open slots! </dd></dl>
 
 </div>
 </div>
