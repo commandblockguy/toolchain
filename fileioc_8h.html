@@ -161,6 +161,8 @@ Functions</h2></td></tr>
 <tr class="separator:afe953ef410b48c76d7ac1ea7e4ee7148"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a110829e0fbb1eec7cdeb894f2b64c601"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fileioc_8h.html#a110829e0fbb1eec7cdeb894f2b64c601">ti_GetVATPtr</a> (const <a class="el" href="fileioc_8h.html#afb77b0fc25eeb275fae79d607430fbc0">ti_var_t</a> slot)</td></tr>
 <tr class="separator:a110829e0fbb1eec7cdeb894f2b64c601"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e602e3314a2f7732c72dd27c94b6892"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fileioc_8h.html#a1e602e3314a2f7732c72dd27c94b6892">ti_GetName</a> (char *name, const <a class="el" href="fileioc_8h.html#afb77b0fc25eeb275fae79d607430fbc0">ti_var_t</a> slot)</td></tr>
+<tr class="separator:a1e602e3314a2f7732c72dd27c94b6892"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c3d4f47d22e805d679cbacc0293cb8b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fileioc_8h.html#a2c3d4f47d22e805d679cbacc0293cb8b">ti_SetVar</a> (const <a class="el" href="fileioc_8h.html#afb77b0fc25eeb275fae79d607430fbc0">ti_var_t</a> var_type, const char *name, void *data)</td></tr>
 <tr class="separator:a2c3d4f47d22e805d679cbacc0293cb8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a747cc0d2bb36c7c52f7acff10da3a3f0"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fileioc_8h.html#a747cc0d2bb36c7c52f7acff10da3a3f0">ti_StoVar</a> (const <a class="el" href="fileioc_8h.html#afb77b0fc25eeb275fae79d607430fbc0">ti_var_t</a> var_type_to, void *to, const <a class="el" href="fileioc_8h.html#afb77b0fc25eeb275fae79d607430fbc0">ti_var_t</a> var_type_from, void *from)</td></tr>
@@ -624,6 +626,43 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to variable data </dd></dl>
+
+</div>
+</div>
+<a id="a1e602e3314a2f7732c72dd27c94b6892"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e602e3314a2f7732c72dd27c94b6892">&#9670;&nbsp;</a></span>ti_GetName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ti_GetName </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="fileioc_8h.html#afb77b0fc25eeb275fae79d607430fbc0">ti_var_t</a>&#160;</td>
+          <td class="paramname"><em>slot</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets the variable name of an already opened slot</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">slot</td><td>Variable slot to get name of </td></tr>
+    <tr><td class="paramname">name</td><td>Buffer to store name in, generally at least 10 bytes including null terminator. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>

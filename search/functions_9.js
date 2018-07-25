@@ -9,6 +9,7 @@ var searchData=
   ['ti_5fdetectvar',['ti_DetectVar',['../fileioc_8h.html#aaa4c5a6c019de1510fac2a6bfa9269c7',1,'fileioc.h']]],
   ['ti_5fgetc',['ti_GetC',['../fileioc_8h.html#a6388c3a5a6e7134de97b308df1f8f40e',1,'fileioc.h']]],
   ['ti_5fgetdataptr',['ti_GetDataPtr',['../fileioc_8h.html#afe953ef410b48c76d7ac1ea7e4ee7148',1,'fileioc.h']]],
+  ['ti_5fgetname',['ti_GetName',['../fileioc_8h.html#a1e602e3314a2f7732c72dd27c94b6892',1,'fileioc.h']]],
   ['ti_5fgetsize',['ti_GetSize',['../fileioc_8h.html#a52e4f847fe66929ccfa14ab52bcf80c1',1,'fileioc.h']]],
   ['ti_5fgettokenstring',['ti_GetTokenString',['../fileioc_8h.html#a0fc4887847703e0eba433e28065833b4',1,'fileioc.h']]],
   ['ti_5fgetvatptr',['ti_GetVATPtr',['../fileioc_8h.html#a110829e0fbb1eec7cdeb894f2b64c601',1,'fileioc.h']]],
