@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['debug_2eh',['debug.h',['../debug_8h.html',1,'']]],
-  ['decompress_2eh',['decompress.h',['../decompress_8h.html',1,'']]]
+  ['compression_2eh',['compression.h',['../compression_8h.html',1,'']]]
 ];

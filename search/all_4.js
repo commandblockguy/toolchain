@@ -16,10 +16,7 @@ var searchData=
   ['dbgerr',['dbgerr',['../debug_8h.html#a64265a45d563179807cf3098c5ee71ff',1,'debug.h']]],
   ['dbgout',['dbgout',['../debug_8h.html#abcef947c4a3149ea1f210246056d3e07',1,'debug.h']]],
   ['debug_2eh',['debug.h',['../debug_8h.html',1,'']]],
-  ['decompress_2eh',['decompress.h',['../decompress_8h.html',1,'']]],
   ['delay',['delay',['../tice_8h.html#acfd12579679c85d5f1c716509b2587f6',1,'tice.h']]],
   ['draw_5fheight',['draw_height',['../structgfx__tilemap__t.html#a5dd664c5691e669782e067cbe6ba0ad8',1,'gfx_tilemap_t']]],
-  ['draw_5fwidth',['draw_width',['../structgfx__tilemap__t.html#a15929def589462587871049ab6ce4e98',1,'gfx_tilemap_t']]],
-  ['dzx7_5fstandard',['dzx7_Standard',['../decompress_8h.html#a9f3e6d13cfc6d576ea0f67395059e243',1,'decompress.h']]],
-  ['dzx7_5fturbo',['dzx7_Turbo',['../decompress_8h.html#a877e3af3164d88fd78f461116d85094e',1,'decompress.h']]]
+  ['draw_5fwidth',['draw_width',['../structgfx__tilemap__t.html#a15929def589462587871049ab6ce4e98',1,'gfx_tilemap_t']]]
 ];
