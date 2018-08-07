@@ -254,8 +254,8 @@ Functions</h2></td></tr>
 <tr class="separator:a9f3acd9481c7a931a5a8cf3c2c92ee18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1e9b4bcf74c415c27fba76283f53c69"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tice_8h.html#ad1e9b4bcf74c415c27fba76283f53c69">os_GetSystemStats</a> (void)</td></tr>
 <tr class="separator:ad1e9b4bcf74c415c27fba76283f53c69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79d47c7ec7a7130100f0c70b74a797d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tice_8h.html#a79d47c7ec7a7130100f0c70b74a797d8">os_PushErrorHandler</a> (void *routine)</td></tr>
-<tr class="separator:a79d47c7ec7a7130100f0c70b74a797d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45b3d694bcbee88b84e5e49c9d7f50b4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tice_8h.html#a45b3d694bcbee88b84e5e49c9d7f50b4">os_PushErrorHandler</a> (void)</td></tr>
+<tr class="separator:a45b3d694bcbee88b84e5e49c9d7f50b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2862dc222a72179213b2b9ed6eb0a3d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tice_8h.html#a2862dc222a72179213b2b9ed6eb0a3d9">os_PopErrorHandler</a> (void)</td></tr>
 <tr class="separator:a2862dc222a72179213b2b9ed6eb0a3d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1c4673328edfc7e29946dbb5971852f"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tice_8h.html#aa1c4673328edfc7e29946dbb5971852f">os_GetSymTablePtr</a> (void)</td></tr>
@@ -2178,28 +2178,28 @@ Extended key code in high byte </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Restores state after a call to os_PushErrorHandler</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="tice_8h.html#a79d47c7ec7a7130100f0c70b74a797d8">os_PushErrorHandler</a> </dd></dl>
+<p>Restores state after a call to os_PushErrorHandler, but should not be called along the error path, and restores stack and ix to their state before the call to os_PushErrorHandler.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="tice_8h.html#a45b3d694bcbee88b84e5e49c9d7f50b4">os_PushErrorHandler</a> </dd></dl>
 
 </div>
 </div>
-<a id="a79d47c7ec7a7130100f0c70b74a797d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79d47c7ec7a7130100f0c70b74a797d8">&#9670;&nbsp;</a></span>os_PushErrorHandler()</h2>
+<a id="a45b3d694bcbee88b84e5e49c9d7f50b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45b3d694bcbee88b84e5e49c9d7f50b4">&#9670;&nbsp;</a></span>os_PushErrorHandler()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void os_PushErrorHandler </td>
+          <td class="memname">int os_PushErrorHandler </td>
           <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>routine</em></td><td>)</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets up the defualt error handlers if an OS routine encounters an error when running</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>This function can return twice (like setjmp). First return always happens with a return value of 0. Second return only happens if an error occurs before os_PopErrorHandler is called, with the errNo as the return value.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> errno = <a class="code" href="tice_8h.html#a45b3d694bcbee88b84e5e49c9d7f50b4">os_PushErrorHandler</a>();</div><div class="line"><span class="keywordflow">if</span> (errno) {</div><div class="line">    <span class="comment">// handle error, but do not call os_PopErrorHandler()</span></div><div class="line">} <span class="keywordflow">else</span> {</div><div class="line">    <span class="comment">// run some code that may error</span></div><div class="line">    <a class="code" href="tice_8h.html#a2862dc222a72179213b2b9ed6eb0a3d9">os_PopErrorHandler</a>();</div><div class="line">}</div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">routine</td><td>Error handling routine </td></tr>
   </table>

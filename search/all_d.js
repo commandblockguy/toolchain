@@ -37,7 +37,7 @@ var searchData=
   ['os_5fpencol',['os_PenCol',['../tice_8h.html#ad1718876e77b610a987e8a837b49adce',1,'tice.h']]],
   ['os_5fpenrow',['os_PenRow',['../tice_8h.html#a445f4ccb9c0c495f034011c473633ba0',1,'tice.h']]],
   ['os_5fpoperrorhandler',['os_PopErrorHandler',['../tice_8h.html#a2862dc222a72179213b2b9ed6eb0a3d9',1,'tice.h']]],
-  ['os_5fpusherrorhandler',['os_PushErrorHandler',['../tice_8h.html#a79d47c7ec7a7130100f0c70b74a797d8',1,'tice.h']]],
+  ['os_5fpusherrorhandler',['os_PushErrorHandler',['../tice_8h.html#a45b3d694bcbee88b84e5e49c9d7f50b4',1,'tice.h']]],
   ['os_5fputstrfull',['os_PutStrFull',['../tice_8h.html#a5316ce240dc00c400d1f30af6579d666',1,'tice.h']]],
   ['os_5fputstrline',['os_PutStrLine',['../tice_8h.html#a37908b624f2bd7c37f46e8b0533394b8',1,'tice.h']]],
   ['os_5framcode',['os_RamCode',['../tice_8h.html#a1516736dd9f41abfe95ea6fe5c93bf98',1,'tice.h']]],
