@@ -2178,7 +2178,7 @@ Extended key code in high byte </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Restores state after a call to os_PushErrorHandler, but should not be called along the error path, and restores stack and ix to their state before the call to os_PushErrorHandler.</p>
+<p>Restores stack state after a call to os_PushErrorHandler. Must be called with stack in the same state as it was when os_PushErrorHandler returned with 0, and should not be called along the error path.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="tice_8h.html#a45b3d694bcbee88b84e5e49c9d7f50b4">os_PushErrorHandler</a> </dd></dl>
 
 </div>
@@ -2199,7 +2199,7 @@ Extended key code in high byte </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function can return twice (like setjmp). First return always happens with a return value of 0. Second return only happens if an error occurs before os_PopErrorHandler is called, with the errNo as the return value.</p>
-<div class="fragment"><div class="line"><span class="keywordtype">int</span> errno = <a class="code" href="tice_8h.html#a45b3d694bcbee88b84e5e49c9d7f50b4">os_PushErrorHandler</a>();</div><div class="line"><span class="keywordflow">if</span> (errno) {</div><div class="line">    <span class="comment">// handle error, but do not call os_PopErrorHandler()</span></div><div class="line">} <span class="keywordflow">else</span> {</div><div class="line">    <span class="comment">// run some code that may error</span></div><div class="line">    <a class="code" href="tice_8h.html#a2862dc222a72179213b2b9ed6eb0a3d9">os_PopErrorHandler</a>();</div><div class="line">}</div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> errno = <a class="code" href="tice_8h.html#a45b3d694bcbee88b84e5e49c9d7f50b4">os_PushErrorHandler</a>();</div><div class="line"><span class="keywordflow">if</span> (errno) {</div><div class="line">    <span class="comment">// handle error, but no longer under the protection of the error handler so do not call os_PopErrorHandler()</span></div><div class="line">} <span class="keywordflow">else</span> {</div><div class="line">    <span class="comment">// run some code that may error</span></div><div class="line">    <a class="code" href="tice_8h.html#a2862dc222a72179213b2b9ed6eb0a3d9">os_PopErrorHandler</a>();</div><div class="line">}</div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">routine</td><td>Error handling routine </td></tr>
   </table>
