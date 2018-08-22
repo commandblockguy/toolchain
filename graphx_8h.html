@@ -267,12 +267,12 @@ Functions</h2></td></tr>
 <tr class="separator:a9da9143db2e5ea80b9492bec9e3495f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15f0037f8c8738837ade23774194a0ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a15f0037f8c8738837ade23774194a0ea">gfx_Wait</a> (void)</td></tr>
 <tr class="separator:a15f0037f8c8738837ade23774194a0ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f00677f4368b000e110e8d4b7b9bd6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a0f00677f4368b000e110e8d4b7b9bd6d">gfx_Blit</a> (uint8_t location)</td></tr>
-<tr class="separator:a0f00677f4368b000e110e8d4b7b9bd6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a985b607c569ffc9f75c6761d096ad389"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a985b607c569ffc9f75c6761d096ad389">gfx_BlitLines</a> (uint8_t location, uint8_t y_loc, uint8_t num_lines)</td></tr>
-<tr class="separator:a985b607c569ffc9f75c6761d096ad389"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7073071faf81a977da77af7979f8baf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#ac7073071faf81a977da77af7979f8baf">gfx_BlitRectangle</a> (uint8_t location, uint24_t x, uint8_t y, uint24_t width, uint24_t height)</td></tr>
-<tr class="separator:ac7073071faf81a977da77af7979f8baf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd7cbca75c25d79a5e9e485e876a3651"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#afd7cbca75c25d79a5e9e485e876a3651">gfx_Blit</a> (uint8_t src)</td></tr>
+<tr class="separator:afd7cbca75c25d79a5e9e485e876a3651"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80c51828386ed5dc02486e012886a00a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a80c51828386ed5dc02486e012886a00a">gfx_BlitLines</a> (uint8_t src, uint8_t y_loc, uint8_t num_lines)</td></tr>
+<tr class="separator:a80c51828386ed5dc02486e012886a00a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8a7ecff1148aa239dae50339c8ae0e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#ac8a7ecff1148aa239dae50339c8ae0e1">gfx_BlitRectangle</a> (uint8_t src, uint24_t x, uint8_t y, uint24_t width, uint24_t height)</td></tr>
+<tr class="separator:ac8a7ecff1148aa239dae50339c8ae0e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32d7b174be502f5a2a01688f7fa5bf77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#a32d7b174be502f5a2a01688f7fa5bf77">gfx_SetTextScale</a> (uint8_t width_scale, uint8_t height_scale)</td></tr>
 <tr class="separator:a32d7b174be502f5a2a01688f7fa5bf77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaac67a7731804b28386446b64b797ed7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphx_8h.html#aaac67a7731804b28386446b64b797ed7">gfx_PrintChar</a> (const char c)</td></tr>
@@ -1315,9 +1315,9 @@ Patrick "tr1p1ea" Prendergast </dd>
 
 <p>Different locations routines can be drawn to. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aadd7209b63b2141919c3e82a83d3e976a7b630d0c81a13e5ed75fe05738ffcf29"></a>gfx_screen&#160;</td><td class="fielddoc"><p>Draw to screen </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aadd7209b63b2141919c3e82a83d3e976a7b630d0c81a13e5ed75fe05738ffcf29"></a>gfx_screen&#160;</td><td class="fielddoc"><p>Screen </p>
 </td></tr>
-<tr><td class="fieldname"><a id="aadd7209b63b2141919c3e82a83d3e976ae01287e39b289d91ba0aa6b5bc20a659"></a>gfx_buffer&#160;</td><td class="fielddoc"><p>Draw to buffer </p>
+<tr><td class="fieldname"><a id="aadd7209b63b2141919c3e82a83d3e976ae01287e39b289d91ba0aa6b5bc20a659"></a>gfx_buffer&#160;</td><td class="fielddoc"><p>Buffer </p>
 </td></tr>
 </table>
 
@@ -1467,8 +1467,8 @@ Patrick "tr1p1ea" Prendergast </dd>
 
 </div>
 </div>
-<a id="a0f00677f4368b000e110e8d4b7b9bd6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f00677f4368b000e110e8d4b7b9bd6d">&#9670;&nbsp;</a></span>gfx_Blit()</h2>
+<a id="afd7cbca75c25d79a5e9e485e876a3651"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd7cbca75c25d79a5e9e485e876a3651">&#9670;&nbsp;</a></span>gfx_Blit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1477,7 +1477,7 @@ Patrick "tr1p1ea" Prendergast </dd>
           <td class="memname">void gfx_Blit </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>location</em></td><td>)</td>
+          <td class="paramname"><em>src</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1485,16 +1485,16 @@ Patrick "tr1p1ea" Prendergast </dd>
 <p>Copies the input buffer to the opposite buffer</p>
 <p>No clipping is performed; as it is a copy not a draw </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">location</td><td>gfx_screen - copies screen to buffer </td></tr>
-    <tr><td class="paramname">location</td><td>gfx_buffer - copies buffer to screen </td></tr>
+    <tr><td class="paramname">src</td><td>drawing location to copy from </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="graphx_8h.html#aadd7209b63b2141919c3e82a83d3e976" title="Different locations routines can be drawn to. ">gfx_draw_location_t</a> </dd></dl>
 
 </div>
 </div>
-<a id="a985b607c569ffc9f75c6761d096ad389"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a985b607c569ffc9f75c6761d096ad389">&#9670;&nbsp;</a></span>gfx_BlitLines()</h2>
+<a id="a80c51828386ed5dc02486e012886a00a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80c51828386ed5dc02486e012886a00a">&#9670;&nbsp;</a></span>gfx_BlitLines()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1503,7 +1503,7 @@ Patrick "tr1p1ea" Prendergast </dd>
           <td class="memname">void gfx_BlitLines </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>location</em>, </td>
+          <td class="paramname"><em>src</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1527,18 +1527,18 @@ Patrick "tr1p1ea" Prendergast </dd>
 <p>Copies lines from the input buffer to the opposite buffer</p>
 <p>No clipping is performed; as it is a copy not a draw </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">location</td><td>gfx_screen - copies screen to buffer </td></tr>
-    <tr><td class="paramname">location</td><td>gfx_buffer - copies buffer to screen </td></tr>
+    <tr><td class="paramname">src</td><td>drawing location to copy from </td></tr>
     <tr><td class="paramname">y_loc</td><td>Y Location to begin copying at </td></tr>
     <tr><td class="paramname">num_lines</td><td>Number of lines to copy </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="graphx_8h.html#aadd7209b63b2141919c3e82a83d3e976" title="Different locations routines can be drawn to. ">gfx_draw_location_t</a> </dd></dl>
 
 </div>
 </div>
-<a id="ac7073071faf81a977da77af7979f8baf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7073071faf81a977da77af7979f8baf">&#9670;&nbsp;</a></span>gfx_BlitRectangle()</h2>
+<a id="ac8a7ecff1148aa239dae50339c8ae0e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8a7ecff1148aa239dae50339c8ae0e1">&#9670;&nbsp;</a></span>gfx_BlitRectangle()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1547,7 +1547,7 @@ Patrick "tr1p1ea" Prendergast </dd>
           <td class="memname">void gfx_BlitRectangle </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>location</em>, </td>
+          <td class="paramname"><em>src</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1583,8 +1583,7 @@ Patrick "tr1p1ea" Prendergast </dd>
 <p>Copies a rectangle from the input buffer to the opposite buffer</p>
 <p>No clipping is performed; as it is a copy not a draw </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">location</td><td>gfx_screen - copies screen to buffer </td></tr>
-    <tr><td class="paramname">location</td><td>gfx_buffer - copies buffer to screen </td></tr>
+    <tr><td class="paramname">src</td><td>drawing location to copy from </td></tr>
     <tr><td class="paramname">x</td><td>X coordinate </td></tr>
     <tr><td class="paramname">y</td><td>Y coordinate </td></tr>
     <tr><td class="paramname">width</td><td>Width of rectangle </td></tr>
@@ -1592,6 +1591,7 @@ Patrick "tr1p1ea" Prendergast </dd>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="graphx_8h.html#aadd7209b63b2141919c3e82a83d3e976" title="Different locations routines can be drawn to. ">gfx_draw_location_t</a> </dd></dl>
 
 </div>
 </div>

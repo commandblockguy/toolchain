@@ -2,9 +2,9 @@ var searchData=
 [
   ['gfx_5fallocsprite',['gfx_AllocSprite',['../graphx_8h.html#a4fba20a3e6f896f3a45efc19cce44472',1,'graphx.h']]],
   ['gfx_5fbegin',['gfx_Begin',['../graphx_8h.html#a7d26258173a4a6ffaf0e720110079b6b',1,'graphx.h']]],
-  ['gfx_5fblit',['gfx_Blit',['../graphx_8h.html#a0f00677f4368b000e110e8d4b7b9bd6d',1,'graphx.h']]],
-  ['gfx_5fblitlines',['gfx_BlitLines',['../graphx_8h.html#a985b607c569ffc9f75c6761d096ad389',1,'graphx.h']]],
-  ['gfx_5fblitrectangle',['gfx_BlitRectangle',['../graphx_8h.html#ac7073071faf81a977da77af7979f8baf',1,'graphx.h']]],
+  ['gfx_5fblit',['gfx_Blit',['../graphx_8h.html#afd7cbca75c25d79a5e9e485e876a3651',1,'graphx.h']]],
+  ['gfx_5fblitlines',['gfx_BlitLines',['../graphx_8h.html#a80c51828386ed5dc02486e012886a00a',1,'graphx.h']]],
+  ['gfx_5fblitrectangle',['gfx_BlitRectangle',['../graphx_8h.html#ac8a7ecff1148aa239dae50339c8ae0e1',1,'graphx.h']]],
   ['gfx_5fcircle',['gfx_Circle',['../graphx_8h.html#aa3551439f550ca18ad65ab14486ae276',1,'graphx.h']]],
   ['gfx_5fcohensutherlandclip',['gfx_CohenSutherlandClip',['../graphx_8h.html#a937226ed35e4d7d097bdef232a410ec3',1,'graphx.h']]],
   ['gfx_5fconvertfromrletsprite',['gfx_ConvertFromRLETSprite',['../graphx_8h.html#affd6174395e0a2a3041bd427add482b8',1,'graphx.h']]],
