@@ -24,8 +24,7 @@ macro library? name*, version*, magic: <192,193>
 	element lib.relative
 	lib.absolute:
 	lib.offset := $%
-	dw lib.dependencies
-	db $B5
+	db lib.dependencies, $B5
 	dl lib.bss
 
 	macro disable_relocations?
