@@ -23,6 +23,8 @@ macro library? name*, version*, magic: <192,193>
 	db magic,version
 	dw lib.exports
 	lib.dependencies:
+	db $B5
+	dl lib.bss
 	lib.base_offset := $%
 
 	macro disable_relocations?
@@ -70,7 +72,9 @@ macro library? name*, version*, magic: <192,193>
 			load lib.relocations: $-$$ from $$
 		end virtual
 
-		lib.end_offset := $%
+		lib.end_offset := $%%
+		lib.bss := $ - $@
+		section 0
 		dw lib.relocations
 		dl lib.dependencies
 		dl lib.end_offset - lib.base_offset
