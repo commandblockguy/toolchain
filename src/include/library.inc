@@ -1,37 +1,38 @@
+include 'include_library.inc'
 include 'ez80.inc'
 include 'ti84pceg.inc'
 include 'tiformat.inc'
 
 macro library? name*, version*, magic: <192,193>
 	local lib
-	element lib.base
-	virtual
-		lib.exports.area::
-	end virtual
+	iterate section, exports, dependencies, relocations
+		virtual
+			lib.section.area::
+		end virtual
+	end iterate
 	virtual as 'lib'
 		lib.exports.file::
 		repeat 1, string: version
 			db 'library', 9, '"', name, '", ', `string, 10
 		end repeat
 	end virtual
-	virtual
-		lib.relocations.area::
-	end virtual
 
 	format ti archived appvar name
 	org 0
 	db magic,version
 	dw lib.exports
-	lib.dependencies:
+	element lib.relative
+	lib.absolute:
+	lib.offset := $%
+	dw lib.dependencies
 	db $B5
 	dl lib.bss
-	lib.base_offset := $%
 
 	macro disable_relocations?
-		org $% - lib.base_offset + lib.dependencies
+		org $% - lib.offset + lib.absolute
 	end macro
 	macro enable_relocations?
-		org $% - lib.base_offset + lib.base
+		org $% - lib.offset + lib.relative
 	end macro
 	enable_relocations?
 
@@ -39,7 +40,7 @@ macro library? name*, version*, magic: <192,193>
 		macro each? function*
 			local offset
 			virtual lib.exports.area
-				dw function-lib.base
+				dw function-lib.relative
 				offset = $-$$
 			end virtual
 			virtual lib.exports.file
@@ -50,34 +51,39 @@ macro library? name*, version*, magic: <192,193>
 		end macro
 	end iterate
 
+	macro include_library? file*
+		virtual lib.dependencies.area
+			include_library? file
+		end virtual
+	end macro
+
 	macro @ez80.word @value*
 		local value, address
 		value = @value
 		address = $
-		if value relativeto lib.base
+		if value relativeto lib.relative
 			virtual lib.relocations.area
-				dw address-lib.base
+				dw address-lib.relative
 			end virtual
-			@ez80.word value-lib.base
+			@ez80.word value-lib.relative
 		else
 			@ez80.word value
 		end if
 	end macro
 
 	postpone
-		virtual lib.exports.area
-			load lib.exports: $-$$ from $$
-		end virtual
-		virtual lib.relocations.area
-			load lib.relocations: $-$$ from $$
-		end virtual
+		iterate section, exports, dependencies, relocations
+			virtual lib.section.area
+				load lib.section: $-$$ from $$
+			end virtual
+		end iterate
 
-		lib.end_offset := $%%
+		lib.end := $%%
 		lib.bss := $ - $@
 		section 0
 		dw lib.relocations
-		dl lib.dependencies
-		dl lib.end_offset - lib.base_offset
+		dl lib.absolute
+		dl lib.end - lib.offset
 	end postpone
 
 	purge library?
