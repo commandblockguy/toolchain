@@ -23,6 +23,7 @@ var searchData=
   ['os_5fgetsystemstats',['os_GetSystemStats',['../tice_8h.html#ad1e9b4bcf74c415c27fba76283f53c69',1,'tice.h']]],
   ['os_5fint24toreal',['os_Int24ToReal',['../tice_8h.html#a83cd18115c9638421c1e44c7e1ec7380',1,'tice.h']]],
   ['os_5fmemchk',['os_MemChk',['../tice_8h.html#ac8a018c90c6e1d6a922afe8f7b2a3c9b',1,'tice.h']]],
+  ['os_5fnewline',['os_NewLine',['../tice_8h.html#a42b2cb04bc3d20d2a259cc956cb64d2b',1,'tice.h']]],
   ['os_5fnextsymentry',['os_NextSymEntry',['../tice_8h.html#a84681c61e0ea353e3448306918ce399a',1,'tice.h']]],
   ['os_5fpoperrorhandler',['os_PopErrorHandler',['../tice_8h.html#a2862dc222a72179213b2b9ed6eb0a3d9',1,'tice.h']]],
   ['os_5fpusherrorhandler',['os_PushErrorHandler',['../tice_8h.html#a45b3d694bcbee88b84e5e49c9d7f50b4',1,'tice.h']]],

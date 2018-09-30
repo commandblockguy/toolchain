@@ -33,6 +33,7 @@ var searchData=
   ['os_5fgraphbgcolor',['os_GraphBGColor',['../tice_8h.html#a2b6a3ab8cbb7eb858c9adf95679ed07b',1,'tice.h']]],
   ['os_5fint24toreal',['os_Int24ToReal',['../tice_8h.html#a83cd18115c9638421c1e44c7e1ec7380',1,'tice.h']]],
   ['os_5fmemchk',['os_MemChk',['../tice_8h.html#ac8a018c90c6e1d6a922afe8f7b2a3c9b',1,'tice.h']]],
+  ['os_5fnewline',['os_NewLine',['../tice_8h.html#a42b2cb04bc3d20d2a259cc956cb64d2b',1,'tice.h']]],
   ['os_5fnextsymentry',['os_NextSymEntry',['../tice_8h.html#a84681c61e0ea353e3448306918ce399a',1,'tice.h']]],
   ['os_5fpencol',['os_PenCol',['../tice_8h.html#ad1718876e77b610a987e8a837b49adce',1,'tice.h']]],
   ['os_5fpenrow',['os_PenRow',['../tice_8h.html#a445f4ccb9c0c495f034011c473633ba0',1,'tice.h']]],
