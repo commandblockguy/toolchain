@@ -12,5 +12,8 @@ var searchData=
   ['asm_5fmovedown',['asm_MoveDown',['../tice_8h.html#acd587dd2a0d4a15916c3ba25bc144579',1,'tice.h']]],
   ['asm_5fmoveup',['asm_MoveUp',['../tice_8h.html#a09beabf301b4ccd618b1af92a6e5ad00',1,'tice.h']]],
   ['asm_5frunindicoff',['asm_RunIndicOff',['../tice_8h.html#aef1134871e2ded341718bf50f7576907',1,'tice.h']]],
-  ['asm_5frunindicon',['asm_RunIndicOn',['../tice_8h.html#ad93e416bba6dafdce5e0cb5131c15d81',1,'tice.h']]]
+  ['asm_5frunindicon',['asm_RunIndicOn',['../tice_8h.html#ad93e416bba6dafdce5e0cb5131c15d81',1,'tice.h']]],
+  ['atomic_5fload_5f32',['atomic_load_32',['../tice_8h.html#a0be008b3b1dd2bcbcd323c06eec61094',1,'tice.h']]],
+  ['atomic_5fload_5fdecreasing_5f32',['atomic_load_decreasing_32',['../tice_8h.html#a52b216df9a65876fa0a88959d975cfd6',1,'tice.h']]],
+  ['atomic_5fload_5fincreasing_5f32',['atomic_load_increasing_32',['../tice_8h.html#acf4c807f7c9a51cf8ac55059334aef20',1,'tice.h']]]
 ];

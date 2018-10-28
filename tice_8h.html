@@ -182,6 +182,12 @@ Functions</h2></td></tr>
 <tr class="separator:a54cd8fd0f6b913a116bf0cbf21fab044"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfd12579679c85d5f1c716509b2587f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tice_8h.html#acfd12579679c85d5f1c716509b2587f6">delay</a> (uint16_t msec)</td></tr>
 <tr class="separator:acfd12579679c85d5f1c716509b2587f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0be008b3b1dd2bcbcd323c06eec61094"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tice_8h.html#a0be008b3b1dd2bcbcd323c06eec61094">atomic_load_32</a> (volatile uint32_t *p)</td></tr>
+<tr class="separator:a0be008b3b1dd2bcbcd323c06eec61094"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf4c807f7c9a51cf8ac55059334aef20"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tice_8h.html#acf4c807f7c9a51cf8ac55059334aef20">atomic_load_increasing_32</a> (volatile uint32_t *p)</td></tr>
+<tr class="separator:acf4c807f7c9a51cf8ac55059334aef20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52b216df9a65876fa0a88959d975cfd6"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tice_8h.html#a52b216df9a65876fa0a88959d975cfd6">atomic_load_decreasing_32</a> (volatile uint32_t *p)</td></tr>
+<tr class="separator:a52b216df9a65876fa0a88959d975cfd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8aa16bfaaeea4a827bce2d7baa90745"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tice_8h.html#ad8aa16bfaaeea4a827bce2d7baa90745">boot_SetDate</a> (uint8_t day, uint8_t month, uint16_t year)</td></tr>
 <tr class="separator:ad8aa16bfaaeea4a827bce2d7baa90745"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0315dfff7eec682d38467a99415d4c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tice_8h.html#ae0315dfff7eec682d38467a99415d4c4">boot_GetDate</a> (uint8_t *day, uint8_t *month, uint16_t *year)</td></tr>
@@ -1007,6 +1013,87 @@ Jacob "jacobly" Young </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>Assembly routine to turn on the Run Indicator </p>
+
+</div>
+</div>
+<a id="a0be008b3b1dd2bcbcd323c06eec61094"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0be008b3b1dd2bcbcd323c06eec61094">&#9670;&nbsp;</a></span>atomic_load_32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t atomic_load_32 </td>
+          <td>(</td>
+          <td class="paramtype">volatile uint32_t *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>"Atomically" loads from a volatile 32-bit value.</p>
+<dl class="section remark"><dt>Remarks</dt><dd>The hardware does not provide a mechanism to truly atomically load from a 32-bit value. This "atomic" load is implemented by non-atomically reading the value twice and retrying if the values read differ.</dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>If the maximum period between two value changes is 1us or less (assuming a CPU clock speed of 48MHz), then this function may never complete. For instance, the counter of a timer ticking at 1MHz or more should not be read using this function. In such a case of a purely increasing or decreasing value, <a class="el" href="tice_8h.html#acf4c807f7c9a51cf8ac55059334aef20">atomic_load_increasing_32()</a> or <a class="el" href="tice_8h.html#a52b216df9a65876fa0a88959d975cfd6">atomic_load_decreasing_32()</a> may be appropriate instead.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pointer to 32-bit value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a52b216df9a65876fa0a88959d975cfd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52b216df9a65876fa0a88959d975cfd6">&#9670;&nbsp;</a></span>atomic_load_decreasing_32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t atomic_load_decreasing_32 </td>
+          <td>(</td>
+          <td class="paramtype">volatile uint32_t *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>"Atomically" loads from a volatile, decreasing 32-bit value.</p>
+<dl class="section remark"><dt>Remarks</dt><dd>The hardware does not provide a mechanism to truly atomically load from a 32-bit value. This "atomic" load is implemented by temporarily disabling interrupts while non-atomically reading the value twice and then returning the greater of the two values read.</dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>If the minimum period between two value changes is 5us or less and the value's maximum rate of change over a 5us period exceeds 256 (assuming a CPU clock speed of 48MHz), then the value returned may be incorrect. Of relevant note may be the fact that a 48MHz counter does not exceed this limit.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pointer to 32-bit value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acf4c807f7c9a51cf8ac55059334aef20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf4c807f7c9a51cf8ac55059334aef20">&#9670;&nbsp;</a></span>atomic_load_increasing_32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t atomic_load_increasing_32 </td>
+          <td>(</td>
+          <td class="paramtype">volatile uint32_t *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>"Atomically" loads from a volatile, increasing 32-bit value.</p>
+<dl class="section remark"><dt>Remarks</dt><dd>The hardware does not provide a mechanism to truly atomically load from a 32-bit value. This "atomic" load is implemented by temporarily disabling interrupts while non-atomically reading the value twice and then returning the lesser of the two values read.</dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>If the minimum period between two value changes is 5us or less and the value's maximum rate of change over a 5us period exceeds 256 (assuming a CPU clock speed of 48MHz), then the value returned may be incorrect. Of relevant note may be the fact that a 48MHz counter does not exceed this limit.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pointer to 32-bit value </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
