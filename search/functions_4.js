@@ -11,6 +11,7 @@ var searchData=
   ['fat_5finit',['fat_Init',['../fatdrvce_8h.html#a5ff794f09dceb701a0f13276f2f9aaeb',1,'fatdrvce.h']]],
   ['fat_5fopen',['fat_Open',['../fatdrvce_8h.html#a4481030df6d02a5089981483d3dd675a',1,'fatdrvce.h']]],
   ['fat_5freadsector',['fat_ReadSector',['../fatdrvce_8h.html#ac3d7e7ed9ed507c5cb4d9c4d9a2b9d23',1,'fatdrvce.h']]],
+  ['fat_5fseek',['fat_Seek',['../fatdrvce_8h.html#ac5f7767b6bd2027253fd81f3494c6e65',1,'fatdrvce.h']]],
   ['fat_5fselect',['fat_Select',['../fatdrvce_8h.html#a6f600b2109f93a31e526f76fa6c2192e',1,'fatdrvce.h']]],
   ['fat_5fsetattrib',['fat_SetAttrib',['../fatdrvce_8h.html#ae4c3d560611cc652f81a77d59728d40c',1,'fatdrvce.h']]],
   ['fat_5fsetbuffer',['fat_SetBuffer',['../fatdrvce_8h.html#a8b37b7851b3718f634977f42b28dd73f',1,'fatdrvce.h']]],

@@ -132,6 +132,8 @@ Functions</h2></td></tr>
 <tr class="separator:abee00ea43f7ec9d59ac8a17e082327d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b37b7851b3718f634977f42b28dd73f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fatdrvce_8h.html#a8b37b7851b3718f634977f42b28dd73f">fat_SetBuffer</a> (void *buffer)</td></tr>
 <tr class="separator:a8b37b7851b3718f634977f42b28dd73f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5f7767b6bd2027253fd81f3494c6e65"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fatdrvce_8h.html#ac5f7767b6bd2027253fd81f3494c6e65">fat_Seek</a> (int8_t fd, uint32_t pos)</td></tr>
+<tr class="separator:ac5f7767b6bd2027253fd81f3494c6e65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3d7e7ed9ed507c5cb4d9c4d9a2b9d23"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fatdrvce_8h.html#ac3d7e7ed9ed507c5cb4d9c4d9a2b9d23">fat_ReadSector</a> (int8_t fd)</td></tr>
 <tr class="separator:ac3d7e7ed9ed507c5cb4d9c4d9a2b9d23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d05632a2e3aae6ede174dd9b2a04687"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fatdrvce_8h.html#a2d05632a2e3aae6ede174dd9b2a04687">fat_WriteSector</a> (int8_t fd)</td></tr>
@@ -148,6 +150,10 @@ Functions</h2></td></tr>
 <tr class="separator:a277a11d606e39638d8c301283d183287"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41840332ea39931bc3d48035b38ff4d4"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fatdrvce_8h.html#a41840332ea39931bc3d48035b38ff4d4">msd_Init</a> (unsigned int ticks)</td></tr>
 <tr class="separator:a41840332ea39931bc3d48035b38ff4d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7816cd998969875227c6e7f680ff50a6"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fatdrvce_8h.html#a7816cd998969875227c6e7f680ff50a6">msd_Find</a> (unsigned int ms, msd_t *result, uint8_t max)</td></tr>
+<tr class="separator:a7816cd998969875227c6e7f680ff50a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5278cd56fb583d83fd798a1df5a36a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fatdrvce_8h.html#ab5278cd56fb583d83fd798a1df5a36a6">msd_Select</a> (msd_t *list, uint8_t index)</td></tr>
+<tr class="separator:ab5278cd56fb583d83fd798a1df5a36a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb3c2474cd141ff90caa0cc088a0d29f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fatdrvce_8h.html#abb3c2474cd141ff90caa0cc088a0d29f">msd_KeepAlive</a> (void)</td></tr>
 <tr class="separator:abb3c2474cd141ff90caa0cc088a0d29f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3e8183867ce8ea13f03f8dc35ad9224"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fatdrvce_8h.html#ac3e8183867ce8ea13f03f8dc35ad9224">msd_ReadSector</a> (uint8_t *buffer, uint32_t sector)</td></tr>
@@ -617,6 +623,40 @@ Jacob "jacobly" Young </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="ac5f7767b6bd2027253fd81f3494c6e65"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool fat_Seek </td>
+          <td>(</td>
+          <td class="paramtype">int8_t&#160;</td>
+          <td class="paramname"><em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Seeks to an arbitrary sector in the flash file. If the sector is beyond the size of the file, the file allocation is extended. <code>pos</code> must be a multiple of 512, or 0. Arbitrary seek positions are not supported. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fd</td><td>File descriptor </td></tr>
+    <tr><td class="paramname">pos</td><td>512 byte multiple offset in file descriptor. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>false if an error occurs. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a6f600b2109f93a31e526f76fa6c2192e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -805,6 +845,48 @@ Jacob "jacobly" Young </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a7816cd998969875227c6e7f680ff50a6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t msd_Find </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>ms</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">msd_t *&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>max</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Locates any attached Mass Storage Devices (MSD). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ms</td><td>Timeout before erroring if no devices are found. </td></tr>
+    <tr><td class="paramname">result</td><td>Array of MSD's available, returned from function. </td></tr>
+    <tr><td class="paramname">max</td><td>The maximum number of MSD's that can be found. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>This function is currently unimplemented. Use <code>msd_Init</code> for now. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of attached MSD's. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a41840332ea39931bc3d48035b38ff4d4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -841,25 +923,7 @@ Jacob "jacobly" Young </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Locates any attached Mass Storage Devices (MSD). </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ms</td><td>Timeout before erroring if no devices are found. </td></tr>
-    <tr><td class="paramname">result</td><td>Array of MSD's available, returned from function. </td></tr>
-    <tr><td class="paramname">max</td><td>The maximum number of MSD's that can be found. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The number of attached MSD's. Select an attached Mass Storage Devices (MSD) for use. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">list</td><td>Array of MSD's available, returned from <code>msd_Find</code>. </td></tr>
-    <tr><td class="paramname">index</td><td>Which attached MSD to use, i.e. '0' would select the first found Mass Storage Device. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>None. Sends a SCSI "TEST_UNIT_READY" packet to ensure the device does not fall asleep. This function should be called at least every 2 seconds if the device is idle. </dd>
-<dd>
-None. </dd></dl>
+<p>Sends a SCSI "TEST_UNIT_READY" packet to ensure the device does not fall asleep. This function should be called at least every 2 seconds if the device is idle. </p><dl class="section return"><dt>Returns</dt><dd>None. </dd></dl>
 
 </div>
 </div>
@@ -893,6 +957,41 @@ None. </dd></dl>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab5278cd56fb583d83fd798a1df5a36a6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void msd_Select </td>
+          <td>(</td>
+          <td class="paramtype">msd_t *&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Select an attached Mass Storage Devices (MSD) for use. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>Array of MSD's available, returned from <code>msd_Find</code>. </td></tr>
+    <tr><td class="paramname">index</td><td>Which attached MSD to use, i.e. '0' would select the first found Mass Storage Device. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>This function is currently unimplemented. Use <code>msd_Init</code> for now. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>None. </dd></dl>
 
 </div>
