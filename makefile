@@ -286,10 +286,12 @@ release-libs: clibraries
 	$(CP) $(call NATIVEPATH,src/fileioc/fileioc.8xv) $(call NATIVEPATH,clibraries/fileioc.8xv)
 	$(CP) $(call NATIVEPATH,src/keypadc/keypadc.8xv) $(call NATIVEPATH,clibraries/keypadc.8xv)
 	$(CP) $(call NATIVEPATH,src/libload/libload.8xv) $(call NATIVEPATH,clibraries/libload.8xv)
-	$(CONVHEX) -g 5 $(call NATIVEPATH,src/graphx/graphx.8xv) \
+	$(CONVHEX) -g 7 $(call NATIVEPATH,src/graphx/graphx.8xv) \
 	$(call NATIVEPATH,src/fileioc/fileioc.8xv) \
 	$(call NATIVEPATH,src/keypadc/keypadc.8xv) \
 	$(call NATIVEPATH,src/fatdrvce/fatdrvce.8xv) \
+	$(call NATIVEPATH,src/srldrvce/srldrvce.8xv) \
+	$(call NATIVEPATH,src/usbdrvce/usbdrvce.8xv) \
 	$(call NATIVEPATH,src/libload/libload.8xv) \
 	$(call NATIVEPATH,clibraries/clibs.8xg)
 clibraries:
