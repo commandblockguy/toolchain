@@ -9,6 +9,7 @@ var searchData=
   ['kb_5fint_5fsignal_5ft',['kb_int_signal_t',['../keypadc_8h.html#a563ca39e35b2a344a3ecef7f1c990e66',1,'keypadc.h']]],
   ['kb_5fintacknowledge',['kb_IntAcknowledge',['../keypadc_8h.html#a6809cbd5aafa31f19e4c3d9735db6e93',1,'keypadc.h']]],
   ['kb_5fintstatus',['kb_IntStatus',['../keypadc_8h.html#a623c6f07055016813677fac3aa89b9ec',1,'keypadc.h']]],
+  ['kb_5fisdown',['kb_IsDown',['../keypadc_8h.html#a131ac75acf182051fe82d518b75109d8',1,'keypadc.h']]],
   ['kb_5fkey_5ft',['kb_key_t',['../keypadc_8h.html#a8bdbf527b2c99f741e6ced1cf1c7a880',1,'keypadc.h']]],
   ['kb_5flkey_5ft',['kb_lkey_t',['../keypadc_8h.html#a9161bee6ca17720bffe98f0da5a3c9c8',1,'keypadc.h']]],
   ['kb_5fmode_5f1_5fpress',['KB_MODE_1_PRESS',['../keypadc_8h.html#a563ca39e35b2a344a3ecef7f1c990e66a2aae3e5b9909b0da4fd1524b484fb17b',1,'keypadc.h']]],
