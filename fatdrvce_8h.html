@@ -150,8 +150,8 @@ Functions</h2></td></tr>
 <tr class="separator:a277a11d606e39638d8c301283d183287"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41840332ea39931bc3d48035b38ff4d4"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fatdrvce_8h.html#a41840332ea39931bc3d48035b38ff4d4">msd_Init</a> (unsigned int ticks)</td></tr>
 <tr class="separator:a41840332ea39931bc3d48035b38ff4d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7816cd998969875227c6e7f680ff50a6"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fatdrvce_8h.html#a7816cd998969875227c6e7f680ff50a6">msd_Find</a> (unsigned int ms, msd_t *result, uint8_t max)</td></tr>
-<tr class="separator:a7816cd998969875227c6e7f680ff50a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ce9dc0e0a3c82deb15ac982b13f3d2d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fatdrvce_8h.html#a1ce9dc0e0a3c82deb15ac982b13f3d2d">msd_Find</a> (unsigned int ticks, msd_t *result, uint8_t max)</td></tr>
+<tr class="separator:a1ce9dc0e0a3c82deb15ac982b13f3d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5278cd56fb583d83fd798a1df5a36a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fatdrvce_8h.html#ab5278cd56fb583d83fd798a1df5a36a6">msd_Select</a> (msd_t *list, uint8_t index)</td></tr>
 <tr class="separator:ab5278cd56fb583d83fd798a1df5a36a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb3c2474cd141ff90caa0cc088a0d29f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fatdrvce_8h.html#abb3c2474cd141ff90caa0cc088a0d29f">msd_KeepAlive</a> (void)</td></tr>
@@ -847,7 +847,7 @@ Jacob "jacobly" Young </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a7816cd998969875227c6e7f680ff50a6"></a>
+<a class="anchor" id="a1ce9dc0e0a3c82deb15ac982b13f3d2d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -855,7 +855,7 @@ Jacob "jacobly" Young </dd></dl>
           <td class="memname">uint8_t msd_Find </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>ms</em>, </td>
+          <td class="paramname"><em>ticks</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -878,7 +878,7 @@ Jacob "jacobly" Young </dd></dl>
 </div><div class="memdoc">
 <p>Locates any attached Mass Storage Devices (MSD). </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ms</td><td>Timeout before erroring if no devices are found. </td></tr>
+    <tr><td class="paramname">ms</td><td>Number of 32kHz ticks; Timeout before erroring if no devices are found. </td></tr>
     <tr><td class="paramname">result</td><td>Array of MSD's available, returned from function. </td></tr>
     <tr><td class="paramname">max</td><td>The maximum number of MSD's that can be found. </td></tr>
   </table>
