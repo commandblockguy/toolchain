@@ -99,10 +99,10 @@ LINKED_FILES := $(wildcard src/std/linked/*.src) $(patsubst src/std/linked/%.c,s
 SHARED_FILES := $(wildcard src/ce/*.src src/std/shared/*.src) $(patsubst src/std/shared/%.c,src/std/shared/build/%.src,$(wildcard src/std/shared/*.c))
 FILEIO_FILES := $(wildcard src/std/fileio/*.src) $(patsubst src/std/fileio/%.c,src/std/fileio/build/%.src,$(wildcard src/std/fileio/*.c))
 
-all: fasmg $(CONVHEX) $(CONVPNG) $(CONVTILE) graphx fileioc keypadc fatdrvce libload ce std startup
+all: fasmg $(CONVHEX) $(CONVPNG) $(CONVTILE) graphx fileioc keypadc usbdrvce fatdrvce libload ce std startup
 	@echo Toolchain built.
 
-clean: clean-graphx clean-fileioc clean-keypadc clean-fatdrvce clean-ce clean-std clean-libload clean-startup
+clean: clean-graphx clean-fileioc clean-keypadc clean-usbdrvce clean-fatdrvce clean-ce clean-std clean-libload clean-startup
 	$(MAKE) -C $(FASMGDIR) clean
 	$(MAKE) -C $(CONVHEXDIR) clean
 	$(MAKE) -C $(CONVPNGDIR) clean
@@ -248,6 +248,7 @@ install: $(DIRS) chmod all linker_script
 	$(MAKE) -C $(GRAPHXDIR) install PREFIX=$(PREFIX) DESTDIR=$(DESTDIR)
 	$(MAKE) -C $(KEYPADCDIR) install PREFIX=$(PREFIX) DESTDIR=$(DESTDIR)
 	$(MAKE) -C $(FILEIOCDIR) install PREFIX=$(PREFIX) DESTDIR=$(DESTDIR)
+	$(MAKE) -C $(USBDRVCEDIR) install PREFIX=$(PREFIX) DESTDIR=$(DESTDIR)
 	$(MAKE) -C $(FATDRVCEDIR) install PREFIX=$(PREFIX) DESTDIR=$(DESTDIR)
 	$(MAKE) -C $(LIBLOADDIR) install PREFIX=$(PREFIX) DESTDIR=$(DESTDIR)
 	$(MAKE) -C $(CEDIR) install PREFIX=$(PREFIX) DESTDIR=$(DESTDIR)
@@ -289,9 +290,9 @@ release-libs: clibraries
 	$(CONVHEX) -g 7 $(call NATIVEPATH,src/graphx/graphx.8xv) \
 	$(call NATIVEPATH,src/fileioc/fileioc.8xv) \
 	$(call NATIVEPATH,src/keypadc/keypadc.8xv) \
+	$(call NATIVEPATH,src/usbdrvce/usbdrvce.8xv) \
 	$(call NATIVEPATH,src/fatdrvce/fatdrvce.8xv) \
 	$(call NATIVEPATH,src/srldrvce/srldrvce.8xv) \
-	$(call NATIVEPATH,src/usbdrvce/usbdrvce.8xv) \
 	$(call NATIVEPATH,src/libload/libload.8xv) \
 	$(call NATIVEPATH,clibraries/clibs.8xg)
 clibraries:
