@@ -3,6 +3,7 @@
 #----------------------------
 
 RELEASE_NAME := CEdev
+LIBRARIES := libload graphx fontlibc keypadc fileioc usbdrvce fatdrvce srldrvce
 
 # define some common makefile things
 empty :=
@@ -17,6 +18,7 @@ endef
 ifeq ($(OS),Windows_NT)
 SHELL      = cmd.exe
 NATIVEPATH = $(subst /,\,$1)
+DIRNAME    = $(filter-out %:,$(patsubst %\,%,$(dir $1)))
 RM         = del /f 2>nul
 RMDIR      = call && (if exist $1 rmdir /s /q $1)
 MKDIR      = call && (if not exist $1 mkdir $1)
@@ -32,6 +34,7 @@ QUOTE_ARG  = "$(subst ",',$1)"#'
 APPEND     = @echo.$(subst ",^",$(subst \,^\,$(subst &,^&,$(subst |,^|,$(subst >,^>,$(subst <,^<,$(subst ^,^^,$1))))))) >>$@
 else
 NATIVEPATH = $(subst \,/,$1)
+DIRNAME    = $(patsubst %/,%,$(dir $1))
 RM         = rm -f
 RMDIR      = rm -rf $1
 MKDIR      = mkdir -p $1
@@ -63,6 +66,7 @@ FASMG      := $(call NATIVEPATH,$(FASMGDIR)/fasmg)
 CONVHEX    := $(call NATIVEPATH,$(CONVHEXDIR)/convhex)
 CONVPNG    := $(call NATIVEPATH,$(CONVPNGDIR)/convpng)
 CONVTILE   := $(call NATIVEPATH,$(CONVTILDIR)/convtile)
+FASMG_EZ80 := $(call NATIVEPATH,$(SRCDIR)/include/ez80.inc)
 
 ifeq ($(OS),Windows_NT)
 FASMG      := $(call NATIVEPATH,$(FASMGDIR)/fasmg.exe)
@@ -73,36 +77,29 @@ endif
 
 BIN        := $(call NATIVEPATH,$(TOOLSDIR)/zds)
 
-GRAPHXDIR  := $(call NATIVEPATH,$(SRCDIR)/graphx)
-KEYPADCDIR := $(call NATIVEPATH,$(SRCDIR)/keypadc)
-FILEIOCDIR := $(call NATIVEPATH,$(SRCDIR)/fileioc)
-USBDRVCEDIR:= $(call NATIVEPATH,$(SRCDIR)/usbdrvce)
-FATDRVCEDIR:= $(call NATIVEPATH,$(SRCDIR)/fatdrvce)
-SRLDRVCEDIR:= $(call NATIVEPATH,$(SRCDIR)/srldrvce)
-LIBLOADDIR := $(call NATIVEPATH,$(SRCDIR)/libload)
+LIBRARYDIR  = $(call NATIVEPATH,$(SRCDIR)/$1)
 
 CEDEVDIR   := $(call NATIVEPATH,$(INSTALLLOC)/$(RELEASE_NAME))
-INSTALLBIN := $(call NATIVEPATH,$(INSTALLLOC)/$(RELEASE_NAME)/bin)
-INSTALLBF  := $(call NATIVEPATH,$(INSTALLLOC)/$(RELEASE_NAME)/include/fasmg-ez80)
-INSTALLINC := $(call NATIVEPATH,$(INSTALLLOC)/$(RELEASE_NAME)/include)
-INSTALLLIB := $(call NATIVEPATH,$(INSTALLLOC)/$(RELEASE_NAME)/lib)
-INSTALLLL  := $(call NATIVEPATH,$(INSTALLLOC)/$(RELEASE_NAME)/lib/libload)
-INSTALLIO  := $(call NATIVEPATH,$(INSTALLLOC)/$(RELEASE_NAME)/lib/fileio)
-INSTALLSH  := $(call NATIVEPATH,$(INSTALLLOC)/$(RELEASE_NAME)/lib/shared)
-INSTALLST  := $(call NATIVEPATH,$(INSTALLLOC)/$(RELEASE_NAME)/lib/static)
-INSTALLLI  := $(call NATIVEPATH,$(INSTALLLOC)/$(RELEASE_NAME)/lib/linked)
-DIRS       := $(INSTALLINC) $(INSTALLBIN) $(INSTALLLIB)
-DIRS       := $(call NATIVEPATH,$(DIRS))
+INSTALLBIN := $(call NATIVEPATH,$(CEDEVDIR)/bin)
+INSTALLBF  := $(call NATIVEPATH,$(CEDEVDIR)/include/fasmg-ez80)
+INSTALLINC := $(call NATIVEPATH,$(CEDEVDIR)/include)
+INSTALLLIB := $(call NATIVEPATH,$(CEDEVDIR)/lib)
+INSTALLLL  := $(call NATIVEPATH,$(CEDEVDIR)/lib/libload)
+INSTALLIO  := $(call NATIVEPATH,$(CEDEVDIR)/lib/fileio)
+INSTALLSH  := $(call NATIVEPATH,$(CEDEVDIR)/lib/shared)
+INSTALLST  := $(call NATIVEPATH,$(CEDEVDIR)/lib/static)
+INSTALLLI  := $(call NATIVEPATH,$(CEDEVDIR)/lib/linked)
+DIRS       := $(CEDEVDIR) $(INSTALLBIN) $(INSTALLLIB) $(INSTALLINC) $(INSTALLBF) $(INSTALLLL) $(INSTALLIO) $(INSTALLSH) $(INSTALLST) $(INSTALLLI)
 
 STATIC_FILES := $(wildcard src/std/static/*.src) $(patsubst src/std/static/%.c,src/std/static/build/%.src,$(wildcard src/std/static/*.c))
 LINKED_FILES := $(wildcard src/std/linked/*.src) $(patsubst src/std/linked/%.c,src/std/linked/build/%.src,$(wildcard src/std/linked/*.c))
 SHARED_FILES := $(wildcard src/ce/*.src src/std/shared/*.src) $(patsubst src/std/shared/%.c,src/std/shared/build/%.src,$(wildcard src/std/shared/*.c))
 FILEIO_FILES := $(wildcard src/std/fileio/*.src) $(patsubst src/std/fileio/%.c,src/std/fileio/build/%.src,$(wildcard src/std/fileio/*.c))
 
-all: fasmg $(CONVHEX) $(CONVPNG) $(CONVTILE) graphx fileioc keypadc usbdrvce fatdrvce libload ce std startup
+all: $(CONVHEX) $(CONVPNG) $(CONVTILE) $(LIBRARIES) ce std startup
 	@echo Toolchain built.
 
-clean: clean-graphx clean-fileioc clean-keypadc clean-usbdrvce clean-fatdrvce clean-ce clean-std clean-libload clean-startup
+clean: $(addprefix clean-,$(LIBRARIES)) clean-ce clean-std clean-startup
 	$(MAKE) -C $(FASMGDIR) clean
 	$(MAKE) -C $(CONVHEXDIR) clean
 	$(MAKE) -C $(CONVPNGDIR) clean
@@ -115,7 +112,8 @@ clean: clean-graphx clean-fileioc clean-keypadc clean-usbdrvce clean-fatdrvce cl
 #----------------------------
 # tool rules
 #----------------------------
-fasmg:
+$(FASMG_EZ80): $(FASMG)
+$(FASMG):
 	$(MAKE) -C $(FASMGDIR)
 $(CONVHEX):
 	$(MAKE) -C $(CONVHEXDIR)
@@ -152,68 +150,15 @@ clean-template:
 	$(MAKE) -C $(TEMPLATEDIR) clean
 #----------------------------
 
-#----------------------------
-# graphx rules
-#----------------------------
-graphx: $(FASMG)
-	$(MAKE) -C $(GRAPHXDIR) FASMG=$(FASMG) BIN=$(BIN)
-clean-graphx:
-	$(MAKE) -C $(GRAPHXDIR) clean
-#----------------------------
 
 #----------------------------
-# fileioc rules
+# library rules
 #----------------------------
-fileioc: $(FASMG)
-	$(MAKE) -C $(FILEIOCDIR) FASMG=$(FASMG) BIN=$(BIN)
-clean-fileioc:
-	$(MAKE) -C $(FILEIOCDIR) clean
-#----------------------------
+$(LIBRARIES): $(FASMG)
+	$(MAKE) -C $(call LIBRARYDIR,$@) FASMG=$(call QUOTE_ARG,$(FASMG)) BIN=$(call QUOTE_ARG,$(BIN))
 
-#----------------------------
-# keypadc rules
-#----------------------------
-keypadc: $(FASMG)
-	$(MAKE) -C $(KEYPADCDIR) FASMG=$(FASMG) BIN=$(BIN)
-clean-keypadc:
-	$(MAKE) -C $(KEYPADCDIR) clean
-#----------------------------
-
-#----------------------------
-# usbdrvce rules
-#----------------------------
-usbdrvce: $(FASMG)
-	$(MAKE) -C $(USBDRVCEDIR) FASMG=$(FASMG) BIN=$(BIN)
-clean-usbdrvce:
-	$(MAKE) -C $(USBDRVCEDIR) clean
-#----------------------------
-
-#----------------------------
-# fatdrvce rules
-#----------------------------
-fatdrvce: $(FASMG)
-	$(MAKE) -C $(FATDRVCEDIR) FASMG=$(FASMG) BIN=$(BIN)
-clean-fatdrvce:
-	$(MAKE) -C $(FATDRVCEDIR) clean
-#----------------------------
-
-#----------------------------
-# srldrvce rules
-#----------------------------
-srldrvce: $(FASMG)
-	$(MAKE) -C $(SRLDRVCEDIR) FASMG=$(FASMG) BIN=$(BIN)
-clean-srldrvce:
-	$(MAKE) -C $(SRLDRVCEDIR) clean
-#----------------------------
-
-#----------------------------
-# libload rules
-#----------------------------
-libload: $(FASMG)
-	$(MAKE) -C $(LIBLOADDIR) FASMG=$(FASMG) BIN=$(BIN)
-clean-libload:
-	$(MAKE) -C $(LIBLOADDIR) clean
-#----------------------------
+$(addprefix clean-,$(LIBRARIES)):
+	$(MAKE) -C $(call LIBRARYDIR,$(patsubst clean-%,%,$@)) clean
 
 #----------------------------
 # startup rules
@@ -228,7 +173,7 @@ clean-startup:
 # uninstall rule
 #----------------------------
 uninstall:
-	$(call RMDIR,$(call NATIVEPATH,$(INSTALLLOC)/CEdev))
+	$(call RMDIR,$(CEDEVDIR))
 #----------------------------
 
 #----------------------------
@@ -245,26 +190,10 @@ install: $(DIRS) chmod all linker_script
 	$(CP) $(CONVTILE) $(INSTALLBIN)
 	$(CP) $(call NATIVEPATH,$(BIN)/*) $(INSTALLBIN)
 	$(MAKE) -C $(FASMGDIR) install PREFIX=$(PREFIX) DESTDIR=$(DESTDIR)
-	$(MAKE) -C $(GRAPHXDIR) install PREFIX=$(PREFIX) DESTDIR=$(DESTDIR)
-	$(MAKE) -C $(KEYPADCDIR) install PREFIX=$(PREFIX) DESTDIR=$(DESTDIR)
-	$(MAKE) -C $(FILEIOCDIR) install PREFIX=$(PREFIX) DESTDIR=$(DESTDIR)
-	$(MAKE) -C $(USBDRVCEDIR) install PREFIX=$(PREFIX) DESTDIR=$(DESTDIR)
-	$(MAKE) -C $(FATDRVCEDIR) install PREFIX=$(PREFIX) DESTDIR=$(DESTDIR)
-	$(MAKE) -C $(LIBLOADDIR) install PREFIX=$(PREFIX) DESTDIR=$(DESTDIR)
+	$(foreach library,$(LIBRARIES),$(MAKE) -C $(call LIBRARYDIR,$(library)) install PREFIX=$(call QUOTE_ARG,$(PREFIX)) DESTDIR=$(call QUOTE_ARG,$(DESTDIR))$(newline))
 	$(MAKE) -C $(CEDIR) install PREFIX=$(PREFIX) DESTDIR=$(DESTDIR)
 	$(MAKE) -C $(STDDIR) install PREFIX=$(PREFIX) DESTDIR=$(DESTDIR)
 	$(CPDIR) $(call NATIVEPATH,$(SRCDIR)/compatibility/*) $(call NATIVEPATH,$(INSTALLINC))
-
-$(DIRS):
-	$(call MKDIR,$(INSTALLBIN))
-	$(call MKDIR,$(INSTALLLIB))
-	$(call MKDIR,$(INSTALLINC))
-	$(call MKDIR,$(INSTALLBF))
-	$(call MKDIR,$(INSTALLLL))
-	$(call MKDIR,$(INSTALLIO))
-	$(call MKDIR,$(INSTALLSH))
-	$(call MKDIR,$(INSTALLST))
-	$(call MKDIR,$(INSTALLLI))
 
 chmod:
 	$(CHMOD)
@@ -273,28 +202,16 @@ chmod:
 #----------------------------
 # release rule
 #----------------------------
-dist: release
-release: install
+dist release: install
 	$(ARCH)
 #----------------------------
 
 #----------------------------
 # libraries release rules
 #----------------------------
-dist-libs: release-libs
-release-libs: clibraries
-	$(CP) $(call NATIVEPATH,src/graphx/graphx.8xv) $(call NATIVEPATH,clibraries/graphx.8xv)
-	$(CP) $(call NATIVEPATH,src/fileioc/fileioc.8xv) $(call NATIVEPATH,clibraries/fileioc.8xv)
-	$(CP) $(call NATIVEPATH,src/keypadc/keypadc.8xv) $(call NATIVEPATH,clibraries/keypadc.8xv)
-	$(CP) $(call NATIVEPATH,src/libload/libload.8xv) $(call NATIVEPATH,clibraries/libload.8xv)
-	$(CONVHEX) -g 7 $(call NATIVEPATH,src/graphx/graphx.8xv) \
-	$(call NATIVEPATH,src/fileioc/fileioc.8xv) \
-	$(call NATIVEPATH,src/keypadc/keypadc.8xv) \
-	$(call NATIVEPATH,src/usbdrvce/usbdrvce.8xv) \
-	$(call NATIVEPATH,src/fatdrvce/fatdrvce.8xv) \
-	$(call NATIVEPATH,src/srldrvce/srldrvce.8xv) \
-	$(call NATIVEPATH,src/libload/libload.8xv) \
-	$(call NATIVEPATH,clibraries/clibs.8xg)
+dist-libs release-libs: clibraries $(CONVHEX) $(LIBRARIES)
+	$(foreach library,$(LIBRARIES),$(CP) $(call NATIVEPATH,$(call LIBRARYDIR,$(library))/$(library).8xv) $(call NATIVEPATH,clibraries/$(library).8xv)$(newline))
+	$(CONVHEX) -g $(words $(LIBRARIES)) $(foreach library,$(LIBRARIES),$(call LIBRARYDIR,$(library))/$(library).8xv )$(call NATIVEPATH,clibraries/clibs.8xg)
 clibraries:
 	$(call MKDIR,clibraries)
 
@@ -310,7 +227,7 @@ doxygen:
 #----------------------------
 # linker script rule
 #----------------------------
-linker_script: $(STATIC_FILES) $(LINKED_FILES) $(SHARED_FILES) $(FILEIO_FILES)
+linker_script: std
 	$(RM) $(call QUOTE_ARG,$@)
 	@echo Generating linker script...
 	$(call APPEND,symbol __low_bss = bss.base)
@@ -336,22 +253,12 @@ help:
 	@echo asm
 	@echo std
 	@echo fasmg
-	@echo graphx
-	@echo fileioc
-	@echo keypadc
-	@echo usbdrvce
-	@echo fatdrvce
-	@echo srldrvce
+	$(foreach library,$(LIBRARIES),@echo $(library)$(newline))
 	@echo clean
 	@echo clean-ce
 	@echo clean-asm
 	@echo clean-std
-	@echo clean-graphx
-	@echo clean-fileioc
-	@echo clean-keypadc
-	@echo clean-usbdrvce
-	@echo clean-fatdrvce
-	@echo clean-srldrvce
+	$(foreach library,$(LIBRARIES),@echo clean-$(library)$(newline))
 	@echo doxygen
 	@echo install
 	@echo uninstall
@@ -359,4 +266,8 @@ help:
 	@echo release-libs
 	@echo help
 
-.PHONY: clean-libload libload release-libs clibraries doxygen chmod all clean graphx clean-graphx fileioc clean-fileioc keypadc clean-keypadc usbdrvce fatdrvce srldrvce clean-usbdrvce clean-fatdrvce clean-srldrvce install uninstall help release fasmg
+.PHONY: release-libs clibraries doxygen chmod all clean $(LIBRARIES) $(addprefix clean-,$(LIBRARIES)) install uninstall help release
+
+.SECONDEXPANSION:
+$(DIRS): $$(call DIRNAME,$$@)
+	$(call MKDIR,$@)

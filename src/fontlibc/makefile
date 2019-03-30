@@ -3,7 +3,7 @@
 #----------------------------
 
 # set NAME to the name of the library
-NAME :=fatdrvce
+NAME :=fontlibc
 
 # defult locations
 FASMG ?=fasmg
