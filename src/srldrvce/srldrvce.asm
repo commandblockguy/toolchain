@@ -403,6 +403,10 @@ setup:
 	call    controlDefaultTransfer
 	jp      qhRetryMaxOrAbort
 
+type_cdc	:= 0
+type_ftdi	:= 1
+type_pl2303	:= 2
+
 reqTypeSetLnCoding	:= $20
 reqTypeGetLnCoding	:= $21
 
@@ -419,8 +423,6 @@ reqGetLineCoding:
 	db	$A1,reqTypeGetLnCoding,0,0,0,0,lineCodingLen,0
 lineCoding:
 	db	$80,$25,0,0,0,0,8
-
-;db 0 ; alignment
 
 xferDataPtrDefault:
 	db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
