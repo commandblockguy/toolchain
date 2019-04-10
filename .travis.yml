@@ -8,7 +8,6 @@ addons:
     packages:
       - wine
       - doxygen
-      - doxygen-doc
 
 script:
 # Build toolchain and libs
