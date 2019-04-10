@@ -66,7 +66,6 @@ FASMG      := $(call NATIVEPATH,$(FASMGDIR)/fasmg)
 CONVHEX    := $(call NATIVEPATH,$(CONVHEXDIR)/convhex)
 CONVPNG    := $(call NATIVEPATH,$(CONVPNGDIR)/convpng)
 CONVTILE   := $(call NATIVEPATH,$(CONVTILDIR)/convtile)
-FASMG_EZ80 := $(call NATIVEPATH,$(SRCDIR)/include/ez80.inc)
 
 ifeq ($(OS),Windows_NT)
 FASMG      := $(call NATIVEPATH,$(FASMGDIR)/fasmg.exe)
@@ -112,7 +111,6 @@ clean: $(addprefix clean-,$(LIBRARIES)) clean-ce clean-std clean-startup
 #----------------------------
 # tool rules
 #----------------------------
-$(FASMG_EZ80): $(FASMG)
 $(FASMG):
 	$(MAKE) -C $(FASMGDIR)
 $(CONVHEX):
