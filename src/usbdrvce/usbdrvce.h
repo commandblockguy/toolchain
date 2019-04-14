@@ -29,6 +29,8 @@ typedef enum usb_init_flags {
 } usb_init_flags_t;
 
 typedef enum usb_event {
+  /// \p event_data Pointer to the new usb_role_t state.
+  USB_ROLE_CHANGED_EVENT,
   /// \p event_data The usb_device_t that was disconnected.
   USB_DEVICE_DISCONNECTED_EVENT,
   /// \p event_data The usb_device_t that was connected.
@@ -83,17 +85,18 @@ typedef enum usb_event {
   USB_DEVICE_IDLE_INTERRUPT,
   USB_DEVICE_WAKEUP_INTERRUPT,
   USB_B_SRP_COMPLETE_INTERRUPT,
-  USB_B_SRP_DETECT_INTERRUPT,
+  USB_A_SRP_DETECT_INTERRUPT,
   USB_A_VBUS_ERROR_INTERRUPT,
   USB_B_SESSION_END_INTERRUPT,
-  USB_ROLE_CHANGED_INTERRUPT,
-  USB_ID_CHANGED_INTERRUPT,
   USB_OVERCURRENT_INTERRUPT,
   USB_B_PLUG_REMOVED_INTERRUPT,
   USB_A_PLUG_REMOVED_INTERRUPT,
   USB_INTERRUPT,
   USB_HOST_ERROR_INTERRUPT,
-  USB_HOST_PORT_CHANGE_DETECT_INTERRUPT,
+  USB_HOST_PORT_CONNECT_STATUS_CHANGE_INTERRUPT,
+  USB_HOST_PORT_ENABLE_DISABLE_CHANGE_INTERRUPT,
+  USB_HOST_PORT_OVERCURRENT_CHANGE_INTERRUPT,
+  USB_HOST_PORT_FORCE_PORT_RESUME_INTERRUPT,
   USB_HOST_FRAME_LIST_ROLLOVER_INTERRUPT,
   USB_HOST_SYSTEM_ERROR_INTERRUPT,
   USB_HOST_ASYNC_ADVANCE_INTERRUPT,
@@ -147,7 +150,8 @@ typedef enum usb_find_flag {
   USB_SKIP_HUBS     = 1 << 3, /**< Don't return hubs.                         */
   USB_SKIP_ATTACHED = 1 << 4, /**< Only return devices directly attached to   */
                               /**  any of the hubs through which \c from is   */
-                              /**  connected.                                 */
+                              /**  connected.  This skips recursing over      */
+                              /**  devices attached to other hubs.            */
 } usb_find_flag_t;
 
 typedef enum usb_endpoint_flag {
@@ -174,10 +178,17 @@ typedef enum usb_endpoint_flag {
                                  /**  USB_TRANSFER_OVERFLOW.                  */
 } usb_endpoint_flag_t;
 
+typedef enum usb_role {
+  USB_ROLE_HOST   = 0 << 4, /**< Acting as usb host.   */
+  USB_ROLE_DEVICE = 1 << 4, /**< Acting as usb device. */
+  USB_ROLE_A      = 0 << 5, /**< Plug A plugged in.    */
+  USB_ROLE_B      = 1 << 5, /**< Plug B plugged in.    */
+} usb_role_t;
+
 typedef enum usb_speed {
   USB_SPEED_UNKNOWN = -1,
-  USB_SPEED_FULL,             /**<  12 Mb/s                                    */
-  USB_SPEED_LOW,              /**< 1.5 Mb/s                                    */
+  USB_SPEED_FULL, /**<  12 Mb/s */
+  USB_SPEED_LOW,  /**< 1.5 Mb/s */
 } usb_speed_t;
 
 typedef enum usb_transfer_direction {
@@ -380,7 +391,7 @@ typedef struct usb_endpoint *usb_endpoint_t; /**< opaque endpoint handle */
 
 #define USB_RETRY_FOREVER 0xFFFFFFu
 
-#define usb_RootHub ((usb_device_t)0xD13FC0u) /**< Root hub device */
+#define usb_RootHub() ((usb_device_t)0xD13FC0u) /**< Root hub device */
 
 /**
  * A pointer to \c usb_callback_data_t is passed to the \c usb_event_callback_t.
@@ -548,31 +559,33 @@ usb_device_data_t *usb_GetDeviceData(usb_device_t device);
  *
  * To enumerate all hubs and devices except the root hub:
  * \code
- * usb_device_t device = NULL;
- * while ((device = usb_FindDevice(usb_RootHub, device, USB_SKIP_NONE))) {
+ * usb_device_t device = NULL; // same as using usb_RootHub()
+ * while ((device = usb_FindDevice(usb_RootHub(), device, USB_SKIP_NONE))) {
  *   handle(device);
  * }
  * \endcode
  *
  * To enumerate all devices below a specific hub:
  * \code
- * usb_device_t device = NULL;
+ * usb_device_t device = NULL; // same as using hub
  * while ((device = usb_FindDevice(hub, device, USB_SKIP_NONE))) {
  *   handle(device);
  * }
  * \endcode
  *
- * To enumerate all disabled hubs attached directly to a specific hub:
- * usb_device_t device = NULL;
+ * To enumerate all disabled hubs directly attached to a specific hub:
+ * \code
+ * usb_device_t device = NULL; // must not use hub or else USB_SKIP_ATTACHED
+ *                             // will skip all devices attached to hub!
  * while ((device = usb_FindDevice(hub, device, USB_SKIP_ENABLED |
  *                                 USB_SKIP_DEVICES | USB_SKIP_ATTACHED))) {
  *   handle(device);
  * }
  * \endcode
  * @param root Hub below which to limit search, or \c NULL to search all
- * devices.
- * @param from Device to start the search from, or \c NULL to start at
- * \p root.
+ * devices including the root hub.
+ * @param from Device to start the search from, or \c NULL to start from
+ * \p root and include devices attached to root even with \c USB_SKIP_ATTACHED.
  * @param flags What kinds of devices to return.
  * @return The next device connected through \p root after \p from satisfying
  * \p flags or \c NULL if none.
@@ -635,8 +648,8 @@ size_t usb_GetConfigurationDescriptorTotalLength(usb_device_t device,
  * @return USB_SUCCESS if the transfer succeeded or an error.
  */
 usb_error_t usb_GetDescriptor(usb_device_t device, usb_descriptor_type_t type,
-                              uint8_t index, usb_descriptor_t *descriptor,
-                              size_t length, size_t *transferred);
+                              uint8_t index, void *descriptor, size_t length,
+                              size_t *transferred);
 
 /**
  * Changes the descriptor at \p index.
@@ -651,7 +664,7 @@ usb_error_t usb_GetDescriptor(usb_device_t device, usb_descriptor_type_t type,
  * @return USB_SUCCESS if the transfer succeeded or an error.
  */
 usb_error_t usb_SetDescriptor(usb_device_t device, usb_descriptor_type_t type,
-                              uint8_t index, const usb_descriptor_t *descriptor,
+                              uint8_t index, const void *descriptor,
                               size_t length);
 
 /**
@@ -798,6 +811,19 @@ usb_endpoint_flag_t usb_GetEndpointFlags(usb_endpoint_t endpoint);
  * @return USB_SUCCESS if the transfer succeeded or an error.
  */
 usb_error_t usb_ClearEndpointHalt(usb_endpoint_t endpoint);
+
+/**
+ * Returns the current 11-bit frame number, as last broadcast by the current
+ * host, multiplied by 8.  This value ranges from 0x0000 to 0x3FF8, increases by
+ * 8 every 1 ms, is truncated to 14 bits, and is synchronized with the host usb
+ * clock.
+ * @warning The bottom 3 bits are usually 0, but this is not guaranteed because
+ * random mmio writes could affect those bits.
+ * @note If the hardware supported full speed usb, the lower 3 bits would be the
+ * microframe number.
+ * @return usb_frame_number << 3
+ */
+unsigned usb_GetFrameNumber(void);
 
 /**
  * Schedules a transfer to the pipe connected to \p endpoint, in the direction
