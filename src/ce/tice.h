@@ -446,12 +446,6 @@ void boot_WaitShort(void);
  */
 
 /**
- * Inserts a new line at the current cursor posistion on the homescreen
- * Does scroll.
- */
-void os_NewLine(void);
-
-/**
  * Disables the OS cursor
  */
 void os_DisableCursor(void);
@@ -885,6 +879,12 @@ void os_ForceCmdNoChar(void);
  * i.e. _OS( asm_ArcChk );
  */
 void _OS(void (*function)(void));
+
+/**
+ * Inserts a new line at the current cursor posistion on the homescreen
+ * Does scroll.
+ */
+void asm_NewLine(void);
 
 /**
  * Assembly routine to scroll homescreen up
