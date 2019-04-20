@@ -21,7 +21,6 @@
 	.def _boot_SetTime
 	.def _boot_IsAfterNoon
 
-	.def _os_NewLine
 	.def _os_PushErrorHandler
 	.def _os_PopErrorHandler
 	.def _os_ThrowError
@@ -103,6 +102,7 @@
 	.def _os_FontDrawTransText
 	.def _os_CreateAppVar
 
+	.def _asm_NewLine
 	.def _asm_MoveDown
 	.def _asm_MoveUp
 	.def _asm_ClrLCDFull
@@ -141,7 +141,6 @@ _boot_GetTime                   equ 0005B0h
 _boot_SetTime                   equ 0005B4h
 _boot_IsAfterNoon               equ 0005C8h
 
-_os_NewLine                     equ 0207F0h
 _os_PushErrorHandler            equ 021C78h
 _os_PopErrorHandler             equ 021C7Ch
 _os_ThrowError                  equ 021C80h
@@ -226,6 +225,7 @@ _os_CreateAppVar                equ 022184h
 ; ---
 ; directly callable asm functions
 ; ---
+_asm_NewLine                    equ 0207F0h
 _asm_MoveDown                   equ 0207F4h
 _asm_MoveUp                     equ 020800h
 _asm_ClrLCDFull                 equ 020808h
