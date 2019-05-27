@@ -91,8 +91,6 @@ typedef enum usb_event {
   USB_OVERCURRENT_INTERRUPT,
   USB_B_PLUG_REMOVED_INTERRUPT,
   USB_A_PLUG_REMOVED_INTERRUPT,
-  USB_INTERRUPT,
-  USB_HOST_ERROR_INTERRUPT,
   USB_HOST_PORT_CONNECT_STATUS_CHANGE_INTERRUPT,
   USB_HOST_PORT_ENABLE_DISABLE_CHANGE_INTERRUPT,
   USB_HOST_PORT_OVERCURRENT_CHANGE_INTERRUPT,
@@ -222,6 +220,12 @@ typedef enum usb_request {
   USB_SET_INTERFACE,
   USB_SYNC_FRAME,
 } usb_request_t;
+
+typedef enum usb_feature {
+  USB_ENDPOINT_HALT,
+  USB_DEVICE_REMOTE_WAKEUP,
+  USB_TEST_MODE,
+} usb_feature_t;
 
 typedef enum usb_descriptor_type {
   USB_DEVICE_DESCRIPTOR = 1,
@@ -748,6 +752,14 @@ usb_error_t usb_SetInterface(usb_device_t device,
                              size_t length);
 
 /**
+ * Clears an endpoint's halt condition, indicated by transfers to that endpoint
+ * stalling.  This function blocks until the halt condition is cleared.
+ * @param endpoint The endpoint to clear the halt condition of.
+ * @return USB_SUCCESS if the transfer succeeded or an error.
+ */
+usb_error_t usb_ClearEndpointHalt(usb_endpoint_t endpoint);
+
+/**
  * Gets the endpoint of a \p device with a given \p address, or NULL if that
  * address is unused.
  * @param device Device to get the user data of.
@@ -777,18 +789,25 @@ void usb_SetEndpointData(usb_endpoint_t endpoint, usb_endpoint_data_t *data);
 usb_endpoint_data_t *usb_GetEndpointData(usb_endpoint_t endpoint);
 
 /**
- * Gets the maximum packet size of an endpoint.
- * @param endpoint The endpoint to get the maximum packet size of..
- * @return The wMaxPacketSize for an \p endpoint.
+ * Gets the address of an endpoint.
+ * @param endpoint The endpoint to get the address of.
+ * @return The address of an \p endpoint.
  */
-uint16_t usb_GetEndpointMaxPacketSize(usb_endpoint_t endpoint);
+uint8_t usb_GetEndpointAddress(usb_endpoint_t endpoint);
 
 /**
  * Gets the transfer type of an endpoint.
  * @param endpoint The endpoint to get the transfer type of.
- * @return The usb_transfer_type for an endpoint.
+ * @return The \c usb_transfer_type of an endpoint.
  */
 usb_transfer_type_t usb_GetEndpointTransferType(usb_endpoint_t endpoint);
+
+/**
+ * Gets the maximum packet size of an endpoint.
+ * @param endpoint The endpoint to get the maximum packet size of.
+ * @return The \c wMaxPacketSize of an \p endpoint.
+ */
+uint16_t usb_GetEndpointMaxPacketSize(usb_endpoint_t endpoint);
 
 /**
  * Sets the flags for an endpoint.
@@ -805,12 +824,17 @@ void usb_SetEndpointFlags(usb_endpoint_t endpoint, usb_endpoint_flag_t flags);
 usb_endpoint_flag_t usb_GetEndpointFlags(usb_endpoint_t endpoint);
 
 /**
- * Clears an endpoint's halt condition, indicated by transfers to that endpoint
- * stalling.  This function blocks until the halt condition is cleared.
- * @param endpoint The endpoint to clear the halt condition of.
- * @return USB_SUCCESS if the transfer succeeded or an error.
+ * Returns the current 11-bit frame number, as last broadcast by the current
+ * host, multiplied by 8.  This value ranges from 0x0000 to 0x3FF8, increases by
+ * 8 every 1 ms, is truncated to 14 bits, and is synchronized with the host usb
+ * clock.
+ * @warning The bottom 3 bits are usually 0, but this is not guaranteed because
+ * random mmio writes could affect those bits.
+ * @note If the hardware supported full speed usb, the lower 3 bits would be the
+ * microframe number.
+ * @return usb_frame_number << 3
  */
-usb_error_t usb_ClearEndpointHalt(usb_endpoint_t endpoint);
+unsigned usb_GetFrameNumber(void);
 
 /**
  * Returns the current 11-bit frame number, as last broadcast by the current

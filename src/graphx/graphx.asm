@@ -2,7 +2,7 @@
 include '../include/library.inc'
 ;-------------------------------------------------------------------------------
 
-library 'GRAPHX', 10
+library 'GRAPHX', 11
 
 ;-------------------------------------------------------------------------------
 ; no dependencies
@@ -129,6 +129,10 @@ library 'GRAPHX', 10
 ; v9 functions
 ;-------------------------------------------------------------------------------
 	export gfx_Wait
+;-------------------------------------------------------------------------------
+; v10 functions
+;-------------------------------------------------------------------------------
+	export gfx_CopyRectangle
 
 ;-------------------------------------------------------------------------------
 LcdSize            := LcdWidth*LcdHeight
@@ -1775,9 +1779,9 @@ gfx_Blit:
 	pop	iy			; iy = return vector
 	ex	(sp),hl
 	ld	a,l			; a = buffer to blit from
-	call	_CheckBlit		; determine blit buffers
+	call	util.getbuffer		; determine blit buffers
 	ld	bc,LcdSize
-_Blit_Ldir:
+util.blit:
 	call	gfx_Wait
 	ldir				; just do it
 	jp	(iy)
@@ -1807,14 +1811,14 @@ gfx_BlitLines:
 	mlt	hl
 	add	hl,hl			; hl -> offset to start at
 	push	hl
-	call	_CheckBlit		; determine blit buffers
+	call	util.getbuffer		; determine blit buffers
 	pop	bc
 	add	hl,bc
 	ex	de,hl
 	add	hl,bc
 	ex	de,hl
 	pop	bc			; number of bytes to copy
-	jr	_Blit_Ldir
+	jr	util.blit
 
 ;-------------------------------------------------------------------------------
 gfx_BlitRectangle:
@@ -1837,7 +1841,7 @@ gfx_BlitRectangle:
 	add	hl,de			; hl = amount to increment
 	push	hl			; save amount to increment
 	ld	a,(iy+3)		; a = buffer to blit from
-	call	_CheckBlit		; determine blit buffers
+	call	util.getbuffer		; determine blit buffers
 	pop	bc
 	add	hl,bc
 	ex	de,hl
@@ -1865,6 +1869,72 @@ gfx_BlitRectangle:
 	lea	de,iy
 	ld	bc,0			; increment to next line
 .delta := $-3
+	add	hl,bc
+	dec	a
+	jr	nz,.loop
+	ret
+
+;-------------------------------------------------------------------------------
+gfx_CopyRectangle:
+; Copies a rectangle between graphics buffers or to the same graphics buffer.
+; Arguments:
+;  arg0 : Graphics buffer to copy from.
+;  arg1 : Graphics buffer to copy to.
+;  arg2 : X coordinate on src.
+;  arg3 : Y coordinate on src.
+;  arg4 : X coordinate on dst.
+;  arg5 : Y coordinate on dst.
+;  arg6 : Width of rectangle.
+;  arg7 : Height of rectangle.
+; Returns:
+;  None
+	ld	iy,0
+	add	iy,sp
+	ld	de,(iy + 9)		; de = x coordinate src
+	ld	l,(iy + 12)		; l = y coordinate src
+	ld	h,LcdWidth/2
+	mlt	hl
+	add	hl,hl
+	add	hl,de			; hl = offset in src
+	push	hl
+	ld	a,(iy + 3)		; a = buffer src
+	call	util.getbuffer
+	pop	bc
+	add	hl,bc			; hl = start of copy src
+	push	hl
+	ld	de,(iy + 15)		; de = x coordinate dst
+	ld	l,(iy + 18)		; l = y coordinate dst
+	ld	h,LcdWidth/2
+	mlt	hl
+	add	hl,hl
+	add	hl,de			; hl = offset in dst
+	push	hl
+	ld	a,(iy + 6)		; a = buffer dst
+	call	util.getbuffer
+	pop	bc
+	add	hl,bc
+	ex	de,hl			; de = start of copy dst
+	ld	bc,(iy + 21)		; rectangle width
+	ld	(.width),bc
+	ld	hl,LcdWidth
+	or	a,a
+	sbc	hl,bc			; rectangle stride
+	ld	(.stride),hl
+	pop	hl			; hl = start of copy src
+	ld	a,(iy + 24)
+	ld	iy,0
+	add	iy,de
+	call	gfx_Wait
+.loop:
+	ld	bc,0			; smc for speedz
+.width := $-3
+	ldir
+	inc	b
+	ld	c,$40
+	add	iy,bc
+	lea	de,iy
+	ld	bc,0			; increment to next line
+.stride := $-3
 	add	hl,bc
 	dec	a
 	jr	nz,.loop
@@ -1987,6 +2057,9 @@ gfx_GetClipRegion:
 	ld	hl,3
 	add	hl,sp
 	ld	iy,(hl)
+	dec	iy
+	dec	iy
+	dec	iy
 	call	_ClipRegion		; get the clipping region
 	sbc	a,a			; return false if offscreen (0)
 	inc	a
@@ -4168,36 +4241,34 @@ gfx_RotateSpriteC:
 ; Returns:
 ;  arg1 : Pointer to sprite struct output
 	ld	iy,0
-	lea	de,iy
 	add	iy,sp
 	push	ix
-	ld	ix,(iy+3)
-	ld	a,(ix+0)		; a = width
-	ld	e,(ix+1)		; c = height
-	ld	(.width),a
-	lea	hl,ix+2
-	ld	ix,(iy+6)
-	ld	(ix+0),e
-	ld	(ix+1),a
-	lea	iy,ix+1
-	add	iy,de
-	ld	c,e
-	push	ix
-.outer:
-	ld	b,0
-.width := $-1
-	lea	ix,iy
-.inner:
-	ld	a,(hl)
-	ld	(iy),a
+	ld	hl,(iy+6)
+	ld	iy,(iy+3)
+	ld	ix,(iy+0)		; ixl = width  ,  ixh = height
+	lea	bc,ix
+	ld	(hl),b
 	inc	hl
-	add	iy,de
-	djnz	.inner
-	lea	iy,ix
+	ld	(hl),c
+	mlt	bc
+	add	hl,bc
+	ex	de,hl
+	lea	bc,ix+1
+	ld	b,0
+.outer:
+	lea	hl,iy
 	dec	iy
-	dec	c
+	ld	a,ixh
+.inner:
+	add	hl,bc
+	inc	c
+	ldd
+	dec	a
+	jr	nz,.inner
+	dec	ixl
 	jr	nz,.outer
-	pop	hl
+	dec	de
+	ex	de,hl
 	pop	ix
 	ret
 
@@ -4210,38 +4281,32 @@ gfx_RotateSpriteCC:
 ; Returns:
 ;  arg1 : Pointer to sprite struct output
 	ld	iy,0
-	lea	de,iy
+	lea	bc,iy
 	add	iy,sp
 	push	ix
-	ld	ix,(iy+3)
-	ld	a,(ix+0)		; a = width
-	ld	e,(ix+1)		; e = height
-	ld	(.width),a
-	lea	hl,ix+1
-	ld	ix,(iy+6)
-	ld	(ix+0),e
-	ld	(ix+1),a
+	ld	hl,(iy+6)
+	push	hl
+	ld	iy,(iy+3)
+	ld	ix,(iy+0)		; ixl = width  ,  ixh = height
+	lea	de,ix
+	ld	(hl),d
+	inc	hl
+	ld	(hl),e
+	inc	hl
+	dec	e
 	ld	c,e
-	ld	b,a
-	mlt	bc
-	add	hl,bc
-	lea	iy,ix+1
-	add	iy,de
-	ld	c,e
-	push	ix
+	ex	de,hl
 .outer:
-	ld	b,0
-.width := $-1
-	lea	ix,iy
-.inner:
-	ld	a,(hl)
-	ld	(iy),a
-	dec	hl
-	add	iy,de
-	djnz	.inner
-	lea	iy,ix
+	lea	hl,iy+2
 	dec	iy
-	dec	c
+	ld	a,ixh
+.inner:
+	add	hl,bc
+	inc	c
+	ldi
+	dec	a
+	jr	nz,.inner
+	dec	ixl
 	jr	nz,.outer
 	pop	hl
 	pop	ix
@@ -6045,8 +6110,8 @@ _ComputeOutcode:
 	ret
 
 ;-------------------------------------------------------------------------------
-_CheckBlit:
-	ld	hl,vram+LcdSize
+util.getbuffer:
+	ld	hl,vram + LcdSize
 	ld	de,(mpLcdBase)
 	or	a,a
 	sbc	hl,de

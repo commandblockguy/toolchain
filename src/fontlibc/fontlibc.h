@@ -2,7 +2,7 @@
  * @file
  * @authors DrDnar
  * @brief Provides improved font support.
- * 
+ *
  * FontLib was designed under a "mechanism not policy" sort of philosophy.
  * Rather than attempt to provide as many fancy features as a programmer could
  * want, FontLib tries to provide fast, basic routines that can be used to build
@@ -11,7 +11,7 @@
  * and fontlib_GetStringWidth.  FontLib hopes to provide enough performance to
  * be usable in games, while providing powerful enough basic features for fancy
  * GUIs and document editors.
- * 
+ *
  * To assist in text layout, FontLib provides for a text window, which
  * automatically confines text to appear in a specific rectangular area of the
  * screen.  This feature may be useful for dialogs and scrolling large blocks of
@@ -22,7 +22,7 @@
  * Implementing centered text, right-aligned text, and word wrap require being
  * able to compute the width of a word or string of text.  The routine
  * fontlib_GetStringWidth provides this functionality.
- * 
+ *
  * If you call fontlib_SetAlternateStopCode(' '), GetStringWidth and DrawString
  * will stop drawing on spaces, giving you a chance to check if the next word
  * will fit on screen.  You can use fontlib_GetLastCharacterRead() to find out
@@ -31,7 +31,7 @@
  * resume processing at where it left off before.
  *
  * Embedded control codes are a popular way of managing style and formatting
- * information in string.  FontLibC only natively recognizes two types of 
+ * information in string.  FontLibC only natively recognizes two types of
  * control code: NULL (0) as a stop code and a user-specified alternate stop
  * code, and a user-specified newline code (defaults to 0x0A---ASCII LF and
  * standard Linux style).  However, you can add your own control codes with
@@ -39,7 +39,7 @@
  * first printable code point is encountered, FontLib stops string processing
  * and returns to allow you to handle the control code yourself using
  * fontlib_GetLastCharacterRead.
- * 
+ *
  * Part of providing high-performance is not painting a single pixel more than
  * once.  To assist with this goal, FontLib provides for both transparent and
  * opaque text backgrounds.  Use fontlib_SetTransparency(true) if you need to
@@ -61,7 +61,7 @@
  * legibility are outweighed by more aggressive use of vertical space, you can
  * force the default spacing to zero after using fontlib_SetFont with
  * fontlib_SetLineSpacing.
- * 
+ *
  */
 
 #ifndef H_FONTLIBC
@@ -81,6 +81,10 @@ typedef enum {
 } fontlib_newline_options_t;
 
 typedef enum {
+    FONTLIB_IGNORE_LINE_SPACING = 0x01
+} fontlib_load_options_t;
+
+typedef enum {
     /* clear = sans-serif font */
     FONTLIB_SERIF = 0x01,
     /* If both are set, then assume there's no difference between oblique
@@ -94,16 +98,19 @@ typedef enum {
 } fontlib_styles_t;
 
 typedef struct {
-    /* These are standard C-strings.  These pointers may be NULL. */
-    char *font_family_name;
-    char *font_author;
+    /* Size of this struct, basically functions as a version field.
+     * This does NOT include the lengths of the strings! */
+    int24_t length;
+    /* These are standard C-strings.  These offsets may be NULL. */
+    int24_t font_family_name;
+    int24_t font_author;
     /* NOTA BENE: TYPEFACES AND BITMAPPED FONTS CANNOT BE COPYRIGHTED UNDER U.S. LAW!
      * This field is therefore referred to as a pseudocopyright.  HOWEVER,
      * it IS is applicable in other jusrisdictions, such as Germany. */
-    char *font_pseudocopyright;
-    char *font_description;
-    char *font_version;
-    char *font_codepage;
+    int24_t font_pseudocopyright;
+    int24_t font_description;
+    int24_t font_version;
+    int24_t font_code_page;
 } fontlib_metadata_t;
 
 typedef struct {
@@ -119,10 +126,10 @@ typedef struct {
     /* Offset/pointer to glyph widths table.
      * This is an OFFSET from the fontVersion member in data format.
      * However, it is 24-bits long because it becomes a real pointer upon loading. */
-    void *widths_table;
+    int24_t widths_table;
     /* Offset to a table of offsets to glyph bitmaps.
      * These offsets are only 16-bits each to save some space. */
-    void *bitmaps;
+    int24_t bitmaps;
     /* Specifies how much to move the cursor left after each glyph.
        Total movement is width - overhang.  Intended for italics. */
     uint8_t italic_space_adjust;
@@ -130,7 +137,7 @@ typedef struct {
        This can increase legibility. */
     uint8_t space_above;
     uint8_t space_below;
-    /* Specifies the boldness of the font. 
+    /* Specifies the boldness of the font.
        0x40: light
        0x80: regular
        0x90: medium
@@ -148,11 +155,11 @@ typedef struct {
 typedef struct {
     char header[8]; /* "FONTPACK" */
     /* Offset from first byte of header */
-    fontlib_metadata_t *metadata;
+    int24_t metadata;
     /* Frankly, if you have more than 127 fonts in a pack, you have a
        problem. */
     uint8_t fontCount;
-    fontlib_font_t font_list[1];
+    int24_t font_list[1];
 } fontlib_font_pack_t;
 
 
@@ -164,12 +171,12 @@ void fontlib_SetWindowFullScreen(void);
 
 /**
  * Sets the bounds of the window all text will appear in.
- * 
+ *
  * Clipping of partial glyphs is not supported.  If a glyph, either horizontally
  * or vertically, does not fit in the text window, it will not be printed at all.
  * Behavior is undefined if the text cursor is positioned outside of the current
  * text window.
- * 
+ *
  * Changing this does not automatically move the text cursor into the window.
  * @param x_min X coord base
  * @param y_min Y coord base
@@ -226,7 +233,7 @@ uint8_t fontlib_GetCursorY(void);
 /**
  * Adds the given (x,y) to the cursor position.
  * Behavior is undefined if the resulting cursor position is offscreen.
- * 
+ *
  * Useful for tabbing, for example.
  * @param x x-shift
  * @param y y-shift
@@ -241,7 +248,7 @@ void fontlib_ShiftCursorPosition(int x, int y);
  * WARNING: If false is returned, no valid font is currently loaded and trying
  * to print will print garbage!
  */
-bool fontlib_SetFont(const fontlib_font_t *font_data, unsigned int flags);
+bool fontlib_SetFont(const fontlib_font_t *font_data, fontlib_load_options_t flags);
 
 /**
  * Sets the current foreground color FontLibC will use for drawing.
@@ -365,7 +372,7 @@ char fontlib_GetFirstGlyph(void);
  * You can set this to zero to prevent new line code processing.  Note that if
  * FONTLIB_ENABLE_AUTO_WRAP is enabled, then wrapping will still implicitly
  * case a newline.
- * 
+ *
  * This defaults to 0x0A (ASCII line feed/UNIX newline)
  * @param code_point New code point to use for newline
  */
@@ -380,14 +387,14 @@ char fontlib_GetNewlineCode(void);
 
 /**
  * Sets an alternate code point to recognize as a stop code.
- * 
+ *
  * For example, you can set this to space to make DrawString and GetStringWidth
  * stop processing when they reach a space.
- * 
+ *
  * Set this to 0 if you do not want to use the alternate stop code feature.
- * 
+ *
  * NULL (0) will still be recognized as a stop code regardless of value.
- * 
+ *
  * Defaults to 0.
  * @param code_point Additional code point to recognize as a stop code.
  */
@@ -401,10 +408,10 @@ char fontlib_GetAlternateStopCode(void);
 
 /**
  * Sets the first code point considered printable.
- * 
+ *
  * All code points before this will be considered control codes.
  * Setting this to 0 (NULL) will NOT cause NULL to be ignored.
- * 
+ *
  * This defaults 0x10.
  * @param code_point First printable code point
  */
@@ -425,7 +432,7 @@ uint8_t fontlib_GetGlyphWidth(char codepoint);
 
 /**
  * Returns the width of a string printed in the current font.
- * 
+ *
  * Stops processing when it encounters ANY control code or a codepoint not in
  * the current font.
  * @param str Pointer to string
@@ -435,7 +442,7 @@ size_t fontlib_GetStringWidth(const char *str);
 
 /**
  * Returns the width of a string printed in the current font.
- * 
+ *
  * Stops processing when it encounters ANY control code or a codepoint not in
  * the current font, or when max_characters have been processed.
  * @param str Pointer to string
@@ -445,7 +452,7 @@ size_t fontlib_GetStringWidth(const char *str);
 size_t fontlib_GetStringWidthL(const char *str, size_t max_characters);
 
 /**
- * Gets the location of the last character processed by GetStringWidth or 
+ * Gets the location of the last character processed by GetStringWidth or
  * DrawString
  * @return Pointer to character
  */
@@ -463,7 +470,7 @@ size_t fontlib_GetCharactersRemaining(void);
  * Draws a glyph.  This can even draw code points less than the code point
  * specified with fontlib_SetFirstPrintableCodePoint().  It can even draw code
  * point 0.
- * 
+ *
  * Nota bene: Although this does update the cursor X/Y positions, it does NOT
  * process window bounds at all!  (Maybe this should be FIXME?  On the other
  * hand, users may want this specifically so they can handle all their own
@@ -474,20 +481,20 @@ void fontlib_DrawGlyph(uint8_t glyph);
 
 /**
  * Draws a string.
- * 
+ *
  * This stops drawing upon reaching NULL.  It will also stop if it encounters
  * the character code specified with fontlib_SetAlternateStopCode().  Note that
  * the check for the alternate stop code always takes place before drawing a
  * glyph, so if you need to also display the stop code character, you must
  * directly call fontlib_DrawGlyph to force display the character and increment
  * past it.
- * 
+ *
  * This will return when it reaches the right edge of the text window if
  * FONTLIB_ENABLE_AUTO_WRAP is turned off.
- * 
+ *
  * Newline codes will print regardless of whether FONTLIB_ENABLE_AUTO_WRAP is
  * enabled.  To disable parsing newline codes, use fontlib_SetNewlineCode(0);
- * 
+ *
  * THIS IS NOT REENTRANT (though if you need that, you're probably not using C)
  * @param str Pointer to string
  */
@@ -495,11 +502,11 @@ void fontlib_DrawString(const char *str);
 
 /**
  * Draws a string, up to a maximum number of characters.
- * 
+ *
  * This is intended to be used if you only want a portion of a string printed,
  * (Or if you hate null-terminated strings and want length-prefixed strings
  * instead.  You still can't use NULLs though.)
- * 
+ *
  * THIS IS NOT REENTRANT (though if you need that, you're probably not using C)
  * @param str Pointer to string
  * @param max_characters Maximum number of characters to attempt to print, may
@@ -541,6 +548,76 @@ void fontlib_SetNewlineOptions(uint8_t options);
  * @return Current newline behavior options
  */
 uint8_t fontlib_GetNewlineOptions(void);
+
+/**
+ * Gets the long name associated with a font pack.  Useful in a loop with
+ * ti_Detect() when searching a typeface with a specific name.
+ * @param appvar_name Pointer to name of appvar
+ * @return Direct pointer to font's name; or NULL if no such appvar exists, the
+ * appvar isn't a font pack, or the font pack does not supply a name.
+ * NOTA BENE: Any operation that can move variables around in memory can
+ * invalidate this pointer!
+ */
+char *fontlib_GetFontPackName(char *appvar_name);
+
+/**
+ * Gets a pointer to a font, suitable for passing to SetFont(), given a font
+ * pack's address.  Useful if you know caching the font pack's address is safe.
+ * @see ti_GetDataPtr()
+ * @param font_pack Pointer to font pack
+ * @param index Index into font table of font pack
+ * @return Direct pointer to font, or NULL if the index is invalid.
+ */
+fontlib_font_t *fontlib_GetFontByIndexRaw(fontlib_font_pack_t *font_pack, uint8_t index);
+
+/**
+ * Gets a pointer to a font, suitable for passing to SetFont(), given a font
+ * pack's appvar's name.  Recommended to use after any file write, create,
+ * delete, or un/archive, as all those operations could invalidate the cached
+ * data pointers to the currently loaded font.
+ * @param font_pack_name Pointer to font pack appvar's name
+ * @param index Index into font table of font pack
+ * @return Direct pointer to font, or NULL if the index is invalid.
+ */
+fontlib_font_t *fontlib_GetFontByIndex(char *font_pack_name, uint8_t index);
+
+/**
+ * Gets a pointer to a font, suitable for passing to SetFont(), given a font
+ * pack's address and a set of font properties.  Useful if you know caching the
+ * font pack's address is safe.
+ * @see ti_GetDataPtr()
+ * @param font_pack_name Pointer to font pack appvar's name
+ * @param size_min Minimum heigh, in pixels, to accept.  Space above and space
+ * below metrics are not considered.
+ * @param size_max Maximum height
+ * @param weight_min Minimum weight to accept.  0 may be used.
+ * @param weight_max Maximum weight to accept.  0xFF may be used.
+ * @param style_bits_set Mask of style bits you want set.  For example,
+ * FONTLIB_SERIF | FONTLIB_MONOSPACE to look for a monospaced serifed font.
+ * @param style_bits_reset Style bits you want RESET.  For example, pass
+ * FONTLIB_MONOSPACE to REJECT monospaced fonts.
+ * @return Direct pointer to font, or NULL if no matching font is found
+ */
+ fontlib_font_t *fontlib_GetFontByStyleRaw(fontlib_font_pack_t *font_pack, uint8_t size_min, uint8_t size_max, uint8_t weight_min, uint8_t weight_max, uint8_t style_bits_set, uint8_t style_bits_reset);
+
+/**
+ * Gets a pointer to a font, suitable for passing to SetFont(), given a font
+ * pack's appvar's name and a set of font properties.  Recommended to use after
+ * any file write, create, delete, or un/archive, as all those operations could
+ * invalidate the cached data pointers to the currently loaded font.
+ * @param font_pack_name Pointer to font pack appvar's name
+ * @param size_min Minimum heigh, in pixels, to accept.  Space above and space
+ * below metrics are not considered.
+ * @param size_max Maximum height
+ * @param weight_min Minimum weight to accept.  0 may be used.
+ * @param weight_max Maximum weight to accept.  0xFF may be used.
+ * @param style_bits_set Mask of style bits you want set.  For example,
+ * FONTLIB_SERIF | FONTLIB_MONOSPACE to look for a monospaced serifed font.
+ * @param style_bits_reset Style bits you want RESET.  For example, pass
+ * FONTLIB_MONOSPACE to REJECT monospaced fonts.
+ * @return Direct pointer to font, or NULL if no matching font is found
+ */
+fontlib_font_t *fontlib_GetFontByStyle(char *font_pack_name, uint8_t size_min, uint8_t size_max, uint8_t weight_min, uint8_t weight_max, uint8_t style_bits_set, uint8_t style_bits_reset);
 
 
 #ifdef __cplusplus

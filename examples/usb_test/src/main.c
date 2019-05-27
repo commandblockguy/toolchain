@@ -1,9 +1,21 @@
+typedef struct global global_t;
+#define usb_callback_data_t global_t
+
 #include <usbdrvce.h>
 
 #include <debug.h>
 #include <tice.h>
 
+#include <stdbool.h>
 #include <stddef.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct global {
+    usb_device_t device;
+    usb_endpoint_t in, out;
+    uint8_t type;
+};
 
 static void putChar(char c) {
     static char str[2];
@@ -28,12 +40,6 @@ static void putBlockHex(void *block, size_t size) {
         putByteHex(*(*(unsigned char **)&block)++);
 }
 
-static usb_error_t got_device_descriptor(usb_endpoint_t endpoint, usb_transfer_status_t status,
-                                         size_t transferred, usb_transfer_data_t *data) {
-    return USB_SUCCESS;
-}
-
-static char device_descriptor[8];
 static usb_error_t handle_usb_event(usb_event_t event, void *event_data,
                                     usb_callback_data_t *callback_data) {
     static const char *usb_event_names[] = {
@@ -87,8 +93,6 @@ static usb_error_t handle_usb_event(usb_event_t event, void *event_data,
         "USB_OVERCURRENT_INT",
         "USB_B_PLUG_REMOVED_INT",
         "USB_A_PLUG_REMOVED_INT",
-        "USB_INT",
-        "USB_HOST_ERROR_INT",
         "USB_HOST_PORT_CONNECT_STATUS_CHANGE_INT",
         "USB_HOST_PORT_ENABLE_DISABLE_CHANGE_INT",
         "USB_HOST_PORT_OVERCURRENT_CHANGE_INT",
@@ -102,7 +106,7 @@ static usb_error_t handle_usb_event(usb_event_t event, void *event_data,
             os_PutStrFull(usb_event_names[event]);
             putChar(':');
             putNibHex(*(usb_role_t *)event_data >> 4);
-            os_NewLine();
+            _OS(asm_NewLine);
             break;
         case USB_DEVICE_DISCONNECTED_EVENT:
         case USB_DEVICE_CONNECTED_EVENT:
@@ -110,31 +114,25 @@ static usb_error_t handle_usb_event(usb_event_t event, void *event_data,
             putChar(':');
             putIntHex((unsigned)event_data);
             putIntHex((unsigned)usb_FindDevice(NULL, NULL, USB_SKIP_HUBS));
-            os_NewLine();
+            _OS(asm_NewLine);
             break;
         case USB_DEVICE_DISABLED_EVENT:
             os_PutStrFull(usb_event_names[event]);
-            os_NewLine();
-            memset(device_descriptor, 0, sizeof(device_descriptor));
+            _OS(asm_NewLine);
             break;
-        case USB_DEVICE_ENABLED_EVENT: {
-            static const usb_control_setup_t setup = {
-                USB_DEVICE_TO_HOST | USB_STANDARD_REQUEST | USB_RECIPIENT_DEVICE,
-                USB_GET_DESCRIPTOR,
-                USB_DEVICE_DESCRIPTOR << 8,
-                0,
-                sizeof(device_descriptor),
-            };
+        case USB_DEVICE_ENABLED_EVENT:
             os_PutStrFull(usb_event_names[event]);
-            os_NewLine();
-            return usb_ScheduleDefaultControlTransfer(event_data, &setup, &device_descriptor,
-                                                      got_device_descriptor, &device_descriptor);
-        }
+            putChar(':');
+            putIntHex((unsigned)event_data);
+            putIntHex((unsigned)usb_FindDevice(NULL, NULL, USB_SKIP_HUBS));
+            callback_data->device = event_data;
+            _OS(asm_NewLine);
+            break;
         case USB_DEFAULT_SETUP_EVENT: {
             unsigned char i;
             for (i = 0; i < 8; i++)
                 putByteHex(((unsigned char *)event_data)[i]);
-            os_NewLine();
+            _OS(asm_NewLine);
             return USB_IGNORE;
         }
         case USB_HOST_FRAME_LIST_ROLLOVER_INTERRUPT: {
@@ -150,30 +148,151 @@ static usb_error_t handle_usb_event(usb_event_t event, void *event_data,
         case USB_DEVICE_DEVICE_INTERRUPT:
         case USB_DEVICE_CONTROL_INTERRUPT:
         case USB_DEVICE_WAKEUP_INTERRUPT:
-        case USB_INTERRUPT:
         case USB_HOST_INTERRUPT:
             break;
         default:
             os_PutStrFull(usb_event_names[event]);
-            os_NewLine();
+            _OS(asm_NewLine);
             break;
     }
     return USB_SUCCESS;
 }
 
-void main(void) {
+static bool parseConfigurationDescriptor(global_t *const global,
+                                         const usb_device_descriptor_t *const device,
+                                         usb_configuration_descriptor_t *const configuration,
+                                         const size_t length) {
+    uint8_t *current = (uint8_t *)configuration;
+    size_t remaining = length;
     usb_error_t error;
-    os_SetCursorPos(2, 0);
-    if ((error = usb_Init(handle_usb_event, NULL, NULL, USB_DEFAULT_INIT_FLAGS)) != USB_SUCCESS)
+    uint8_t in = 0, out = 0;
+    while (remaining && (!in || !out)) {
+        usb_descriptor_t *descriptor = (usb_descriptor_t *)current;
+        if (remaining < 2 || remaining < descriptor->bLength) return false;
+        switch (descriptor->bDescriptorType) {
+            case USB_INTERFACE_DESCRIPTOR: {
+                usb_interface_descriptor_t *interface = (usb_interface_descriptor_t *)descriptor;
+                if (device->idVendor == 0x451 && device->idProduct == 0xE008)
+                    global->type = 2;
+                else if (interface->bInterfaceClass == 0x08 &&
+                         interface->bInterfaceSubClass == 0x06 &&
+                         interface->bInterfaceProtocol == 0x50)
+                    global->type = 1;
+                else
+                    global->type = 0;
+                in = out = 0;
+                break;
+            }
+            case USB_ENDPOINT_DESCRIPTOR: {
+                usb_endpoint_descriptor_t *endpoint = (usb_endpoint_descriptor_t *)descriptor;
+                if (global->type && endpoint->bmAttributes == USB_BULK_TRANSFER) {
+                    uint8_t *addr = endpoint->bEndpointAddress & USB_DEVICE_TO_HOST ? &in : &out;
+                    if (!*addr) *addr = endpoint->bEndpointAddress;
+                }
+                break;
+            }
+        }
+        current += descriptor->bLength;
+        remaining -= descriptor->bLength;
+    }
+    if (!in || !out) return false;
+    if ((error = usb_SetConfiguration(global->device, configuration, length)) != USB_SUCCESS) {
+        putIntHex(error);
+        _OS(asm_NewLine);
+        return false;
+    }
+    global->in = usb_GetDeviceEndpoint(global->device, in);
+    global->out = usb_GetDeviceEndpoint(global->device, out);
+    return true;
+}
+
+static void handleDevice(global_t *global) {
+    static const uint8_t rdy_pkt_00[] = { 0x00, 0x00, 0x00, 0x04, 0x01, 0x00, 0x00, 0x04, 0x00 };
+    static const uint8_t rdy_pkt_01[] = { 0x00, 0x00, 0x00, 0x10, 0x04, 0x00, 0x00, 0x00, 0x0a, 0x00, 0x01, 0x00, 0x03, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x07, 0xd0 };
+    static uint8_t buffer[64];
+    usb_error_t error;
+    usb_device_descriptor_t device;
+    size_t length;
+    uint8_t index;
+    bool found = false;
+    usb_configuration_descriptor_t *configuration = NULL;
+    if (!global->device)
         return;
-    while ((error = usb_WaitForInterrupt()) == USB_SUCCESS && !os_GetCSC()) {
-        unsigned row, col;
-        os_GetCursorPos(&row, &col);
-        os_SetCursorPos(0, 0);
-        putIntHex(usb_GetFrameNumber());
-        os_SetCursorPos(1, 0);
-        putBlockHex(device_descriptor, sizeof(device_descriptor));
-        os_SetCursorPos(row, col);
+    if ((error = usb_GetDescriptor(global->device, USB_DEVICE_DESCRIPTOR,
+                                   0, &device, sizeof(device), &length))
+        != USB_SUCCESS) goto err;
+    if (length < sizeof(device)) goto noerr;
+    putBlockHex(&device, sizeof(device));
+    _OS(asm_NewLine);
+    for (index = 0; !found && index != device.bNumConfigurations; ++index) {
+        length = usb_GetConfigurationDescriptorTotalLength(global->device, index);
+        if (!(configuration = malloc(length))) goto noerr;
+        if ((error = usb_GetDescriptor(global->device, USB_CONFIGURATION_DESCRIPTOR,
+                                       index, configuration, length, &length))
+            != USB_SUCCESS) goto err;
+        putByteHex(index);
+        putChar(':');
+        putBlockHex(configuration, length);
+        _OS(asm_NewLine);
+        found = parseConfigurationDescriptor(global, &device, configuration, length);
+        free(configuration); configuration = NULL;
+    }
+    if (!found) goto noerr;
+    putByteHex(global->type);
+    putByteHex(usb_GetEndpointAddress(global->in));
+    putByteHex(usb_GetEndpointAddress(global->out));
+    _OS(asm_NewLine);
+    switch (global->type) {
+        case 1:
+            break;
+        case 2:
+            putIntHex(usb_BulkTransfer(global->out, rdy_pkt_00, sizeof(rdy_pkt_00), 0, &length));
+            putChar(':');
+            putIntHex(length);
+            _OS(asm_NewLine);
+
+            length = 0;
+            putIntHex(usb_BulkTransfer(global->in, buffer, sizeof(buffer), 0, &length));
+            putChar(':');
+            putBlockHex(buffer, length);
+            _OS(asm_NewLine);
+
+            putIntHex(usb_BulkTransfer(global->out, rdy_pkt_01, sizeof(rdy_pkt_01), 0, &length));
+            putChar(':');
+            putIntHex(length);
+            _OS(asm_NewLine);
+
+            length = 0;
+            putIntHex(usb_BulkTransfer(global->in, buffer, sizeof(buffer), 0, &length));
+            putChar(':');
+            putBlockHex(buffer, length);
+            _OS(asm_NewLine);
+            break;
+    }
+    goto noerr;
+ err:
+    putIntHex(error);
+    _OS(asm_NewLine);
+ noerr:
+    if (configuration) free(configuration);
+    memset(global, 0, sizeof(global_t));
+ }
+
+void main(void) {
+    global_t global;
+    usb_error_t error;
+    memset(&global, 0, sizeof(global_t));
+    os_SetCursorPos(1, 0);
+    if ((error = usb_Init(handle_usb_event, &global, NULL,
+                          USB_DEFAULT_INIT_FLAGS)) == USB_SUCCESS) {
+        while ((error = usb_WaitForInterrupt()) == USB_SUCCESS && !os_GetCSC()) {
+            unsigned row, col;
+            os_GetCursorPos(&row, &col);
+            os_SetCursorPos(0, 0);
+            putIntHex(usb_GetFrameNumber());
+            os_SetCursorPos(row, col);
+            handleDevice(&global);
+        }
     }
     usb_Cleanup();
     putIntHex(error);

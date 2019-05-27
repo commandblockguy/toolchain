@@ -280,6 +280,30 @@ typedef struct { uint16_t len; char data[1]; } equ_t;
  * @brief Structure of miscellaneous variable type
  */
 typedef struct { uint16_t size; uint8_t data[1]; } var_t;
+/**
+ * @brief Structure of font description
+ * @see os_SelectFont
+ */
+typedef struct font {
+    /**
+     * Points to this font itself, yuck!
+     */
+    struct font *font;
+    /**
+     * Draws a character using this font.
+     * @param c The character
+     */
+    void (*drawChar)(char c);
+    /**
+     * Gets the width of a character in this font.
+     * @param c The character
+     */
+    uint24_t (*getWidth)(char c);
+    /**
+     * Gets the height of this font.
+     */
+    uint24_t (*getHeight)(void);
+} font_t;
 
 /**
  * Gets an element from a matrix
@@ -300,6 +324,18 @@ typedef struct { uint16_t size; uint8_t data[1]; } var_t;
  * Resets the OS homescreen fully
  */
 #define os_ClrHomeFull() do { _OS(asm_ClrLCDFull); _OS(asm_HomeUp); _OS(asm_DrawStatusBar); } while (0)
+
+/**
+ * TIOS small font.
+ * @see os_SelectFont
+ */
+#define os_SmallFont ((font_t *)0)
+
+/**
+ * TIOS large font.
+ * @see os_SelectFont
+ */
+#define os_LargeFont ((font_t *)1)
 
 /*
  * Bootcode functions
@@ -410,12 +446,6 @@ void boot_WaitShort(void);
  */
 
 /**
- * Inserts a new line at the current cursor posistion on the homescreen
- * Does scroll.
- */
-void os_NewLine(void);
-
-/**
  * Disables the OS cursor
  */
 void os_DisableCursor(void);
@@ -474,7 +504,7 @@ void os_GetCursorPos(unsigned int *curRow, unsigned int *curCol);
  * 0: small font                                      <br>
  * 1: large monospace font
  */
-void os_FontSelect(char id);
+void os_FontSelect(font_t *font);
 
 /**
  * Gets the font to use when drawing on the graphscreen
@@ -483,7 +513,7 @@ void os_FontSelect(char id);
  * 0: small font                                      <br>
  * 1: large monospace font
  */
-uint24_t os_FontGetID(void);
+font_t *os_FontGetID(void);
 
 /**
  * @param string String to get pixel width of
@@ -848,6 +878,12 @@ void os_ForceCmdNoChar(void);
  * i.e. _OS( asm_ArcChk );
  */
 void _OS(void (*function)(void));
+
+/**
+ * Inserts a new line at the current cursor posistion on the homescreen
+ * Does scroll.
+ */
+void asm_NewLine(void);
 
 /**
  * Assembly routine to scroll homescreen up
