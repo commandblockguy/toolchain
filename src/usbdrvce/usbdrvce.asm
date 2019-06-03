@@ -367,16 +367,6 @@ virtual at 0
 	?ROLE_B					rb 1 shl 5
 end virtual
 
-; enum usb_role
-virtual at 0
-	ROLE_HOST				rb 1 shl 4
-	ROLE_DEVICE				rb 1 shl 4
-end virtual
-virtual at 0
-	ROLE_A					rb 1 shl 5
-	ROLE_B					rb 1 shl 5
-end virtual
-
 ; enum usb_transfer_direction
 virtual at 0
 	?HOST_TO_DEVICE				rb 1 shl 7
