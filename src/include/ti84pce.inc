@@ -3431,6 +3431,12 @@ bmFifo3Empty		equ 1 << bFifo3Empty
 bFifoEmpty		equ 8
 bmFifoEmpty		equ 0Fh << bFifoEmpty
 
+usbCxFifoBytes		equ 0123h
+pUsbCxFifoBytes		equ pUsbRange + usbCxFifoBytes
+mpUsbCxFifoBytes	equ mpUsbRange + usbCxFifoBytes
+bUsbCxFifoBytes		equ 0
+bmUsbCxFifoBytes	equ 07Fh
+
 usbIdle			equ 0124h
 pUsbIdle		equ pUsbRange + usbIdle
 mpUsbIdle		equ mpUsbRange + usbIdle
@@ -4762,11 +4768,6 @@ kunA			equ 0F9h
 kvnA			equ 0FAh
 kwnA			equ 0FBh
 
-; THIS KEY MEANS THAT IT IS A 2 BYTE KEYCODE
-; THERE ARE 2 OF THESE KEYS; BE CAREFUL WITH USAGE
-;--------------------------------------------------------
-kExtendEcho2		equ 0FCh
-
 ; THIS KEY MEANS THAT THE KEY PRESS IS ONE THAT ECHOS
 ; INTO A BUFFER, AND IT IS A 2 BYTE KEY CODE, GO LOOK AT
 ; (EXTECHO) FOR THE KEY VALUE
@@ -5059,6 +5060,11 @@ kSelectA		equ kE2BT+147
 kZFitA			equ kE2BT+148
 kE2BT_End		equ kZFitA
 
+; THIS KEY MEANS THAT IT IS A 2 BYTE KEYCODE
+; THERE ARE 3 OF THESE KEYS; BE CAREFUL WITH USAGE
+;--------------------------------------------------------
+kExtendEcho2		equ 0FCh
+
 ;More 2 Byte Keys
 ;-------------------------------------
 kE2BT2			equ 00h
@@ -5317,6 +5323,44 @@ kLy			equ k83_00End + 97
 kLz			equ k83_00End + 98
 kGarbageC		equ k83_00End + 99 ;GarbageCollect
 kE2BT2_End		equ kGarbageC
+
+; THIS KEY MEANS THAT IT IS A 2 BYTE KEYCODE
+; UNLESS (EXTECHO) IS 0 THEN IT IS AN OLD 1 BYTE KEYCODE
+; THERE ARE 3 OF THESE KEYS; BE CAREFUL WITH USAGE
+;--------------------------------------------------------
+kExtendEcho3		equ 0FBh
+
+;Even More 2 Byte Keys
+;-------------------------------------
+kE2BT3			equ 00h
+kSingleQuote		equ kE2BT3+1
+kAt			equ kE2BT3+2
+kHash			equ kE2BT3+3
+kDollar			equ kE2BT3+4
+kAmp			equ kE2BT3+5
+kBackquote		equ kE2BT3+6
+kSemicolon		equ kE2BT3+7
+kBackslash		equ kE2BT3+8
+kBar			equ kE2BT3+9
+kUnderscore		equ kE2BT3+10
+kTilde			equ kE2BT3+11
+kPercent		equ kE2BT3+12
+kEllipsis		equ kE2BT3+140
+kAng			equ kE2BT3+141
+kSS			equ kE2BT3+142
+kSupX			equ kE2BT3+143
+kSubT			equ kE2BT3+144
+kSub0			equ kE2BT3+145
+kSub1			equ kE2BT3+146
+kSub2			equ kE2BT3+147
+kSub3			equ kE2BT3+148
+kSub4			equ kE2BT3+149
+kSub5			equ kE2BT3+150
+kSub6			equ kE2BT3+151
+kSub7			equ kE2BT3+152
+kSub8			equ kE2BT3+153
+kSub9			equ kE2BT3+154
+kSub10			equ kE2BT3+155
 
 ;TI-83 Plus Context Equates
 ;--------------------------------------------------------------
