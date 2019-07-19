@@ -112,18 +112,6 @@ usb_error_t srl_GetCoding(srl_device_t *srl, srl_lineCoding_t *coding);
 size_t srl_Available(srl_device_t *srl);
 
 /**
- * Read a single byte.
- * If no data is available, the function will wait until a byte is sent.
- */
-uint8_t srl_ReadByte(srl_device_t *srl);
-
-/**
- * Peek at a single byte without removing it from the buffer.
- * If no data is available, the function will wait until a byte is sent.
- */
-uint8_t srl_Peek(srl_device_t *srl);
-
-/**
  * Performs a non-blocking read of data.
  * If there are less than length bytes available, all available data will be read.
  * @param buffer Buffer that data is read in to.
