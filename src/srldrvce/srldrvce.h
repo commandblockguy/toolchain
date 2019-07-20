@@ -19,9 +19,10 @@ extern "C" {
 #endif
 
 enum srl_DeviceType {
-    SRL_UNKNOWN, /**< Incompatible or non-serial device */
-    SRL_CDC,     /**< CDC device */
-    SRL_FTDI     /**< FTDI device */
+    SRL_HOST = -1,   /**< Calc is acting as a device */
+    SRL_UNKNOWN = 0, /**< Incompatible or non-serial device */
+    SRL_CDC,         /**< CDC device */
+    SRL_FTDI         /**< FTDI device */
 };
 
 typedef uint8_t srl_deviceType_t;
