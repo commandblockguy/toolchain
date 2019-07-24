@@ -14,7 +14,6 @@ include_library '../usbdrvce/usbdrvce.asm'
 ; v0 functions (not final, subject to change!)
 ;-------------------------------------------------------------------------------
 	export srl_Init
-	export srl_GetType
 	export srl_SetRate
 	export srl_Available
 	export srl_Read
@@ -91,14 +90,6 @@ srl_Init:
 ;start async read
 	xor	a,a
 	ret
-
-;-------------------------------------------------------------------------------
-;srl_deviceType_t srl_GetType(usb_device_t dev);
-srl_GetType:
-;check if device is host
-;get device descriptors
-;check device class
-;compare device to list of devices
 	ret
 
 ;-------------------------------------------------------------------------------

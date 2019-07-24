@@ -55,12 +55,6 @@ typedef struct srl_Device {
 usb_error_t srl_Init(srl_device_t *srl, usb_device_t dev, void *buf, size_t size);
 
 /**
- * Get the type of a serial device.
- * @return SRL_UNKNOWN if not a compatible serial device, otherwise the device type.
- */
-srl_deviceType_t srl_GetType(usb_device_t dev);
-
-/**
  * Set the baud rate of the device.
  * @param rate Baud rate.
  * @return USB_SUCCESS on success, otherwise an error.
