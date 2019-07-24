@@ -29,7 +29,7 @@ typedef uint8_t srl_deviceType_t;
 
 typedef struct srl_Device {
     usb_device_t dev;       /**< USB device */
-    usb_endpoint_t in       /**< USB bulk in endpoint */
+    usb_endpoint_t in;      /**< USB bulk in endpoint */
     usb_endpoint_t out;     /**< USB bulk out endpoint */
     srl_deviceType_t type;  /**< Device type */
     char *readBuf;          /**< Pointer to the read buffer */
@@ -37,6 +37,7 @@ typedef struct srl_Device {
     char *readBufStart;     /**< First byte with data in the read buffer */
     char *readBufEnd;       /**< Last byte with data in the read buffer */
     char *readBufBreak;     /**< Last byte before the buffer "loops" */
+    bool readBufActive;     /**< Whether data is being read into the read buffer */
     char *writeBuf;         /**< Pointer to the write buffer */
     size_t writeBufSize;    /**< Size of the write buffer */
     char *writeBufStart;    /**< First byte with data in the write buffer */
