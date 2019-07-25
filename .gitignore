@@ -45,6 +45,7 @@ relocation_table
 *.hex
 *.8xv
 *.8xp
+*.8xg
 !*var_gfx.8xv
 
 # debug files
