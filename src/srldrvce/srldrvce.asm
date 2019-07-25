@@ -86,19 +86,19 @@ end struct
 
 ; enum srl_DeviceType
 virtual at 0
-	?SRL_UNKNOWN	rb 1		; Incompatible or non-serial device
-	?SRL_HOST	rb 1		; Calc is acting as a device
-	?SRL_CDC	rb 1		; CDC device
-	?SRL_FTDI	rb 1		; FTDI device
+	SRL_UNKNOWN	rb 1		; Incompatible or non-serial device
+	SRL_HOST	rb 1		; Calc is acting as a device
+	SRL_CDC		rb 1		; CDC device
+	SRL_FTDI	rb 1		; FTDI device
 end virtual
 
 struct setuppkt, requestType: ?, request: ?, value: ?, index: ?, length: ?
 	label .: 8
-	bmRequestType	db requestType
-	bRequest	db request
-	wValue		dw value
-	wIndex		dw index
-	wLength		dw length
+	bmRequestType		db requestType
+	bRequest		db request
+	wValue			dw value
+	wIndex			dw index
+	wLength			dw length
 end struct
 
 struct descriptor
@@ -149,16 +149,16 @@ virtual at 0
 end virtual
 
 virtual at 0
-	USB_SUCCESS		rb 1
-	USB_IGNORE		rb 1
-	USB_ERROR_SYSTEM	rb 1
-	USB_ERROR_INVALID_PARAM	rb 1
-	USB_ERROR_SCHEDULE_FULL	rb 1
-	USB_ERROR_NO_DEVICE	rb 1
-	USB_ERROR_NO_MEMORY	rb 1
-	USB_ERROR_NOT_SUPPORTED	rb 1
-	USB_ERROR_TIMEOUT	rb 1
-	USB_ERROR_FAILED	rb 1
+	USB_SUCCESS				rb 1
+	USB_IGNORE				rb 1
+	USB_ERROR_SYSTEM			rb 1
+	USB_ERROR_INVALID_PARAM			rb 1
+	USB_ERROR_SCHEDULE_FULL			rb 1
+	USB_ERROR_NO_DEVICE			rb 1
+	USB_ERROR_NO_MEMORY			rb 1
+	USB_ERROR_NOT_SUPPORTED			rb 1
+	USB_ERROR_TIMEOUT			rb 1
+	USB_ERROR_FAILED			rb 1
 end virtual
 
 ; enum usb_descriptor_type
@@ -181,10 +181,6 @@ end virtual
 ;-------------------------------------------------------------------------------
 ;usb_error_t srl_Init(srl_device_t *srl, usb_device_t dev, void *buf, size_t size);
 srl_Init:
-	scf					; open debugger
-	sbc	hl,hl
-	ld	(hl),2
-
 	ld	iy,0
 	add	iy,sp
 	push	ix
@@ -327,9 +323,10 @@ srl_Init:
 ;-------------------------------------------------------------------------------
 ;usb_error_t srl_SetRate(srl_device_t *srl, uint24_t rate);
 srl_SetRate:
-	push	ix
 	ld	iy,0
 	add	iy,sp
+	push	ix
+	ld	ix,(iy + 3)
 	ld	a,SRL_UNKNOWN			; check device type
 	cp	a,(xsrl_Device.type)
 	jq	z,.exit
@@ -342,6 +339,7 @@ srl_SetRate:
 	inc	a
 	cp	a,(xsrl_Device.type)
 	jq	z,.ftdi
+	jq	.exit
 .cdc:						; if a CDC device:
 	ld	hl,(iy + 6)			; change the rate of the default line coding
 	ld	(defaultlinecoding),hl
@@ -385,10 +383,13 @@ srl_SetRate:
 srl_Available:
 	ld	iy,0
 	add	iy,sp
+	push	ix
+	ld	ix,(iy + 3)
 ;if readBufBreak == 0:
 ; readBufEnd - readBufStart
 ;else:
 ; (readBufBreak - readBufStart) + (readBufEnd - readBuf)
+	pop	ix
 	ret
 
 ;-------------------------------------------------------------------------------
@@ -396,10 +397,31 @@ srl_Available:
 srl_Read:
 	ld	iy,0
 	add	iy,sp
-;copy data into buffer
-;update readBufStart
+	push	ix
+	ld	ix,(iy + 3)
+;set remaining to length
+;if readBufBreak:
+; if readBufStart + remaining < readBufBreak:
+;  copy remaining bytes to buffer
+;  readBufStart += remaining
+;  skip next block
+; else:
+;  copy readBufBreak - readBuf bytes to buffer
+;  remaining -= readBufBreak - readBuf
+;  set readBufBreak to 0
+;  set readBufStart to readBuf
+;readBufBreak guaranteed to be 0
+;if readBufStart + remaining < readBufEnd:
+; copy remaining bytes to buffer + length - remaining
+; readBufStart += remaining
+;else:
+; copy readBufEnd - readBuf bytes to buffer + length - remaining
+; remaining -= readBufEnd - readBuf
+; set readBufStart to readBufEnd
 ;if read is inactive:
-; schedule async transfer
+; attempt to schedule async transfer
+.exit:
+	pop	ix
 	ret
 
 ;-------------------------------------------------------------------------------
@@ -407,22 +429,134 @@ srl_Read:
 srl_Write:
 	ld	iy,0
 	add	iy,sp
-;copy data into buffer
-;if writeBufStart == writeBufEnd:
-; schedule async transfer
-;update writeBufEnd
+	push	ix
+	ld	ix,(iy + 3)
+	ld	de,0				; transferred = 0
+	xor	a,a
+	ld	bc,(xsrl_Device.writeBufStart)	; writeBufStart == writeBufEnd
+	ld	hl,(xsrl_Device.writeBufEnd)
+	sbc	hl,bc
+	push	af
+	jq	c,.wrap				; if writeBufStart > writeBufEnd
+	jq	.nowrap
+.nowrap:
+	xor	a,a
+	ld	hl,(xsrl_Device.writeBufEnd)	; if writeBufEnd + length < writeBuf + writeBufSize
+	ld	bc,(iy + 9)
+	add	hl,bc
+	ld	bc,(xsrl_Device.writeBuf)
+	sbc	hl,bc
+	ld	bc,(xsrl_Device.writeBufSize)
+	sbc	hl,bc
+	jq	c,.space
+
+	ld	hl,(xsrl_Device.writeBuf)	; transferred = writeBuf + writeBufSize - writeBufEnd
+	ld	bc,(xsrl_Device.writeBufSize)
+	add	hl,bc
+	ld	bc,(xsrl_Device.writeBufEnd)
+	sbc	hl,bc
+	push	hl
+	push	hl
+	pop	bc
+
+	ld	hl,(iy + 6);  copy transferred bytes from buffer to writeBufEnd
+	ld	de,(xsrl_Device.writeBufEnd)
+	ldir
+	ld	hl,(xsrl_Device.writeBuf)	; writeBufEnd = writeBuf
+	ld	(xsrl_Device.writeBufEnd),hl
+	pop	de				; transferred = writeBuf + writeBufSize - writeBufEnd
+	jq	.wrap
+.wrap:
+	ld	hl,(xsrl_Device.writeBufEnd)	; if writeBufEnd + length - transferred < writeBufStart:
+	ld	bc,(iy + 9)
+	add	hl,bc
+	sbc	hl,de
+	ld	bc,(xsrl_Device.writeBufStart)
+	sbc	hl,bc
+	jq	c,.space
+
+	scf					; copy writeBufStart - writeBufEnd - 1 bytes from buffer + transferred to writeBufEnd
+	ld	hl,(xsrl_Device.writeBufStart)
+	ld	bc,(xsrl_Device.writeBufEnd)
+	sbc	hl,bc
+	push	hl
+	push	hl
+	pop	bc
+	push	de
+	ld	hl,(iy + 6)
+	add	hl,de
+	ld	de,(xsrl_Device.writeBufEnd)
+	ldir
+	pop	de
+	pop	hl				; transferred += writeBufStart - writeBufEnd - 1
+	add	hl,de
+	ex	de,hl
+
+	ld	hl,(xsrl_Device.writeBufStart)
+	dec	hl
+	ld	(xsrl_Device.writeBufEnd),hl	; writeBufEnd = writeBufStart - 1
+	jq	.exit
+.space:
+	xor	a,a
+	ld	hl,(iy + 9)			; copy length - transferred bytes from buffer + transferred to writeBufEnd
+	sbc	hl,de
+	push	hl
+	pop	bc				; length - transferred
+	push	bc
+	ld	hl,(iy + 6)
+	add	hl,de
+	ld	de,(xsrl_Device.writeBufEnd)
+	ldir
+	pop	bc
+	ld	hl,(xsrl_Device.writeBufEnd)	; writeBufEnd += length - transferred
+	add	hl,bc
+	ld	(xsrl_Device.writeBufEnd),hl
+	ld	de,(iy + 9)			; transferred = length
+.exit:
+	ex	hl,de
+	pop	af
+	push	hl
+	call	z,srl_StartAsyncWrite		; attempt to schedule async transfer if buffer was empty
+	pop	hl
+	pop	ix
 	ret
 
 ;-------------------------------------------------------------------------------
 ;size_t srl_Read_Blocking(srl_device_t *srl, void *buffer, size_t length, uint24_t timeout);
+;todo: rewrite
 srl_Read_Blocking:
 	ld	iy,0
 	add	iy,sp
-;while total < length:
-; check timeout
-; usb_WaitForEvents ; would HandleEvents be better here?
-; srl_Read(srl, buffer + total, total - length)
-; total += len
+	push	ix
+	ld	ix,(iy + 3)
+	ld	bc,0				; total
+.loop:
+;todo: check timeout
+	xor	a,a
+	push	iy
+	push	bc
+	ld	hl,(iy + 9)
+	sbc	hl,bc
+	push	hl
+	ld	hl,(iy + 6)
+	add	hl,bc
+	push	hl
+	push	ix
+	call	srl_Read			; srl_Read(srl, buffer + total, length - total)
+	pop	de
+	pop	de
+	pop	de
+	pop	bc
+	add	hl,bc				; total += len
+	push	hl
+	call	usb_HandleEvents
+	pop	bc
+	pop	iy
+	xor	a,a
+	ld	hl,(iy + 9)
+	sbc	hl,bc
+	jq	c,.loop
+	pop	ix
 	ret
 
 ;-------------------------------------------------------------------------------
@@ -430,48 +564,134 @@ srl_Read_Blocking:
 srl_Write_Blocking:
 	ld	iy,0
 	add	iy,sp
-;while total < length:
-; check timeout
-; usb_Write(srl, buffer + total, total - length)
-; usb_WaitForEvents ; would HandleEvents be better here?
-; total += len
+	push	ix
+	ld	ix,(iy + 3)
+	ld	bc,0				; total
+.loop:
+;todo: check timeout
+	xor	a,a
+	push	iy
+	push	bc
+	ld	hl,(iy + 9)
+	sbc	hl,bc
+	push	hl
+	ld	hl,(iy + 6)
+	add	hl,bc
+	push	hl
+	push	ix
+	call	srl_Write			; srl_Write(srl, buffer + total, length - total)
+	pop	de
+	pop	de
+	pop	de
+	pop	bc
+	add	hl,bc				; total += len
+	push	hl
+	call	usb_HandleEvents
+	pop	bc
+	pop	iy
+	xor	a,a
+	ld	hl,(iy + 9)
+	sbc	hl,bc
+	jq	c,.loop
+	pop	ix
 	ret
 
 ;-------------------------------------------------------------------------------
 ;usb_error_t (usb_endpoint_t endpoint, usb_transfer_status_t status, size_t transferred, srl_device_t *data);
-srl_Read_Callback:
+srl_ReadCallback:
 	ld	iy,0
 	add	iy,sp
+	push	ix
+	ld	ix,(iy + 12)
 ;update buffer info
 ;if ftdi:
 ; transferred -= 2
 ; copy data over 2 bytes
 ;readBufEnd += transferred
-;if readBufEnd + 64 > readBuf + readBufSize:
-; readBufBreak = readBufEnd
-; readBufEnd = readBuf
-;if readBufBreak:
-; if readBufEnd + 64 <= readBufStart:
-;  reschedule transfer at readBufEnd
-;else:
-; reschedule transfer at readBufEnd
+	pop	ix
 	ret
 
 ;-------------------------------------------------------------------------------
 ;usb_error_t (usb_endpoint_t endpoint, usb_transfer_status_t status, size_t transferred, srl_device_t *data);
-srl_Write_Callback:
+srl_WriteCallback:
 	ld	iy,0
 	add	iy,sp
-;update buffer info
-;writeBufStart += transferred
-;if writeBufStart == writeBuf + writeBufSize:
-; writeBufStart = writeBuf
-;if writeBufStart == writeBufEnd:
-; return
-;if writeBufEnd < writeBufStart:
-; reschedule transfer at writeBufStart with size writeBuf+writeBufSize-writeBufSize
+	push	ix
+	ld	ix,(iy + 12)
+	ld	bc,(iy + 9)			; writeBufStart += transferred
+	ld	hl,(xsrl_Device.writeBufStart)
+	add	hl,bc
+	ld	(xsrl_Device.writeBufStart),hl
+	xor	a,a				; if writeBufStart == writeBuf + writeBufSize:
+	ld	bc,(xsrl_Device.writeBufSize)
+	sbc	hl,bc
+	ld	bc,(xsrl_Device.writeBuf)
+	sbc	hl,bc
+	jq	nz,.norestart
+	ld	(xsrl_Device.writeBufStart),bc	; writeBufStart = writeBuf
+.norestart:
+	xor	a,a				; if writeBufStart == writeBufEnd:
+	ld	bc,(xsrl_Device.writeBufStart)
+	ld	hl,(xsrl_Device.writeBufEnd)
+	sbc	hl,bc
+	jq	z,.exit				; don't reschedule
+	call	srl_StartAsyncWrite
+.exit:
+	pop	ix
+	ret
+
+;-------------------------------------------------------------------------------
+; ix: srl_device_t
+srl_StartAsyncRead:
+;check if there is room in the buffer
+;if readBufBreak:
+; if readBufEnd + 64 > readBufStart
+;  return
 ;else:
-; reschedule transfer at writeBufStart with size writeBufEnd - writeBufStart
+; if readBufEnd + 64 > readBuf + readBufSize
+;  return
+;schedule a transfer with 64 bytes
+	ret
+
+;-------------------------------------------------------------------------------
+; ix: srl_device_t
+srl_StartAsyncWrite:
+	xor	a,a
+	ld	hl,(xsrl_Device.writeBufEnd)
+	ld	bc,(xsrl_Device.writeBufStart)
+	sbc	hl,bc				; size = writeBufEnd - writeBufStart
+	ret	z				; do nothing if buffer is empty
+	jq	nc,.schedule
+	jq	.wrap
+.wrap:
+	ld	hl,(xsrl_Device.writeBuf)	; size = writeBuf + writeBufSize - writeBufStart
+	ld	bc,(xsrl_Device.writeBufSize)
+	add	hl,bc
+	ld	bc,(xsrl_Device.writeBufStart)
+	sbc	hl,bc
+	jq	.schedule
+.schedule:
+	push	ix				; schedule a transfer
+	ld	bc,srl_WriteCallback
+	push	bc
+	push	hl
+	ld	bc,(xsrl_Device.writeBufStart)
+	push	bc
+	ld	bc,(xsrl_Device.out)
+	push	bc
+	call	usb_ScheduleTransfer
+	pop	bc
+	pop	bc
+	pop	bc
+	pop	bc
+	pop	bc
+	ret
+
+;temp
+openDebug:
+	scf					; open debugger
+	sbc	hl,hl
+	ld	(hl),2
 	ret
 
 ;-------------------------------------------------------------------------------
