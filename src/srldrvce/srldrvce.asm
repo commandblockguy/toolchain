@@ -207,7 +207,7 @@ srl_Init:
 	push	bc
 	inc	bc				; USB_DEVICE_DESCRIPTOR = 1
 	push	bc
-	push	hl
+	push	de
 	call	usb_GetDescriptor
 	pop	bc
 	pop	bc
@@ -217,7 +217,7 @@ srl_Init:
 	pop	bc
 	pop	iy
 	compare_hl_zero
-	jq	z,.exit				; return if error
+	jq	nz,.exit			; return if error
 	ld	de,18
 	ld	hl,(tmp.length)
 	compare_hl_de				; ensure enough bytes were fetched
@@ -235,6 +235,7 @@ srl_Init:
 
 ;some temp code to avoid the above
 ;assume ftdi device, config 0, endpoints in: $81 and out: $02
+	push	iy
 	ld	a,SRL_FTDI
 	ld	(xsrl_Device.type),a
 	ld	bc,0
@@ -243,11 +244,14 @@ srl_Init:
 	push	bc
 	call	usb_GetConfigurationDescriptorTotalLength
 	pop	bc
-	;pop	bc				; already 0
-	;ld	bc,0
-	;push	bc
+	pop	bc
+
+	pop	iy
+	push	iy
+	ld	bc,tmp.length
+	push	bc
 	push	hl				; descriptor length
-	ld	bc,(iy + 6)
+	ld	bc,(iy + 9)
 	push	bc
 	ld	bc,0
 	push	bc
@@ -257,9 +261,18 @@ srl_Init:
 	push	bc
 	call	usb_GetDescriptor
 	pop	de
+	pop	hl
+	pop	hl
 	pop	bc
-	pop	bc
-	pop	bc
+	pop	hl
+	pop	hl
+
+	ld	hl,(hl)
+	push	hl
+	push	bc
+	push	de
+	call	usb_SetConfiguration
+	pop	de
 	pop	bc
 	pop	bc
 
@@ -273,11 +286,13 @@ srl_Init:
 
 	ld	bc,$02				; get endpoint
 	push	bc
+	ld	de,(xsrl_Device.dev)
 	push	de
 	call	usb_GetDeviceEndpoint
 	pop	bc
 	pop	bc
 	ld	(xsrl_Device.out),hl
+	pop	iy
 ;end temp code
 
 	ld	hl,(iy + 9)			; set read buffer pointer, start, and end
