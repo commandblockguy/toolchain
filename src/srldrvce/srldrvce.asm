@@ -179,7 +179,7 @@ virtual at 0
 end virtual
 
 ;-------------------------------------------------------------------------------
-;usb_error_t srl_Init(srl_device_t *srl, usb_device_t dev, void *buf, size_t size);
+;usb_error_t srl_Init(srl_device_t *srl, usb_device_t dev, void *buf, size_t size, uint24_t rate);
 srl_Init:
 	ld	iy,0
 	add	iy,sp
@@ -309,9 +309,13 @@ srl_Init:
 	ld	(xsrl_Device.writeBufEnd),hl
 	ld	hl,0				; set read buffer break to 0
 	ld	(xsrl_Device.readBufBreak),hl
-;start async read
-	ld	a,1				; mark read buffer as active
-	ld	(xsrl_Device.readBufActive),a
+	ld	bc,(iy + 15)
+	push	bc
+	push	ix
+	call	srl_SetRate
+	pop	ix
+	pop	bc
+	call	srl_StartAsyncRead		; start async read
 	ld	hl,USB_SUCCESS
 .exit:
 	pop	ix
@@ -385,10 +389,25 @@ srl_Available:
 	add	iy,sp
 	push	ix
 	ld	ix,(iy + 3)
-;if readBufBreak == 0:
-; readBufEnd - readBufStart
-;else:
-; (readBufBreak - readBufStart) + (readBufEnd - readBuf)
+	ld	hl,(xsrl_Device.readBufBreak)	; if readBufBreak == 0
+	compare_hl_zero
+	jq	nz,.break
+	jq	.nobreak
+.nobreak:
+	ld	hl,(xsrl_Device.readBufEnd)	; readBufEnd - readBufStart
+	ld	de,(xsrl_Device.readBufStart)
+	sbc	hl,de
+	jq	.exit
+.break:
+	ld	hl,(xsrl_Device.readBufBreak)	; (readBufBreak - readBufStart) + (readBufEnd - readBuf)
+	ld	de,(xsrl_Device.readBufEnd)
+	add	hl,de
+	ld	de,(xsrl_Device.readBuf)
+	sbc	hl,de
+	ld	de,(xsrl_Device.readBufStart)
+	sbc	hl,de
+	jq	.exit
+.exit:
 	pop	ix
 	ret
 
@@ -399,28 +418,95 @@ srl_Read:
 	add	iy,sp
 	push	ix
 	ld	ix,(iy + 3)
-;set remaining to length
-;if readBufBreak:
-; if readBufStart + remaining < readBufBreak:
-;  copy remaining bytes to buffer
-;  readBufStart += remaining
-;  skip next block
-; else:
-;  copy readBufBreak - readBuf bytes to buffer
-;  remaining -= readBufBreak - readBuf
-;  set readBufBreak to 0
-;  set readBufStart to readBuf
-;readBufBreak guaranteed to be 0
-;if readBufStart + remaining < readBufEnd:
-; copy remaining bytes to buffer + length - remaining
-; readBufStart += remaining
-;else:
-; copy readBufEnd - readBuf bytes to buffer + length - remaining
-; remaining -= readBufEnd - readBuf
-; set readBufStart to readBufEnd
-;if read is inactive:
-; attempt to schedule async transfer
-.exit:
+	ld	de,(iy + 9)			; set remaining to length
+	ld	hl,(xsrl_Device.readBufStart)	; check if buffer has *any* data
+	ld	bc,(xsrl_Device.readBufEnd)
+	sbc	hl,bc				
+	jq	z,.sched
+	ld	hl,(xsrl_Device.readBufBreak)	; if readBufBreak
+	compare_hl_zero
+	jq	z,.nobreak
+	jq	.break
+.break:
+	ld	hl,(xsrl_Device.readBufStart)	; if readBufStart + remaining < readBufBreak:
+	add	hl,de
+	ld	bc,(xsrl_Device.readBufBreak)
+	sbc	hl,bc
+	jq	c,.space
+
+	ld	bc,(xsrl_Device.readBuf)
+	ld	hl,(xsrl_Device.readBufBreak)
+	sbc	hl,bc
+	push	hl
+	pop	bc
+	push	bc
+	push	de
+	ld	de,(iy + 6)			; copy readBufBreak - readBuf bytes to buffer
+	ldir
+	pop	hl				; remaining -= readBufBreak - readBuf
+	pop	bc
+	sbc	hl,bc
+	ex	hl,de
+	ld	hl,0				; set readBufBreak to 0
+	ld	(xsrl_Device.readBufBreak),hl
+	ld	hl,(xsrl_Device.readBuf)	; set readBufStart to readBuf
+	ld	(xsrl_Device.readBufStart),hl
+	jq	.nobreak
+.nobreak:
+	ld	hl,(xsrl_Device.readBufStart)	; if readBufStart + remaining < readBufEnd:
+	add	hl,de
+	ld	bc,(xsrl_Device.readBufEnd)
+	sbc	hl,bc
+	jq	nc,.nospace
+	jq	.space
+.space:
+	push	de				; copy remaining bytes to buffer + length - remaining
+	ld	hl,(iy + 6)
+	ld	bc,(iy + 9)
+	add	hl,bc
+	sbc	hl,de
+	ex	hl,de
+	ld	hl,(xsrl_Device.readBufStart)
+	pop	bc
+	push	bc
+	ldir
+	pop	de
+	ld	hl,(xsrl_Device.readBufStart)	; readBufStart += remaining
+	add	hl,de
+	ld	(xsrl_Device.readBufStart),hl
+	ld	de,0				; remaining = 0
+	jq	.sched
+.nospace:
+	push	de				; copy readBufEnd - readBufStart bytes to buffer + length - remaining
+	ld	hl,(iy + 6)
+	ld	bc,(iy + 9)
+	add	hl,bc
+	sbc	hl,de
+	ex	hl,de
+	ld	hl,(xsrl_Device.readBufEnd)
+	ld	bc,(xsrl_Device.readBufStart)
+	sbc	hl,bc
+	push	hl
+	pop	bc
+	ld	hl,(xsrl_Device.readBufStart)
+	ldir
+	pop	hl
+	ld	bc,(xsrl_Device.readBufStart)	; remaining -= readBufEnd - readBufStart
+	add	hl,bc
+	ld	bc,(xsrl_Device.readBufEnd)
+	sbc	hl,bc
+	ex	hl,de
+	ld	(xsrl_Device.readBufStart),bc	; set readBufStart to readBufEnd
+	jq	.sched
+.sched:
+	ld	a,(xsrl_Device.readBufActive)	; if read is inactive
+	or	a,a
+	push	de
+	call	z,srl_StartAsyncRead		; attempt to schedule async transfer
+	pop	de
+	xor	a,a				; get number of bytes transferred
+	ld	hl,(iy + 9)
+	sbc	hl,de
 	pop	ix
 	ret
 
@@ -523,7 +609,6 @@ srl_Write:
 
 ;-------------------------------------------------------------------------------
 ;size_t srl_Read_Blocking(srl_device_t *srl, void *buffer, size_t length, uint24_t timeout);
-;todo: rewrite
 srl_Read_Blocking:
 	ld	iy,0
 	add	iy,sp
@@ -603,11 +688,32 @@ srl_ReadCallback:
 	add	iy,sp
 	push	ix
 	ld	ix,(iy + 12)
-;update buffer info
-;if ftdi:
-; transferred -= 2
-; copy data over 2 bytes
-;readBufEnd += transferred
+	ld	hl,(iy + 9)			; return if nothing was transferred
+	compare_hl_zero
+	jq	z,.exit
+	ld	a,SRL_FTDI
+	cp	a,(xsrl_Device.type)
+	jq	nz,.nonftdi
+	dec	hl				; transferred -= 2
+	dec	hl
+	compare_hl_zero
+	jq	z,.exit
+	push	hl
+	pop	bc
+	push	bc
+	ld	hl,(xsrl_Device.readBufEnd)	; copy data from readBufEnd + 2 to readBufEnd
+	ld	de,(xsrl_Device.readBufEnd)
+	inc	hl
+	inc	hl
+	ldir
+	pop	hl
+	jq	.nonftdi
+.nonftdi:
+	ld	bc,(xsrl_Device.readBufEnd)	;readBufEnd += transferred
+	add	hl,bc
+	ld	(xsrl_Device.readBufEnd),hl
+.exit:
+	call	srl_StartAsyncRead
 	pop	ix
 	ret
 
@@ -643,14 +749,45 @@ srl_WriteCallback:
 ;-------------------------------------------------------------------------------
 ; ix: srl_device_t
 srl_StartAsyncRead:
-;check if there is room in the buffer
-;if readBufBreak:
-; if readBufEnd + 64 > readBufStart
-;  return
-;else:
-; if readBufEnd + 64 > readBuf + readBufSize
-;  return
-;schedule a transfer with 64 bytes
+	xor	a,a				; default to no continuing transfer
+	ld	hl,(xsrl_Device.readBufBreak)	; check if there is room in the buffer
+	compare_hl_zero
+	ld	hl,64
+	ld	de,(xsrl_Device.readBufEnd)
+	jq	z,.nobreak
+	jq	.break
+.break:
+	add	hl,de				; if readBufEnd + 64 >= readBufStart cancel
+	ld	bc,(xsrl_Device.readBufStart)
+	sbc	hl,bc
+	jq	nc,.exit			; reset readBufActive - no room
+	jq	.schedule
+.nobreak:
+	add	hl,de				; if readBufEnd + 64 >= readBuf + readBufSize cancel
+	ld	bc,(xsrl_Device.readBuf)
+	sbc	hl,bc
+	ld	bc,(xsrl_Device.readBufSize)
+	sbc	hl,bc
+	jq	nc,.exit			; reset readBufActive - no room
+	jq	.schedule
+.schedule:
+	push	ix				; schedule a transfer with 64 bytes
+	ld	bc,srl_ReadCallback
+	push	bc
+	ld	hl,64
+	push	hl
+	push	de				; readBufEnd
+	ld	bc,(xsrl_Device.in)
+	push	bc
+	call	usb_ScheduleTransfer
+	pop	bc
+	pop	bc
+	pop	bc
+	pop	bc
+	pop	bc
+	ld	a,1				; set readBufActive
+.exit:
+	ld	(xsrl_Device.readBufActive),a
 	ret
 
 ;-------------------------------------------------------------------------------

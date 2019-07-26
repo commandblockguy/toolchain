@@ -51,9 +51,10 @@ typedef struct srl_Device {
  * @param dev USB device to be used as a serial device.
  * @param buf The buffer's address.
  * @param size The size of the buffer
+ * @param rate The baud rate to set the device to
  * @return USB_SUCCESS on success, otherwise an error.
  */
-usb_error_t srl_Init(srl_device_t *srl, usb_device_t dev, void *buf, size_t size);
+usb_error_t srl_Init(srl_device_t *srl, usb_device_t dev, void *buf, size_t size, uint24_t rate);
 
 /**
  * Set the baud rate of the device.
