@@ -419,6 +419,7 @@ srl_Read:
 	push	ix
 	ld	ix,(iy + 3)
 	ld	de,(iy + 9)			; set remaining to length
+.rec:
 	ld	hl,(xsrl_Device.readBufStart)	; check if buffer has *any* data
 	ld	bc,(xsrl_Device.readBufEnd)
 	sbc	hl,bc				
@@ -434,24 +435,25 @@ srl_Read:
 	sbc	hl,bc
 	jq	c,.space
 
-	ld	bc,(xsrl_Device.readBuf)
+	ld	bc,(xsrl_Device.readBufStart)
 	ld	hl,(xsrl_Device.readBufBreak)
 	sbc	hl,bc
 	push	hl
 	pop	bc
+	ld	hl,(xsrl_Device.readBufStart)
 	push	bc
 	push	de
-	ld	de,(iy + 6)			; copy readBufBreak - readBuf bytes to buffer
+	ld	de,(iy + 6)			; copy readBufBreak - readBufStart bytes to buffer
 	ldir
-	pop	hl				; remaining -= readBufBreak - readBuf
-	pop	bc
-	sbc	hl,bc
-	ex	hl,de
 	ld	hl,0				; set readBufBreak to 0
 	ld	(xsrl_Device.readBufBreak),hl
 	ld	hl,(xsrl_Device.readBuf)	; set readBufStart to readBuf
 	ld	(xsrl_Device.readBufStart),hl
-	jq	.nobreak
+	pop	hl				; remaining -= readBufBreak - readBufStart
+	pop	bc
+	sbc	hl,bc
+	ex	hl,de
+	jq	.rec				; read remaining data
 .nobreak:
 	ld	hl,(xsrl_Device.readBufStart)	; if readBufStart + remaining < readBufEnd:
 	add	hl,de
@@ -545,7 +547,7 @@ srl_Write:
 	push	hl
 	pop	bc
 
-	ld	hl,(iy + 6);  copy transferred bytes from buffer to writeBufEnd
+	ld	hl,(iy + 6)			; copy transferred bytes from buffer to writeBufEnd
 	ld	de,(xsrl_Device.writeBufEnd)
 	ldir
 	ld	hl,(xsrl_Device.writeBuf)	; writeBufEnd = writeBuf
@@ -691,13 +693,15 @@ srl_ReadCallback:
 	ld	hl,(iy + 9)			; return if nothing was transferred
 	compare_hl_zero
 	jq	z,.exit
+
 	ld	a,SRL_FTDI
 	cp	a,(xsrl_Device.type)
 	jq	nz,.nonftdi
 	dec	hl				; transferred -= 2
 	dec	hl
 	compare_hl_zero
-	jq	z,.exit
+	jq	z,.exit				; nothing was transferred
+
 	push	hl
 	pop	bc
 	push	bc
@@ -752,21 +756,28 @@ srl_StartAsyncRead:
 	xor	a,a				; default to no continuing transfer
 	ld	hl,(xsrl_Device.readBufBreak)	; check if there is room in the buffer
 	compare_hl_zero
-	ld	hl,64
-	ld	de,(xsrl_Device.readBufEnd)
-	jq	z,.nobreak
-	jq	.break
-.break:
-	add	hl,de				; if readBufEnd + 64 >= readBufStart cancel
-	ld	bc,(xsrl_Device.readBufStart)
-	sbc	hl,bc
-	jq	nc,.exit			; reset readBufActive - no room
-	jq	.schedule
+	jq	nz,.break
+	jq	.nobreak
 .nobreak:
-	add	hl,de				; if readBufEnd + 64 >= readBuf + readBufSize cancel
+	ld	hl,64				; if readBufEnd + 64 >= readBuf + readBufSize loop buffer
+	ld	de,(xsrl_Device.readBufEnd)
+	add	hl,de
+	ld	bc,(xsrl_Device.readBufSize)
+	sbc	hl,bc
 	ld	bc,(xsrl_Device.readBuf)
 	sbc	hl,bc
-	ld	bc,(xsrl_Device.readBufSize)
+	jq	c,.schedule
+	ld	hl,(xsrl_Device.readBufStart)
+	sbc	hl,bc
+	jq	z,.exit				; reset readBufActive - no room
+	ld	(xsrl_Device.readBufBreak),de	; set readBufBreak
+	ld	(xsrl_Device.readBufEnd),bc	; set readBufEnd to readBuf
+	jq	.break
+.break:
+	ld	hl,64				; if readBufEnd + 64 >= readBufStart cancel
+	ld	de,(xsrl_Device.readBufEnd)
+	add	hl,de
+	ld	bc,(xsrl_Device.readBufStart)
 	sbc	hl,bc
 	jq	nc,.exit			; reset readBufActive - no room
 	jq	.schedule
